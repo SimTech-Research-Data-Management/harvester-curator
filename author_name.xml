@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<book>
-  <title title="The Adventures of Sherlock Holmes">
-        <author_name name="Arthur Conan Doyle"/> 
-        <publisher>Penguin Books</publisher>
-        <year>1892</year>
-  </title>
-</book>
-
