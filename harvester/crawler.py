@@ -1,4 +1,6 @@
 import os
+from parse.parse_txt import parseTXT
+from parse.parse_xml import parseXML
 
 # Define the directory path
 root_dir_path = os.getcwd()
@@ -8,6 +10,13 @@ parent_dir = os.path.dirname(root_dir_path)
 
 # Create a dictionary to hold the file extensions and their corresponding file names
 file_dict = {}
+
+# A dict of available parsers for parsing files with various extensions.
+parserDict = {"parseTXT": parseTXT, "parseXML": parseXML}
+
+# Create a list to hold the extensions that has no corresponing parser
+extensionList = []
+
 
 # Loop through all files and subdirectories in the specified directory
 for root, dirs, files in os.walk(parent_dir):
@@ -21,20 +30,33 @@ for root, dirs, files in os.walk(parent_dir):
         dirs.remove("harvester")
     
     for filename in files:
-        
-        # Get the extension of the file
         ext = os.path.splitext(filename)[1]
-        
-        # add the file to the corresponding array in the dictionary
+        file_path = os.path.join(root, filename)
+    
+        # Add the file to the corresponding array in the dictionary
         if ext in file_dict:
-            file_dict[ext].append(os.path.join(root, filename))
+            file_dict[ext].append(file_path)
         else:
-            file_dict[ext] = [os.path.join(root, filename)]
+            file_dict[ext] = [file_path]
+        
+        # Check if file_dict is not empty
+        if file_dict:
+            for extension in file_dict.keys():
+                extensionParser = "parse" + extension[1:].upper()
+                if extensionParser in parserDict:
+                    for file in file_dict[extension]:
+                        print(f"Extractions from {extension} files:\n")
+                        parserDict[extensionParser](file)
+                        print()
+                else:
+                    extensionList.append(extension)
+        else:
+            print("No file is found in the current directory and its subdirectories")
 
 
 # print the list of files by extension
-for ext, files in file_dict.items():
-    print(f"Files with extension '{ext}':")
-    for file in files:
-        print(file)
-    print() # print a blank line to separate the lists
+#for ext, files in file_dict.items():
+#    print(f"Files with extension '{ext}':")
+#    for file in files:
+#        print(file)
+#    print() # print a blank line to separate the lists
