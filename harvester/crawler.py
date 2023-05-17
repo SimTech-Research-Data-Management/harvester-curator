@@ -39,24 +39,24 @@ for root, dirs, files in os.walk(parent_dir):
         else:
             file_dict[ext] = [file_path]
         
-        # Check if file_dict is not empty
-        if file_dict:
-            for extension in file_dict.keys():
-                extensionParser = "parse" + extension[1:].upper()
-                if extensionParser in parserDict:
-                    for file in file_dict[extension]:
-                        print(f"Extractions from {extension} files:\n")
-                        parserDict[extensionParser](file)
-                        print()
-                else:
-                    extensionList.append(extension)
+# Use file parsers to extract metadata from files
+if file_dict:
+    for extension in file_dict.keys():
+        extensionParser = "parse" + extension[1:].upper()
+        if extensionParser in parserDict:
+            for file in file_dict[extension]:
+                print(f"Extractions from {extension} files:\n")
+                parserDict[extensionParser](file)
+                print()
         else:
-            print("No file is found in the current directory and its subdirectories")
+            extensionList.append(extension)
+else:
+    print("No file is found in the current directory and its subdirectories")
 
 
 # print the list of files by extension
-#for ext, files in file_dict.items():
-#    print(f"Files with extension '{ext}':")
-#    for file in files:
-#        print(file)
-#    print() # print a blank line to separate the lists
+for ext, files in file_dict.items():
+    print(f"Files with extension '{ext}':")
+    for file in files:
+        print(file)
+    print() # print a blank line to separate the lists
