@@ -3,15 +3,22 @@ import os
 # Define the directory path
 root_dir_path = os.getcwd()
 
+# Get the parent directory
+parent_dir = os.path.dirname(root_dir_path)
+
 # Create a dictionary to hold the file extensions and their corresponding file names
 file_dict = {}
 
 # Loop through all files and subdirectories in the specified directory
-for root, dirs, files in os.walk(root_dir_path):
+for root, dirs, files in os.walk(parent_dir):
     
     # exclude hidden directories and files
     dirs[:] = [d for d in dirs if not d.startswith('.')]
     files[:] = [file for file in files if not file.startswith('.')]
+
+    # exclude the "harvester" directory
+    if "harvester" in dirs:
+        dirs.remove("harvester")
     
     for filename in files:
         
