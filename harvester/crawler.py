@@ -1,62 +1,62 @@
 import os
-from parse.parse_txt import parseTXT
-from parse.parse_xml import parseXML
+import magic
 
-# Define the directory path
-root_dir_path = os.getcwd()
+def crawler(path: str):
+   """
+   This function finds all files except the hidden ones in a directory and its subdirectories and groups the files by their type.
+  
+   Args:
+       path: Base directory to find files
+      
+   Returns:
+       file_dict: A dictionary where each key is a file type, and its associated value is a list of all files with the corresponding type.         
+   """
+  
+   # Create a dictionary to hold the file extensions and their corresponding file names
+   file_dict = {}
+  
+   # Create a `magic.Magic` instance
+   file_magic = magic.Magic(mime=True)
 
-# Get the parent directory
-parent_dir = os.path.dirname(root_dir_path)
+   # Loop through all files and subdirectories under the given path
+   for root, dirs, files in os.walk(path):
+      
+       # Exclude hidden directories and files
+       dirs[:] = [d for d in dirs if not d.startswith(".")]
+       files[:] = [file for file in files if not file.startswith(".")]
+  
+       for filename in files:
+      
+            # Construct the file path
+            file_path = os.path.join(root, filename)
+            
+            # Check if the path is a file
+            if os.path.isfile(file_path):
+                # Use `file_magic.from_file` to get the file type
+                file_type = file_magic.from_file(file_path)
 
-# Create a dictionary to hold the file extensions and their corresponding file names
-file_dict = {}
+                if file_type:
+                    # Get the file extension from the MIME type
+                    ext = file_type.split("/")[-1]
+                else:
+                    # Get the extension
+                    print(f'Cannot guess file type! Collecting the extension of the file: {filename}.')
+                    ext = os.path.splitext(filename)[1]
 
-# A dict of available parsers for parsing files with various extensions.
-parserDict = {"parseTXT": parseTXT, "parseXML": parseXML}
+                # Add the file to the corresponding array in the dictionary
+                if ext in file_dict:
+                    file_dict[ext].append(file_path)
+                else:
+                    file_dict[ext] = [file_path]
+            else:
+                print(f"Not a file path: {file_path}")
+   return file_dict
+   
 
-# Create a list to hold the extensions that has no corresponing parser
-extensionList = []
-
-
-# Loop through all files and subdirectories in the specified directory
-for root, dirs, files in os.walk(parent_dir):
+#if __name__ == '__main__':
+#    print("----- A simple example of using crawler in a given directory ---- \n")
     
-    # exclude hidden directories and files
-    dirs[:] = [d for d in dirs if not d.startswith('.')]
-    files[:] = [file for file in files if not file.startswith('.')]
-
-    # exclude the "harvester" directory
-    if "harvester" in dirs:
-        dirs.remove("harvester")
-    
-    for filename in files:
-        ext = os.path.splitext(filename)[1]
-        file_path = os.path.join(root, filename)
-    
-        # Add the file to the corresponding array in the dictionary
-        if ext in file_dict:
-            file_dict[ext].append(file_path)
-        else:
-            file_dict[ext] = [file_path]
-        
-# Use file parsers to extract metadata from files
-if file_dict:
-    for extension in file_dict.keys():
-        extensionParser = "parse" + extension[1:].upper()
-        if extensionParser in parserDict:
-            for file in file_dict[extension]:
-                print(f"Extractions from {extension} files:\n")
-                parserDict[extensionParser](file)
-                print()
-        else:
-            extensionList.append(extension)
-else:
-    print("No file is found in the current directory and its subdirectories")
-
-
-# print the list of files by extension
-for ext, files in file_dict.items():
-    print(f"Files with extension '{ext}':")
-    for file in files:
-        print(file)
-    print() # print a blank line to separate the lists
+    # Define the target path that contains files
+#    path = "/home/sarbani/darus_data_harvester/Example"
+#    file_dict = crawler(path)
+#    print(file_dict)
