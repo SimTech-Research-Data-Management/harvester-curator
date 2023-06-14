@@ -32,31 +32,43 @@ def crawler(path: str):
             
             # Check if the path is a file
             if os.path.isfile(file_path):
-                # Use `file_magic.from_file` to get the file type
-                file_type = file_magic.from_file(file_path)
-
-                if file_type:
-                    # Get the file extension from the MIME type
-                    ext = file_type.split("/")[-1]
-                else:
-                    # Get the extension
-                    print(f'Cannot guess file type! Collecting the extension of the file: {filename}.')
-                    ext = os.path.splitext(filename)[1]
+                # Use `get_file_type` function to get the file type
+                file_type = get_file_type(file_path)
+                print(f'{file_type}')
 
                 # Add the file to the corresponding array in the dictionary
-                if ext in file_dict:
-                    file_dict[ext].append(file_path)
+                if file_type in file_dict:
+                    file_dict[file_type].append(file_path)
                 else:
-                    file_dict[ext] = [file_path]
+                    file_dict[file_type] = [file_path]
             else:
                 print(f"Not a file path: {file_path}")
    return file_dict
    
+def get_file_type(file_path):
+    extension = os.path.splitext(file_path)[1]
+    file_type = extension.lower().lstrip('.')
+
+    if not file_type:
+        file_magic = magic.Magic(mime=True)
+        file_type = file_magic.from_file(file_path)
+
+        if file_type:
+            # Get the file extension from the MIME type
+            ext = file_type.split("/")[-1]
+        else:
+            # No MIME type or extension available
+            ext = ""
+
+        return ext
+    else:
+        return file_type
+
 
 #if __name__ == '__main__':
 #    print("----- A simple example of using crawler in a given directory ---- \n")
-    
-    # Define the target path that contains files
+#    
+#    # Define the target path that contains files
 #    path = "/home/sarbani/darus_data_harvester/Example"
 #    file_dict = crawler(path)
 #    print(file_dict)
