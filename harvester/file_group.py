@@ -22,7 +22,7 @@ class File(DataModel):
 class FileGroup(DataModel):
     name: str = Field(
         ...,
-        description="Name of the file group based on file extension"
+        description="Name of the file group based on file type"
     )
   
     files: List[File] = Field(
