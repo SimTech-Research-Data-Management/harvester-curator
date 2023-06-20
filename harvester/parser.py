@@ -7,8 +7,8 @@ import vtk
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
+
     
-       
     def __init__(self):      
         pass
 
@@ -124,7 +124,8 @@ class Parser():
             
         return meta_dict
 
-   def parse_vtk(self, vtk_file:str) -> dict:
+        
+    def parse_vtk(self, vtk_file:str) -> dict:
         """
         This function parses an input vtk file to extract metadata 
 
@@ -144,8 +145,8 @@ class Parser():
         # Existing vtk file readers from python for reading vtk files based on file extension
         vtk_reader_dict = {"vti": vtk.vtkXMLImageDataReader(),
                            "vtp": vtk.vtkXMLPolyDataReader(), 
-                           "vtr": vtk.vtkXMLRecitilinearGrid(),
-                           "vts": vtk.vtkXMLStructuredGrid(),
+                           "vtr": vtk.vtkXMLRectilinearGridReader(),
+                           "vts": vtk.vtkXMLStructuredGridReader(),
                            "vtu": vtk.vtkXMLUnstructuredGridReader(),
                            "vtk": vtk.vtkXMLPolyDataReader(),            
                            "fib": vtk.vtkPolyDataReader(), 
@@ -156,20 +157,21 @@ class Parser():
                            "g": vtk.vtkBYUReader(),
                            "pvti": vtk.vtkXMLImageDataReader(),
                            "pvtp": vtk.vtkXMLPolyDataReader(), 
-                           "pvtr": vtk.vtkXMLRecitilinearGrid(),
-                           "pvts": vtk.vtkXMLStructuredGrid(),
+                           "pvtr": vtk.vtkXMLRectilinearGridReader(),
+                           "pvts": vtk.vtkXMLStructuredGridReader(),
                            "pvtu": vtk.vtkXMLUnstructuredGridReader()}
 
-       vtk_polydata_extension = ["vtp", "vtk", "fib", "ply", "stl", "obj", "g", "pvtp"]
-       if file_type in vtk_reader_dict:
-           reader = vtk_reader_dict[file_type]
-           output = reader.GetOutPut()
-           print(f"output from vtk reader: \n\n {output}\n\n\n")
-           vtk_datatype = str(type(output)).split(".")[-1].split("'")[0].lstrip("vtk")
-           self.append_value(meta_dict, "datatype", vtk_datatype)
-           
-           
-       else:
-           raise file_type + "is not supported by vtk parser"
+        vtk_polydata_extension = ["vtp", "vtk", "fib", "ply", "stl", "obj", "g", "pvtp"]
+        print(vtk_reader_dict.keys())
+        if file_type in vtk_reader_dict:
+            reader = vtk_reader_dict[file_type]
+            output = reader.GetOutput()
+            #print(f"output from vtk reader: \n\n {output}\n\n\n")
+            vtk_datatype = str(type(output)).split(".")[-1].split("'")[0].lstrip("vtk")
+            self.append_value(meta_dict, "datatype", vtk_datatype)
+            
+                     
+        else:
+            raise file_type + "is not supported by vtk parser"
             
         return meta_dict
