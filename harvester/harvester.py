@@ -90,9 +90,9 @@ if __name__ == "__main__":
    all_file_groups = harvester(target_path, True)
    print("---*** Matadata harvester output ***---\n")
    print(all_file_groups.yaml())
-   print(f"--- Tree visulization of metadata harvested---\n")
-   all_file_groups.visualize_tree()
-   print("\n")
+#    print(f"--- Tree visulization of metadata harvested---\n")
+#    all_file_groups.visualize_tree()
+#    print("\n")
   
    #Export output from metadata harvester into a json file
    with open("harvester_output.json", "w") as f:
