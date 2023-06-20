@@ -84,7 +84,7 @@ if __name__ == "__main__":
    print("----- A simple example of using harvester to extract metadata from all files in a given directory ---- \n")
   
    # Define the target path that contains files for metadata harvesting
-   target_path = os.path.join(os.path.dirname(os.getcwd()), "Example")
+   target_path = os.path.join(os.path.dirname(os.getcwd()), "example")
   
    # Use harvester to parse files and extract metadata
    all_file_groups = harvester(target_path, True)

@@ -162,7 +162,7 @@ class Parser():
                            "pvtu": vtk.vtkXMLUnstructuredGridReader()}
 
         vtk_polydata_extension = ["vtp", "vtk", "fib", "ply", "stl", "obj", "g", "pvtp"]
-        print(vtk_reader_dict.keys())
+        # print(vtk_reader_dict.keys())
         if file_type in vtk_reader_dict:
             reader = vtk_reader_dict[file_type]
             output = reader.GetOutput()
