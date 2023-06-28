@@ -121,7 +121,6 @@ class Parser():
         # Remove the key "__source__" from meta dict 
         if "__source__" in meta_dict:
             del meta_dict["__source__"]
-            
         return meta_dict
 
         
