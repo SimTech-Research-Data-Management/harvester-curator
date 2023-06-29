@@ -1,0 +1,130 @@
+{
+  "name": "all parsed file groups",
+  "groups": [
+    {
+      "name": "txt files",
+      "files": [
+        {
+          "name": "citation.txt",
+          "path": "/home/sarbani/darus_data_harvester/example/citation.txt",
+          "metadata": {
+            "author": [
+              "Sarbani Roy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "xml files",
+      "files": [
+        {
+          "name": "author_name.xml",
+          "path": "/home/sarbani/darus_data_harvester/example/author_name.xml",
+          "metadata": {
+            "title": [
+              "The Adventures of Sherlock Holmes"
+            ],
+            "year": [
+              "1892"
+            ],
+            "author": [
+              "Arthur Conan Doyle"
+            ]
+          }
+        },
+        {
+          "name": "book.xml",
+          "path": "/home/sarbani/darus_data_harvester/example/book.xml",
+          "metadata": {
+            "title": [
+              "Harry Potter and the Philosopher's Stone"
+            ],
+            "year": [
+              "1997"
+            ],
+            "author": [
+              "J.K. Rowling",
+              "John Doe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "vtu files",
+      "files": [
+        {
+          "name": "test_mesh.vtu",
+          "path": "/home/sarbani/darus_data_harvester/example/test_mesh.vtu",
+          "metadata": {
+            "type": "UnstructuredGrid",
+            "version": "0.1",
+            "byte_order": "LittleEndian",
+            "unstructured_grid": {
+              "piece": {
+                "points": [
+                  {
+                    "type": "Float64",
+                    "format": "ascii"
+                  }
+                ],
+                "point_data": [
+                  {
+                    "type": "Int64",
+                    "format": "ascii"
+                  },
+                  {
+                    "type": "Float64",
+                    "format": "ascii"
+                  }
+                ],
+                "cells": [
+                  {
+                    "type": "Int64",
+                    "format": "ascii"
+                  },
+                  {
+                    "type": "Int64",
+                    "format": "ascii"
+                  },
+                  {
+                    "type": "Int64",
+                    "format": "ascii"
+                  }
+                ],
+                "cell_data": [
+                  {
+                    "type": "Int64",
+                    "format": "ascii"
+                  },
+                  {
+                    "type": "Float64",
+                    "format": "ascii"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "vtk files",
+      "files": [
+        {
+          "name": "k.vtk",
+          "path": "/home/sarbani/darus_data_harvester/example/k.vtk",
+          "metadata": {
+            "datatype": [
+              "PolyData"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "__source__": {
+    "root": "SuperGroup"
+  }
+}
