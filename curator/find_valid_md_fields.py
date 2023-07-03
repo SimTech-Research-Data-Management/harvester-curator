@@ -9,10 +9,9 @@ def collect_attributes(json_data):
         if isinstance(obj, dict):
             for key, value in obj.items():
                 new_key = key
+                attributes[new_key] = value
                 if isinstance(value, (list, dict)):
                     traverse(value, new_key)
-                else:
-                    attributes[new_key] = value
         elif isinstance(obj, list):
             for idx, item in enumerate(obj):
                 new_key = f"{parent_key}[{idx}]"
@@ -24,19 +23,19 @@ def collect_attributes(json_data):
     traverse(json_data)
     return attributes
 
-def find_matching_attributes(metadata_schema, json_data):
+def find_matching_attributes(schema_attr, json_attr, parent_keys=None):
     matching_attributes = {}
 
-    def traverse(schema_attr, json_attr):
-        nonlocal matching_attributes
-        for attr, json_value in json_attr.items():
-            for schema, schema_value in schema_attr.items():
-                if attr.lower() == schema.lower():
-                    matching_attributes[attr] = json_value
-                    if isinstance(schema_value, dict):
-                        traverse(schema_value, json_value)
+    if parent_keys is None:
+        parent_keys = []
 
-    traverse(metadata_schema, json_data)
+    for attr, json_value in json_attr.items():
+        for schema, schema_value in schema_attr.items():
+            if attr.lower() == schema.lower():
+                matching_attributes[".".join(parent_keys + [attr])] = json_value
+                if isinstance(schema_value, dict):
+                    find_matching_attributes(schema_value, json_value, parent_keys + [attr])
+
     return matching_attributes
 
 # URL of the metadata schema file in the GitHub repository
@@ -74,7 +73,7 @@ schema_attr = collect_attributes(schema_data)
 matching_attributes = find_matching_attributes(schema_attr, json_attr)
 
 # Save the result to a JSON file
-result = {'matching_attributes': matching_attributes}
+result = {'Citation': matching_attributes}
 
 with open('matching_attributes.json', 'w') as f:
     json.dump(result, f, indent=4)

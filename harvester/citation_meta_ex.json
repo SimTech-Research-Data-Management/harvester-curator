@@ -1,6 +1,6 @@
 {
   "title": "Example of Curation with Citation Metadata field",
-  "authors": [
+  "author": [
     {
       "name": "Author 1",
       "affiliation": "University of Stuttgart"
@@ -16,7 +16,7 @@
   "issue": 2,
   "pages": "100-120",
   "doi": "10.1234/example-doi",
-  "keywords": [
+  "keyword": [
     "keyword1",
     "keyword2",
     "keyword3"
