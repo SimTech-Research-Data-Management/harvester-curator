@@ -3,43 +3,42 @@ import requests
 import os
 
 def collect_attributes(json_data):
-    attributes = set()
+    attributes = {}
 
-    def traverse(obj):
+    def traverse(obj, parent_key=""):
         if isinstance(obj, dict):
             for key, value in obj.items():
-                attributes.add(key)
-                traverse(value)
-        elif isinstance(obj, (list, tuple)):
-            for item in obj:
-                traverse(item)
+                new_key = key
+                if isinstance(value, (list, dict)):
+                    traverse(value, new_key)
+                else:
+                    attributes[new_key] = value
+        elif isinstance(obj, list):
+            for idx, item in enumerate(obj):
+                new_key = f"{parent_key}[{idx}]"
+                if isinstance(item, (list, dict)):
+                    traverse(item, new_key)
+                else:
+                    attributes[new_key] = item
 
     traverse(json_data)
     return attributes
 
-def find_matching_attributes(metadata_schema_file, json_data_file):
-    matching_attributes = []
+def find_matching_attributes(metadata_schema, json_data):
+    matching_attributes = {}
 
-    # Load the JSON data from the file
-    with open(metadata_schema_file) as f1, open(json_data_file) as f2:
-        schema_data = json.load(f1)
-        json_data = json.load(f2)
-    
-    # Collect all attributes
-    json_attr = collect_attributes(json_data)
-    schema_attr = collect_attributes(schema_data)
+    def traverse(schema_attr, json_attr):
+        nonlocal matching_attributes
+        for attr, json_value in json_attr.items():
+            for schema, schema_value in schema_attr.items():
+                if attr.lower() == schema.lower():
+                    matching_attributes[attr] = json_value
+                    if isinstance(schema_value, dict):
+                        traverse(schema_value, json_value)
 
-
-    for attr in json_attr:
-        for schema in schema_attr:
-            if attr.lower() == schema.lower():
-                matching_attributes.append(attr)
-                #if isinstance(schema_attr[schema], dict):
-                #    subattributes = find_matching_attributes(schema_attr[schema], json_attr[attr])
-                #    matching_attributes.extend(subattributes)
-                #break
-    
+    traverse(metadata_schema, json_data)
     return matching_attributes
+
 # URL of the metadata schema file in the GitHub repository
 metadata_schema_url = 'https://raw.githubusercontent.com/JR-1991/pyDaRUS/main/pyDaRUS/templates/json/Citation.json'
 
@@ -60,10 +59,19 @@ else:
 
 
 # Example JSON data file path
-json_data_file = '/home/sarbani/darus_data_harvester/harvester/harvester_output.json'
+json_data_file = '/home/sarbani/darus_data_harvester/harvester/citation_meta_ex.json'
+
+# Load the JSON data from the file
+with open(metadata_schema_file) as f1, open(json_data_file) as f2:
+    schema_data = json.load(f1)
+    json_data = json.load(f2)
+
+# Collect all attributes
+json_attr = collect_attributes(json_data)
+schema_attr = collect_attributes(schema_data)
 
 # Find matching attributes and subattributes
-matching_attributes = find_matching_attributes(metadata_schema_file, json_data_file)
+matching_attributes = find_matching_attributes(schema_attr, json_attr)
 
 # Save the result to a JSON file
 result = {'matching_attributes': matching_attributes}
