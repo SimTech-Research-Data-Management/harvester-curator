@@ -1,81 +1,87 @@
 import json
-import requests
-import os
 
-def collect_attributes(json_data):
-    attributes = {}
+def get_json_classes(json_data):
+    classes = set()
 
-    def traverse(obj, parent_key=""):
-        if isinstance(obj, dict):
-            for key, value in obj.items():
-                new_key = key
-                attributes[new_key] = value
-                if isinstance(value, (list, dict)):
-                    traverse(value, new_key)
-        elif isinstance(obj, list):
-            for idx, item in enumerate(obj):
-                new_key = f"{parent_key}[{idx}]"
-                if isinstance(item, (list, dict)):
-                    traverse(item, new_key)
-                else:
-                    attributes[new_key] = item
+    def extract_classes(data):
+        if isinstance(data, dict):
+            classes.update(data.keys())
+            for value in data.values():
+                extract_classes(value)
 
-    traverse(json_data)
-    return attributes
+    extract_classes(json_data)
+    return classes
 
-def find_matching_attributes(schema_attr, json_attr, parent_keys=None):
-    matching_attributes = {}
+def get_class_data(json_data, class_name):
+    for key, value in json_data.items():
+        if key == class_name and isinstance(value, dict):
+            return value
+        elif isinstance(value, dict):
+            nested_data = get_class_data(value, class_name)
+            if nested_data:
+                return nested_data
+        elif isinstance(value, list):
+            for item in value:
+                if isinstance(item, dict):
+                    nested_data = get_class_data(item, class_name)
+                    if nested_data:
+                        return nested_data
+    return None
 
-    if parent_keys is None:
-        parent_keys = []
+# Open the output file in read mode to check if "#Fill with harvested information" exists
+with open("curate_for_darus.py") as output_file:
+    lines = output_file.readlines()
 
-    for attr, json_value in json_attr.items():
-        for schema, schema_value in schema_attr.items():
-            if attr.lower() == schema.lower():
-                matching_attributes[".".join(parent_keys + [attr])] = json_value
-                if isinstance(schema_value, dict):
-                    find_matching_attributes(schema_value, json_value, parent_keys + [attr])
+# Find the index and indent of the line "#Fill with harvested information" in the output file
+line_index = None
+line_indent = None
+for i, line in enumerate(lines):
+    if "#Fill with harvested information" in line:
+        line_index = i + 1
+        line_indent = line.index("#")
+        break
 
-    return matching_attributes
+# Load the citation metadata JSON file
+citation_metadata_file = "./metadata_schema_DaRUS/citation.json"
+with open(citation_metadata_file) as file:
+    citation_metadata = json.load(file)
 
-# URL of the metadata schema file in the GitHub repository
-metadata_schema_url = 'https://raw.githubusercontent.com/JR-1991/pyDaRUS/main/pyDaRUS/templates/json/Citation.json'
+# Load the example JSON file
+example_json_file = "citation_meta_ex.json"
+with open(example_json_file) as file:
+    example_json_data = json.load(file)
 
-# Download the metadata schema file from the GitHub repository
-response = requests.get(metadata_schema_url)
-if response.status_code == 200:
-    # Specify the local path to save the metadata schema file
-    metadata_schema_file = './DaRUS/Citation/Citation.json'
+# Get the classes from the example JSON file
+example_json_classes = get_json_classes(example_json_data)
 
-    # Create the directory structure if it doesn't exist
-    os.makedirs(os.path.dirname(metadata_schema_file), exist_ok=True)
+# Iterate over the classes in the citation metadata
+for class_name in get_json_classes(citation_metadata):
+    if class_name in example_json_classes:
+        
+        #To get the class data corresponding to the class_name from citation_metadata
+        citation_class_data = get_class_data(citation_metadata, class_name)
 
-    # Save the file locally
-    with open(metadata_schema_file, 'w') as f:
-        f.write(response.text)
-else:
-    print('Failed to download the metadata schema file:', response.text)
+        #To get the class data corresponding to the class_name from example_json_data       
+        #example_class_data = get_class_data(example_json_data, class_name)
+        #print(class_name)
+        #print(example_class_data)
 
+        # Check if the class's "typeClass" attribute is compound
+        typeclass = citation_class_data.get("typeClass")
+        
+        if typeclass == "compound":
+            # Construct the line to add with the same indent
+            new_line = " " * line_indent + f"citation.add_{class_name}()\n"
+            # Insert the new line in the output file after the line "#Fill with harvested information"
+            lines.insert(line_index, new_line)
+            line_index += 1
+        else:
+            # Construct the line to add with the same indent
+            new_line = " " * line_indent + f"citation.{class_name} = \n"
+            # Insert the new line in the output file after the line "#Fill with harvested information"
+            lines.insert(line_index, new_line)
+            line_index += 1
 
-# Example JSON data file path
-json_data_file = '/home/sarbani/darus_data_harvester/harvester/citation_meta_ex.json'
-
-# Load the JSON data from the file
-with open(metadata_schema_file) as f1, open(json_data_file) as f2:
-    schema_data = json.load(f1)
-    json_data = json.load(f2)
-
-# Collect all attributes
-json_attr = collect_attributes(json_data)
-schema_attr = collect_attributes(schema_data)
-
-# Find matching attributes and subattributes
-matching_attributes = find_matching_attributes(schema_attr, json_attr)
-
-# Save the result to a JSON file
-result = {'Citation': matching_attributes}
-
-with open('matching_attributes.json', 'w') as f:
-    json.dump(result, f, indent=4)
-
-print(matching_attributes)
+# Write the updated contents back to the output file
+with open("curate_for_darus.py", 'w') as file:
+    file.writelines(lines)       
