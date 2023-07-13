@@ -35,7 +35,4 @@ def create_dataset():
 
 
 # Call the fun
-#BASE_URL = "https://demodarus.izus.uni-stuttgart.de"
-#API_TOKEN = "a7a7e68e-2129-41b6-b6a4-b156cd3a120f"
-#DV_PARENT_ALIAS = "roy_dataverse"
 create_dataset()
