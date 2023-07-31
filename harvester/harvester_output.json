@@ -1,0 +1,430 @@
+{
+  "name": "all parsed file groups",
+  "file_group_names": {
+    "vtk files": [
+      "vtu",
+      "vtk",
+      "ply",
+      "pvtu",
+      "vti",
+      "obj"
+    ],
+    "txt files": [
+      "txt"
+    ],
+    "xml files": [
+      "xml"
+    ]
+  },
+  "groups": [
+    {
+      "name": "vtk files",
+      "files": [
+        {
+          "name": "test_mesh.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/test_mesh.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              7
+            ],
+            "number of cells": [
+              5
+            ]
+          }
+        },
+        {
+          "name": "00_raw_binary.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/00_raw_binary.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              64
+            ],
+            "number of cells": [
+              162
+            ]
+          }
+        },
+        {
+          "name": "vox8_binary_inline.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_inline.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              27
+            ],
+            "number of cells": [
+              8
+            ]
+          }
+        },
+        {
+          "name": "01_raw_binary_int64.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/01_raw_binary_int64.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              64
+            ],
+            "number of cells": [
+              162
+            ]
+          }
+        },
+        {
+          "name": "ugridex.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/ugridex.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              27
+            ],
+            "number of cells": [
+              12
+            ]
+          }
+        },
+        {
+          "name": "vox8_binary_inline_zlib.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_inline_zlib.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              27
+            ],
+            "number of cells": [
+              8
+            ]
+          }
+        },
+        {
+          "name": "vox8_binary_appended.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_appended.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              27
+            ],
+            "number of cells": [
+              8
+            ]
+          }
+        },
+        {
+          "name": "vox8_ascii.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              27
+            ],
+            "number of cells": [
+              8
+            ]
+          }
+        },
+        {
+          "name": "02_raw_compressed.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/02_raw_compressed.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              64
+            ],
+            "number of cells": [
+              162
+            ]
+          }
+        },
+        {
+          "name": "fire_ug.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/fire_ug.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              12323
+            ],
+            "number of cells": [
+              10462
+            ]
+          }
+        },
+        {
+          "name": "triangle_mesh_linear.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/triangle_mesh_linear.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              8
+            ],
+            "number of cells": [
+              6
+            ]
+          }
+        },
+        {
+          "name": "gh-935.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/gh-935.vtk",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              6
+            ],
+            "number of cells": [
+              2
+            ]
+          }
+        },
+        {
+          "name": "06_unstructured.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/06_unstructured.vtk",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              42
+            ],
+            "number of cells": [
+              12
+            ]
+          }
+        },
+        {
+          "name": "01_image.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/01_image.vtk",
+          "metadata": {
+            "dataset type": [
+              "StructuredPoints"
+            ],
+            "number of points": [
+              147
+            ],
+            "number of cells": [
+              72
+            ]
+          }
+        },
+        {
+          "name": "vox8_ascii.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.vtk",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              27
+            ],
+            "number of cells": [
+              8
+            ]
+          }
+        },
+        {
+          "name": "04_rectilinear.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/04_rectilinear.vtk",
+          "metadata": {
+            "dataset type": [
+              "RectilinearGrid"
+            ],
+            "number of points": [
+              40
+            ],
+            "number of cells": [
+              27
+            ]
+          }
+        },
+        {
+          "name": "hello.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/hello.vtk",
+          "metadata": {
+            "dataset type": [
+              "PolyData"
+            ],
+            "number of points": [
+              22
+            ],
+            "number of cells": [
+              15
+            ],
+            "number of lines": [
+              15
+            ]
+          }
+        },
+        {
+          "name": "02_structured.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/02_structured.vtk",
+          "metadata": {
+            "dataset type": [
+              "StructuredGrid"
+            ],
+            "number of points": [
+              147
+            ],
+            "number of cells": [
+              72
+            ]
+          }
+        },
+        {
+          "name": "vox8_binary.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary.vtk",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              27
+            ],
+            "number of cells": [
+              8
+            ]
+          }
+        },
+        {
+          "name": "06_color_scalars.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/06_color_scalars.vtk",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              5
+            ],
+            "number of cells": [
+              2
+            ]
+          }
+        },
+        {
+          "name": "bun_zipper_res4.ply",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/bun_zipper_res4.ply",
+          "metadata": {
+            "number of vertices": [
+              453
+            ],
+            "number of faces": [
+              948
+            ]
+          }
+        },
+        {
+          "name": "vox8_ascii.pvtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.pvtu",
+          "metadata": {
+            "dataset type": [
+              "PUnstructuredGrid"
+            ]
+          }
+        },
+        {
+          "name": "heart.vti",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/heart.vti",
+          "metadata": {
+            "dataset type": [
+              "ImageData"
+            ],
+            "number of points": [
+              12288
+            ],
+            "number of cells": [
+              10571
+            ]
+          }
+        },
+        {
+          "name": "elephav.obj",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/elephav.obj",
+          "metadata": {
+            "number of points": [
+              3444
+            ],
+            "number of faces": [
+              1148
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "txt files",
+      "files": [
+        {
+          "name": "citation.txt",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/citation.txt",
+          "metadata": {
+            "author": [
+              "Sarbani Roy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "xml files",
+      "files": [
+        {
+          "name": "book.xml",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/book.xml",
+          "metadata": {
+            "title": [
+              "Harry Potter and the Philosopher's Stone"
+            ],
+            "year": [
+              "1997"
+            ],
+            "author": [
+              "J.K. Rowling",
+              "John Doe"
+            ]
+          }
+        },
+        {
+          "name": "author_name.xml",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/author_name.xml",
+          "metadata": {
+            "title": [
+              "The Adventures of Sherlock Holmes"
+            ],
+            "year": [
+              "1892"
+            ],
+            "author": [
+              "Arthur Conan Doyle"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "__source__": {
+    "root": "SuperGroup"
+  }
+}
