@@ -56,7 +56,7 @@ for class_name, class_info in classes_info.items():
                     command = command[:-2] + ")"
                     print(command)        
             else:
-                print(f'citation.add_{class_name} = "{example_json_class_data}"')
+                command = f'citation.add_{class_name} = "{example_json_class_data}"'
 
         else:
             #Todo: validate datatype before pushing
@@ -73,4 +73,4 @@ for class_name, class_info in classes_info.items():
                     command = command[:-2] + ")"
                     print(command)
             else:
-                print(f'citation.{class_name} = "{example_json_class_data}"')
+                command = f'citation.{class_name} = "{example_json_class_data}"'
