@@ -36,7 +36,12 @@ class SuperGroup(DataModel):
         ...,
         description="Group of all file groups"
     )
-  
+
+    file_group_names: Dict[str, object] = Field(
+        ...,
+        description="List of the names of file groups"
+    )
+    
     groups: List[FileGroup] = Field(
         description="FileGroup from the super group",
         default_factory=list
