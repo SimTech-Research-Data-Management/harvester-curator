@@ -186,6 +186,66 @@
           }
         },
         {
+          "name": "003.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/003.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              9184
+            ],
+            "number of cells": [
+              7125
+            ]
+          }
+        },
+        {
+          "name": "002.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/002.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              14251
+            ],
+            "number of cells": [
+              11757
+            ]
+          }
+        },
+        {
+          "name": "000.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/000.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              11047
+            ],
+            "number of cells": [
+              8892
+            ]
+          }
+        },
+        {
+          "name": "001.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/001.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              14341
+            ],
+            "number of cells": [
+              11579
+            ]
+          }
+        },
+        {
           "name": "gh-935.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/gh-935.vtk",
           "metadata": {
@@ -336,11 +396,17 @@
           }
         },
         {
-          "name": "vox8_ascii.pvtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.pvtu",
+          "name": "T0000000500.pvtu",
+          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500.pvtu",
           "metadata": {
             "dataset type": [
               "PUnstructuredGrid"
+            ],
+            "number of points": [
+              48823
+            ],
+            "number of cells": [
+              39353
             ]
           }
         },
