@@ -17,9 +17,14 @@
   "pages": "100-120",
   "doi": "10.1234/example-doi",
   "keyword": [
-    "keyword1",
-    "keyword2",
-    "keyword3"
+    {
+      "term": "mean squared error",
+      "vocabulary": "TEMA",
+      "vocabulary_url": "https://purl.org/tema/233675"
+    },
+    {
+      "term": "mathematical physics"
+    }
   ]
 }
 
