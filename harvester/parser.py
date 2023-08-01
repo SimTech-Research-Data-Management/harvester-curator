@@ -135,144 +135,79 @@ class Parser():
         Returns:
             meta_dict (dict): A dictionary that contains extracted metadata  
         """  
-
+       
         # Create a dictionary to hold the metadata extracted from the file
         meta_dict = {}
 
         # Get file type of the input vtk file
         file_type = crawler.get_file_type(vtk_file)
 
-        # Create a new instance of vtkXMLFileReadTester for checking if the vtk file is in XML format
-        vtk_XML_file_read_tester = vtk.vtkXMLFileReadTester()
-        vtk_XML_file_read_tester.SetFileName(vtk_file)
-        # TestReadFile returns 1 if the file is a VTK XML file, and 0 otherwise
-        checker_result = vtk_XML_file_read_tester.TestReadFile()  
+        # Use Pyvista to read vtk file and get meta properties of vtk mesh
+        output = pv.read(vtk_file)
+        print(f"file name: {os.path.basename(vtk_file)}")
+        print(f"meta properties extracted: \n{output}\n")
 
-        """ 
-           If vtk file is in XML format, get file datatype and file version
-           and then use either python vtk reader (Solution1)
-               or Jan's code to extract metadata based on file extension(Solution2)
-               or use vtkXMLGenericDataObjectReader for all sorts of vtk XML files and extract extra info other 
-                               than number of points and number of cells by using specific reader.(Solution3)
-        """       
-        if checker_result:
-                                                                      
-            file_version = vtk_XML_file_read_tester.GetFileVersion()
-            dataset_type = vtk_XML_file_read_tester.GetFileDataType()
+        # Get dataset type (geometry/topology) 
+        dataset_type = str(type(output)).replace("'>", "").split(".")[-1]#
+        self.append_value(meta_dict, "dataset type", dataset_type)           
 
-            # python vtk readers for reading vtk XML files based on file extension
-            vtk_XML_reader_dict = {"vti": vtk.vtkXMLImageDataReader(),
-                                   "vtr": vtk.vtkXMLRectilinearGridReader(),
-                                   "vts": vtk.vtkXMLStructuredGridReader(),
-                                   "vtp": vtk.vtkXMLPolyDataReader(), 
-                                   "vtu": vtk.vtkXMLUnstructuredGridReader(), 
-                                   "vtm": vtk.vtkXMLMultiBlockDataReader(), 
-                                   "pvti": vtk.vtkXMLPImageDataReader(),
-                                   "pvtr": vtk.vtkXMLPRectilinearGridReader(),
-                                   "pvts": vtk.vtkXMLPStructuredGridReader(),
-                                   "pvtp": vtk.vtkXMLPPolyDataReader(), 
-                                   "pvtu": vtk.vtkXMLPUnstructuredGridReader()}
-
-            vtk_XML_reader = vtk_XML_reader_dict[file_type]
-            vtk_XML_reader.SetFileName(vtk_file)
-            vtk_XML_reader.Update()
+        # Add extracted meta properties to meta_dict
+        if dataset_type == "MultiBlock":
+            number_of_blocks = output.n_blocks
+            self.append_value(meta_dict, "number of blocks", number_of_blocks)
+        else:                  
+            number_of_points = output.n_points
+            number_of_cells = output.n_cells
+            number_of_arrays = output.n_arrays
             
-            output = vtk_XML_reader.GetOutput()
-            number_of_points = output.GetNumberOfPoints()
-            number_of_cells = output.GetNumberOfCells()
-
-            
-            self.append_value(meta_dict, "dataset type", dataset_type)           
             self.append_value(meta_dict, "number of points", number_of_points)
-            self.append_value(meta_dict, "number of cells", number_of_cells)
-
-            # for dataset yype of PolyData, extract extra metadata
-            if dataset_type == "PolyData":
-                number_of_verts = output.GetNumberOfVerts()
-                number_of_lines = output.GetNumberOfLines()
-                number_of_strips = output.GetNumberOfStrips()
-                number_of_polys = output.GetNumberOfPolys()                
-           
-                self.append_value(meta_dict, "number of verts", number_of_verts)
-                self.append_value(meta_dict, "number of lines", number_of_lines)
-                self.append_value(meta_dict, "number of strips", number_of_strips)
-                self.append_value(meta_dict, "number of polys", number_of_polys)
+            self.append_value(meta_dict, "number of cells", number_of_cells)   
+            self.append_value(meta_dict, "number of arrays", number_of_arrays)
+             
+            if dataset_type == "ImageData":
+                dimensions = output.dimensions
+                spacing = output.spacing
+                self.append_value(meta_dict, "dimensions", list(dimensions))
+                self.append_value(meta_dict, "spacing", list(spacing))  
                 
-        else:
-            
-            # Existing vtk file readers from python for reading non-XML vtk files based on file extension
-            vtk_reader_dict = {"vtk": vtk.vtkGenericDataObjectReader(),
-                               "fib": vtk.vtkPolyDataReader(), 
-                               "ply": vtk.vtkPLYReader(),                       
-                               "stl": vtk.vtkSTLReader(),
-                               "obj": vtk.vtkOBJReader(),
-                               "g": vtk.vtkBYUReader()}
-    
-            vtk_polydata_extension = ["fib", "ply", "stl", "obj", "g"]
-    
-            # Read vtk files based on vtk file extensions and get output from readers
-            reader = vtk_reader_dict[file_type]
+            elif dataset_type == "PolyData":           
+                 number_of_lines = output.n_lines
+                 self.append_value(meta_dict, "number of lines", number_of_lines)
+                     
+                 number_of_triangle_strips = output.n_strips
+                 self.append_value(meta_dict, "number of triangle strips", number_of_triangle_strips)
                 
-            if reader is None:
-                print(f"Currently there exitst no parser for vtk file: {file_type}")
-            else:               
-                reader.SetFileName(vtk_file)
-                reader.Update()
-    
-                if file_type == "vtk":
-                    
-                    output_type = reader.ReadOutputType()
-                    output_type_to_dataset_type = {0: "PolyData", 1: "StructuredPoints", 2: "StructuredGrid", 
-                                                   3: "RectilinearGrid", 4: "UnstructuredGrid"}
-                    dataset_type = output_type_to_dataset_type[output_type]
-                    
-                    output = reader.GetOutput()
-                    number_of_points = output.GetNumberOfPoints()
-                    number_of_cells = output.GetNumberOfCells()
-                    
-                    self.append_value(meta_dict, "dataset type", dataset_type)           
-                    self.append_value(meta_dict, "number of points", number_of_points)
-                    self.append_value(meta_dict, "number of cells", number_of_cells)
-                    
-                    if dataset_type == "PolyData":
-                        #output = reader.GetPolyDataOutput()
-                        # Extract points metadata 
-                        point_output = output.GetPoints()
-                        point_datatype = point_output.GetDataType()
-                        
-                         # Extract metadata for the Verts, Line, Strips and Polys elements#
-                        number_of_verts = output.GetNumberOfVerts()
-                        number_of_lines = output.GetNumberOfLines()
-                        number_of_strips = output.GetNumberOfStrips()
-                        number_of_polys = output.GetNumberOfPolys()
-                                              
-                        #self.append_value(meta_dict, "point datatype", point_datatype)
-                        self.append_value(meta_dict, "number of verts", number_of_verts)
-                        self.append_value(meta_dict, "number of lines", number_of_lines)
-                        self.append_value(meta_dict, "number of strips", number_of_strips)
-                        self.append_value(meta_dict, "number of polys", number_of_polys)                                                                                    
-                else:
-                    output = reader.GetOutput()
-                    
-                    if file_type == "ply":
-                        number_of_vertices= output.GetNumberOfPoints()
-                        number_of_faces = output.GetNumberOfCells()
-                                       
-                        self.append_value(meta_dict, "number of vertices", number_of_vertices)
-                        self.append_value(meta_dict, "number of faces", number_of_faces)
+            elif dataset_type in ("RectilinearGrid", "StructuredGrid"):
+                dimensions = output.dimensions
+                self.append_value(meta_dict, "dimensions", list(dimensions))
+            else:
+                pass
+                                     
+        mesh_bounds = output.bounds
+        mesh_center = output.center
         
-                    elif file_type == "obj":
-                        number_of_points = output.GetNumberOfPoints()
-                        number_of_faces = output.GetNumberOfCells()
-                        self.append_value(meta_dict, "number of points", number_of_points)
-                        self.append_value(meta_dict, "number of faces", number_of_faces)
-                        
-                    else:
-                        number_of_points = output.GetNumberOfPoints()
-                        number_of_cells = output.GetNumberOfCells()
-         
-                        self.append_value(meta_dict, "number of points", reader.GetNumberOfPoints())
-                        self.append_value(meta_dict, "number of cells", reader.GetNumberOfCells())
-           
-           
+        self.append_value(meta_dict, "mesh bounds", list(mesh_bounds))
+        self.append_value(meta_dict, "mesh center", list(mesh_center))    
+      
+        # Plot vtk mesh based on file type
+        if file_type == "vtu":
+            plot_vtu = output.plot(show_edges=True)
+            print("\n\n")
+        elif file_type == "pvtu":
+            plot_pvtu = output.plot(scalars="node_value", categories=True)
+            print("\n\n")
+        elif file_type == "ply": 
+            plot_ply = output.plot()
+            print("\n\n")
+        elif file_type == "obj":
+            plot_obj = output.plot(cpos="xy")
+            print("\n\n")
+        elif file_type == "png" or file_type == "jpg" or file_type == "jpeg":
+            plot_image = output.plot(rgb=True, cpos="xy")
+            print("\n\n")
+        else:
+            output.plot()
+            print("\n\n")
+ 
+             
         return meta_dict

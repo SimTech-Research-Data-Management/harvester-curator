@@ -34,7 +34,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
     # Create an instance of SuperGroup class to hold all parsed files grouped based on file_types.
     all_file_groups = SuperGroup(name="all parsed file groups", file_group_names = {}, groups=[])
 
-    vtk_file_extension = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'fib', 'ply', 'vtm', 'stl',  'obj', 'g', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu']
+    vtk_file_extension = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'fib', 'ply', 'vtm', 'stl',  'obj', 'g', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu', 'png', 'jpg', 'jpeg', 'glb']
 
     
     # Use file parsers to extract metadata from files
@@ -85,7 +85,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
         unparsed_file_types = list(unparsed_file_type_dict.keys())
         unparsed_files = [file for sublist in unparsed_file_type_dict.values() for file in sublist]
         if verbose:
-            print(f"Please note that currently there are no parsers to parse {', '.join(unparsed_file_types[:-1])} and {unparsed_file_types[-1]} files found under the given path.\n")
+            print(f"\n\n***Please note that currently there are no parsers to parse {', '.join(unparsed_file_types[:-1])} and {unparsed_file_types[-1]} files found under the given path.\n")
             print(f"List of unparsed files: {unparsed_files}\n\n")
       
     return all_file_groups
