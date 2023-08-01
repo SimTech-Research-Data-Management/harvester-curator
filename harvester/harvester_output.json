@@ -5,6 +5,10 @@
       "vtu",
       "vtk",
       "ply",
+      "stl",
+      "glb",
+      "png",
+      "jpg",
       "pvtu",
       "vti",
       "obj"
@@ -22,7 +26,7 @@
       "files": [
         {
           "name": "test_mesh.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/test_mesh.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test_mesh.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -32,12 +36,32 @@
             ],
             "number of cells": [
               5
+            ],
+            "number of arrays": [
+              4
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                0.5,
+                0.0
+              ]
             ]
           }
         },
         {
           "name": "00_raw_binary.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/00_raw_binary.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/00_raw_binary.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -47,12 +71,32 @@
             ],
             "number of cells": [
               162
+            ],
+            "number of arrays": [
+              1
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                1.0,
+                0.0,
+                1.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "mesh center": [
+              [
+                0.5,
+                0.5,
+                0.5
+              ]
             ]
           }
         },
         {
           "name": "vox8_binary_inline.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_inline.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_inline.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -62,12 +106,32 @@
             ],
             "number of cells": [
               8
+            ],
+            "number of arrays": [
+              12
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                2.0,
+                0.0,
+                2.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
             ]
           }
         },
         {
           "name": "01_raw_binary_int64.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/01_raw_binary_int64.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/01_raw_binary_int64.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -77,12 +141,32 @@
             ],
             "number of cells": [
               162
+            ],
+            "number of arrays": [
+              1
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                1.0,
+                0.0,
+                1.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "mesh center": [
+              [
+                0.5,
+                0.5,
+                0.5
+              ]
             ]
           }
         },
         {
           "name": "ugridex.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/ugridex.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ugridex.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -92,12 +176,32 @@
             ],
             "number of cells": [
               12
+            ],
+            "number of arrays": [
+              2
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                1.0,
+                0.0,
+                6.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                0.5,
+                3.0
+              ]
             ]
           }
         },
         {
           "name": "vox8_binary_inline_zlib.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_inline_zlib.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_inline_zlib.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -107,12 +211,32 @@
             ],
             "number of cells": [
               8
+            ],
+            "number of arrays": [
+              12
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                2.0,
+                0.0,
+                2.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
             ]
           }
         },
         {
           "name": "vox8_binary_appended.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_appended.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_appended.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -122,12 +246,32 @@
             ],
             "number of cells": [
               8
+            ],
+            "number of arrays": [
+              12
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                2.0,
+                0.0,
+                2.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
             ]
           }
         },
         {
           "name": "vox8_ascii.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_ascii.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -137,12 +281,32 @@
             ],
             "number of cells": [
               8
+            ],
+            "number of arrays": [
+              12
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                2.0,
+                0.0,
+                2.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
             ]
           }
         },
         {
           "name": "02_raw_compressed.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/02_raw_compressed.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/02_raw_compressed.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -152,12 +316,32 @@
             ],
             "number of cells": [
               162
+            ],
+            "number of arrays": [
+              1
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                1.0,
+                0.0,
+                1.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "mesh center": [
+              [
+                0.5,
+                0.5,
+                0.5
+              ]
             ]
           }
         },
         {
           "name": "fire_ug.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/fire_ug.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/fire_ug.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -167,12 +351,32 @@
             ],
             "number of cells": [
               10462
+            ],
+            "number of arrays": [
+              6
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.0,
+                0.0,
+                2.5,
+                0.0,
+                2.3999998569488525
+              ]
+            ],
+            "mesh center": [
+              [
+                3.0,
+                1.25,
+                1.1999999284744263
+              ]
             ]
           }
         },
         {
           "name": "triangle_mesh_linear.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/triangle_mesh_linear.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/triangle_mesh_linear.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -182,12 +386,32 @@
             ],
             "number of cells": [
               6
+            ],
+            "number of arrays": [
+              3
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                2.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                1.0,
+                0.0
+              ]
             ]
           }
         },
         {
           "name": "003.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/003.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/003.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -197,12 +421,32 @@
             ],
             "number of cells": [
               7125
+            ],
+            "number of arrays": [
+              5
+            ],
+            "mesh bounds": [
+              [
+                53.0,
+                121.0,
+                69.0,
+                92.0,
+                64.0,
+                95.0
+              ]
+            ],
+            "mesh center": [
+              [
+                87.0,
+                80.5,
+                79.5
+              ]
             ]
           }
         },
         {
           "name": "002.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/002.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/002.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -212,12 +456,32 @@
             ],
             "number of cells": [
               11757
+            ],
+            "number of arrays": [
+              5
+            ],
+            "mesh bounds": [
+              [
+                67.0,
+                101.0,
+                77.0,
+                97.0,
+                74.0,
+                130.0
+              ]
+            ],
+            "mesh center": [
+              [
+                84.0,
+                87.0,
+                102.0
+              ]
             ]
           }
         },
         {
           "name": "000.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/000.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/000.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -227,12 +491,32 @@
             ],
             "number of cells": [
               8892
+            ],
+            "number of arrays": [
+              5
+            ],
+            "mesh bounds": [
+              [
+                72.0,
+                103.0,
+                50.0,
+                86.0,
+                139.0,
+                182.0
+              ]
+            ],
+            "mesh center": [
+              [
+                87.5,
+                68.0,
+                160.5
+              ]
             ]
           }
         },
         {
           "name": "001.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/001.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/001.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -242,12 +526,32 @@
             ],
             "number of cells": [
               11579
+            ],
+            "number of arrays": [
+              5
+            ],
+            "mesh bounds": [
+              [
+                84.0,
+                116.0,
+                63.0,
+                90.0,
+                90.0,
+                148.0
+              ]
+            ],
+            "mesh center": [
+              [
+                100.0,
+                76.5,
+                119.0
+              ]
             ]
           }
         },
         {
           "name": "gh-935.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/gh-935.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/gh-935.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -257,12 +561,32 @@
             ],
             "number of cells": [
               2
+            ],
+            "number of arrays": [
+              1
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                1.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
             ]
           }
         },
         {
           "name": "06_unstructured.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/06_unstructured.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/06_unstructured.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -272,27 +596,81 @@
             ],
             "number of cells": [
               12
+            ],
+            "number of arrays": [
+              2
+            ],
+            "mesh bounds": [
+              [
+                1.2999999523162842,
+                1.5,
+                0.800000011920929,
+                1.0,
+                0.0,
+                0.5
+              ]
+            ],
+            "mesh center": [
+              [
+                1.399999976158142,
+                0.9000000059604645,
+                0.25
+              ]
             ]
           }
         },
         {
           "name": "01_image.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/01_image.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/01_image.vtk",
           "metadata": {
             "dataset type": [
-              "StructuredPoints"
+              "ImageData"
             ],
             "number of points": [
               147
             ],
             "number of cells": [
               72
+            ],
+            "number of arrays": [
+              4
+            ],
+            "dimensions": [
+              [
+                7,
+                7,
+                3
+              ]
+            ],
+            "spacing": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.0,
+                0.0,
+                6.0,
+                0.0,
+                2.0
+              ]
+            ],
+            "mesh center": [
+              [
+                3.0,
+                3.0,
+                1.0
+              ]
             ]
           }
         },
         {
           "name": "vox8_ascii.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_ascii.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -302,12 +680,32 @@
             ],
             "number of cells": [
               8
+            ],
+            "number of arrays": [
+              12
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                2.0,
+                0.0,
+                2.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
             ]
           }
         },
         {
           "name": "04_rectilinear.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/04_rectilinear.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/04_rectilinear.vtk",
           "metadata": {
             "dataset type": [
               "RectilinearGrid"
@@ -317,12 +715,39 @@
             ],
             "number of cells": [
               27
+            ],
+            "number of arrays": [
+              4
+            ],
+            "dimensions": [
+              [
+                10,
+                4,
+                1
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                1.0,
+                0.0,
+                2.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                0.5,
+                1.0,
+                0.0
+              ]
             ]
           }
         },
         {
           "name": "hello.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/hello.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/hello.vtk",
           "metadata": {
             "dataset type": [
               "PolyData"
@@ -335,12 +760,29 @@
             ],
             "number of lines": [
               15
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                9.0,
+                0.0,
+                2.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                4.5,
+                1.0,
+                0.0
+              ]
             ]
           }
         },
         {
           "name": "02_structured.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/02_structured.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/02_structured.vtk",
           "metadata": {
             "dataset type": [
               "StructuredGrid"
@@ -350,12 +792,39 @@
             ],
             "number of cells": [
               72
+            ],
+            "number of arrays": [
+              4
+            ],
+            "dimensions": [
+              [
+                7,
+                7,
+                3
+              ]
+            ],
+            "mesh bounds": [
+              [
+                -0.015338152602,
+                1.0147581381,
+                -0.015274787969,
+                1.0157021684,
+                -0.046818381932,
+                1.0495865001
+              ]
+            ],
+            "mesh center": [
+              [
+                0.49970999274899996,
+                0.5002136902155,
+                0.501384059084
+              ]
             ]
           }
         },
         {
           "name": "vox8_binary.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -365,12 +834,32 @@
             ],
             "number of cells": [
               8
+            ],
+            "number of arrays": [
+              12
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2.0,
+                0.0,
+                2.0,
+                0.0,
+                2.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
             ]
           }
         },
         {
           "name": "06_color_scalars.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/06_color_scalars.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/06_color_scalars.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -380,39 +869,258 @@
             ],
             "number of cells": [
               2
+            ],
+            "number of arrays": [
+              1
+            ],
+            "mesh bounds": [
+              [
+                -1.5,
+                1.5,
+                -1.5,
+                1.5,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
             ]
           }
         },
         {
           "name": "bun_zipper_res4.ply",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/bun_zipper_res4.ply",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/bun_zipper_res4.ply",
           "metadata": {
-            "number of vertices": [
+            "dataset type": [
+              "PolyData"
+            ],
+            "number of points": [
               453
             ],
-            "number of faces": [
+            "number of cells": [
               948
+            ],
+            "mesh bounds": [
+              [
+                -0.09314659982919693,
+                0.058159101754426956,
+                0.03362039849162102,
+                0.18189699947834015,
+                -0.056644000113010406,
+                0.05780079960823059
+              ]
+            ],
+            "mesh center": [
+              [
+                -0.017493749037384987,
+                0.10775869898498058,
+                0.0005783997476100922
+              ]
+            ]
+          }
+        },
+        {
+          "name": "bunny.stl",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/bunny.stl",
+          "metadata": {
+            "dataset type": [
+              "PolyData"
+            ],
+            "number of points": [
+              56203
+            ],
+            "number of cells": [
+              112402
+            ],
+            "mesh bounds": [
+              [
+                -23.550819396972656,
+                84.19611358642578,
+                -42.00993728637695,
+                45.791847229003906,
+                5.27508544921875,
+                113.16683959960938
+              ]
+            ],
+            "mesh center": [
+              [
+                30.322647094726562,
+                1.8909549713134766,
+                59.22096252441406
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Box.glb",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/Box.glb",
+          "metadata": {
+            "dataset type": [
+              "MultiBlock"
+            ],
+            "number of blocks": [
+              1
+            ],
+            "mesh bounds": [
+              [
+                -0.5,
+                0.5,
+                -0.5,
+                0.5,
+                -0.5,
+                0.5
+              ]
+            ],
+            "mesh center": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        },
+        {
+          "name": "uni_stuttgart.png",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/uni_stuttgart.png",
+          "metadata": {
+            "dataset type": [
+              "ImageData"
+            ],
+            "number of points": [
+              58080
+            ],
+            "number of cells": [
+              57509
+            ],
+            "number of arrays": [
+              1
+            ],
+            "dimensions": [
+              [
+                440,
+                132,
+                1
+              ]
+            ],
+            "spacing": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                439.0,
+                0.0,
+                131.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                219.5,
+                65.5,
+                0.0
+              ]
+            ]
+          }
+        },
+        {
+          "name": "earth.jpg",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/earth.jpg",
+          "metadata": {
+            "dataset type": [
+              "ImageData"
+            ],
+            "number of points": [
+              2097152
+            ],
+            "number of cells": [
+              2094081
+            ],
+            "number of arrays": [
+              1
+            ],
+            "dimensions": [
+              [
+                2048,
+                1024,
+                1
+              ]
+            ],
+            "spacing": [
+              [
+                1.0,
+                1.0,
+                1.0
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                2047.0,
+                0.0,
+                1023.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1023.5,
+                511.5,
+                0.0
+              ]
             ]
           }
         },
         {
           "name": "T0000000500.pvtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500.pvtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500.pvtu",
           "metadata": {
             "dataset type": [
-              "PUnstructuredGrid"
+              "UnstructuredGrid"
             ],
             "number of points": [
               48823
             ],
             "number of cells": [
               39353
+            ],
+            "number of arrays": [
+              5
+            ],
+            "mesh bounds": [
+              [
+                53.0,
+                121.0,
+                50.0,
+                97.0,
+                64.0,
+                182.0
+              ]
+            ],
+            "mesh center": [
+              [
+                87.0,
+                73.5,
+                123.0
+              ]
             ]
           }
         },
         {
           "name": "heart.vti",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/heart.vti",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/heart.vti",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -422,18 +1130,75 @@
             ],
             "number of cells": [
               10571
+            ],
+            "number of arrays": [
+              1
+            ],
+            "dimensions": [
+              [
+                32,
+                32,
+                12
+              ]
+            ],
+            "spacing": [
+              [
+                1.0,
+                1.0,
+                4.0
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                31.0,
+                0.0,
+                31.0,
+                0.0,
+                44.0
+              ]
+            ],
+            "mesh center": [
+              [
+                15.5,
+                15.5,
+                22.0
+              ]
             ]
           }
         },
         {
           "name": "elephav.obj",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/elephav.obj",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/elephav.obj",
           "metadata": {
+            "dataset type": [
+              "PolyData"
+            ],
             "number of points": [
               3444
             ],
-            "number of faces": [
+            "number of cells": [
               1148
+            ],
+            "number of arrays": [
+              2
+            ],
+            "mesh bounds": [
+              [
+                -273.38336181640625,
+                273.38336181640625,
+                2.812407970428467,
+                714.5693359375,
+                -417.7276916503906,
+                717.3455810546875
+              ]
+            ],
+            "mesh center": [
+              [
+                0.0,
+                358.69087195396423,
+                149.80894470214844
+              ]
             ]
           }
         }
@@ -444,7 +1209,7 @@
       "files": [
         {
           "name": "citation.txt",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/citation.txt",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/citation.txt",
           "metadata": {
             "author": [
               "Sarbani Roy"
@@ -458,7 +1223,7 @@
       "files": [
         {
           "name": "book.xml",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/book.xml",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/book.xml",
           "metadata": {
             "title": [
               "Harry Potter and the Philosopher's Stone"
@@ -474,7 +1239,7 @@
         },
         {
           "name": "author_name.xml",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/author_name.xml",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/author_name.xml",
           "metadata": {
             "title": [
               "The Adventures of Sherlock Holmes"
