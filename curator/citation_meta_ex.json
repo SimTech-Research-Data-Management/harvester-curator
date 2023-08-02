@@ -10,6 +10,23 @@
       "affiliation": "University of Stuttgart"
     }
   ],
+  "contact": [
+    {
+      "name": "Contact 1",
+      "email": "contact1@uni-stuttgart.de"
+
+    },
+    {
+      "name": "Contact 2",
+      "email": "contact2@uni-stuttgart.de"
+    }
+  ],
+  "description": [
+    {
+    "text": "This describes my dataset",
+    "date": "2023"
+    }
+  ],
   "journal": "Journal of Example",
   "year": 2023,
   "volume": 10,
