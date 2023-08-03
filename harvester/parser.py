@@ -146,15 +146,18 @@ class Parser():
         output = pv.read(vtk_file)
         print(f"file name: {os.path.basename(vtk_file)}")
         print(f"meta properties extracted: \n{output}\n")
+        
 
         # Get dataset type (geometry/topology) 
         dataset_type = str(type(output)).replace("'>", "").split(".")[-1]#
         self.append_value(meta_dict, "dataset type", dataset_type)           
 
         # Add extracted meta properties to meta_dict
-        if dataset_type == "MultiBlock":
+        if dataset_type == "MultiBlock":            
             number_of_blocks = output.n_blocks
             self.append_value(meta_dict, "number of blocks", number_of_blocks)
+        
+                    
         else:                  
             number_of_points = output.n_points
             number_of_cells = output.n_cells
@@ -163,6 +166,21 @@ class Parser():
             self.append_value(meta_dict, "number of points", number_of_points)
             self.append_value(meta_dict, "number of cells", number_of_cells)   
             self.append_value(meta_dict, "number of arrays", number_of_arrays)
+
+            array_names = {}
+            if number_of_arrays:
+                cell_data_array_names = output.cell_data.keys()
+                if cell_data_array_names:
+                    array_names["cell_data_array_names"] = cell_data_array_names            
+                point_data_array_names = output.point_data.keys()
+                if point_data_array_names:
+                    array_names["point_data_array_names"] = point_data_array_names   
+                field_data_array_names = output.field_data.keys()
+                if field_data_array_names:
+                    array_names["field_data_array_names"] = field_data_array_names   
+            
+            self.append_value(meta_dict, "array names", array_names)
+      
              
             if dataset_type == "ImageData":
                 dimensions = output.dimensions
