@@ -143,10 +143,18 @@ class Parser():
         file_type = crawler.get_file_type(vtk_file)
 
         # Use Pyvista to read vtk file and get meta properties of vtk mesh
-        output = pv.read(vtk_file)
+        if file_type in ("pgm", "ppm"):
+            reader = pv.PNMReader(vtk_file)
+            output = reader.read()
+        elif file_type in ("wrl", "vrml"):
+            reader = vtk.vtkVRMLImporter()
+            reader.SetFileName(vtk_file)
+            output = reader.ReadData()
+            print(f"vrml reader output: {output}")            
+        else:
+            output = pv.read(vtk_file)
         print(f"file name: {os.path.basename(vtk_file)}")
         print(f"meta properties extracted: \n{output}\n")
-        
 
         # Get dataset type (geometry/topology) 
         dataset_type = str(type(output)).replace("'>", "").split(".")[-1]#
@@ -155,9 +163,7 @@ class Parser():
         # Add extracted meta properties to meta_dict
         if dataset_type == "MultiBlock":            
             number_of_blocks = output.n_blocks
-            self.append_value(meta_dict, "number of blocks", number_of_blocks)
-        
-                    
+            self.append_value(meta_dict, "number of blocks", number_of_blocks)                  
         else:                  
             number_of_points = output.n_points
             number_of_cells = output.n_cells
@@ -168,16 +174,17 @@ class Parser():
             self.append_value(meta_dict, "number of arrays", number_of_arrays)
 
             array_names = {}
+            # Extract array names if there exists dataset arrays
             if number_of_arrays:
                 cell_data_array_names = output.cell_data.keys()
                 if cell_data_array_names:
-                    array_names["cell_data_array_names"] = cell_data_array_names            
+                    array_names["cell_data_array_name(s)"] = cell_data_array_names            
                 point_data_array_names = output.point_data.keys()
                 if point_data_array_names:
-                    array_names["point_data_array_names"] = point_data_array_names   
+                    array_names["point_data_array_name(s)"] = point_data_array_names   
                 field_data_array_names = output.field_data.keys()
                 if field_data_array_names:
-                    array_names["field_data_array_names"] = field_data_array_names   
+                    array_names["field_data_array_name(s)"] = field_data_array_names   
             
             self.append_value(meta_dict, "array names", array_names)
       
@@ -206,26 +213,5 @@ class Parser():
         
         self.append_value(meta_dict, "mesh bounds", list(mesh_bounds))
         self.append_value(meta_dict, "mesh center", list(mesh_center))    
-      
-        # Plot vtk mesh based on file type
-        if file_type == "vtu":
-            plot_vtu = output.plot(show_edges=True)
-            print("\n\n")
-        elif file_type == "pvtu":
-            plot_pvtu = output.plot(scalars="node_value", categories=True)
-            print("\n\n")
-        elif file_type == "ply": 
-            plot_ply = output.plot()
-            print("\n\n")
-        elif file_type == "obj":
-            plot_obj = output.plot(cpos="xy")
-            print("\n\n")
-        elif file_type == "png" or file_type == "jpg" or file_type == "jpeg":
-            plot_image = output.plot(rgb=True, cpos="xy")
-            print("\n\n")
-        else:
-            output.plot()
-            print("\n\n")
- 
-             
+        
         return meta_dict

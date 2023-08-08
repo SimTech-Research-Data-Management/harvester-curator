@@ -34,7 +34,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
     # Create an instance of SuperGroup class to hold all parsed files grouped based on file_types.
     all_file_groups = SuperGroup(name="all parsed file groups", file_group_names = {}, groups=[])
 
-    vtk_file_extension = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'fib', 'ply', 'vtm', 'stl',  'obj', 'g', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu', 'png', 'jpg', 'jpeg', 'glb']
+    vtk_file_extension = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'fib', 'ply', 'vtm', 'stl',  'obj', 'g', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu', 'png', 'jpg', 'jpeg', 'glb', 'pnm', 'pgm', 'ppm', 'tif', 'tiff']
 
     
     # Use file parsers to extract metadata from files
