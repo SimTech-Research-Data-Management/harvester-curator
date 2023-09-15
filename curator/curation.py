@@ -82,7 +82,7 @@ commands = generate_commands(example_json_data, schema)
 for command in commands:
     try:
         exec(command)
-        print(f"Executed: {command}")
+        #print(f"Executed: {command}")
     except Exception as e:
         print(f"Failed to execute: {command}")
         print(f"Error: {e}")
