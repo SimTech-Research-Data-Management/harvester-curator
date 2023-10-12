@@ -42,7 +42,17 @@
     {
       "term": "mathematical physics"
     }
-  ]
+  ],
+  "subject": [
+    "Mathematical Sciences"
+  ],
+  "personal_data": "no",
+  "spatial_resolution": [
+    {
+      "number_of_cells": 10,
+      "number_of_blocks": 20
+    }    
+  ]  
 }
 
 

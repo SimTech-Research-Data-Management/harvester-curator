@@ -1,7 +1,6 @@
 import json
-from pyDaRUS import Dataset, Citation, Privacy
-from pyDaRUS.metadatablocks.citation import SubjectEnum
-
+import os
+from pyDaRUS import Dataset, Privacy
 
 def get_json_classes(json_data):
     classes = set()
@@ -15,84 +14,98 @@ def get_json_classes(json_data):
     extract_classes(json_data)
     return classes
 
-def generate_commands(json_data, schema):
-    commands = []
 
-    def extract_properties(class_name, class_data):
-        class_prop = schema.get('definitions', {}).get(class_name, {}).get('properties', {})
-        if class_prop:
-            command = f"citation.add_{class_name}("
-            for prop_name, prop_info in class_prop.items():
-                if prop_name in class_data:
-                    prop_value = class_data.get(prop_name)
-                    command = command + f'{prop_name} = "{prop_value}", '
-            command = command[:-2] + ")"
-            commands.append(command)
-        else:
-            command = f'citation.{class_name} = "{class_data}"'
-            commands.append(command)
+def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har_json_data, metadata_schema):
+    # Check if 'metadatablocks' class is present
+    if 'metadatablocks' not in json_data:
+        json_data['metadatablocks'] = {}
 
-    example_json_classes = get_json_classes(json_data)
+    metadatablocks_data = json_data['metadatablocks']
 
+    # Check if 'schema_name' is present under 'metadatablocks'
+    if schema_name not in metadatablocks_data:
+        # Create 'schema_name' as a subclass
+        metadatablocks_data[schema_name] = {}
+    
+    schema_data = metadatablocks_data[schema_name]
+
+    # Generate metadata for the new 'schema_name'
+
+    # Get the classes from harvested metadata
+    har_json_classes = get_json_classes(har_json_data)
+    
+    # Gets the classes and class_type from metadata schema
+    properties = metadata_schema.get('properties', {})
+    classes_info = {}
+
+    for class_name, class_info in properties.items():
+        class_type_class = class_info.get('typeClass')
+        classes_info[class_name] = {'type_class': class_type_class}
+
+    # Matching the the classes from harvested metadata with schema classes and poulate the json file with corresponding data
     for class_name, class_info in classes_info.items():
-        if class_name in example_json_classes:
-            example_json_class_data = example_json_data[class_name]
+        if class_name in har_json_classes:
+            har_json_class_data = har_json_data[class_name]
             if class_info['type_class'] == "compound":
-                for data in example_json_class_data:
-                    extract_properties(class_name, data)
+                schema_data[class_name] = []
+                for data in har_json_class_data:
+                    schema_data[class_name].append(data)
             else:
-                extract_properties(class_name, example_json_class_data)
+                schema_data[class_name] = har_json_class_data
 
-    return commands
+    # Write the updated JSON data back to the file
+    with open(com_metadata_file, 'w') as json_file:
+        json.dump(json_data, json_file, indent=2)
 
-# Load the example JSON file
-example_json_file = "citation_meta_ex.json"
-with open(example_json_file) as file:
-    example_json_data = json.load(file)
 
-citation_metadata_file = "./metadata_schema_DaRUS/citation.json"
-# Load the JSON schema
-with open(citation_metadata_file, 'r') as schema_file:
-    schema = json.load(schema_file)
+# File to write compatible metadata
+com_metadata_file = "md_com.json"
 
-# Get the properties from the schema
-properties = schema.get('properties', {})
+# Create 'md_com.json' with initial data if it doesn't exist
+if not os.path.exists(com_metadata_file):
+    initial_data = {"lib_name": "pyDaRUS"}
+    with open(com_metadata_file, 'w') as json_file:
+        json.dump(initial_data, json_file, indent=2)
 
-# Extract classes and their corresponding 'type' and 'type class' from 'properties'
-classes_info = {}
-for class_name, class_info in properties.items():
-    class_type = class_info.get('type')
-    class_type_class = class_info.get('typeClass')
-    classes_info[class_name] = {'type': class_type, 'type_class': class_type_class}
+with open(com_metadata_file) as json_file:
+    com_metadata = json.load(json_file)
 
-# Initialize the dataset
+# Load the harvested JSON file
+har_json_file = "harvested_metadata_example.json"
+with open(har_json_file) as file:
+    har_json_data = json.load(file)
+
+# Folder containing metadata schema files
+schema_folder = "./metadata_schema_DaRUS"
+
+# Load metadata schema files programmatically
+metadata_schemas = {}
+
+for filename in os.listdir(schema_folder):
+    if filename.endswith(".json"):
+        schema_file_path = os.path.join(schema_folder, filename)
+        schema_name = os.path.splitext(filename)[0]
+
+        with open(schema_file_path) as schema_file:
+            metadata_schemas[schema_name] = json.load(schema_file)
+
+# Process for each loaded schema
+for schema_name, metadata_schema in metadata_schemas.items():
+    
+    print(f"Processing {schema_name} metadata")
+
+    #search if corresponding metadata class already exixts
+    com_har_metadata = get_compatible_metadatablocks(com_metadata_file, com_metadata, schema_name, har_json_data, metadata_schema)
+
+# A dataset will be created from the harvested information
+# Initialize dataset
 dataset = Dataset()
 
-# Initialize metadatablock
-citation = Citation()
-privacy = Privacy()
+# Create a new dataset to which we want to load everything. Here we are using the "from_json" method to initialize the complete dataset
+dataset = Dataset.from_json("./md_com.json")
 
-# Fill in citation relevant fields
-citation.subject = [SubjectEnum.mathematical__sciences]
-
-# Generate commands
-commands = generate_commands(example_json_data, schema)
-
-# Execute the commands
-for command in commands:
-    try:
-        exec(command)
-        #print(f"Executed: {command}")
-    except Exception as e:
-        print(f"Failed to execute: {command}")
-        print(f"Error: {e}")
-
-# Fill in privacy relevant fields
-privacy.personal_data = "no"
-
-# Add each metadatablock to the dataset
-dataset.add_metadatablock(citation)
-dataset.add_metadatablock(privacy)
+# Check if we recorvered the dataset
+print(dataset.yaml())
 
 # Upload the dataset
 p_id = dataset.upload (dataverse_name="roy_dataverse")
