@@ -8,6 +8,7 @@
       "pgm",
       "ply",
       "tif",
+      "pvti",
       "ppm",
       "stl",
       "glb",
@@ -18,7 +19,8 @@
       "vts",
       "vti",
       "obj",
-      "vtr"
+      "vtr",
+      "pvtr"
     ],
     "txt files": [
       "txt"
@@ -33,7 +35,7 @@
       "files": [
         {
           "name": "test_mesh.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/test_mesh.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test_mesh.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -80,7 +82,7 @@
         },
         {
           "name": "00_raw_binary.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/00_raw_binary.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/00_raw_binary.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -122,7 +124,7 @@
         },
         {
           "name": "vox8_binary_inline.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_inline.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_inline.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -177,7 +179,7 @@
         },
         {
           "name": "01_raw_binary_int64.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/01_raw_binary_int64.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/01_raw_binary_int64.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -219,7 +221,7 @@
         },
         {
           "name": "ugridex.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/ugridex.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ugridex.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -264,7 +266,7 @@
         },
         {
           "name": "vox8_binary_inline_zlib.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_inline_zlib.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_inline_zlib.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -319,7 +321,7 @@
         },
         {
           "name": "vox8_binary_appended.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary_appended.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_appended.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -374,7 +376,7 @@
         },
         {
           "name": "vox8_ascii.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_ascii.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -429,7 +431,7 @@
         },
         {
           "name": "02_raw_compressed.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/02_raw_compressed.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/02_raw_compressed.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -471,7 +473,7 @@
         },
         {
           "name": "fire_ug.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/fire_ug.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/fire_ug.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -518,7 +520,7 @@
         },
         {
           "name": "triangle_mesh_linear.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/triangle_mesh_linear.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/triangle_mesh_linear.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -564,7 +566,7 @@
         },
         {
           "name": "003.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/003.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/003.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -612,7 +614,7 @@
         },
         {
           "name": "002.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/002.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/002.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -660,7 +662,7 @@
         },
         {
           "name": "000.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/000.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/000.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -708,7 +710,7 @@
         },
         {
           "name": "001.vtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500/001.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/001.vtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -755,8 +757,824 @@
           }
         },
         {
+          "name": "ex-blow_5_0_3.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_3.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              83
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                7.161890029907227,
+                -0.020428001880645752,
+                12.578660011291504,
+                -3.8499999046325684,
+                7.494060039520264
+              ]
+            ],
+            "mesh center": [
+              [
+                3.5809450149536133,
+                6.279116004705429,
+                1.8220300674438477
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_0_2.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_2.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              96
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.588759899139404,
+                -1.045849084854126,
+                0.46295398473739624,
+                -1.8193100690841675,
+                5.744719982147217
+              ]
+            ],
+            "mesh center": [
+              [
+                3.294379949569702,
+                -0.29144755005836487,
+                1.9627049565315247
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_0_0.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_0.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              82
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.737879753112793,
+                -12.0,
+                -0.3924649953842163,
+                -5.200829982757568,
+                2.5329198837280273
+              ]
+            ],
+            "mesh center": [
+              [
+                3.3689398765563965,
+                -6.196232497692108,
+                -1.3339550495147705
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_0_1.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_1.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              81
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.737879753112793,
+                -12.0,
+                -0.3947420120239258,
+                1.02961003780365,
+                7.254090309143066
+              ]
+            ],
+            "mesh center": [
+              [
+                3.3689398765563965,
+                -6.197371006011963,
+                4.141850173473358
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_0_5.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_5.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              96
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.530529975891113,
+                23.30864906311035,
+                24.826541900634766,
+                -3.6537070274353027,
+                3.6471240520477295
+              ]
+            ],
+            "mesh center": [
+              [
+                3.2652649879455566,
+                24.06759548187256,
+                -0.003291487693786621
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_0_4.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_4.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              83
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                7.161890029907227,
+                11.430950164794922,
+                23.945070266723633,
+                -3.8500001430511475,
+                6.0
+              ]
+            ],
+            "mesh center": [
+              [
+                3.5809450149536133,
+                17.688010215759277,
+                1.0749999284744263
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_0_6.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_6.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              81
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.710299968719482,
+                24.16718101501465,
+                36.0,
+                -5.999469757080078,
+                0.9110809564590454
+              ]
+            ],
+            "mesh center": [
+              [
+                3.355149984359741,
+                30.083590507507324,
+                -2.5441944003105164
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_0_7.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_7.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              80
+            ],
+            "number of cells": [
+              116
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                6.710299968719482,
+                24.272518157958984,
+                36.0,
+                0.007290000095963478,
+                6.137589931488037
+              ]
+            ],
+            "mesh center": [
+              [
+                3.355149984359741,
+                30.136259078979492,
+                3.0724399657920003
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_0.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_0.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              39
+            ],
+            "number of cells": [
+              17
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                7.0,
+                -2.0,
+                8.0,
+                -3.8499999046325684,
+                6.393500328063965
+              ]
+            ],
+            "mesh center": [
+              [
+                3.5,
+                3.0,
+                1.2717502117156982
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_1.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_1.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              28
+            ],
+            "number of cells": [
+              16
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                5.0,
+                5.0,
+                7.442180156707764,
+                7.934120178222656,
+                5.243100166320801,
+                6.529600143432617
+              ]
+            ],
+            "mesh center": [
+              [
+                5.0,
+                7.68815016746521,
+                5.886350154876709
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_3.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_3.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              34
+            ],
+            "number of cells": [
+              17
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                5.0,
+                7.449429988861084,
+                7.964890003204346,
+                6.387399673461914,
+                8.0
+              ]
+            ],
+            "mesh center": [
+              [
+                2.5,
+                7.707159996032715,
+                7.193699836730957
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_2.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_2.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              29
+            ],
+            "number of cells": [
+              15
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                5.0,
+                0.0,
+                7.6915998458862305,
+                5.0,
+                8.0
+              ]
+            ],
+            "mesh center": [
+              [
+                2.5,
+                3.8457999229431152,
+                6.5
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_6.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_6.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              37
+            ],
+            "number of cells": [
+              15
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                7.0,
+                0.0,
+                24.0,
+                -3.8499999046325684,
+                6.019000053405762
+              ]
+            ],
+            "mesh center": [
+              [
+                3.5,
+                12.0,
+                1.0845000743865967
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_7.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_7.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              33
+            ],
+            "number of cells": [
+              17
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                7.0,
+                11.25,
+                26.0,
+                -3.8499999046325684,
+                6.0
+              ]
+            ],
+            "mesh center": [
+              [
+                3.5,
+                18.625,
+                1.0750000476837158
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_5.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_5.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              42
+            ],
+            "number of cells": [
+              21
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                5.0,
+                5.0,
+                7.743239879608154,
+                8.157979965209961,
+                5.0,
+                7.684000015258789
+              ]
+            ],
+            "mesh center": [
+              [
+                5.0,
+                7.950609922409058,
+                6.3420000076293945
+              ]
+            ]
+          }
+        },
+        {
+          "name": "ex-blow_5_1_4.vtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_4.vtu",
+          "metadata": {
+            "dataset type": [
+              "UnstructuredGrid"
+            ],
+            "number of points": [
+              21
+            ],
+            "number of cells": [
+              11
+            ],
+            "number of arrays": [
+              8
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "GlobalElementId",
+                  "PedigreeElementId",
+                  "ObjectId",
+                  "vtkOriginalCellIds"
+                ],
+                "point_data_array_name(s)": [
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "DISPLACEMENT_",
+                  "THICKNESS"
+                ]
+              }
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                5.0,
+                7.853549957275391,
+                8.154339790344238,
+                6.019000053405762,
+                7.853599548339844
+              ]
+            ],
+            "mesh center": [
+              [
+                2.5,
+                8.003944873809814,
+                6.936299800872803
+              ]
+            ]
+          }
+        },
+        {
           "name": "Gourds.pnm",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/Gourds.pnm",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/Gourds.pnm",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -812,7 +1630,7 @@
         },
         {
           "name": "gh-935.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/gh-935.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/gh-935.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -854,7 +1672,7 @@
         },
         {
           "name": "06_unstructured.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/06_unstructured.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/06_unstructured.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -899,7 +1717,7 @@
         },
         {
           "name": "01_image.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/01_image.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/01_image.vtk",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -960,7 +1778,7 @@
         },
         {
           "name": "vox8_ascii.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_ascii.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_ascii.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -1015,7 +1833,7 @@
         },
         {
           "name": "04_rectilinear.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/04_rectilinear.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/04_rectilinear.vtk",
           "metadata": {
             "dataset type": [
               "RectilinearGrid"
@@ -1069,7 +1887,7 @@
         },
         {
           "name": "hello.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/hello.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/hello.vtk",
           "metadata": {
             "dataset type": [
               "PolyData"
@@ -1104,7 +1922,7 @@
         },
         {
           "name": "02_structured.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/02_structured.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/02_structured.vtk",
           "metadata": {
             "dataset type": [
               "StructuredGrid"
@@ -1158,7 +1976,7 @@
         },
         {
           "name": "vox8_binary.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/vox8_binary.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -1213,7 +2031,7 @@
         },
         {
           "name": "06_color_scalars.vtk",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/06_color_scalars.vtk",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/06_color_scalars.vtk",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -1255,7 +2073,7 @@
         },
         {
           "name": "binary.pgm",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/binary.pgm",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/binary.pgm",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -1311,7 +2129,7 @@
         },
         {
           "name": "bun_zipper_res4.ply",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/bun_zipper_res4.ply",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/bun_zipper_res4.ply",
           "metadata": {
             "dataset type": [
               "PolyData"
@@ -1343,7 +2161,7 @@
         },
         {
           "name": "ColorCells.tif",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/ColorCells.tif",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ColorCells.tif",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -1398,8 +2216,67 @@
           }
         },
         {
+          "name": "test.pvti",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test.pvti",
+          "metadata": {
+            "dataset type": [
+              "ImageData"
+            ],
+            "number of points": [
+              9261
+            ],
+            "number of cells": [
+              8000
+            ],
+            "number of arrays": [
+              2
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "myCellData"
+                ],
+                "point_data_array_name(s)": [
+                  "myPointData"
+                ]
+              }
+            ],
+            "dimensions": [
+              [
+                21,
+                21,
+                21
+              ]
+            ],
+            "spacing": [
+              [
+                0.5,
+                1.0,
+                1.0
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                10.0,
+                -10.0,
+                10.0,
+                -10.0,
+                10.0
+              ]
+            ],
+            "mesh center": [
+              [
+                5.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        },
+        {
           "name": "earth.ppm",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/earth.ppm",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/earth.ppm",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -1455,7 +2332,7 @@
         },
         {
           "name": "bunny.stl",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/bunny.stl",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/bunny.stl",
           "metadata": {
             "dataset type": [
               "PolyData"
@@ -1487,7 +2364,7 @@
         },
         {
           "name": "Box.glb",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/Box.glb",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/Box.glb",
           "metadata": {
             "dataset type": [
               "MultiBlock"
@@ -1516,7 +2393,7 @@
         },
         {
           "name": "uni_stuttgart.png",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/uni_stuttgart.png",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/uni_stuttgart.png",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -1572,7 +2449,7 @@
         },
         {
           "name": "earth.jpg",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/earth.jpg",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/earth.jpg",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -1628,7 +2505,7 @@
         },
         {
           "name": "T0000000500.pvtu",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/T0000000500.pvtu",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500.pvtu",
           "metadata": {
             "dataset type": [
               "UnstructuredGrid"
@@ -1676,7 +2553,7 @@
         },
         {
           "name": "Bunny.vtp",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/Bunny.vtp",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/Bunny.vtp",
           "metadata": {
             "dataset type": [
               "PolyData"
@@ -1718,7 +2595,7 @@
         },
         {
           "name": "StructuredGrid.vts",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/StructuredGrid.vts",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/StructuredGrid.vts",
           "metadata": {
             "dataset type": [
               "StructuredGrid"
@@ -1769,7 +2646,7 @@
         },
         {
           "name": "heart.vti",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/heart.vti",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/heart.vti",
           "metadata": {
             "dataset type": [
               "ImageData"
@@ -1824,8 +2701,126 @@
           }
         },
         {
+          "name": "1.vti",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test/1.vti",
+          "metadata": {
+            "dataset type": [
+              "ImageData"
+            ],
+            "number of points": [
+              4851
+            ],
+            "number of cells": [
+              4000
+            ],
+            "number of arrays": [
+              2
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "myCellData"
+                ],
+                "point_data_array_name(s)": [
+                  "myPointData"
+                ]
+              }
+            ],
+            "dimensions": [
+              [
+                21,
+                21,
+                11
+              ]
+            ],
+            "spacing": [
+              [
+                0.5,
+                1.0,
+                1.0
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                10.0,
+                -10.0,
+                10.0,
+                0.0,
+                10.0
+              ]
+            ],
+            "mesh center": [
+              [
+                5.0,
+                0.0,
+                5.0
+              ]
+            ]
+          }
+        },
+        {
+          "name": "0.vti",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test/0.vti",
+          "metadata": {
+            "dataset type": [
+              "ImageData"
+            ],
+            "number of points": [
+              4851
+            ],
+            "number of cells": [
+              4000
+            ],
+            "number of arrays": [
+              2
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "myCellData"
+                ],
+                "point_data_array_name(s)": [
+                  "myPointData"
+                ]
+              }
+            ],
+            "dimensions": [
+              [
+                21,
+                21,
+                11
+              ]
+            ],
+            "spacing": [
+              [
+                0.5,
+                1.0,
+                1.0
+              ]
+            ],
+            "mesh bounds": [
+              [
+                0.0,
+                10.0,
+                -10.0,
+                10.0,
+                -10.0,
+                0.0
+              ]
+            ],
+            "mesh center": [
+              [
+                5.0,
+                0.0,
+                -5.0
+              ]
+            ]
+          }
+        },
+        {
           "name": "elephav.obj",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/elephav.obj",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/elephav.obj",
           "metadata": {
             "dataset type": [
               "PolyData"
@@ -1870,7 +2865,7 @@
         },
         {
           "name": "RectilinearGrid.vtr",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/RectilinearGrid.vtr",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/RectilinearGrid.vtr",
           "metadata": {
             "dataset type": [
               "RectilinearGrid"
@@ -1924,6 +2919,165 @@
               ]
             ]
           }
+        },
+        {
+          "name": "pressure_20_0.vtr",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/pressure_20/pressure_20_0.vtr",
+          "metadata": {
+            "dataset type": [
+              "RectilinearGrid"
+            ],
+            "number of points": [
+              252
+            ],
+            "number of cells": [
+              150
+            ],
+            "number of arrays": [
+              3
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "vtkGhostTypes",
+                  "pressure"
+                ],
+                "field_data_array_name(s)": [
+                  "TimeValue"
+                ]
+              }
+            ],
+            "dimensions": [
+              [
+                6,
+                7,
+                6
+              ]
+            ],
+            "mesh bounds": [
+              [
+                -1.0,
+                4.0,
+                -1.0,
+                5.0,
+                -1.0,
+                4.0
+              ]
+            ],
+            "mesh center": [
+              [
+                1.5,
+                2.0,
+                1.5
+              ]
+            ]
+          }
+        },
+        {
+          "name": "pressure_20_1.vtr",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/pressure_20/pressure_20_1.vtr",
+          "metadata": {
+            "dataset type": [
+              "RectilinearGrid"
+            ],
+            "number of points": [
+              210
+            ],
+            "number of cells": [
+              120
+            ],
+            "number of arrays": [
+              3
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "vtkGhostTypes",
+                  "pressure"
+                ],
+                "field_data_array_name(s)": [
+                  "TimeValue"
+                ]
+              }
+            ],
+            "dimensions": [
+              [
+                5,
+                7,
+                6
+              ]
+            ],
+            "mesh bounds": [
+              [
+                2.0,
+                6.0,
+                -1.0,
+                5.0,
+                -1.0,
+                4.0
+              ]
+            ],
+            "mesh center": [
+              [
+                4.0,
+                2.0,
+                1.5
+              ]
+            ]
+          }
+        },
+        {
+          "name": "pressure_20.pvtr",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/pressure_20.pvtr",
+          "metadata": {
+            "dataset type": [
+              "RectilinearGrid"
+            ],
+            "number of points": [
+              336
+            ],
+            "number of cells": [
+              210
+            ],
+            "number of arrays": [
+              3
+            ],
+            "array names": [
+              {
+                "cell_data_array_name(s)": [
+                  "vtkGhostTypes",
+                  "pressure"
+                ],
+                "field_data_array_name(s)": [
+                  "TimeValue"
+                ]
+              }
+            ],
+            "dimensions": [
+              [
+                8,
+                7,
+                6
+              ]
+            ],
+            "mesh bounds": [
+              [
+                -1.0,
+                6.0,
+                -1.0,
+                5.0,
+                -1.0,
+                4.0
+              ]
+            ],
+            "mesh center": [
+              [
+                2.5,
+                2.0,
+                1.5
+              ]
+            ]
+          }
         }
       ]
     },
@@ -1932,7 +3086,7 @@
       "files": [
         {
           "name": "citation.txt",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/citation.txt",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/citation.txt",
           "metadata": {
             "author": [
               "Sarbani Roy"
@@ -1946,7 +3100,7 @@
       "files": [
         {
           "name": "book.xml",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/book.xml",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/book.xml",
           "metadata": {
             "title": [
               "Harry Potter and the Philosopher's Stone"
@@ -1962,7 +3116,7 @@
         },
         {
           "name": "author_name.xml",
-          "path": "/Users/wangfg/Documents/myDataProject/RDM_New/darus_data_harvester/example/author_name.xml",
+          "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/author_name.xml",
           "metadata": {
             "title": [
               "The Adventures of Sherlock Holmes"
