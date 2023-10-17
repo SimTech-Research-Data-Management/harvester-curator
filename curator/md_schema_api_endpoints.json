@@ -1,0 +1,13 @@
+[
+    {
+        "name": "citation",
+        "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/citation"
+    },
+    {
+        "name": "privacy",
+        "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/privacy"
+    },
+    {
+        "name": "engMeta",
+        "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/EngMeta"}
+]
