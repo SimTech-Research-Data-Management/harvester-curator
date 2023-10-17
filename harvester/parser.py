@@ -146,15 +146,19 @@ class Parser():
         if file_type in ("pgm", "ppm"):
             reader = pv.PNMReader(vtk_file)
             output = reader.read()
-        elif file_type in ("wrl", "vrml"):
-            reader = vtk.vtkVRMLImporter()
-            reader.SetFileName(vtk_file)
-            output = reader.ReadData()
-            print(f"vrml reader output: {output}")            
+        elif file_type in ("vtm", "vtmb"):
+            reader = pv.XMLMultiBlockDataReader(vtk_file)
+            output = reader.read()
+            print(f"vtm reader output: {output}")
+        # elif file_type in ("wrl", "vrml"):
+        #     reader = vtk.vtkVRMLImporter()
+        #     reader.SetFileName(vtk_file)
+        #     output = reader.read()
+        #     print(f"vrml reader output: {output}")            
         else:
             output = pv.read(vtk_file)
-        print(f"file name: {os.path.basename(vtk_file)}")
-        print(f"meta properties extracted: \n{output}\n")
+        #print(f"file name: {os.path.basename(vtk_file)}")
+        #print(f"meta properties extracted: \n{output}\n")
 
         # Get dataset type (geometry/topology) 
         dataset_type = str(type(output)).replace("'>", "").split(".")[-1]#
