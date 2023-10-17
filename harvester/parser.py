@@ -162,7 +162,7 @@ class Parser():
 
         # Get dataset type (geometry/topology) 
         dataset_type = str(type(output)).replace("'>", "").split(".")[-1]#
-        self.append_value(meta_dict, "dataset type", dataset_type)           
+        self.append_value(meta_dict, "dataset_type", dataset_type)           
 
         # Add extracted meta properties to meta_dict
         if dataset_type == "MultiBlock":            

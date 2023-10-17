@@ -37,7 +37,7 @@
           "name": "test_mesh.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test_mesh.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -84,7 +84,7 @@
           "name": "00_raw_binary.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/00_raw_binary.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -126,7 +126,7 @@
           "name": "vox8_binary_inline.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_inline.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -181,7 +181,7 @@
           "name": "01_raw_binary_int64.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/01_raw_binary_int64.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -223,7 +223,7 @@
           "name": "ugridex.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ugridex.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -268,7 +268,7 @@
           "name": "vox8_binary_inline_zlib.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_inline_zlib.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -323,7 +323,7 @@
           "name": "vox8_binary_appended.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary_appended.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -378,7 +378,7 @@
           "name": "vox8_ascii.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_ascii.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -433,7 +433,7 @@
           "name": "02_raw_compressed.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/02_raw_compressed.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -475,7 +475,7 @@
           "name": "fire_ug.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/fire_ug.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -522,7 +522,7 @@
           "name": "triangle_mesh_linear.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/triangle_mesh_linear.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -568,7 +568,7 @@
           "name": "003.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/003.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -616,7 +616,7 @@
           "name": "002.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/002.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -664,7 +664,7 @@
           "name": "000.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/000.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -712,7 +712,7 @@
           "name": "001.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500/001.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -760,7 +760,7 @@
           "name": "ex-blow_5_0_3.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_3.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -811,7 +811,7 @@
           "name": "ex-blow_5_0_2.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_2.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -862,7 +862,7 @@
           "name": "ex-blow_5_0_0.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_0.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -913,7 +913,7 @@
           "name": "ex-blow_5_0_1.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_1.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -964,7 +964,7 @@
           "name": "ex-blow_5_0_5.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_5.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1015,7 +1015,7 @@
           "name": "ex-blow_5_0_4.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_4.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1066,7 +1066,7 @@
           "name": "ex-blow_5_0_6.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_6.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1117,7 +1117,7 @@
           "name": "ex-blow_5_0_7.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_0_7.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1168,7 +1168,7 @@
           "name": "ex-blow_5_1_0.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_0.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1219,7 +1219,7 @@
           "name": "ex-blow_5_1_1.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_1.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1270,7 +1270,7 @@
           "name": "ex-blow_5_1_3.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_3.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1321,7 +1321,7 @@
           "name": "ex-blow_5_1_2.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_2.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1372,7 +1372,7 @@
           "name": "ex-blow_5_1_6.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_6.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1423,7 +1423,7 @@
           "name": "ex-blow_5_1_7.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_7.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1474,7 +1474,7 @@
           "name": "ex-blow_5_1_5.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_5.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1525,7 +1525,7 @@
           "name": "ex-blow_5_1_4.vtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ex-blow_5/ex-blow_5_1_4.vtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1576,7 +1576,7 @@
           "name": "Gourds.pnm",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/Gourds.pnm",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -1632,7 +1632,7 @@
           "name": "gh-935.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/gh-935.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1674,7 +1674,7 @@
           "name": "06_unstructured.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/06_unstructured.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1719,7 +1719,7 @@
           "name": "01_image.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/01_image.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -1780,7 +1780,7 @@
           "name": "vox8_ascii.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_ascii.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -1835,7 +1835,7 @@
           "name": "04_rectilinear.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/04_rectilinear.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "RectilinearGrid"
             ],
             "number_of_points": [
@@ -1889,7 +1889,7 @@
           "name": "hello.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/hello.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "PolyData"
             ],
             "number_of_points": [
@@ -1924,7 +1924,7 @@
           "name": "02_structured.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/02_structured.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "StructuredGrid"
             ],
             "number_of_points": [
@@ -1978,7 +1978,7 @@
           "name": "vox8_binary.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/vox8_binary.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -2033,7 +2033,7 @@
           "name": "06_color_scalars.vtk",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/06_color_scalars.vtk",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -2075,7 +2075,7 @@
           "name": "binary.pgm",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/binary.pgm",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2131,7 +2131,7 @@
           "name": "bun_zipper_res4.ply",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/bun_zipper_res4.ply",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "PolyData"
             ],
             "number_of_points": [
@@ -2163,7 +2163,7 @@
           "name": "ColorCells.tif",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/ColorCells.tif",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2219,7 +2219,7 @@
           "name": "test.pvti",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test.pvti",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2278,7 +2278,7 @@
           "name": "earth.ppm",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/earth.ppm",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2334,7 +2334,7 @@
           "name": "bunny.stl",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/bunny.stl",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "PolyData"
             ],
             "number_of_points": [
@@ -2366,7 +2366,7 @@
           "name": "Box.glb",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/Box.glb",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "MultiBlock"
             ],
             "number_of_blocks": [
@@ -2395,7 +2395,7 @@
           "name": "uni_stuttgart.png",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/uni_stuttgart.png",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2451,7 +2451,7 @@
           "name": "earth.jpg",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/earth.jpg",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2507,7 +2507,7 @@
           "name": "T0000000500.pvtu",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/T0000000500.pvtu",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "UnstructuredGrid"
             ],
             "number_of_points": [
@@ -2555,7 +2555,7 @@
           "name": "Bunny.vtp",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/Bunny.vtp",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "PolyData"
             ],
             "number_of_points": [
@@ -2597,7 +2597,7 @@
           "name": "StructuredGrid.vts",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/StructuredGrid.vts",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "StructuredGrid"
             ],
             "number_of_points": [
@@ -2648,7 +2648,7 @@
           "name": "heart.vti",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/heart.vti",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2704,7 +2704,7 @@
           "name": "1.vti",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test/1.vti",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2763,7 +2763,7 @@
           "name": "0.vti",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/test/0.vti",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "ImageData"
             ],
             "number_of_points": [
@@ -2822,7 +2822,7 @@
           "name": "elephav.obj",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/elephav.obj",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "PolyData"
             ],
             "number_of_points": [
@@ -2867,7 +2867,7 @@
           "name": "RectilinearGrid.vtr",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/RectilinearGrid.vtr",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "RectilinearGrid"
             ],
             "number_of_points": [
@@ -2924,7 +2924,7 @@
           "name": "pressure_20_0.vtr",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/pressure_20/pressure_20_0.vtr",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "RectilinearGrid"
             ],
             "number_of_points": [
@@ -2977,7 +2977,7 @@
           "name": "pressure_20_1.vtr",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/pressure_20/pressure_20_1.vtr",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "RectilinearGrid"
             ],
             "number_of_points": [
@@ -3030,7 +3030,7 @@
           "name": "pressure_20.pvtr",
           "path": "/Users/wangfg/Documents/myDataProject/myWork/zusammenWork/darus_data_harvester_V2/example/pressure_20.pvtr",
           "metadata": {
-            "dataset type": [
+            "dataset_type": [
               "RectilinearGrid"
             ],
             "number_of_points": [
