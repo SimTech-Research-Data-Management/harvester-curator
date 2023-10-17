@@ -167,30 +167,30 @@ class Parser():
         # Add extracted meta properties to meta_dict
         if dataset_type == "MultiBlock":            
             number_of_blocks = output.n_blocks
-            self.append_value(meta_dict, "number of blocks", number_of_blocks)                  
+            self.append_value(meta_dict, "number_of_blocks", number_of_blocks)                  
         else:                  
             number_of_points = output.n_points
             number_of_cells = output.n_cells
             number_of_arrays = output.n_arrays
             
-            self.append_value(meta_dict, "number of points", number_of_points)
-            self.append_value(meta_dict, "number of cells", number_of_cells)   
-            self.append_value(meta_dict, "number of arrays", number_of_arrays)
+            self.append_value(meta_dict, "number_of_points", number_of_points)
+            self.append_value(meta_dict, "number_of_cells", number_of_cells)   
+            self.append_value(meta_dict, "number_of_arrays", number_of_arrays)
 
             array_names = {}
             # Extract array names if there exists dataset arrays
             if number_of_arrays:
                 cell_data_array_names = output.cell_data.keys()
                 if cell_data_array_names:
-                    array_names["cell_data_array_name(s)"] = cell_data_array_names            
+                    array_names["cell_data_array_names"] = cell_data_array_names            
                 point_data_array_names = output.point_data.keys()
                 if point_data_array_names:
-                    array_names["point_data_array_name(s)"] = point_data_array_names   
+                    array_names["point_data_array_names"] = point_data_array_names   
                 field_data_array_names = output.field_data.keys()
                 if field_data_array_names:
-                    array_names["field_data_array_name(s)"] = field_data_array_names   
+                    array_names["field_data_array_names"] = field_data_array_names   
             
-            self.append_value(meta_dict, "array names", array_names)
+            self.append_value(meta_dict, "array_names", array_names)
       
              
             if dataset_type == "ImageData":
@@ -201,10 +201,10 @@ class Parser():
                 
             elif dataset_type == "PolyData":           
                  number_of_lines = output.n_lines
-                 self.append_value(meta_dict, "number of lines", number_of_lines)
+                 self.append_value(meta_dict, "number_of_lines", number_of_lines)
                      
                  number_of_triangle_strips = output.n_strips
-                 self.append_value(meta_dict, "number of triangle strips", number_of_triangle_strips)
+                 self.append_value(meta_dict, "number_of_triangle_strips", number_of_triangle_strips)
                 
             elif dataset_type in ("RectilinearGrid", "StructuredGrid"):
                 dimensions = output.dimensions
@@ -215,7 +215,7 @@ class Parser():
         mesh_bounds = output.bounds
         mesh_center = output.center
         
-        self.append_value(meta_dict, "mesh bounds", list(mesh_bounds))
-        self.append_value(meta_dict, "mesh center", list(mesh_center))    
+        self.append_value(meta_dict, "mesh_bounds", list(mesh_bounds))
+        self.append_value(meta_dict, "mesh_center", list(mesh_center))    
         
         return meta_dict
