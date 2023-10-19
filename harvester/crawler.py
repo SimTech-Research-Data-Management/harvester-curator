@@ -42,6 +42,8 @@ def crawler(path: str) -> dict:
                     file_dict[file_type] = [file_path]
             else:
                 print(f"Not a file path: {file_path}")
+                
+    file_dict = dict(sorted(file_dict.items(), key=lambda x: x[0]))
     return file_dict
    
 def get_file_type(file_path):
