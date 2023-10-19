@@ -88,12 +88,14 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
 
     # Get the classes from harvested metadata
     har_json_classes = get_json_classes(har_json_data)
+    #print(har_json_classes)
     
     # Gets the classes and class_type from metadata schema
     target_key = 'fields'  # Replace with the key you want to search for
     fields = find_key_recursive(metadata_schema, target_key)
 
     for class_name, class_info in fields.items():
+        #print(class_name)
         title = class_info.get('title')
         title_mod = title.replace(' ', '_').lower()
         if class_name in har_json_classes:
@@ -111,9 +113,10 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
         
         if type_name is not None:
             
+            #print(schema_name)
             if schema_name and not schema_name[0].isupper():
             # Capitalize the first letter
-                schema_name = schema_name.capitalize()
+                schema_name = schema_name[0].capitalize() + schema_name[1:]
 
             #print(schema_name)
             #print(type_name)
