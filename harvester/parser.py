@@ -154,15 +154,21 @@ class Parser():
         #     reader = vtk.vtkVRMLImporter()
         #     reader.SetFileName(vtk_file)
         #     output = reader.read()
-        #     print(f"vrml reader output: {output}")            
+        #     print(f"vrml reader output: {output}")   
+        elif file_type == "pvtp":
+            reader = vtk.vtkXMLPPolyDataReader()
+            reader.SetFileName(vtk_file)
+            reader.Update()
+            output = pv.wrap(reader.GetOutput())           
         else:
             output = pv.read(vtk_file)
         #print(f"file name: {os.path.basename(vtk_file)}")
         #print(f"meta properties extracted: \n{output}\n")
 
         # Get dataset type (geometry/topology) 
-        dataset_type = str(type(output)).replace("'>", "").split(".")[-1]#
-        self.append_value(meta_dict, "dataset_type", dataset_type)           
+        dataset_type = str(type(output)).replace("'>", "").split(".")[-1].replace("vtk", "")#
+        self.append_value(meta_dict, "dataset_type", dataset_type) 
+      
 
         # Add extracted meta properties to meta_dict
         if dataset_type == "MultiBlock":            
