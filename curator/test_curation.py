@@ -116,17 +116,17 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
                 schema_name = schema_name.capitalize()
 
             #print(schema_name)
-            print(type_name)
+            #print(type_name)
 
             # get the darus-compatible class name from type_name
             pydarus_class_name = attribute_name_by_type_name(schema_name, type_name)
             #pydarus_class = attribute_name_by_type_name(Citation, "title")
-            print(pydarus_class_name)
+            #print(pydarus_class_name)
 
-            print(har_json_data)
+            #print(har_json_data)
 
             har_json_class_data = har_json_data[har_class_name]
-            print(har_json_class_data)
+            #print(har_json_class_data)
             class_child_fields = class_info.get('childFields')
             
             if class_child_fields:
