@@ -1,6 +1,6 @@
 import json
 import os
-from pyDaRUS import Dataset
+from pyDaRUS import Dataset, Citation, Privacy, EngMeta 
 import requests
 
 
@@ -45,6 +45,30 @@ def find_key_recursive(data, target_key):
     return None
 
 
+def attribute_name_by_type_name(cls, type_name):
+    if isinstance(cls, str):
+        # If cls is a string, assume it's the name of the Pydantic model class
+        cls = globals().get(cls, None)
+        assert cls is not None, f"Class with name {cls} not found in globals"
+
+    assert hasattr(cls, "__fields__"), (
+        f"Object {type(cls)} is not compliant"
+    )
+    
+    for attr in cls.__fields__.values():
+        extra_infos = attr.field_info.extra
+        
+        if type_name == extra_infos["typeName"]:
+            return attr.name
+        
+        if hasattr(attr.type_, "__fields__"):
+            res = attribute_name_by_type_name(attr.type_, type_name)
+            
+            if res is not None:
+                return res
+
+
+
 def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har_json_data, metadata_schema):
     
     # Check if 'metadatablocks' class is present in harvested metadata file
@@ -70,19 +94,48 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
     fields = find_key_recursive(metadata_schema, target_key)
 
     for class_name, class_info in fields.items():
+        title = class_info.get('title')
+        title_mod = title.replace(' ', '_').lower()
         if class_name in har_json_classes:
-            print(class_name)
-            har_json_class_data = har_json_data[class_name]
+            type_name = class_name
+            har_class_name = class_name
+        elif title in har_json_classes:
+            type_name = class_name
+            har_class_name = title
+        elif title_mod in har_json_classes:
+            type_name = class_name
+            har_class_name = title_mod
+        else:
+            type_name = None
+            #TO DO: write threshold matching code here
+        
+        if type_name is not None:
+            
+            if schema_name and not schema_name[0].isupper():
+            # Capitalize the first letter
+                schema_name = schema_name.capitalize()
+
+            #print(schema_name)
+            print(type_name)
+
+            # get the darus-compatible class name from type_name
+            pydarus_class_name = attribute_name_by_type_name(schema_name, type_name)
+            #pydarus_class = attribute_name_by_type_name(Citation, "title")
+            print(pydarus_class_name)
+
+            print(har_json_data)
+
+            har_json_class_data = har_json_data[har_class_name]
+            print(har_json_class_data)
             class_child_fields = class_info.get('childFields')
-            title = class_info.get('title')
-            class_name = title.replace(' ', '_').lower()
+            
             if class_child_fields:
-                schema_data[class_name] = []
+                schema_data[pydarus_class_name] = []
                 for data in har_json_class_data:
-                    schema_data[class_name].append(data)
+                    schema_data[pydarus_class_name].append(data)
             else:
-                schema_data[class_name] = har_json_class_data
-            print(schema_data)
+                schema_data[pydarus_class_name] = har_json_class_data
+            #print(schema_data)
 
     # Write the updated JSON data back to the file
     with open(com_metadata_file, 'w') as json_file:

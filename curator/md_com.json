@@ -13,19 +13,6 @@
           "affiliation": "University of Stuttgart"
         }
       ],
-      "subject": [
-        "Mathematical Sciences"
-      ],
-      "keyword": [
-        {
-          "term": "mean squared error",
-          "vocabulary": "TEMA",
-          "vocabulary_url": "https://purl.org/tema/233675"
-        },
-        {
-          "term": "mathematical physics"
-        }
-      ],
       "contact": [
         {
           "name": "Contact 1",
@@ -41,18 +28,23 @@
           "text": "This describes my dataset",
           "date": "2023"
         }
+      ],
+      "subject": [
+        "Mathematical Sciences"
+      ],
+      "keyword": [
+        {
+          "term": "mean squared error",
+          "vocabulary": "TEMA",
+          "vocabulary_url": "https://purl.org/tema/233675"
+        },
+        {
+          "term": "mathematical physics"
+        }
       ]
     },
     "privacy": {
       "personal_data": "no"
-    },
-    "engMeta": {
-      "spatial_resolution": [
-        {
-          "number_of_cells": 10,
-          "number_of_blocks": 20
-        }
-      ]
     }
   }
 }
