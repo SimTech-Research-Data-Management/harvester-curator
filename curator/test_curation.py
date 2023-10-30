@@ -2,6 +2,12 @@ import json
 import os
 from pyDaRUS import Dataset, Citation, Privacy, EngMeta 
 import requests
+import difflib
+
+def calculate_similarity_ratio(string1, string2):
+    sequence_matcher = difflib.SequenceMatcher(None, string1, string2)
+    similarity_ratio = sequence_matcher.ratio()
+    return similarity_ratio
 
 
 def get_json_from_api(api_url):
@@ -88,48 +94,50 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
 
     # Get the classes from harvested metadata
     har_json_classes = get_json_classes(har_json_data)
-    #print(har_json_classes)
     
     # Gets the classes and class_type from metadata schema
     target_key = 'fields'  # Replace with the key you want to search for
     fields = find_key_recursive(metadata_schema, target_key)
 
     for class_name, class_info in fields.items():
-        #print(class_name)
         title = class_info.get('title')
         title_mod = title.replace(' ', '_').lower()
-        if class_name in har_json_classes:
-            type_name = class_name
-            har_class_name = class_name
-        elif title in har_json_classes:
-            type_name = class_name
-            har_class_name = title
-        elif title_mod in har_json_classes:
-            type_name = class_name
-            har_class_name = title_mod
-        else:
-            type_name = None
-            #TO DO: write threshold matching code here
+        class_name_mod = class_name.replace(' ', '_').lower()
+
+        test_criterias = [class_name, class_name_mod, title, title_mod]
+        for test_criteria in test_criterias:
+            if test_criteria in har_json_classes:
+                type_name = class_name
+                har_class_name = test_criteria
+                break # without this break engMeta match was not working. Do not know why.
+            else:
+                type_name = None
+
+        #if class_name in har_json_classes:
+        #    type_name = class_name
+        #    har_class_name = class_name
+        #elif class_name_mod in har_json_classes:
+        #    type_name = class_name
+        #    har_class_name = class_name_mod
+        #elif title in har_json_classes:
+        #    type_name = class_name
+        #    har_class_name = title
+        #elif title_mod in har_json_classes:
+        #    type_name = class_name
+        #    har_class_name = title_mod
+        #else:
+        #    type_name = None
+
+            #Threshold matching code
         
         if type_name is not None:
-            
-            #print(schema_name)
             if schema_name and not schema_name[0].isupper():
             # Capitalize the first letter
                 schema_name = schema_name[0].capitalize() + schema_name[1:]
 
-            #print(schema_name)
-            #print(type_name)
-
             # get the darus-compatible class name from type_name
             pydarus_class_name = attribute_name_by_type_name(schema_name, type_name)
-            #pydarus_class = attribute_name_by_type_name(Citation, "title")
-            #print(pydarus_class_name)
-
-            #print(har_json_data)
-
             har_json_class_data = har_json_data[har_class_name]
-            #print(har_json_class_data)
             class_child_fields = class_info.get('childFields')
             
             if class_child_fields:
@@ -138,7 +146,7 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
                     schema_data[pydarus_class_name].append(data)
             else:
                 schema_data[pydarus_class_name] = har_json_class_data
-            #print(schema_data)
+            
 
     # Write the updated JSON data back to the file
     with open(com_metadata_file, 'w') as json_file:
@@ -160,13 +168,11 @@ with open(com_metadata_file, 'w') as json_file:
 
 with open(com_metadata_file) as json_file:
     com_metadata = json.load(json_file)
-    #print(com_metadata)
 
 # Load the harvested JSON file
 har_json_file = "test_metadata_example.json"
 with open(har_json_file) as file:
     har_json_data = json.load(file)
-    #print(har_json_data)
 
 # api endpoints of metadata schemas
 api_endpoints_file_path = "md_schema_api_endpoints.json"
