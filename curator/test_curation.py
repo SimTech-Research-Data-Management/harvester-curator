@@ -4,12 +4,6 @@ from pyDaRUS import Dataset, Citation, Privacy, EngMeta
 import requests
 import difflib
 
-def calculate_similarity_ratio(string1, string2):
-    sequence_matcher = difflib.SequenceMatcher(None, string1, string2)
-    similarity_ratio = sequence_matcher.ratio()
-    return similarity_ratio
-
-
 def get_json_from_api(api_url):
     try:
         response = requests.get(api_url)
