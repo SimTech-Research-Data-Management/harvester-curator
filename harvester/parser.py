@@ -1,5 +1,4 @@
 from lxml import etree
-from typing import Optional
 from sdRDM import DataModel
 import os
 import crawler
@@ -13,7 +12,6 @@ class Parser():
     def __init__(self):      
         pass
 
-    
     def append_value(self, dict_: dict, key_: str, value_: str) -> dict:
         """
         This function appends a given value to a dictionary if it is not none.
@@ -142,7 +140,7 @@ class Parser():
         # Get file type of the input vtk file
         file_type = crawler.get_file_type(vtk_file)
 
-        # Use Pyvista to read vtk file and get meta properties of vtk mesh
+        # Use Pyvista to read vtk file and get meta properties of vtk mesh     
         if file_type in ("pgm", "ppm"):
             reader = pv.PNMReader(vtk_file)
             output = reader.read()
@@ -172,8 +170,9 @@ class Parser():
 
         # Add extracted meta properties to meta_dict
         if dataset_type == "MultiBlock":            
-            number_of_blocks = output.n_blocks
-            self.append_value(meta_dict, "number_of_blocks", number_of_blocks)                  
+            number_of_blocks = output.n_blocks            
+            self.append_value(meta_dict, "number_of_blocks", number_of_blocks)
+            
         else:                  
             number_of_points = output.n_points
             number_of_cells = output.n_cells
@@ -223,5 +222,6 @@ class Parser():
         
         self.append_value(meta_dict, "mesh_bounds", list(mesh_bounds))
         self.append_value(meta_dict, "mesh_center", list(mesh_center))    
+
         
         return meta_dict
