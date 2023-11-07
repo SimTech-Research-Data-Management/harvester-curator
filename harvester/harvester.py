@@ -3,6 +3,8 @@ from typing import Optional, Type
 from crawler import crawler
 from parser import Parser
 from file_group import File, FileGroup, SuperGroup
+import yaml
+
 
 
 def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
@@ -19,7 +21,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
         all_file_groups: An instance of SuperGroup that contains all groups of files parsed for metadata and harvested metadata
     """
     if verbose:
-        print(f"Start havesting metadata from files under the given path {target_path}\n")
+        print(f"Start havesting metadata from files under the given path {target_path}...\n")
   
     # Find all files under the given path
     file_dict = crawler(path)
@@ -34,14 +36,17 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
     # Create an instance of SuperGroup class to hold all parsed files grouped based on file_types.
     all_file_groups = SuperGroup(name="all parsed file groups", file_group_names = {}, groups=[])
 
-    vtk_file_extension = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'fib', 'ply', 'stl', 'obj', 'g', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu', 'png', 'jpg', 'jpeg', 'glb', 'pnm', 'pgm', 'ppm', 'tif', 'tiff']
-
+    # File formats (extensions) categorized into different groups
+    VTK_FILE = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu'] 
+    IMAGE_FILE_2D = ['jpg', 'jpeg', 'png', 'tif', 'tiff', 'pnm', 'pgm', 'ppm']
+    IMAGE_FILE_3D = ['fib', 'ply', 'stl', 'obj', 'g','glb']
+    
     
     # Use file parsers to extract metadata from files
     if file_dict:
         for file_type in file_dict:
             
-            if file_type in vtk_file_extension:
+            if file_type in VTK_FILE + IMAGE_FILE_2D + IMAGE_FILE_3D:
                 file_type_parser_name = "parse_vtk"
             else:
                 file_type_parser_name = "parse_" + file_type
@@ -50,8 +55,12 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
             file_type_parser = getattr(parser, file_type_parser_name, None)
             # Use parser to parse the files of the specfic file_type if exists
             if file_type_parser:   
-                if file_type in vtk_file_extension:
+                if file_type in VTK_FILE: 
                     file_group_name = "vtk files"
+                elif file_type in IMAGE_FILE_2D:
+                    file_group_name = "2D image files"
+                elif file_type in IMAGE_FILE_3D:
+                    file_group_name = "3D image files"
                 else:
                     file_group_name = file_type + " files"
                     
