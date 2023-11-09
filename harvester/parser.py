@@ -4,6 +4,7 @@ import os
 import crawler
 import vtk
 import pyvista as pv
+from pyvista import examples
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
@@ -157,7 +158,15 @@ class Parser():
             reader = vtk.vtkXMLPPolyDataReader()
             reader.SetFileName(vtk_file)
             reader.Update()
-            output = pv.wrap(reader.GetOutput())           
+            output = pv.wrap(reader.GetOutput())  
+        elif file_type in (".hdf5", ".h5", ".he5"):
+             reader = vtk.vtkHDFReader()
+             reader.SetFileName(vtk_file)
+             reader.Update()            
+             print(f"vtk file: {vtk_file}")
+             output = reader.GetOutput()
+             print(f"hdf output: {output}")
+        #elif file_type in ("hdr", "hd4", "hd5"):
         else:
             output = pv.read(vtk_file)
         #print(f"file name: {os.path.basename(vtk_file)}")
