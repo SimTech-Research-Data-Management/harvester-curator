@@ -5,13 +5,13 @@ import requests
 import difflib
 import argparse
 
-# def cal_simi_rat(string1, string2):
-#     sequence_matcher = difflib.SequenceMatcher(None, string1, string2)
-#     # Note: Perform continuous checking on second string. 
-#     # Ex: "diet" and "tide" matches "de" but for "tide" and "diet" onlt "t" 
-#     # as "t" is at the end of "diet", so no continuous match except "t" itself.
-#     similarity_ratio = sequence_matcher.ratio()
-#     return similarity_ratio
+def cal_simi_rat(string1, string2):
+    sequence_matcher = difflib.SequenceMatcher(None, string1, string2)
+    # Note: Perform continuous checking on second string. 
+    # Ex: "diet" and "tide" matches "de" but for "tide" and "diet" onlt "t" 
+    # as "t" is at the end of "diet", so no continuous match except "t" itself.
+    similarity_ratio = sequence_matcher.ratio()
+    return similarity_ratio
 
 
 def get_json_from_api(api_url):
@@ -110,7 +110,7 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
 
         test_criterias = [class_name, class_name_mod, title, title_mod]
         type_name = None
-        #match_found = False
+        match_found = False
 
         # Matches the clsses between harvested_data (given as input) and metadata schema.
         for test_criteria in test_criterias:
@@ -118,34 +118,32 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
                 type_name = class_name
                 har_class_name = test_criteria
                 #print(class_name)
-                #match_found = True
+                match_found = True
                 break # without this break engMeta match was not working. Do not know why.
-            else:
-                type_name = None
 
-        # # If no matches found try to find matches with interactive session     
-        # if not match_found:
-        #     for har_json_class in har_json_classes:
-        #         for test_criteria in test_criterias:
-        #             sim_rat = cal_simi_rat(test_criteria, har_json_class)
-        #             if sim_rat > 0.85:
-        #                 valid_input = False
-        #                 while valid_input is not True:
-        #                     #per = sim_rat*100
-        #                     #print(f'\nSimilarity matching between {test_criteria} and {har_json_class} is {per}%')
-        #                     user_input = input(f'\nDo you want to mean {test_criteria} by {har_json_class}? (yes/no) \n')
-        #                     if user_input.lower() == "yes":
-        #                         print(f'{har_json_class} is mapped to {test_criteria}\n')
-        #                         type_name = class_name
-        #                         har_class_name = har_json_class 
-        #                         match_found = True
-        #                         valid_input = True
-        #                         break  # Exit the loop if a match is found
-        #                     elif user_input == "no":
-        #                         print("\nMatching skipped\n")
-        #                         valid_input = True
-        #                     else:
-        #                         print("\nInvalid input. Please enter 'yes' or 'no'.\n")
+        # If no matches found try to find matches with interactive session     
+        if not match_found:
+            for har_json_class in har_json_classes:
+                for test_criteria in test_criterias:
+                    sim_rat = cal_simi_rat(test_criteria, har_json_class)
+                    if sim_rat > 0.85:
+                        valid_input = False
+                        while valid_input is not True:
+                            #per = sim_rat*100
+                            #print(f'\nSimilarity matching between {test_criteria} and {har_json_class} is {per}%')
+                            user_input = input(f'\nDo you want to mean {test_criteria} by {har_json_class}? (yes/no) \n')
+                            if user_input.lower() == "yes":
+                                print(f'{har_json_class} is mapped to {test_criteria}\n')
+                                type_name = class_name
+                                har_class_name = har_json_class 
+                                match_found = True
+                                valid_input = True
+                                break  # Exit the loop if a match is found
+                            elif user_input == "no":
+                                print("\nMatching skipped\n")
+                                valid_input = True
+                            else:
+                                print("\nInvalid input. Please enter 'yes' or 'no'.\n")
         
         if type_name is not None:
             if schema_name and not schema_name[0].isupper():
