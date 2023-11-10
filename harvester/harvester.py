@@ -3,8 +3,7 @@ from typing import Optional, Type
 from crawler import crawler
 from parser import Parser
 from file_group import File, FileGroup, SuperGroup
-import yaml
-
+import argparse
 
 
 def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
@@ -21,7 +20,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
         all_file_groups: An instance of SuperGroup that contains all groups of files parsed for metadata and harvested metadata
     """
     if verbose:
-        print(f"Start havesting metadata from files under the given path {target_path}...\n")
+        print(f"Start havesting metadata from files under the given path {args.path} ...\n")
   
     # Find all files under the given path
     file_dict = crawler(path)
@@ -98,24 +97,37 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
       
     return all_file_groups
 
-
 if __name__ == "__main__":
+
+    arg_parser = argparse.ArgumentParser(description="Harvest metadata from files under a given path.")
+    arg_parser.add_argument("--path", dest= "path", required=True, help="Base directory for metadata harvesting")
+    arg_parser.add_argument("-v", "--verbose", action="store_true", help="Generate messages regarding unparsed file(s) and filetype(s)")
+
+    args = arg_parser.parse_args()
   
-    print("----- A simple example of using harvester to extract metadata from all files in a given directory ---- \n")
+    #print(f"----- Harvesting metadata from files under the given path {args.path} -----\n")
   
-    # Define the target path that contains files for metadata harvesting
-    target_path = os.path.join(os.path.dirname(os.getcwd()), "example")
+    all_file_groups = harvester(args.path, args.verbose)
   
-    # Use harvester to parse files and extract metadata
-    all_file_groups = harvester(target_path, True)
-    print("---*** Matadata harvester output ***---\n")
+    print("---*** Metadata Harvester Output ***---\n")
+    # Determine the parent directory of the given path
+    parent_directory = os.path.abspath(os.path.join(args.path, os.pardir))
+
+    # Create the 'harvester_output' directory if it doesn't exist
+    output_directory = os.path.join(parent_directory, 'harvester_output')
+    os.makedirs(output_directory, exist_ok=True)
+
+    # Construct the path for the output file in the 'output' directory
+    output_file_path = os.path.join(output_directory, 'harvester_output.json')
+
+    # Print the path to the output file
+    print(f"Output will be written to: {output_file_path}")
+
     print(all_file_groups.yaml())
-#    print(f"--- Tree visulization of metadata harvested---\n")
-#    all_file_groups.visualize_tree()
-#    print("\n")
-  
-    #Export output from metadata harvester into a json file
-    with open("harvester_output.json", "w") as f:
+    #print(f"--- Tree visulization of metadata harvested---\n")
+    #all_file_groups.visualize_tree()
+    #print("\n")
+
+    # Export output from metadata harvester into a JSON file
+    with open(output_file_path, "w") as f:
         f.write(all_file_groups.json())
-
-
