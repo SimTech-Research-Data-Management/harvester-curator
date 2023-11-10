@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<book>
-  <title title="Harry Potter and the Philosopher's Stone">
-        <author_name name="J.K. Rowling"/> 
-        <author_name name="John Doe"/>
-        <publisher>Bloomsbury Publishing</publisher>
-        <year>1997</year>
-  </title>
-</book>
