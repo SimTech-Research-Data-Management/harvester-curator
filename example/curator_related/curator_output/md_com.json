@@ -1,0 +1,54 @@
+{
+  "lib_name": "pyDaRUS",
+  "metadatablocks": {
+    "citation": {
+      "title": "Example of Curation with Citation Metadata field",
+      "author": [
+        {
+          "name": "Author 1",
+          "affiliation": "University of Stuttgart"
+        },
+        {
+          "name": "Author 2",
+          "affiliation": "University of Stuttgart"
+        }
+      ],
+      "description": [
+        {
+          "text": "This describes my dataset",
+          "date": "2023"
+        }
+      ],
+      "subject": [
+        "Mathematical Sciences"
+      ],
+      "keyword": [
+        {
+          "term": "mean squared error",
+          "vocabulary": "TEMA",
+          "vocabulary_url": "https://purl.org/tema/233675"
+        },
+        {
+          "term": "mathematical physics"
+        }
+      ]
+    },
+    "privacy": {
+      "personal_data": "no"
+    },
+    "engMeta": {
+      "description": [
+        {
+          "text": "This describes my dataset",
+          "date": "2023"
+        }
+      ],
+      "spatial_resolution": [
+        {
+          "number_of_cells": 10,
+          "number_of_blocks": 20
+        }
+      ]
+    }
+  }
+}
