@@ -36,93 +36,93 @@ class Parser():
         return dict_
         
 
-    def parse_xml(self, xml_file: str) -> dict:
-        """
-        This function parses an input xml file to extract metadata
+    # def parse_xml(self, xml_file: str) -> dict:
+    #     """
+    #     This function parses an input xml file to extract metadata
 
-        Args:
-            xml_file (str): An input xml file
+    #     Args:
+    #         xml_file (str): An input xml file
           
-        Returns:
-            meta_dict (dict): A dictionary that contains extracted metadata          
-        """ 
+    #     Returns:
+    #         meta_dict (dict): A dictionary that contains extracted metadata          
+    #     """ 
       
-        # Parse the XML file
-        tree = etree.parse(xml_file)
-        root = tree.getroot()
+    #     # Parse the XML file
+    #     tree = etree.parse(xml_file)
+    #     root = tree.getroot()
 
 
-        # Create a dictionary to hold the metadata extracted from the file
-        meta_dict = {}
+    #     # Create a dictionary to hold the metadata extracted from the file
+    #     meta_dict = {}
       
-        # Find and get the elements from the file and append them to metadata dictionary
-        for title in root.xpath('//title'):
-            title_ = title.get('title')
-            year = title.find('year').text
+    #     # Find and get the elements from the file and append them to metadata dictionary
+    #     for title in root.xpath('//title'):
+    #         title_ = title.get('title')
+    #         year = title.find('year').text
           
-            self.append_value(meta_dict, "title", title_)
-            self.append_value(meta_dict, "year", year)
+    #         self.append_value(meta_dict, "title", title_)
+    #         self.append_value(meta_dict, "year", year)
           
-        for author in title.xpath('./author_name'):
-            author = author.get('name')
-            self.append_value(meta_dict, "author", author)
+    #     for author in title.xpath('./author_name'):
+    #         author = author.get('name')
+    #         self.append_value(meta_dict, "author", author)
           
-        return meta_dict
+    #     return meta_dict
        
        
-    def parse_txt(self, txt_file: str) -> dict:
-        """
-        This function parses an input txt file to extract metadata
+    # def parse_txt(self, txt_file: str) -> dict:
+    #     """
+    #     This function parses an input txt file to extract metadata
 
-        Args:
-            txt_file (str): An input text file
+    #     Args:
+    #         txt_file (str): An input text file
 
-        Returns:
-            meta_dict (dict): A dictionary that contains extracted metadata  
-        """  
+    #     Returns:
+    #         meta_dict (dict): A dictionary that contains extracted metadata  
+    #     """  
 
-        # Create a dictionary to hold the metadata extracted from the file
-        meta_dict = {}
+    #     # Create a dictionary to hold the metadata extracted from the file
+    #     meta_dict = {}
         
-        # Read the author name(s) from the file and append to metadata dictionary
-        with open(txt_file, "r") as file:
-            for line in file:
-                if "Author Name:" in line:
-                    author = line.split("Author Name:")[1].strip()
-                    self.append_value(meta_dict, "author", author)
+    #     # Read the author name(s) from the file and append to metadata dictionary
+    #     with open(txt_file, "r") as file:
+    #         for line in file:
+    #             if "Author Name:" in line:
+    #                 author = line.split("Author Name:")[1].strip()
+    #                 self.append_value(meta_dict, "author", author)
         
-        return meta_dict
+    #     return meta_dict
 
 
-    def parse_vtu(self, vtu_file:str) -> dict:
-        """
-        This function parses an input vtu file to extract metadata based on a markdown model of vtk specifications
+    # def parse_vtu(self, vtu_file:str) -> dict:
+    #     """
+    #     This function parses an input vtu file to extract metadata based on a markdown model of vtk specifications
 
-        Args:
-            vtu_file (str): An input vtu file
+    #     Args:
+    #         vtu_file (str): An input vtu file
             
-        Returns:
-            meta_dict (dict): A dictionary that contains extracted metadata  
-        """  
+    #     Returns:
+    #         meta_dict (dict): A dictionary that contains extracted metadata  
+    #     """  
 
-        # Create a dictionary to hold the metadata extracted from the file
-        meta_dict = {}
+    #     # Create a dictionary to hold the metadata extracted from the file
+    #     meta_dict = {}
         
-        # Markdown model that contains contains vtk schema
-        vtu_model = "vtu_model.md"
-        vtu_model_filepath = os.path.join(os.getcwd(), os.path.join("specifications", vtu_model))
+    #     # Markdown model that contains contains vtk schema
+    #     vtu_model = "vtu_model.md"
+    #     vtu_model_filepath = os.path.join(os.getcwd(), os.path.join("specifications", vtu_model))
         
-        # Read vtu model to generate the Python objects needed for parsing vtu files
-        lib = DataModel.from_markdown(vtu_model_filepath)
-        # Extract metadata from an input vtu file
-        dataset = lib.VTKFile.from_xml(open(vtu_file))
-        # Convert metadata output to a dict
-        meta_dict = dataset.to_dict()
-        # Remove the key "__source__" from meta dict 
-        if "__source__" in meta_dict:
-            del meta_dict["__source__"]
+    #     # Read vtu model to generate the Python objects needed for parsing vtu files
+    #     lib = DataModel.from_markdown(vtu_model_filepath)
+    #     # Extract metadata from an input vtu file
+    #     dataset = lib.VTKFile.from_xml(open(vtu_file))
+    #     # Convert metadata output to a dict
+    #     meta_dict = dataset.to_dict()
+    #     # Remove the key "__source__" from meta dict 
+    #     if "__source__" in meta_dict:
+    #         del meta_dict["__source__"]
             
-        return meta_dict
+    #     return meta_dict
       
     def parse_vtk(self, vtk_file:str) -> dict:
         """
