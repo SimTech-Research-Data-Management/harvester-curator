@@ -120,13 +120,13 @@ if __name__ == "__main__":
     # Construct the path for the output file in the 'output' directory
     output_file_path = os.path.join(output_directory, 'harvester_output.json')
 
-    # Print the path to the output file
-    print(f"Output will be written to: {output_file_path}")
-
     print(all_file_groups.yaml())
     #print(f"--- Tree visulization of metadata harvested---\n")
     #all_file_groups.visualize_tree()
     #print("\n")
+
+    # Print the path to the output file
+    print(f"Output will be written to: {output_file_path}")
 
     # Export output from metadata harvester into a JSON file
     with open(output_file_path, "w") as f:
