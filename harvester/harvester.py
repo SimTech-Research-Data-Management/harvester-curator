@@ -39,6 +39,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
     VTK_FILE = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu', 'hdf', '.h5', '.hdf5'] 
     IMAGE_FILE_2D = ['jpg', 'jpeg', 'png', 'tif', 'tiff', 'dcm', 'pnm', 'pgm', 'ppm', 'img', 'bmp']
     IMAGE_FILE_3D = ['fib', 'ply', 'stl', 'obj', 'g','glb', 'exo', 'facet', 'slc', 'mhd', 'dem']
+    HDF5_FILE = ["hdf5", "h5", "he5"]
        
     # Use file parsers to extract metadata from files
     if file_dict:
@@ -46,6 +47,8 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
             
             if file_type in VTK_FILE + IMAGE_FILE_2D + IMAGE_FILE_3D:
                 file_type_parser_name = "parse_vtk"
+            elif file_type in HDF5_FILE:
+                file_type_parser_name = "parse_hdf5" 
             else:
                 file_type_parser_name = "parse_" + file_type
 
@@ -59,6 +62,8 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
                     file_group_name = "2D image files"
                 elif file_type in IMAGE_FILE_3D:
                     file_group_name = "3D image files"
+                elif file_type in HDF5_FILE:
+                    file_group_name = "hdf5 files"
                 else:
                     file_group_name = file_type + " files"
                     
