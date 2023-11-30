@@ -169,13 +169,13 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
         json.dump(json_data, json_file, indent=2)
 
 if __name__ == "__main__":
+
+    # default_darus_metadata_endpoint
+    darus_metadata_endpoint = "./api_end_points/darus_md_schema_api_endpoints.json"
+
     arg_parser = argparse.ArgumentParser(description="Generate compatible metadata.")
-    # arg_parser.add_argument("api_endpoints_file_path", help="Path to the file containing API endpoints.")
-    # arg_parser.add_argument("har_json_file", help="Path to the harvested JSON file.")
-    
-    # Add command line arguments for metadata_api_endpoint and harvested_metadata
-    arg_parser.add_argument("--apiendp", dest="api_endpoints_file_path", required=True, help="API endpoint for metadata.")
-    arg_parser.add_argument("--harmd", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
+    arg_parser.add_argument("--darus", dest="api_endpoints_file_path", default=darus_metadata_endpoint, nargs='?', const=darus_metadata_endpoint, help="API endpoint for metadata.")
+    arg_parser.add_argument("--path", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
     arg_parser.add_argument("-i", "--interactive", action="store_true", help="Enable interactive mode.")
 
     args = arg_parser.parse_args()
@@ -200,6 +200,10 @@ if __name__ == "__main__":
         har_json_data = json.load(file)
 
     try:
+        # If --darus is specified without an argument, use the default_darus_file
+        if args.api_endpoints_file_path is None:
+            args.api_endpoints_file_path = darus_metadata_endpoint
+
         with open(args.api_endpoints_file_path) as json_file:
             api_blocks = json.load(json_file)
 
@@ -207,14 +211,13 @@ if __name__ == "__main__":
             print("Error: JSON file should contain a list of API blocks.")
 
         for block in api_blocks:
-            
             api_url = block.get("api_endpoint")
             schema_name = block.get("name")
 
             if schema_name and api_url:
                 metadata_schema = get_json_from_api(api_url)
                 print(f"Processing {schema_name} metadata...\n")
-                #search, create and update corresponding matadata
+                # Search, create, and update corresponding metadata (passing the interactive argument)
                 com_har_metadata = get_compatible_metadatablocks(com_metadata_file, com_metadata, schema_name, har_json_data, metadata_schema, interactive=args.interactive)
 
             else:
@@ -222,6 +225,7 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"An error occurred while processing API endpoints: {e}")
+
 
     # A dataset will be created from the harvested information
     # Initialize dataset
