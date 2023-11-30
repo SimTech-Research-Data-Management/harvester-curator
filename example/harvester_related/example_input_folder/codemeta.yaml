@@ -1,0 +1,37 @@
+---
+# CodeMeta file example in YAML format
+
+name: MyAwesomeProject
+version: "1.0.0"
+description: A fantastic project showcasing CodeMeta.
+
+keywords:
+  - code
+  - metadata
+  - example
+
+license: MIT
+
+creators:
+  - name: John Doe
+    affiliation: Example University
+    email: john.doe@example.com
+
+contributors:
+  - name: Jane Smith
+    affiliation: Another University
+    email: jane.smith@example.com
+
+dateCreated: 2022-01-01
+
+codeRepository: https://github.com/example/my-awesome-project
+
+programmingLanguage:
+  - Python
+  - JavaScript
+
+dependencies:
+  - name: requests
+    version: "^2.26.0"
+  - name: numpy
+    version: "^1.22.0"
