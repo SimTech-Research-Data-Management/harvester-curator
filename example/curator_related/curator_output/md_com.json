@@ -13,16 +13,6 @@
           "affiliation": "University of Stuttgart"
         }
       ],
-      "contact": [
-        {
-          "name": "Contact 1",
-          "email": "contact1@uni-stuttgart.de"
-        },
-        {
-          "name": "Contact 2",
-          "email": "contact2@uni-stuttgart.de"
-        }
-      ],
       "description": [
         {
           "text": "This describes my dataset",
