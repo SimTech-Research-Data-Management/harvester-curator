@@ -79,7 +79,7 @@ def attribute_name_by_type_name(cls, type_name):
 
 
 
-def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har_json_data, metadata_schema):
+def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har_json_data, metadata_schema, interactive=False):
     
     # Check if 'metadatablocks' class is present in harvested metadata file
     if 'metadatablocks' not in json_data:
@@ -121,29 +121,30 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
                 match_found = True
                 break # without this break engMeta match was not working. Do not know why.
 
-        # If no matches found try to find matches with interactive session     
-        if not match_found:
-            for har_json_class in har_json_classes:
-                for test_criteria in test_criterias:
-                    sim_rat = cal_simi_rat(test_criteria, har_json_class)
-                    if sim_rat > 0.85:
-                        valid_input = False
-                        while valid_input is not True:
-                            #per = sim_rat*100
-                            #print(f'\nSimilarity matching between {test_criteria} and {har_json_class} is {per}%')
-                            user_input = input(f'\nDo you want to mean {test_criteria} by {har_json_class}? (yes/no) \n')
-                            if user_input.lower() == "yes":
-                                print(f'{har_json_class} is mapped to {test_criteria}\n')
-                                type_name = class_name
-                                har_class_name = har_json_class 
-                                match_found = True
-                                valid_input = True
-                                break  # Exit the loop if a match is found
-                            elif user_input == "no":
-                                print("\nMatching skipped\n")
-                                valid_input = True
-                            else:
-                                print("\nInvalid input. Please enter 'yes' or 'no'.\n")
+        if interactive:
+            # If no matches found try to find matches with interactive session     
+            if not match_found:
+                for har_json_class in har_json_classes:
+                    for test_criteria in test_criterias:
+                        sim_rat = cal_simi_rat(test_criteria, har_json_class)
+                        if sim_rat > 0.85:
+                            valid_input = False
+                            while valid_input is not True:
+                                #per = sim_rat*100
+                                #print(f'\nSimilarity matching between {test_criteria} and {har_json_class} is {per}%')
+                                user_input = input(f'\nDo you want to mean {test_criteria} by {har_json_class}? (yes/no) \n')
+                                if user_input.lower() == "yes":
+                                    print(f'{har_json_class} is mapped to {test_criteria}\n')
+                                    type_name = class_name
+                                    har_class_name = har_json_class 
+                                    match_found = True
+                                    valid_input = True
+                                    break  # Exit the loop if a match is found
+                                elif user_input == "no":
+                                    print("\nMatching skipped\n")
+                                    valid_input = True
+                                else:
+                                    print("\nInvalid input. Please enter 'yes' or 'no'.\n")
         
         if type_name is not None:
             if schema_name and not schema_name[0].isupper():
@@ -175,6 +176,7 @@ if __name__ == "__main__":
     # Add command line arguments for metadata_api_endpoint and harvested_metadata
     arg_parser.add_argument("--apiendp", dest="api_endpoints_file_path", required=True, help="API endpoint for metadata.")
     arg_parser.add_argument("--harmd", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
+    arg_parser.add_argument("-i", "--interactive", action="store_true", help="Enable interactive mode.")
 
     args = arg_parser.parse_args()
 
@@ -213,7 +215,7 @@ if __name__ == "__main__":
                 metadata_schema = get_json_from_api(api_url)
                 print(f"Processing {schema_name} metadata...\n")
                 #search, create and update corresponding matadata
-                com_har_metadata = get_compatible_metadatablocks(com_metadata_file, com_metadata, schema_name, har_json_data, metadata_schema)
+                com_har_metadata = get_compatible_metadatablocks(com_metadata_file, com_metadata, schema_name, har_json_data, metadata_schema, interactive=args.interactive)
 
             else:
                 print("Error: Each block should contain a metadata schema 'name' and its 'api_endpoint'.")
@@ -232,5 +234,5 @@ if __name__ == "__main__":
     print(dataset.yaml())
 
     # Upload the dataset
-    p_id = dataset.upload (dataverse_name="roy_dataverse")
+    # p_id = dataset.upload (dataverse_name="roy_dataverse")
     # dataset.update(contact_name="Sarbani Roy", contact_email="sarbani.roy@simtech.uni-stuttgart.de")
