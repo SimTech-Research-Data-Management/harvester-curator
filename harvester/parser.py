@@ -5,12 +5,15 @@ import crawler
 import vtk
 import pyvista as pv
 from pyvista import examples
+from typing import Union
+import h5py
+
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
 
     
-    def __init__(self):      
+    def __init__(self) -> None:      
         pass
 
     def append_value(self, dict_: dict, key_: str, value_: str) -> dict:
@@ -34,95 +37,75 @@ class Parser():
                 dict_[key_] = [value_]
       
         return dict_
+
+
+    def extract_hdf5_metadata(self, name: str, obj: Union[h5py.Group, h5py.Dataset]) -> None:
+        """
+        Extract metadata from the first h5py Group or Dataset instance with the provided name
         
+        Args:
+            name: Name of h5py Group or Dataset
+            obj: A h5py Group or Dataset
 
-    # def parse_xml(self, xml_file: str) -> dict:
-    #     """
-    #     This function parses an input xml file to extract metadata
+        Returns:
+            None
 
-    #     Args:
-    #         xml_file (str): An input xml file
+        """
+        item_name = obj.name
+        if isinstance(obj, h5py.Group):
+            group_name = item_name
+            # Extract group metadata
+            group_attributes = dict(list(obj.attrs.items()))
+            if group_attributes:
+                self.item_list[": ".join(["group_name", group_name])] = [{"group_metadata": group_attributes}]     
+        elif isinstance(obj, h5py.Dataset):      
+            dataset_all_metadata = []
+
+            # Extract dataset metadata
+            dataset_attributes = dict(list(obj.attrs.items()))      
+            if dataset_attributes:
+                dataset_all_metadata.append({"dataset_attributes": dataset_attributes})
+
+            # Extract numpy attributes from dataset
+            dataset_numpy_attributes = []
+            dataset_numpy_attributes.append({"dtype": obj.dtype})
+            dataset_numpy_attributes.append({"shape": obj.shape})
+            dataset_numpy_attributes.append({"size": obj.size})
+            dataset_numpy_attributes.append({"ndim": obj.ndim})   
+            dataset_numpy_attributes.append({"nbytes": obj.nbytes})     
+            dataset_numpy_attributes.append({"maxshape": obj.maxshape})  
+            dataset_numpy_attributes.append({"maxshape": obj.maxshape})    
+            if dataset_numpy_attributes:
+                dataset_all_metadata.append({"dataset_numpy_attributes": dataset_numpy_attributes})
+                
+            dataset_name = os.path.basename(item_name)
+            current_group_name = os.path.dirname(item_name)
+            current_group_name_record = ": ".join(["group_name", current_group_name])
+            if current_group_name_record in self.item_list:
+                self.item_list[current_group_name_record].append({": ".join(["dataset_name", dataset_name]): {"dataset_metadata": dataset_all_metadata}})
+            else:     
+                self.item_list[current_group_name_record] = [{": ".join(["dataset_name", dataset_name]): {"dataset_metadata": dataset_all_metadata}}]
+                
+        else:
+            print(f"item: {item_name} is neither group nor dataset")
+        
+        
+    
+    def parse_hdf5(self, hdf5_file: str) -> dict:
+        """
+        This function parses an hdf5 file (.hdf5, .h5, .he5) to extract metadata
+
+        Args:
+            hdf5_file (str): An input hdf5 file
           
-    #     Returns:
-    #         meta_dict (dict): A dictionary that contains extracted metadata          
-    #     """ 
-      
-    #     # Parse the XML file
-    #     tree = etree.parse(xml_file)
-    #     root = tree.getroot()
-
-
-    #     # Create a dictionary to hold the metadata extracted from the file
-    #     meta_dict = {}
-      
-    #     # Find and get the elements from the file and append them to metadata dictionary
-    #     for title in root.xpath('//title'):
-    #         title_ = title.get('title')
-    #         year = title.find('year').text
-          
-    #         self.append_value(meta_dict, "title", title_)
-    #         self.append_value(meta_dict, "year", year)
-          
-    #     for author in title.xpath('./author_name'):
-    #         author = author.get('name')
-    #         self.append_value(meta_dict, "author", author)
-          
-    #     return meta_dict
-       
-       
-    # def parse_txt(self, txt_file: str) -> dict:
-    #     """
-    #     This function parses an input txt file to extract metadata
-
-    #     Args:
-    #         txt_file (str): An input text file
-
-    #     Returns:
-    #         meta_dict (dict): A dictionary that contains extracted metadata  
-    #     """  
-
-    #     # Create a dictionary to hold the metadata extracted from the file
-    #     meta_dict = {}
-        
-    #     # Read the author name(s) from the file and append to metadata dictionary
-    #     with open(txt_file, "r") as file:
-    #         for line in file:
-    #             if "Author Name:" in line:
-    #                 author = line.split("Author Name:")[1].strip()
-    #                 self.append_value(meta_dict, "author", author)
-        
-    #     return meta_dict
-
-
-    # def parse_vtu(self, vtu_file:str) -> dict:
-    #     """
-    #     This function parses an input vtu file to extract metadata based on a markdown model of vtk specifications
-
-    #     Args:
-    #         vtu_file (str): An input vtu file
-            
-    #     Returns:
-    #         meta_dict (dict): A dictionary that contains extracted metadata  
-    #     """  
-
-    #     # Create a dictionary to hold the metadata extracted from the file
-    #     meta_dict = {}
-        
-    #     # Markdown model that contains contains vtk schema
-    #     vtu_model = "vtu_model.md"
-    #     vtu_model_filepath = os.path.join(os.getcwd(), os.path.join("specifications", vtu_model))
-        
-    #     # Read vtu model to generate the Python objects needed for parsing vtu files
-    #     lib = DataModel.from_markdown(vtu_model_filepath)
-    #     # Extract metadata from an input vtu file
-    #     dataset = lib.VTKFile.from_xml(open(vtu_file))
-    #     # Convert metadata output to a dict
-    #     meta_dict = dataset.to_dict()
-    #     # Remove the key "__source__" from meta dict 
-    #     if "__source__" in meta_dict:
-    #         del meta_dict["__source__"]
-            
-    #     return meta_dict
+        Returns:
+            meta_dict (dict): A dictionary that contains extracted metadata        
+        """      
+        self.item_list = {}
+        with h5py.File(hdf5_file, "r") as f: 
+            f.visititems(self.extract_hdf5_metadata)
+        meta_dict = self.item_list
+        return meta_dict
       
     def parse_vtk(self, vtk_file:str) -> dict:
         """
@@ -159,14 +142,6 @@ class Parser():
             reader.SetFileName(vtk_file)
             reader.Update()
             output = pv.wrap(reader.GetOutput())  
-        elif file_type in (".hdf5", ".h5", ".he5"):
-             reader = vtk.vtkHDFReader()
-             reader.SetFileName(vtk_file)
-             reader.Update()            
-             print(f"vtk file: {vtk_file}")
-             output = reader.GetOutput()
-             print(f"hdf output: {output}")
-        #elif file_type in ("hdr", "hd4", "hd5"):
         else:
             output = pv.read(vtk_file)
         #print(f"file name: {os.path.basename(vtk_file)}")

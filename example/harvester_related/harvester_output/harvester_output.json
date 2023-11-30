@@ -3,6 +3,7 @@
   "file_group_names": {
     "2D image files": [
       "bmp",
+      "dcm",
       "img",
       "jpg",
       "pgm",
@@ -12,7 +13,6 @@
       "tif"
     ],
     "3D image files": [
-      "dcm",
       "dem",
       "exo",
       "facet",
@@ -21,6 +21,10 @@
       "ply",
       "slc",
       "stl"
+    ],
+    "hdf5 files": [
+      "h5",
+      "hdf5"
     ],
     "vtk files": [
       "hdf",
@@ -42,7 +46,7 @@
       "files": [
         {
           "name": "masonry.bmp",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/masonry.bmp",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/masonry.bmp",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -97,8 +101,64 @@
           }
         },
         {
+          "name": "DICOM_KNEE.dcm",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/DICOM_KNEE.dcm",
+          "metadata": {
+            "dataset_type": [
+              "ImageData"
+            ],
+            "number_of_points": [
+              262144
+            ],
+            "number_of_cells": [
+              261121
+            ],
+            "number_of_arrays": [
+              1
+            ],
+            "array_names": [
+              {
+                "point_data_array_names": [
+                  "DICOMImage"
+                ]
+              }
+            ],
+            "dimensions": [
+              [
+                512,
+                512,
+                1
+              ]
+            ],
+            "spacing": [
+              [
+                0.42969998717308044,
+                0.42969998717308044,
+                0.800000011920929
+              ]
+            ],
+            "mesh_bounds": [
+              [
+                0.0,
+                219.5766934454441,
+                0.0,
+                219.5766934454441,
+                0.0,
+                0.0
+              ]
+            ],
+            "mesh_center": [
+              [
+                109.78834672272205,
+                109.78834672272205,
+                0.0
+              ]
+            ]
+          }
+        },
+        {
           "name": "prostate.img",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/prostate.img",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/prostate.img",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -154,7 +214,7 @@
         },
         {
           "name": "earth.jpg",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/earth.jpg",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/earth.jpg",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -210,7 +270,7 @@
         },
         {
           "name": "binary.pgm",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/binary.pgm",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/binary.pgm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -266,7 +326,7 @@
         },
         {
           "name": "uni_stuttgart.png",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/uni_stuttgart.png",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/uni_stuttgart.png",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -322,7 +382,7 @@
         },
         {
           "name": "Gourds.pnm",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/Gourds.pnm",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/Gourds.pnm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -378,7 +438,7 @@
         },
         {
           "name": "earth.ppm",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/earth.ppm",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/earth.ppm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -434,7 +494,7 @@
         },
         {
           "name": "ColorCells.tif",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ColorCells.tif",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ColorCells.tif",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -494,64 +554,8 @@
       "name": "3D image files",
       "files": [
         {
-          "name": "DICOM_KNEE.dcm",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/DICOM_KNEE.dcm",
-          "metadata": {
-            "dataset_type": [
-              "ImageData"
-            ],
-            "number_of_points": [
-              262144
-            ],
-            "number_of_cells": [
-              261121
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "DICOMImage"
-                ]
-              }
-            ],
-            "dimensions": [
-              [
-                512,
-                512,
-                1
-              ]
-            ],
-            "spacing": [
-              [
-                0.42969998717308044,
-                0.42969998717308044,
-                0.800000011920929
-              ]
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                219.5766934454441,
-                0.0,
-                219.5766934454441,
-                0.0,
-                0.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                109.78834672272205,
-                109.78834672272205,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
           "name": "SainteHelens.dem",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/SainteHelens.dem",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/SainteHelens.dem",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -607,7 +611,7 @@
         },
         {
           "name": "mesh_fs8.exo",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/mesh_fs8.exo",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/mesh_fs8.exo",
           "metadata": {
             "dataset_type": [
               "MultiBlock"
@@ -636,7 +640,7 @@
         },
         {
           "name": "clown.facet",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/clown.facet",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/clown.facet",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -680,7 +684,7 @@
         },
         {
           "name": "Box.glb",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/Box.glb",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/Box.glb",
           "metadata": {
             "dataset_type": [
               "MultiBlock"
@@ -709,7 +713,7 @@
         },
         {
           "name": "elephav.obj",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/elephav.obj",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/elephav.obj",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -754,7 +758,7 @@
         },
         {
           "name": "bun_zipper_res4.ply",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/bun_zipper_res4.ply",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/bun_zipper_res4.ply",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -786,7 +790,7 @@
         },
         {
           "name": "nut.slc",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/nut.slc",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/nut.slc",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -842,7 +846,7 @@
         },
         {
           "name": "bolt.slc",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/bolt.slc",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/bolt.slc",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -898,7 +902,7 @@
         },
         {
           "name": "bunny.stl",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/bunny.stl",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/bunny.stl",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -931,11 +935,1150 @@
       ]
     },
     {
+      "name": "hdf5 files",
+      "files": [
+        {
+          "name": "test1.h5",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test1.h5",
+          "metadata": {
+            "group_name: /Unnamed": [
+              {
+                "dataset_name: Connections": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "int32"
+                        },
+                        {
+                          "shape": [
+                            18,
+                            4
+                          ]
+                        },
+                        {
+                          "size": "72"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "288"
+                        },
+                        {
+                          "maxshape": [
+                            18,
+                            4
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            18,
+                            4
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: DataOne": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float64"
+                        },
+                        {
+                          "shape": [
+                            16,
+                            1
+                          ]
+                        },
+                        {
+                          "size": "16"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "128"
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            1
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: DataTwo": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float64"
+                        },
+                        {
+                          "shape": [
+                            16,
+                            1
+                          ]
+                        },
+                        {
+                          "size": "16"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "128"
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            1
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: XYZ": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            16,
+                            3
+                          ]
+                        },
+                        {
+                          "size": "48"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "192"
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            3
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            3
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "NEONDSTowerTemperatureData.hdf5",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/NEONDSTowerTemperatureData.hdf5",
+          "metadata": {
+            "group_name: /Domain_03/OSBS": [
+              {
+                "group_metadata": {
+                  "LatLon": "29.68927/-81.99343",
+                  "Site Name": "Ordway-Swisher Biological Station Site"
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_1/boom_1": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "0.41 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.002.001.001",
+                        "Product Name": "1 minute minimum temperature tower level 1",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_1/boom_2": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "1.93 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.003.002.001",
+                        "Product Name": "1 minute maximum temperature tower level 2",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_1/boom_3": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "8.7 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.001.003.001",
+                        "Product Name": "1 minute mean temperature tower level 3",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_1/boom_5": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "24.56 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.001.005.001",
+                        "Product Name": "1 minute mean temperature tower level 5",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_1/tower_top": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "34.96 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00003.001.001.006.001",
+                        "Product Name": "1 minute mean temperature tower level 6",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_30/boom_1": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "0.41 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.002.001.002",
+                        "Product Name": "30 minutes minimum temperature tower level 1",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_30/boom_2": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "1.93 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.001.002.002",
+                        "Product Name": "30 minutes mean temperature tower level 2",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_30/boom_3": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "8.7 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.004.003.002",
+                        "Product Name": "30 minutes variance temperature tower level 3",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_30/boom_5": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "24.56 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00002.001.001.005.002",
+                        "Product Name": "30 minutes mean temperature tower level 5",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_03/OSBS/min_30/tower_top": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "34.96 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D03.CS1.DP1.00003.001.001.006.002",
+                        "Product Name": "30 minutes mean temperature tower level 6",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_10/STER": [
+              {
+                "group_metadata": {
+                  "LatLon": "40.4619/-103.0293",
+                  "Site Name": "Sterling Site"
+                }
+              }
+            ],
+            "group_name: /Domain_10/STER/min_1/boom_1": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "0.127 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D10.RS1.DP1.00002.001.002.001.001",
+                        "Product Name": "1 minute minimum temperature tower level 1",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_10/STER/min_1/boom_2": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "1.497 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D10.RS1.DP1.00002.001.003.002.001",
+                        "Product Name": "1 minute maximum temperature tower level 2",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_10/STER/min_1/boom_3": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "4.606 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D10.RS1.DP1.00002.001.004.003.001",
+                        "Product Name": "1 minute variance temperature tower level 3",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "size": "4323"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "354486"
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            4323
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_10/STER/min_30/boom_1": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "0.127 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D10.RS1.DP1.00002.001.002.001.002",
+                        "Product Name": "30 minutes minimum temperature tower level 1",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_10/STER/min_30/boom_2": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "1.497 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D10.RS1.DP1.00002.001.001.002.002",
+                        "Product Name": "30 minutes mean temperature tower level 2",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /Domain_10/STER/min_30/boom_3": [
+              {
+                "group_metadata": {
+                  "Sensor Height": "4.606 m",
+                  "Sensor Type": "Thermometrics Climate RTD 100  Omega  Probe and Met One 076B aspirated radiation shield"
+                }
+              },
+              {
+                "dataset_name: temperature": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "Product ID": "NEON.D10.RS1.DP1.00002.001.004.003.002",
+                        "Product Name": "30 minutes variance temperature tower level 3",
+                        "date": "Date and time of the first measurement",
+                        "max": "The maximum temperature of numPts in Celcius, over a given time range",
+                        "mean": "The mean temperature of numPts in Celcius, calculated over a given time range",
+                        "min": "The minimum temperature of numPts in Celcius, over a given time range",
+                        "numPts": "The number of points used to calculate each summary measure",
+                        "stdErr": "The standard error of the mean temperature of numPts in Celcius, calculated over a given time range",
+                        "uncertainty": "The uncertainty of the mean temperature, over a given time range, calculated from NEON.DOC.XXX",
+                        "variance": "The variance temperature of numPts in Celcius, calculated over a given time range"
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "[('date', 'S30'), ('numPts', '<i4'), ('mean', '<f8'), ('min', '<f8'), ('max', '<f8'), ('variance', '<f8'), ('stdErr', '<f8'), ('uncertainty', '<f8')]"
+                        },
+                        {
+                          "shape": [
+                            147
+                          ]
+                        },
+                        {
+                          "size": "147"
+                        },
+                        {
+                          "ndim": 1
+                        },
+                        {
+                          "nbytes": "12054"
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            147
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "vtk files",
       "files": [
         {
           "name": "can-vtu.hdf",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/can-vtu.hdf",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/can-vtu.hdf",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -996,7 +2139,7 @@
         },
         {
           "name": "test.pvti",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/test.pvti",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test.pvti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -1055,7 +2198,7 @@
         },
         {
           "name": "polyEx.pvtp",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/polyEx.pvtp",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/polyEx.pvtp",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -1101,7 +2244,7 @@
         },
         {
           "name": "pressure_20.pvtr",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/pressure_20.pvtr",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/pressure_20.pvtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -1154,7 +2297,7 @@
         },
         {
           "name": "T0000000500.pvtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/T0000000500.pvtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500.pvtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -1202,7 +2345,7 @@
         },
         {
           "name": "heart.vti",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/heart.vti",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/heart.vti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -1258,7 +2401,7 @@
         },
         {
           "name": "0.vti",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/test/0.vti",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test/0.vti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -1317,7 +2460,7 @@
         },
         {
           "name": "1.vti",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/test/1.vti",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test/1.vti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -1376,7 +2519,7 @@
         },
         {
           "name": "usa.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/usa.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/usa.vtk",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -1408,7 +2551,7 @@
         },
         {
           "name": "gh-935.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/gh-935.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/gh-935.vtk",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -1450,7 +2593,7 @@
         },
         {
           "name": "vox8_ascii.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/vox8_ascii.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_ascii.vtk",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -1505,7 +2648,7 @@
         },
         {
           "name": "02_structured.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/02_structured.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/02_structured.vtk",
           "metadata": {
             "dataset_type": [
               "StructuredGrid"
@@ -1559,7 +2702,7 @@
         },
         {
           "name": "vox8_binary.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/vox8_binary.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary.vtk",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -1614,7 +2757,7 @@
         },
         {
           "name": "01_image.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/01_image.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/01_image.vtk",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -1675,7 +2818,7 @@
         },
         {
           "name": "06_color_scalars.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/06_color_scalars.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/06_color_scalars.vtk",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -1717,7 +2860,7 @@
         },
         {
           "name": "hello.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/hello.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/hello.vtk",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -1752,7 +2895,7 @@
         },
         {
           "name": "04_rectilinear.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/04_rectilinear.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/04_rectilinear.vtk",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -1806,7 +2949,7 @@
         },
         {
           "name": "06_unstructured.vtk",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/06_unstructured.vtk",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/06_unstructured.vtk",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -1851,7 +2994,7 @@
         },
         {
           "name": "polyEx0.vtp",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/polyEx0.vtp",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/polyEx0.vtp",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -1897,7 +3040,7 @@
         },
         {
           "name": "Bunny.vtp",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/Bunny.vtp",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/Bunny.vtp",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -1939,7 +3082,7 @@
         },
         {
           "name": "RectilinearGrid.vtr",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/RectilinearGrid.vtr",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/RectilinearGrid.vtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -1996,7 +3139,7 @@
         },
         {
           "name": "pressure_20_1.vtr",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/pressure_20/pressure_20_1.vtr",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/pressure_20/pressure_20_1.vtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -2049,7 +3192,7 @@
         },
         {
           "name": "pressure_20_0.vtr",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/pressure_20/pressure_20_0.vtr",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/pressure_20/pressure_20_0.vtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -2102,7 +3245,7 @@
         },
         {
           "name": "StructuredGrid.vts",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/StructuredGrid.vts",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/StructuredGrid.vts",
           "metadata": {
             "dataset_type": [
               "StructuredGrid"
@@ -2153,7 +3296,7 @@
         },
         {
           "name": "vox8_binary_inline_zlib.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/vox8_binary_inline_zlib.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary_inline_zlib.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2208,7 +3351,7 @@
         },
         {
           "name": "ugridex.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ugridex.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ugridex.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2253,7 +3396,7 @@
         },
         {
           "name": "01_raw_binary_int64.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/01_raw_binary_int64.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/01_raw_binary_int64.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2295,7 +3438,7 @@
         },
         {
           "name": "test_mesh.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/test_mesh.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test_mesh.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2342,7 +3485,7 @@
         },
         {
           "name": "fire_ug.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/fire_ug.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/fire_ug.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2389,7 +3532,7 @@
         },
         {
           "name": "02_raw_compressed.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/02_raw_compressed.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/02_raw_compressed.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2431,7 +3574,7 @@
         },
         {
           "name": "vox8_binary_inline.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/vox8_binary_inline.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary_inline.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2486,7 +3629,7 @@
         },
         {
           "name": "vox8_ascii.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/vox8_ascii.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_ascii.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2541,7 +3684,7 @@
         },
         {
           "name": "00_raw_binary.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/00_raw_binary.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/00_raw_binary.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2583,7 +3726,7 @@
         },
         {
           "name": "vox8_binary_appended.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/vox8_binary_appended.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary_appended.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2638,7 +3781,7 @@
         },
         {
           "name": "triangle_mesh_linear.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/triangle_mesh_linear.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/triangle_mesh_linear.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2684,7 +3827,7 @@
         },
         {
           "name": "001.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/T0000000500/001.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/001.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2732,7 +3875,7 @@
         },
         {
           "name": "003.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/T0000000500/003.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/003.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2780,7 +3923,7 @@
         },
         {
           "name": "002.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/T0000000500/002.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/002.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2828,7 +3971,7 @@
         },
         {
           "name": "000.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/T0000000500/000.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/000.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2876,7 +4019,7 @@
         },
         {
           "name": "ex-blow_5_0_0.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_0.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_0.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2927,7 +4070,7 @@
         },
         {
           "name": "ex-blow_5_0_1.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_1.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_1.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2978,7 +4121,7 @@
         },
         {
           "name": "ex-blow_5_0_7.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_7.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_7.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3029,7 +4172,7 @@
         },
         {
           "name": "ex-blow_5_1_6.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_6.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_6.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3080,7 +4223,7 @@
         },
         {
           "name": "ex-blow_5_0_5.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_5.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_5.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3131,7 +4274,7 @@
         },
         {
           "name": "ex-blow_5_1_1.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_1.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_1.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3182,7 +4325,7 @@
         },
         {
           "name": "ex-blow_5_1_5.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_5.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_5.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3233,7 +4376,7 @@
         },
         {
           "name": "ex-blow_5_0_6.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_6.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_6.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3284,7 +4427,7 @@
         },
         {
           "name": "ex-blow_5_1_7.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_7.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_7.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3335,7 +4478,7 @@
         },
         {
           "name": "ex-blow_5_1_4.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_4.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_4.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3386,7 +4529,7 @@
         },
         {
           "name": "ex-blow_5_1_3.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_3.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_3.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3437,7 +4580,7 @@
         },
         {
           "name": "ex-blow_5_0_4.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_4.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_4.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3488,7 +4631,7 @@
         },
         {
           "name": "ex-blow_5_1_0.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_0.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_0.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3539,7 +4682,7 @@
         },
         {
           "name": "ex-blow_5_1_2.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_2.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_2.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3590,7 +4733,7 @@
         },
         {
           "name": "ex-blow_5_0_3.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_3.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_3.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3641,7 +4784,7 @@
         },
         {
           "name": "ex-blow_5_0_2.vtu",
-          "path": "/home/sarbani/harvester-curator/darus_data_harvester/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_2.vtu",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_2.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"

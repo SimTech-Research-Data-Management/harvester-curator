@@ -2,7 +2,7 @@
   "lib_name": "pyDaRUS",
   "metadatablocks": {
     "citation": {
-      "title": "Example of Curation with Citation Metadata field",
+      "title": "Example of Curation",
       "author": [
         {
           "name": "Author 1",
@@ -11,6 +11,16 @@
         {
           "name": "Author 2",
           "affiliation": "University of Stuttgart"
+        }
+      ],
+      "contact": [
+        {
+          "name": "Contact 1",
+          "email": "contact1@uni-stuttgart.de"
+        },
+        {
+          "name": "Contact 2",
+          "email": "contact2@uni-stuttgart.de"
         }
       ],
       "description": [
