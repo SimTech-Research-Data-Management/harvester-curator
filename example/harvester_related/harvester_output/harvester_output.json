@@ -1,6 +1,9 @@
 {
   "name": "all parsed file groups",
   "file_group_names": {
+    "bib files": [
+      "bib"
+    ],
     "2D image files": [
       "bmp",
       "dcm",
@@ -11,6 +14,9 @@
       "pnm",
       "ppm",
       "tif"
+    ],
+    "cff files": [
+      "cff"
     ],
     "3D image files": [
       "dem",
@@ -38,9 +44,37 @@
       "vtr",
       "vts",
       "vtu"
+    ],
+    "yaml files": [
+      "yaml"
     ]
   },
   "groups": [
+    {
+      "name": "bib files",
+      "files": [
+        {
+          "name": "test.bib",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test.bib",
+          "metadata": {
+            "authors": [
+              {
+                "family-names": "Hahn",
+                "given-names": "Anselm"
+              }
+            ],
+            "cff-version": "1.2.0",
+            "date-released": "2023-11-30",
+            "doi": "10.5281/zenodo.7979015",
+            "license": "Unlicense",
+            "message": "If you use this software, please cite it as below.",
+            "title": "Dataset of code metrics",
+            "url": "https://doi.org/10.5281/zenodo.7979015",
+            "version": "v0.2.0"
+          }
+        }
+      ]
+    },
     {
       "name": "2D image files",
       "files": [
@@ -546,6 +580,52 @@
                 0.0
               ]
             ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cff files",
+      "files": [
+        {
+          "name": "CITATION.cff",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/CITATION.cff",
+          "metadata": {
+            "cff-version": "1.2.0",
+            "title": "Demo of Harvester-Curator",
+            "message": "Demo for SimTech Managemant Team",
+            "type": "software",
+            "authors": [
+              {
+                "given-names": "Sarbani",
+                "family-names": "Roy",
+                "email": "sarbani.roy@simtech.uni-stuttgart.de",
+                "affiliation": "University of Stuttgart",
+                "orcid": "https://orcid.org/0000-0002-5990-0076"
+              },
+              {
+                "given-names": "FangFang",
+                "family-names": "Wang",
+                "email": "fangfang.wang@simtech.uni-stuttgart.de",
+                "affiliation": "University of Stuttgart"
+              }
+            ],
+            "identifiers": [
+              {
+                "type": "url",
+                "value": "https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/master",
+                "description": "Master branch"
+              }
+            ],
+            "repository-code": "https://github.com/SimTech-Research-Data-Management/darus_data_harvester",
+            "url": "https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/master",
+            "abstract": "Harvester-Curator is a tool designed to elevate metadata provision in data and/or software repositories. In the first phase, it acts as a scanner, navigating through user code and/or data repositories to identify suitable parsers for different file types. It collects metadata from each of the files by applying corresponding parsers and then compiles this information into a structured JSON file, providing researchers with a seamless and automated solution for metadata collection. \n\nMoving to the second phase, Harvester-Curator transforms into a curator, leveraging the harvested metadata to populate metadata fields in a target repository. By automating this process, it not only relieves researchers of the manual burden but also ensures the accuracy and comprehensiveness of the metadata. Beyond its role in streamlining the intricate task of metadata collection, this tool contributes to the broader objective of elevating data accessibility and interoperability within repositories.",
+            "keywords": [
+              "Harvester",
+              "Curator",
+              "Demonstration"
+            ],
+            "license": "MIT"
           }
         }
       ]
@@ -4830,6 +4910,56 @@
                 -0.29144755005836487,
                 1.9627049565315247
               ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "yaml files",
+      "files": [
+        {
+          "name": "codemeta.yaml",
+          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/codemeta.yaml",
+          "metadata": {
+            "name": "MyAwesomeProject",
+            "version": "1.0.0",
+            "description": "A fantastic project showcasing CodeMeta.",
+            "keywords": [
+              "code",
+              "metadata",
+              "example"
+            ],
+            "license": "MIT",
+            "creators": [
+              {
+                "name": "John Doe",
+                "affiliation": "Example University",
+                "email": "john.doe@example.com"
+              }
+            ],
+            "contributors": [
+              {
+                "name": "Jane Smith",
+                "affiliation": "Another University",
+                "email": "jane.smith@example.com"
+              }
+            ],
+            "dateCreated": "2022-01-01",
+            "codeRepository": "https://github.com/example/my-awesome-project",
+            "programmingLanguage": [
+              "Python",
+              "JavaScript"
+            ],
+            "dependencies": [
+              {
+                "name": "requests",
+                "version": "^2.26.0"
+              },
+              {
+                "name": "numpy",
+                "version": "^1.22.0"
+              }
             ]
           }
         }
