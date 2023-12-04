@@ -27,12 +27,12 @@ export DATAVERSE_URL=https://demodarus.izus.uni-stuttgart.de >> ~/.bashrc
 
 - then execute 
 <pre>
-python3 test_curation.py --darus --path /path/to/harvested_metadata.json
+python3 curator.py --darus --path /path/to/harvested_metadata.json
 </pre>
 
 - or, for the interactive version, execute
 <pre>
-python3 test_curation.py --darus -i --path /path/to/harvested_metadata.json
+python3 curator.py --darus -i --path /path/to/harvested_metadata.json
 </pre>
 from the *curator* folder. 
 
