@@ -238,5 +238,5 @@ if __name__ == "__main__":
     print(dataset.yaml())
 
     # Upload the dataset
-    # p_id = dataset.upload (dataverse_name="roy_dataverse")
+    p_id = dataset.upload (dataverse_name="roy_dataverse")
     # dataset.update(contact_name="Sarbani Roy", contact_email="sarbani.roy@simtech.uni-stuttgart.de")
