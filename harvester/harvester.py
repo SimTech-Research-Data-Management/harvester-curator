@@ -4,6 +4,10 @@ from crawler import crawler
 from parser import Parser
 from file_group import File, FileGroup, SuperGroup
 import argparse
+import warnings
+
+# Filter out UserWarnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
 
 def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:

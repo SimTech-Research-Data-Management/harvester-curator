@@ -2,15 +2,14 @@
 
 This project has two phases: harvesting and curating.
 
-The harvester can take the path of user's repository as an input and outputs harvested metadata in a JSON file. Now, the repository path is fixed to [example](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/master/example). An interested user may replace _example_ folder with their own repository after cloning this reposirory.
-
-Then meatadata can be harvested from user's repo by executing
+The harvester can take the path of user's directory as an input and outputs harvested metadata in a JSON file. An example folder can be found [here](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/master/example). 
+The meatadata from the user's directory can be harvested by executing
 <pre>
 python3 harvester.py --path /path/to/your/folder
 </pre>
 from the *harvester* folder. 
 
-Then the harvested metadata can be accessed through *harvester_output.json*
+Then the harvested metadata can be accessed through *harvester_output.json*.One may follow the path shown at the end of the terminal output.
 
 **Please note that, currently, we are only limited to a *vtk-parser*, which can harvest from a small number of filetypes, as: "glb", "jpg", "obj", "pgm", "ply", "png", "pnm", "ppm", "pvti", "pvtp", "pvtr", "pvtu", "stl", "tif", "vti", "vtk", "vtp", "vtr", "vts", "vtu"**
 
