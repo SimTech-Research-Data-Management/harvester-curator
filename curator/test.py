@@ -175,7 +175,7 @@ if __name__ == "__main__":
 
     arg_parser = argparse.ArgumentParser(description="Generate compatible metadata.")
     arg_parser.add_argument("--darus", dest="api_endpoints_file_path", default=darus_metadata_endpoint, nargs='?', const=darus_metadata_endpoint, help="API endpoint for metadata.")
-    arg_parser.add_argument("--path", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
+    arg_parser.add_argument("--harmd", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
     arg_parser.add_argument("-i", "--interactive", action="store_true", help="Enable interactive mode.")
 
     args = arg_parser.parse_args()
