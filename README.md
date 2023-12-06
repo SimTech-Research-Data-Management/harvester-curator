@@ -2,7 +2,7 @@
 
 This project has two phases: harvesting and curating.
 
-The harvester can take the path of user's directory as an input and outputs harvested metadata in a JSON file. An example folder can be found [here](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/master/example). 
+The harvester can take the path of user's directory as an input and outputs harvested metadata in a JSON file. An example folder can be found [here](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/feature/example/example/harvester_related/example_input_minimal). 
 The meatadata from the user's directory can be harvested by executing
 <pre>
 python3 harvester.py --path /path/to/your/folder
