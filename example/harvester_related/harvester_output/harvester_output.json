@@ -22,6 +22,7 @@
       "dem",
       "exo",
       "facet",
+      "g",
       "glb",
       "obj",
       "ply",
@@ -30,7 +31,8 @@
     ],
     "hdf5 files": [
       "h5",
-      "hdf5"
+      "hdf5",
+      "he5"
     ],
     "vtk files": [
       "hdf",
@@ -55,7 +57,7 @@
       "files": [
         {
           "name": "test.bib",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test.bib",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test.bib",
           "metadata": {
             "authors": [
               {
@@ -64,7 +66,7 @@
               }
             ],
             "cff-version": "1.2.0",
-            "date-released": "2023-11-30",
+            "date-released": "2023-12-06",
             "doi": "10.5281/zenodo.7979015",
             "license": "Unlicense",
             "message": "If you use this software, please cite it as below.",
@@ -80,7 +82,7 @@
       "files": [
         {
           "name": "masonry.bmp",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/masonry.bmp",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/masonry.bmp",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -136,7 +138,7 @@
         },
         {
           "name": "DICOM_KNEE.dcm",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/DICOM_KNEE.dcm",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/DICOM_KNEE.dcm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -192,7 +194,7 @@
         },
         {
           "name": "prostate.img",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/prostate.img",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/prostate.img",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -248,7 +250,7 @@
         },
         {
           "name": "earth.jpg",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/earth.jpg",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/earth.jpg",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -304,7 +306,7 @@
         },
         {
           "name": "binary.pgm",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/binary.pgm",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/binary.pgm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -360,7 +362,7 @@
         },
         {
           "name": "uni_stuttgart.png",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/uni_stuttgart.png",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/uni_stuttgart.png",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -416,7 +418,7 @@
         },
         {
           "name": "Gourds.pnm",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/Gourds.pnm",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/Gourds.pnm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -472,7 +474,7 @@
         },
         {
           "name": "earth.ppm",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/earth.ppm",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/earth.ppm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -528,7 +530,7 @@
         },
         {
           "name": "ColorCells.tif",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ColorCells.tif",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/ColorCells.tif",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -589,7 +591,7 @@
       "files": [
         {
           "name": "CITATION.cff",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/CITATION.cff",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/CITATION.cff",
           "metadata": {
             "cff-version": "1.2.0",
             "title": "Demo of Harvester-Curator",
@@ -635,7 +637,7 @@
       "files": [
         {
           "name": "SainteHelens.dem",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/SainteHelens.dem",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/SainteHelens.dem",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -691,7 +693,7 @@
         },
         {
           "name": "mesh_fs8.exo",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/mesh_fs8.exo",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/mesh_fs8.exo",
           "metadata": {
             "dataset_type": [
               "MultiBlock"
@@ -720,7 +722,7 @@
         },
         {
           "name": "clown.facet",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/clown.facet",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/clown.facet",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -763,8 +765,40 @@
           }
         },
         {
+          "name": "teapot.g",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/teapot.g",
+          "metadata": {
+            "dataset_type": [
+              "PolyData"
+            ],
+            "number_of_points": [
+              1976
+            ],
+            "number_of_cells": [
+              3751
+            ],
+            "mesh_bounds": [
+              [
+                -3.0,
+                3.4281198978424072,
+                0.0,
+                3.0,
+                -2.0,
+                2.0
+              ]
+            ],
+            "mesh_center": [
+              [
+                0.2140599489212036,
+                1.5,
+                0.0
+              ]
+            ]
+          }
+        },
+        {
           "name": "Box.glb",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/Box.glb",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/Box.glb",
           "metadata": {
             "dataset_type": [
               "MultiBlock"
@@ -793,7 +827,7 @@
         },
         {
           "name": "elephav.obj",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/elephav.obj",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/elephav.obj",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -838,7 +872,7 @@
         },
         {
           "name": "bun_zipper_res4.ply",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/bun_zipper_res4.ply",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/bun_zipper_res4.ply",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -869,64 +903,8 @@
           }
         },
         {
-          "name": "nut.slc",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/nut.slc",
-          "metadata": {
-            "dataset_type": [
-              "ImageData"
-            ],
-            "number_of_points": [
-              164492
-            ],
-            "number_of_cells": [
-              155440
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "SLCImage"
-                ]
-              }
-            ],
-            "dimensions": [
-              [
-                68,
-                41,
-                59
-              ]
-            ],
-            "spacing": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                67.0,
-                0.0,
-                40.0,
-                0.0,
-                58.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                33.5,
-                20.0,
-                29.0
-              ]
-            ]
-          }
-        },
-        {
           "name": "bolt.slc",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/bolt.slc",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/bolt.slc",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -982,7 +960,7 @@
         },
         {
           "name": "bunny.stl",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/bunny.stl",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/bunny.stl",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -1019,7 +997,7 @@
       "files": [
         {
           "name": "test1.h5",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test1.h5",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test1.h5",
           "metadata": {
             "group_name: /Unnamed": [
               {
@@ -1187,7 +1165,7 @@
         },
         {
           "name": "NEONDSTowerTemperatureData.hdf5",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/NEONDSTowerTemperatureData.hdf5",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/NEONDSTowerTemperatureData.hdf5",
           "metadata": {
             "group_name: /Domain_03/OSBS": [
               {
@@ -2150,6 +2128,1562 @@
               }
             ]
           }
+        },
+        {
+          "name": "OMIAura_L3-OMUVBd_2005m0101_v003-2014m0117t140037.he5",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/OMIAura_L3-OMUVBd_2005m0101_v003-2014m0117t140037.he5",
+          "metadata": {
+            "group_name: /HDFEOS/ADDITIONAL/FILE_ATTRIBUTES": [
+              {
+                "group_metadata": {
+                  "EndUTC": "b'2005-01-02T11:45:00.000000Z'",
+                  "GranuleDay": [
+                    1
+                  ],
+                  "GranuleDayOfYear": [
+                    1
+                  ],
+                  "GranuleMonth": [
+                    1
+                  ],
+                  "GranuleYear": [
+                    2005
+                  ],
+                  "InstrumentName": "b'OMI'",
+                  "OrbitNumber": [
+                    2457,
+                    2458,
+                    2459,
+                    2460,
+                    2461,
+                    2462,
+                    2463,
+                    2464,
+                    2465,
+                    2466,
+                    2467,
+                    2468,
+                    2469,
+                    2470,
+                    2471,
+                    2472,
+                    2473,
+                    2474,
+                    2475,
+                    2476,
+                    2477,
+                    2478,
+                    2479,
+                    2480,
+                    2481,
+                    2482,
+                    2483,
+                    2484,
+                    2485,
+                    2486,
+                    2487,
+                    2488,
+                    2489,
+                    2490,
+                    2491,
+                    2492,
+                    2493,
+                    2494,
+                    2495,
+                    2496,
+                    2497,
+                    2498,
+                    2499,
+                    2500
+                  ],
+                  "PGEVersion": "b'1.3.0'",
+                  "Period": "b'Daily'",
+                  "ProcessLevel": "b'3'",
+                  "StartUTC": "b'2004-12-31T12:15:00.000000Z'",
+                  "TAI93At0zOfGranule": [
+                    378691205.0
+                  ]
+                }
+              }
+            ],
+            "group_name: /HDFEOS/GRIDS/OMI UVB PRODUCT": [
+              {
+                "group_metadata": {
+                  "GCTPProjectionCode": [
+                    0
+                  ],
+                  "GridOrigin": "b'Center'",
+                  "GridSpacing": "b'(1.0,1.0)'",
+                  "GridSpacingUnit": "b'deg'",
+                  "GridSpan": "b'(-180,180,-90,90)'",
+                  "GridSpanUnit": "b'deg'",
+                  "NumberOfLatitudesInGrid": [
+                    180
+                  ],
+                  "NumberOfLongitudesInGrid": [
+                    360
+                  ],
+                  "Projection": "b'Geographic'"
+                }
+              }
+            ],
+            "group_name: /HDFEOS/GRIDS/OMI UVB PRODUCT/Data Fields": [
+              {
+                "dataset_name: CSErythemalDailyDose": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Clear Sky Erythemal Daily Dose'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'J/m2'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: CSErythemalDoseRate": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Clear Sky Erythemal Dose Rate'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: CSIrradiance305": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Clear Sky Irradiance at 305 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: CSIrradiance310": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Clear Sky Irradiance at 310 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: CSIrradiance324": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Clear Sky Irradiance at 324 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: CSIrradiance380": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Clear Sky Irradiance at 380 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: CSUVindex": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Clear Sky UV Index'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'unitless'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: CloudOpticalThickness": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Cloud Optical Thickness'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'unitless'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: ErythemalDailyDose": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Erythemal Daily Dose'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'J/m2'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: ErythemalDoseRate": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Erythemal Dose Rate'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: Irradiance305": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Irradiance at 305 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: Irradiance310": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Irradiance at 310 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: Irradiance324": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Irradiance at 324 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: Irradiance380": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time Irradiance at 380 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: LambertianEquivalentReflectivity": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Lambertian Equivalent Reflectivity at 360 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'unitless'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: OPErythemalDoseRate": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Satellite Measured Overpass Erythemal Dose Rate'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: OPIrradiance305": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Satellite Measured Overpass Irradiance at 305 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: OPIrradiance310": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Satellite Measured Overpass Irradiance at 310 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: OPIrradiance324": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Satellite Measured Overpass Irradiance at 324 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: OPIrradiance380": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Satellite Measured Overpass Irradiance at 380 nm'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'mW/m2/nm'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: OPUVindex": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Satellite Measured Overpass UV Index'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'unitless'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: SolarZenithAngle": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Solar Zenith Angle'",
+                        "UniqueFieldDefinition": "b'Aura-Shared'",
+                        "Units": "b'degree'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: UVindex": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Local Noon Time UV Index'",
+                        "UniqueFieldDefinition": "b'OMI-Specific'",
+                        "Units": "b'unitless'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: ViewingZenithAngle": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_attributes": {
+                        "MissingValue": [
+                          -1.2676506002282294e+30
+                        ],
+                        "Offset": [
+                          0.0
+                        ],
+                        "ScaleFactor": [
+                          1.0
+                        ],
+                        "Title": "b'Viewing Zenith Angle'",
+                        "UniqueFieldDefinition": "b'Aura-Shared'",
+                        "Units": "b'degree'",
+                        "_FillValue": [
+                          -1.2676506002282294e+30
+                        ]
+                      }
+                    },
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "float32"
+                        },
+                        {
+                          "shape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "size": "64800"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": "259200"
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        },
+                        {
+                          "maxshape": [
+                            180,
+                            360
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "group_name: /HDFEOS INFORMATION": [
+              {
+                "group_metadata": {
+                  "HDFEOSVersion": "b'HDFEOS_5.1.11'"
+                }
+              },
+              {
+                "dataset_name: StructMetadata.0": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dtype": "|S32000"
+                        },
+                        {
+                          "shape": []
+                        },
+                        {
+                          "size": "1"
+                        },
+                        {
+                          "ndim": 0
+                        },
+                        {
+                          "nbytes": "32000"
+                        },
+                        {
+                          "maxshape": []
+                        },
+                        {
+                          "maxshape": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -2158,7 +3692,7 @@
       "files": [
         {
           "name": "can-vtu.hdf",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/can-vtu.hdf",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/can-vtu.hdf",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2219,7 +3753,7 @@
         },
         {
           "name": "test.pvti",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test.pvti",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test.pvti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -2278,7 +3812,7 @@
         },
         {
           "name": "polyEx.pvtp",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/polyEx.pvtp",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/polyEx.pvtp",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -2324,7 +3858,7 @@
         },
         {
           "name": "pressure_20.pvtr",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/pressure_20.pvtr",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/pressure_20.pvtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -2377,7 +3911,7 @@
         },
         {
           "name": "T0000000500.pvtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500.pvtu",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500.pvtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -2424,64 +3958,8 @@
           }
         },
         {
-          "name": "heart.vti",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/heart.vti",
-          "metadata": {
-            "dataset_type": [
-              "ImageData"
-            ],
-            "number_of_points": [
-              12288
-            ],
-            "number_of_cells": [
-              10571
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "scalars"
-                ]
-              }
-            ],
-            "dimensions": [
-              [
-                32,
-                32,
-                12
-              ]
-            ],
-            "spacing": [
-              [
-                1.0,
-                1.0,
-                4.0
-              ]
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                31.0,
-                0.0,
-                31.0,
-                0.0,
-                44.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                15.5,
-                15.5,
-                22.0
-              ]
-            ]
-          }
-        },
-        {
           "name": "0.vti",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test/0.vti",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test/0.vti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -2540,7 +4018,7 @@
         },
         {
           "name": "1.vti",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test/1.vti",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test/1.vti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -2598,349 +4076,8 @@
           }
         },
         {
-          "name": "usa.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/usa.vtk",
-          "metadata": {
-            "dataset_type": [
-              "PolyData"
-            ],
-            "number_of_points": [
-              3652
-            ],
-            "number_of_cells": [
-              51
-            ],
-            "mesh_bounds": [
-              [
-                -168.05299377441406,
-                -66.95249938964844,
-                18.924999237060547,
-                71.34249877929688,
-                0.0,
-                0.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                -117.50274658203125,
-                45.13374900817871,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "gh-935.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/gh-935.vtk",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              6
-            ],
-            "number_of_cells": [
-              2
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "sol"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                1.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.5,
-                0.5,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "vox8_ascii.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_ascii.vtk",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              27
-            ],
-            "number_of_cells": [
-              8
-            ],
-            "number_of_arrays": [
-              12
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "scalars",
-                  "cRamp1",
-                  "cRamp2",
-                  "cVects",
-                  "cv2"
-                ],
-                "point_data_array_names": [
-                  "scalars",
-                  "mytest",
-                  "xRamp",
-                  "yRamp",
-                  "zRamp",
-                  "outVect",
-                  "vect2"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                2.0,
-                0.0,
-                2.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "02_structured.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/02_structured.vtk",
-          "metadata": {
-            "dataset_type": [
-              "StructuredGrid"
-            ],
-            "number_of_points": [
-              147
-            ],
-            "number_of_cells": [
-              72
-            ],
-            "number_of_arrays": [
-              4
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "pressure1",
-                  "pressure2"
-                ],
-                "point_data_array_names": [
-                  "temp1",
-                  "temp2"
-                ]
-              }
-            ],
-            "dimensions": [
-              [
-                7,
-                7,
-                3
-              ]
-            ],
-            "mesh_bounds": [
-              [
-                -0.015338152602,
-                1.0147581381,
-                -0.015274787969,
-                1.0157021684,
-                -0.046818381932,
-                1.0495865001
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.49970999274899996,
-                0.5002136902155,
-                0.501384059084
-              ]
-            ]
-          }
-        },
-        {
-          "name": "vox8_binary.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary.vtk",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              27
-            ],
-            "number_of_cells": [
-              8
-            ],
-            "number_of_arrays": [
-              12
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "scalars",
-                  "cRamp1",
-                  "cRamp2",
-                  "cVects",
-                  "cv2"
-                ],
-                "point_data_array_names": [
-                  "scalars",
-                  "mytest",
-                  "xRamp",
-                  "yRamp",
-                  "zRamp",
-                  "outVect",
-                  "vect2"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                2.0,
-                0.0,
-                2.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "01_image.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/01_image.vtk",
-          "metadata": {
-            "dataset_type": [
-              "ImageData"
-            ],
-            "number_of_points": [
-              147
-            ],
-            "number_of_cells": [
-              72
-            ],
-            "number_of_arrays": [
-              4
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "pressure1",
-                  "pressure2"
-                ],
-                "point_data_array_names": [
-                  "temp1",
-                  "temp2"
-                ]
-              }
-            ],
-            "dimensions": [
-              [
-                7,
-                7,
-                3
-              ]
-            ],
-            "spacing": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.0,
-                0.0,
-                6.0,
-                0.0,
-                2.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.0,
-                3.0,
-                1.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "06_color_scalars.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/06_color_scalars.vtk",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              5
-            ],
-            "number_of_cells": [
-              2
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "lut"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                -1.5,
-                1.5,
-                -1.5,
-                1.5,
-                0.0,
-                0.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.0,
-                0.0,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
           "name": "hello.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/hello.vtk",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/hello.vtk",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -2974,107 +4111,8 @@
           }
         },
         {
-          "name": "04_rectilinear.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/04_rectilinear.vtk",
-          "metadata": {
-            "dataset_type": [
-              "RectilinearGrid"
-            ],
-            "number_of_points": [
-              40
-            ],
-            "number_of_cells": [
-              27
-            ],
-            "number_of_arrays": [
-              4
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "pressure1",
-                  "pressure2"
-                ],
-                "point_data_array_names": [
-                  "temp1",
-                  "temp2"
-                ]
-              }
-            ],
-            "dimensions": [
-              [
-                10,
-                4,
-                1
-              ]
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                1.0,
-                0.0,
-                2.0,
-                0.0,
-                0.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.5,
-                1.0,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "06_unstructured.vtk",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/06_unstructured.vtk",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              42
-            ],
-            "number_of_cells": [
-              12
-            ],
-            "number_of_arrays": [
-              2
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "mat_id"
-                ],
-                "point_data_array_names": [
-                  "node_groups"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                1.2999999523162842,
-                1.5,
-                0.800000011920929,
-                1.0,
-                0.0,
-                0.5
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.399999976158142,
-                0.9000000059604645,
-                0.25
-              ]
-            ]
-          }
-        },
-        {
           "name": "polyEx0.vtp",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/polyEx0.vtp",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/polyEx0.vtp",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -3119,107 +4157,8 @@
           }
         },
         {
-          "name": "Bunny.vtp",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/Bunny.vtp",
-          "metadata": {
-            "dataset_type": [
-              "PolyData"
-            ],
-            "number_of_points": [
-              872
-            ],
-            "number_of_cells": [
-              1502
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "Normals"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                -0.13155962526798248,
-                0.18016336858272552,
-                -0.12048563361167908,
-                0.18769524991512299,
-                -0.14300920069217682,
-                0.09850578755140305
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.02430187165737152,
-                0.033604808151721954,
-                -0.022251706570386887
-              ]
-            ]
-          }
-        },
-        {
-          "name": "RectilinearGrid.vtr",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/RectilinearGrid.vtr",
-          "metadata": {
-            "dataset_type": [
-              "RectilinearGrid"
-            ],
-            "number_of_points": [
-              545025
-            ],
-            "number_of_cells": [
-              524288
-            ],
-            "number_of_arrays": [
-              9
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "Pressure",
-                  "Void Volume Fraction",
-                  "X Velocity",
-                  "Y Velocity",
-                  "Z Velocity",
-                  "Volume Fraction for Armor Plate",
-                  "Mass for Armor Plate",
-                  "Volume Fraction for Body, Nose",
-                  "Mass for Body, Nose"
-                ]
-              }
-            ],
-            "dimensions": [
-              [
-                129,
-                65,
-                65
-              ]
-            ],
-            "mesh_bounds": [
-              [
-                -7.5,
-                4.0,
-                -3.0,
-                3.0,
-                -3.0,
-                3.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                -1.75,
-                0.0,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
           "name": "pressure_20_1.vtr",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/pressure_20/pressure_20_1.vtr",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/pressure_20/pressure_20_1.vtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -3272,7 +4211,7 @@
         },
         {
           "name": "pressure_20_0.vtr",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/pressure_20/pressure_20_0.vtr",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/pressure_20/pressure_20_0.vtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -3325,7 +4264,7 @@
         },
         {
           "name": "StructuredGrid.vts",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/StructuredGrid.vts",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/StructuredGrid.vts",
           "metadata": {
             "dataset_type": [
               "StructuredGrid"
@@ -3375,539 +4314,8 @@
           }
         },
         {
-          "name": "vox8_binary_inline_zlib.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary_inline_zlib.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              27
-            ],
-            "number_of_cells": [
-              8
-            ],
-            "number_of_arrays": [
-              12
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "scalars",
-                  "cRamp1",
-                  "cRamp2",
-                  "cVects",
-                  "cv2"
-                ],
-                "point_data_array_names": [
-                  "scalars",
-                  "mytest",
-                  "xRamp",
-                  "yRamp",
-                  "zRamp",
-                  "outVect",
-                  "vect2"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                2.0,
-                0.0,
-                2.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ugridex.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ugridex.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              27
-            ],
-            "number_of_cells": [
-              12
-            ],
-            "number_of_arrays": [
-              2
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "nmax"
-                ],
-                "point_data_array_names": [
-                  "csum"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                1.0,
-                0.0,
-                6.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                0.5,
-                3.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "01_raw_binary_int64.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/01_raw_binary_int64.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              64
-            ],
-            "number_of_cells": [
-              162
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "m"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                1.0,
-                0.0,
-                1.0,
-                0.0,
-                1.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.5,
-                0.5,
-                0.5
-              ]
-            ]
-          }
-        },
-        {
-          "name": "test_mesh.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/test_mesh.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              7
-            ],
-            "number_of_cells": [
-              5
-            ],
-            "number_of_arrays": [
-              4
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "cell_index",
-                  "cell_func_values"
-                ],
-                "point_data_array_names": [
-                  "point_index",
-                  "function"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                0.5,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "fire_ug.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/fire_ug.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              12323
-            ],
-            "number_of_cells": [
-              10462
-            ],
-            "number_of_arrays": [
-              6
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "t",
-                  "uvw",
-                  "u",
-                  "v",
-                  "w",
-                  "mfrac"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.0,
-                0.0,
-                2.5,
-                0.0,
-                2.3999998569488525
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.0,
-                1.25,
-                1.1999999284744263
-              ]
-            ]
-          }
-        },
-        {
-          "name": "02_raw_compressed.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/02_raw_compressed.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              64
-            ],
-            "number_of_cells": [
-              162
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "m"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                1.0,
-                0.0,
-                1.0,
-                0.0,
-                1.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.5,
-                0.5,
-                0.5
-              ]
-            ]
-          }
-        },
-        {
-          "name": "vox8_binary_inline.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary_inline.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              27
-            ],
-            "number_of_cells": [
-              8
-            ],
-            "number_of_arrays": [
-              12
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "scalars",
-                  "cRamp1",
-                  "cRamp2",
-                  "cVects",
-                  "cv2"
-                ],
-                "point_data_array_names": [
-                  "scalars",
-                  "mytest",
-                  "xRamp",
-                  "yRamp",
-                  "zRamp",
-                  "outVect",
-                  "vect2"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                2.0,
-                0.0,
-                2.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "vox8_ascii.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_ascii.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              27
-            ],
-            "number_of_cells": [
-              8
-            ],
-            "number_of_arrays": [
-              12
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "scalars",
-                  "cRamp1",
-                  "cRamp2",
-                  "cVects",
-                  "cv2"
-                ],
-                "point_data_array_names": [
-                  "scalars",
-                  "mytest",
-                  "xRamp",
-                  "yRamp",
-                  "zRamp",
-                  "outVect",
-                  "vect2"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                2.0,
-                0.0,
-                2.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "00_raw_binary.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/00_raw_binary.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              64
-            ],
-            "number_of_cells": [
-              162
-            ],
-            "number_of_arrays": [
-              1
-            ],
-            "array_names": [
-              {
-                "point_data_array_names": [
-                  "m"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                1.0,
-                0.0,
-                1.0,
-                0.0,
-                1.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                0.5,
-                0.5,
-                0.5
-              ]
-            ]
-          }
-        },
-        {
-          "name": "vox8_binary_appended.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/vox8_binary_appended.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              27
-            ],
-            "number_of_cells": [
-              8
-            ],
-            "number_of_arrays": [
-              12
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "scalars",
-                  "cRamp1",
-                  "cRamp2",
-                  "cVects",
-                  "cv2"
-                ],
-                "point_data_array_names": [
-                  "scalars",
-                  "mytest",
-                  "xRamp",
-                  "yRamp",
-                  "zRamp",
-                  "outVect",
-                  "vect2"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                2.0,
-                0.0,
-                2.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                1.0,
-                1.0
-              ]
-            ]
-          }
-        },
-        {
-          "name": "triangle_mesh_linear.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/triangle_mesh_linear.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              8
-            ],
-            "number_of_cells": [
-              6
-            ],
-            "number_of_arrays": [
-              3
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "node_max"
-                ],
-                "point_data_array_names": [
-                  "pressure",
-                  "velocity"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                2.0,
-                0.0,
-                2.0,
-                0.0,
-                0.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                1.0,
-                1.0,
-                0.0
-              ]
-            ]
-          }
-        },
-        {
           "name": "001.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/001.vtu",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/001.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3955,7 +4363,7 @@
         },
         {
           "name": "003.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/003.vtu",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/003.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -4003,7 +4411,7 @@
         },
         {
           "name": "002.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/002.vtu",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/002.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -4051,7 +4459,7 @@
         },
         {
           "name": "000.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/T0000000500/000.vtu",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/000.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -4096,822 +4504,6 @@
               ]
             ]
           }
-        },
-        {
-          "name": "ex-blow_5_0_0.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_0.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              82
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.737879753112793,
-                -12.0,
-                -0.3924649953842163,
-                -5.200829982757568,
-                2.5329198837280273
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.3689398765563965,
-                -6.196232497692108,
-                -1.3339550495147705
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_0_1.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_1.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              81
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.737879753112793,
-                -12.0,
-                -0.3947420120239258,
-                1.02961003780365,
-                7.254090309143066
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.3689398765563965,
-                -6.197371006011963,
-                4.141850173473358
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_0_7.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_7.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              80
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.710299968719482,
-                24.272518157958984,
-                36.0,
-                0.007290000095963478,
-                6.137589931488037
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.355149984359741,
-                30.136259078979492,
-                3.0724399657920003
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_6.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_6.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              37
-            ],
-            "number_of_cells": [
-              15
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                7.0,
-                0.0,
-                24.0,
-                -3.8499999046325684,
-                6.019000053405762
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.5,
-                12.0,
-                1.0845000743865967
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_0_5.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_5.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              96
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.530529975891113,
-                23.30864906311035,
-                24.826541900634766,
-                -3.6537070274353027,
-                3.6471240520477295
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.2652649879455566,
-                24.06759548187256,
-                -0.003291487693786621
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_1.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_1.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              28
-            ],
-            "number_of_cells": [
-              16
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                5.0,
-                5.0,
-                7.442180156707764,
-                7.934120178222656,
-                5.243100166320801,
-                6.529600143432617
-              ]
-            ],
-            "mesh_center": [
-              [
-                5.0,
-                7.68815016746521,
-                5.886350154876709
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_5.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_5.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              42
-            ],
-            "number_of_cells": [
-              21
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                5.0,
-                5.0,
-                7.743239879608154,
-                8.157979965209961,
-                5.0,
-                7.684000015258789
-              ]
-            ],
-            "mesh_center": [
-              [
-                5.0,
-                7.950609922409058,
-                6.3420000076293945
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_0_6.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_6.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              81
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.710299968719482,
-                24.16718101501465,
-                36.0,
-                -5.999469757080078,
-                0.9110809564590454
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.355149984359741,
-                30.083590507507324,
-                -2.5441944003105164
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_7.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_7.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              33
-            ],
-            "number_of_cells": [
-              17
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                7.0,
-                11.25,
-                26.0,
-                -3.8499999046325684,
-                6.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.5,
-                18.625,
-                1.0750000476837158
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_4.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_4.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              21
-            ],
-            "number_of_cells": [
-              11
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                5.0,
-                7.853549957275391,
-                8.154339790344238,
-                6.019000053405762,
-                7.853599548339844
-              ]
-            ],
-            "mesh_center": [
-              [
-                2.5,
-                8.003944873809814,
-                6.936299800872803
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_3.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_3.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              34
-            ],
-            "number_of_cells": [
-              17
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                5.0,
-                7.449429988861084,
-                7.964890003204346,
-                6.387399673461914,
-                8.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                2.5,
-                7.707159996032715,
-                7.193699836730957
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_0_4.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_4.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              83
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                7.161890029907227,
-                11.430950164794922,
-                23.945070266723633,
-                -3.8500001430511475,
-                6.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.5809450149536133,
-                17.688010215759277,
-                1.0749999284744263
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_0.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_0.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              39
-            ],
-            "number_of_cells": [
-              17
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                7.0,
-                -2.0,
-                8.0,
-                -3.8499999046325684,
-                6.393500328063965
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.5,
-                3.0,
-                1.2717502117156982
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_1_2.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_1_2.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              29
-            ],
-            "number_of_cells": [
-              15
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                5.0,
-                0.0,
-                7.6915998458862305,
-                5.0,
-                8.0
-              ]
-            ],
-            "mesh_center": [
-              [
-                2.5,
-                3.8457999229431152,
-                6.5
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_0_3.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_3.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              83
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                7.161890029907227,
-                -0.020428001880645752,
-                12.578660011291504,
-                -3.8499999046325684,
-                7.494060039520264
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.5809450149536133,
-                6.279116004705429,
-                1.8220300674438477
-              ]
-            ]
-          }
-        },
-        {
-          "name": "ex-blow_5_0_2.vtu",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/ex-blow_5/ex-blow_5_0_2.vtu",
-          "metadata": {
-            "dataset_type": [
-              "UnstructuredGrid"
-            ],
-            "number_of_points": [
-              96
-            ],
-            "number_of_cells": [
-              116
-            ],
-            "number_of_arrays": [
-              8
-            ],
-            "array_names": [
-              {
-                "cell_data_array_names": [
-                  "GlobalElementId",
-                  "PedigreeElementId",
-                  "ObjectId",
-                  "vtkOriginalCellIds"
-                ],
-                "point_data_array_names": [
-                  "GlobalNodeId",
-                  "PedigreeNodeId",
-                  "DISPLACEMENT_",
-                  "THICKNESS"
-                ]
-              }
-            ],
-            "mesh_bounds": [
-              [
-                0.0,
-                6.588759899139404,
-                -1.045849084854126,
-                0.46295398473739624,
-                -1.8193100690841675,
-                5.744719982147217
-              ]
-            ],
-            "mesh_center": [
-              [
-                3.294379949569702,
-                -0.29144755005836487,
-                1.9627049565315247
-              ]
-            ]
-          }
         }
       ]
     },
@@ -4920,7 +4512,7 @@
       "files": [
         {
           "name": "codemeta.yaml",
-          "path": "/home/sarbani/harvester-curator/example/harvester_related/example_input_folder/codemeta.yaml",
+          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/codemeta.yaml",
           "metadata": {
             "name": "MyAwesomeProject",
             "version": "1.0.0",
