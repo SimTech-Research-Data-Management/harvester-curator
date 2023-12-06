@@ -36,8 +36,6 @@ python3 curator.py --darus -i --path /path/to/harvested_metadata.json
 </pre>
 from the *curator* folder. 
 
-An example for api_endpoint_of_metadata_schema.json can be found [here](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/blob/feature/example/curator/api_end_points/darus_md_schema_api_endpoints.json) and an example of harvested_metadata.json can be found [here](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/blob/feature/example/example/curator_related/harvested_metadata_example.json).
-
-The feature for interactive curation is added in [feature/interactive_curation](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/feature/interactive_curation) branch. It checks similarity percentage between the metadata fields defined by the user and target repository (only DaRUS currently). If it is more than a threshold value (85% currently) then will interact with user to add metadata to the corresponding field in the target repository.
+An example of harvested_metadata.json can be found [here](https://github.com/SimTech-Research-Data-Management/darus_data_harvester/blob/feature/example/example/curator_related/harvested_metadata_example.json). The feature interactive-curation checks similarity percentage between the metadata fields defined by the user and target repository (only DaRUS currently). If it is more than a threshold value (85% currently) then will interact with user to add metadata to the corresponding field in the target repository.
 
 **Detailed documentation** https://docs.google.com/document/d/1-nOwCnVz_3FDLZ1XSMEO-h1dI1eTbXqqxKMkziwOfLM/edit
