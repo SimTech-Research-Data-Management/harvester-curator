@@ -146,23 +146,68 @@ def get_compatible_metadatablocks(com_metadata_file, json_data, schema_name, har
                                 else:
                                     print("\nInvalid input. Please enter 'yes' or 'no'.\n")
         
+        # if type_name is not None:
+        #     if schema_name and not schema_name[0].isupper():
+        #     # Capitalize the first letter
+        #         schema_name = schema_name[0].capitalize() + schema_name[1:]
+
+        #     # get the darus-compatible class name from type_name
+        #     pydarus_class_name = attribute_name_by_type_name(schema_name, type_name)
+        #     har_json_class_data = har_json_data[har_class_name]
+        #     class_child_fields = class_info.get('childFields')
+            
+        #     if class_child_fields:
+        #         schema_data[pydarus_class_name] = []
+        #         for data in har_json_class_data:
+        #             schema_data[pydarus_class_name].append(data)
+        #     else:
+        #         schema_data[pydarus_class_name] = har_json_class_data
+            
+
+        
+
+
         if type_name is not None:
             if schema_name and not schema_name[0].isupper():
-            # Capitalize the first letter
+                # Capitalize the first letter
                 schema_name = schema_name[0].capitalize() + schema_name[1:]
 
             # get the darus-compatible class name from type_name
             pydarus_class_name = attribute_name_by_type_name(schema_name, type_name)
             har_json_class_data = har_json_data[har_class_name]
             class_child_fields = class_info.get('childFields')
-            
+
             if class_child_fields:
                 schema_data[pydarus_class_name] = []
-                for data in har_json_class_data:
-                    schema_data[pydarus_class_name].append(data)
+
+                # Iterate over each instance in har_json_class_data
+                for har_instance in har_json_class_data:
+                    compatible_instance = {}
+
+                    # Iterate over the attributes in the metadata schema
+                    for attr_name, attr_info in class_info.get('fields', {}).items():
+                        # Get the corresponding attribute in the harvested data
+                        har_attr_name = attribute_name_by_type_name(har_instance, attr_info['typeName'])
+
+                        # If the attribute exists in the harvested data, add it to the compatible_instance
+                        if har_attr_name in har_instance:
+                            compatible_instance[attr_name] = har_instance[har_attr_name]
+
+                    schema_data[pydarus_class_name].append(compatible_instance)
+
             else:
-                schema_data[pydarus_class_name] = har_json_class_data
-            
+                compatible_instance = {}
+
+                # Iterate over the attributes in the metadata schema
+                for attr_name, attr_info in class_info.get('fields', {}).items():
+                    # Get the corresponding attribute in the harvested data
+                    har_attr_name = attribute_name_by_type_name(har_json_class_data, attr_info['typeName'])
+
+                    # If the attribute exists in the harvested data, add it to the compatible_instance
+                    if har_attr_name in har_json_class_data:
+                        compatible_instance[attr_name] = har_json_class_data[har_attr_name]
+
+                schema_data[pydarus_class_name] = compatible_instance
 
     # Write the updated JSON data back to the file
     with open(com_metadata_file, 'w') as json_file:
@@ -175,7 +220,7 @@ if __name__ == "__main__":
 
     arg_parser = argparse.ArgumentParser(description="Generate compatible metadata.")
     arg_parser.add_argument("--darus", dest="api_endpoints_file_path", default=darus_metadata_endpoint, nargs='?', const=darus_metadata_endpoint, help="API endpoint for metadata.")
-    arg_parser.add_argument("--harmd", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
+    arg_parser.add_argument("--path", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
     arg_parser.add_argument("-i", "--interactive", action="store_true", help="Enable interactive mode.")
 
     args = arg_parser.parse_args()
@@ -238,5 +283,5 @@ if __name__ == "__main__":
     print(dataset.yaml())
 
     # Upload the dataset
-    # p_id = dataset.upload (dataverse_name="roy_dataverse")
+    #p_id = dataset.upload (dataverse_name="roy_dataverse")
     # dataset.update(contact_name="Sarbani Roy", contact_email="sarbani.roy@simtech.uni-stuttgart.de")
