@@ -37,10 +37,10 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
 
 
     # Create an instance of SuperGroup class to hold all parsed files grouped based on file_types.
-    all_file_groups = SuperGroup(name="all parsed file groups", file_group_names = {}, groups=[])
+    all_file_groups = SuperGroup(supergroup_name="all parsed file groups", file_group_names={}, groups=[])
 
     # File formats (extensions) categorized into different groups
-    VTK_FILE = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu', 'hdf', '.h5', '.hdf5'] 
+    VTK_FILE = ['vti', 'vtp', 'vtr', 'vts', 'vtu', 'vtk', 'pvti', 'pvtp', 'pvtr', 'pvts', 'pvtu', 'hdf'] 
     IMAGE_FILE_2D = ['jpg', 'jpeg', 'png', 'tif', 'tiff', 'dcm', 'pnm', 'pgm', 'ppm', 'img', 'bmp']
     IMAGE_FILE_3D = ['fib', 'ply', 'stl', 'obj', 'g','glb', 'exo', 'facet', 'slc', 'mhd', 'dem']
     HDF5_FILE = ["hdf5", "h5", "he5"]
@@ -76,7 +76,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
                 
                 if file_group_name not in all_file_groups.file_group_names.keys():
                     all_file_groups.file_group_names[file_group_name] = [file_type]
-                    globals()[file_group_name] = FileGroup(name=file_group_name, files=[])
+                    globals()[file_group_name] = FileGroup(file_group_name=file_group_name, files=[])
                     all_file_groups.groups.append(globals()[file_group_name])            
                 else:
                     all_file_groups.file_group_names[file_group_name].append(file_type)
@@ -86,7 +86,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
                     # Use parser to extract metadata from file
                     metadata = file_type_parser(file)
                     # Create an instance of File and append it to the corrsponding FileGroup's list of files
-                    file_object = File(name=file_name, path=file, metadata=metadata)
+                    file_object = File(file_name=file_name, path=file, metadata=metadata)
                     globals()[file_group_name].files.append(file_object)
       
             else:
