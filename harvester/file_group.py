@@ -1,9 +1,9 @@
 from sdRDM import DataModel, Field
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 
 class File(DataModel):
-    name: str = Field(
+    file_name: str = Field(
         ...,
         description="Name of a file"
     )
@@ -13,14 +13,14 @@ class File(DataModel):
         description="Path of a file"
     )
   
-    metadata: Dict[str, object] = Field(
+    metadata: Optional[Dict[str, object]] = Field(
         ...,
         description="Metadata of the file"
     )
 
 
 class FileGroup(DataModel):
-    name: str = Field(
+    file_group_name: str = Field(
         ...,
         description="Name of the file group based on file type"
     )
@@ -32,7 +32,7 @@ class FileGroup(DataModel):
 
 
 class SuperGroup(DataModel):
-    name: str = Field(
+    supergroup_name: str = Field(
         ...,
         description="Group of all file groups"
     )
