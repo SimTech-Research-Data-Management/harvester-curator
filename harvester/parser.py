@@ -69,7 +69,7 @@ class Parser():
 
             # Extract numpy attributes from dataset
             dataset_numpy_attributes = []
-            dataset_numpy_attributes.append({"dtype": obj.dtype})
+            dataset_numpy_attributes.append({"type_of_data": obj.dtype})
             dataset_numpy_attributes.append({"shape": obj.shape})
             dataset_numpy_attributes.append({"size": obj.size})
             dataset_numpy_attributes.append({"ndim": obj.ndim})   
@@ -246,6 +246,9 @@ class Parser():
             #subprocess.run(command, check=True)
             subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             meta_dict = self.parse_yaml(cff_file)
+            if 'type' in meta_dict:
+                meta_dict['type_of_work'] = meta_dict['type']
+                del meta_dict['type']
         except subprocess.CalledProcessError as e:
             print(f"Error: {e}")
             return

@@ -122,12 +122,12 @@ if __name__ == "__main__":
     # Determine the parent directory of the given path
     parent_directory = os.path.abspath(os.path.join(args.path, os.pardir))
 
-    # Create the 'harvester_output' directory if it doesn't exist
-    output_directory = os.path.join(parent_directory, 'harvester_output')
-    os.makedirs(output_directory, exist_ok=True)
+    # # Create the 'harvester_output' directory if it doesn't exist
+    # output_directory = os.path.join(parent_directory, 'harvester_output')
+    # os.makedirs(output_directory, exist_ok=True)
 
     # Construct the path for the output file in the 'output' directory
-    output_file_path = os.path.join(output_directory, 'harvester_output.json')
+    output_file_path = os.path.join(parent_directory, 'harvester_output.json')
 
     # Export output from metadata harvester into a JSON file
     with open(output_file_path, "w") as f:

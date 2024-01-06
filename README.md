@@ -23,11 +23,8 @@ export DATAVERSE_URL=https://demodarus.izus.uni-stuttgart.de >> ~/.bashrc
 <pre>
 python3 curator.py --darus --path /path/to/harvested_metadata.json
 </pre>
-
-- or, for the interactive version, execute
-<pre>
-python3 curator.py --darus -i --path /path/to/harvested_metadata.json
-</pre>
 from the *curator* folder. 
 
 The feature interactive-curation checks similarity percentage between the metadata fields defined by the user and target repository (only DaRUS currently). If it is more than a threshold value (85% currently) then will interact with user to add metadata to the corresponding field in the target repository.
+
+**Detailed documentation** https://docs.google.com/document/d/1-nOwCnVz_3FDLZ1XSMEO-h1dI1eTbXqqxKMkziwOfLM/edit
