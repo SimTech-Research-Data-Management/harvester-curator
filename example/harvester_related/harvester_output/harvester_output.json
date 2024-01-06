@@ -1,5 +1,5 @@
 {
-  "name": "all parsed file groups",
+  "supergroup_name": "all parsed file groups",
   "file_group_names": {
     "bib files": [
       "bib"
@@ -53,11 +53,11 @@
   },
   "groups": [
     {
-      "name": "bib files",
+      "file_group_name": "bib files",
       "files": [
         {
-          "name": "test.bib",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test.bib",
+          "file_name": "test.bib",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/test.bib",
           "metadata": {
             "authors": [
               {
@@ -66,7 +66,7 @@
               }
             ],
             "cff-version": "1.2.0",
-            "date-released": "2023-12-06",
+            "date-released": "2024-01-06",
             "doi": "10.5281/zenodo.7979015",
             "license": "Unlicense",
             "message": "If you use this software, please cite it as below.",
@@ -78,11 +78,11 @@
       ]
     },
     {
-      "name": "2D image files",
+      "file_group_name": "2D image files",
       "files": [
         {
-          "name": "masonry.bmp",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/masonry.bmp",
+          "file_name": "masonry.bmp",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/masonry.bmp",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -137,8 +137,8 @@
           }
         },
         {
-          "name": "DICOM_KNEE.dcm",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/DICOM_KNEE.dcm",
+          "file_name": "DICOM_KNEE.dcm",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/DICOM_KNEE.dcm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -193,8 +193,8 @@
           }
         },
         {
-          "name": "prostate.img",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/prostate.img",
+          "file_name": "prostate.img",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/prostate.img",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -249,8 +249,8 @@
           }
         },
         {
-          "name": "earth.jpg",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/earth.jpg",
+          "file_name": "earth.jpg",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/earth.jpg",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -305,8 +305,8 @@
           }
         },
         {
-          "name": "binary.pgm",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/binary.pgm",
+          "file_name": "binary.pgm",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/binary.pgm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -361,8 +361,8 @@
           }
         },
         {
-          "name": "uni_stuttgart.png",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/uni_stuttgart.png",
+          "file_name": "uni_stuttgart.png",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/uni_stuttgart.png",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -417,8 +417,8 @@
           }
         },
         {
-          "name": "Gourds.pnm",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/Gourds.pnm",
+          "file_name": "Gourds.pnm",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/Gourds.pnm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -473,8 +473,8 @@
           }
         },
         {
-          "name": "earth.ppm",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/earth.ppm",
+          "file_name": "earth.ppm",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/earth.ppm",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -529,8 +529,8 @@
           }
         },
         {
-          "name": "ColorCells.tif",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/ColorCells.tif",
+          "file_name": "ColorCells.tif",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/ColorCells.tif",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -587,11 +587,11 @@
       ]
     },
     {
-      "name": "cff files",
+      "file_group_name": "cff files",
       "files": [
         {
-          "name": "CITATION.cff",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/CITATION.cff",
+          "file_name": "CITATION.cff",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/CITATION.cff",
           "metadata": {
             "cff-version": "1.2.0",
             "title": "Demo of Harvester-Curator",
@@ -633,11 +633,11 @@
       ]
     },
     {
-      "name": "3D image files",
+      "file_group_name": "3D image files",
       "files": [
         {
-          "name": "SainteHelens.dem",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/SainteHelens.dem",
+          "file_name": "SainteHelens.dem",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/SainteHelens.dem",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -692,8 +692,8 @@
           }
         },
         {
-          "name": "mesh_fs8.exo",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/mesh_fs8.exo",
+          "file_name": "mesh_fs8.exo",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/mesh_fs8.exo",
           "metadata": {
             "dataset_type": [
               "MultiBlock"
@@ -721,8 +721,8 @@
           }
         },
         {
-          "name": "clown.facet",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/clown.facet",
+          "file_name": "clown.facet",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/clown.facet",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -765,8 +765,8 @@
           }
         },
         {
-          "name": "teapot.g",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/teapot.g",
+          "file_name": "teapot.g",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/teapot.g",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -797,8 +797,8 @@
           }
         },
         {
-          "name": "Box.glb",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/Box.glb",
+          "file_name": "Box.glb",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/Box.glb",
           "metadata": {
             "dataset_type": [
               "MultiBlock"
@@ -826,8 +826,8 @@
           }
         },
         {
-          "name": "elephav.obj",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/elephav.obj",
+          "file_name": "elephav.obj",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/elephav.obj",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -871,8 +871,8 @@
           }
         },
         {
-          "name": "bun_zipper_res4.ply",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/bun_zipper_res4.ply",
+          "file_name": "bun_zipper_res4.ply",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/bun_zipper_res4.ply",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -903,8 +903,8 @@
           }
         },
         {
-          "name": "bolt.slc",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/bolt.slc",
+          "file_name": "bolt.slc",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/bolt.slc",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -959,8 +959,8 @@
           }
         },
         {
-          "name": "bunny.stl",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/bunny.stl",
+          "file_name": "bunny.stl",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/bunny.stl",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -993,11 +993,11 @@
       ]
     },
     {
-      "name": "hdf5 files",
+      "file_group_name": "hdf5 files",
       "files": [
         {
-          "name": "test1.h5",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test1.h5",
+          "file_name": "test1.h5",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/test1.h5",
           "metadata": {
             "group_name: /Unnamed": [
               {
@@ -1164,8 +1164,8 @@
           }
         },
         {
-          "name": "NEONDSTowerTemperatureData.hdf5",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/NEONDSTowerTemperatureData.hdf5",
+          "file_name": "NEONDSTowerTemperatureData.hdf5",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/NEONDSTowerTemperatureData.hdf5",
           "metadata": {
             "group_name: /Domain_03/OSBS": [
               {
@@ -2130,8 +2130,8 @@
           }
         },
         {
-          "name": "OMIAura_L3-OMUVBd_2005m0101_v003-2014m0117t140037.he5",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/OMIAura_L3-OMUVBd_2005m0101_v003-2014m0117t140037.he5",
+          "file_name": "OMIAura_L3-OMUVBd_2005m0101_v003-2014m0117t140037.he5",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/OMIAura_L3-OMUVBd_2005m0101_v003-2014m0117t140037.he5",
           "metadata": {
             "group_name: /HDFEOS/ADDITIONAL/FILE_ATTRIBUTES": [
               {
@@ -3688,11 +3688,11 @@
       ]
     },
     {
-      "name": "vtk files",
+      "file_group_name": "vtk files",
       "files": [
         {
-          "name": "can-vtu.hdf",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/can-vtu.hdf",
+          "file_name": "can-vtu.hdf",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/can-vtu.hdf",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3752,8 +3752,8 @@
           }
         },
         {
-          "name": "test.pvti",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test.pvti",
+          "file_name": "test.pvti",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/test.pvti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -3811,8 +3811,8 @@
           }
         },
         {
-          "name": "polyEx.pvtp",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/polyEx.pvtp",
+          "file_name": "polyEx.pvtp",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/polyEx.pvtp",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -3857,8 +3857,8 @@
           }
         },
         {
-          "name": "pressure_20.pvtr",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/pressure_20.pvtr",
+          "file_name": "pressure_20.pvtr",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/pressure_20.pvtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -3910,8 +3910,8 @@
           }
         },
         {
-          "name": "T0000000500.pvtu",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500.pvtu",
+          "file_name": "T0000000500.pvtu",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/T0000000500.pvtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -3958,8 +3958,8 @@
           }
         },
         {
-          "name": "0.vti",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test/0.vti",
+          "file_name": "0.vti",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/test/0.vti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -4017,8 +4017,8 @@
           }
         },
         {
-          "name": "1.vti",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/test/1.vti",
+          "file_name": "1.vti",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/test/1.vti",
           "metadata": {
             "dataset_type": [
               "ImageData"
@@ -4076,8 +4076,8 @@
           }
         },
         {
-          "name": "hello.vtk",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/hello.vtk",
+          "file_name": "hello.vtk",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/hello.vtk",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -4111,8 +4111,8 @@
           }
         },
         {
-          "name": "polyEx0.vtp",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/polyEx0.vtp",
+          "file_name": "polyEx0.vtp",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/polyEx0.vtp",
           "metadata": {
             "dataset_type": [
               "PolyData"
@@ -4157,8 +4157,8 @@
           }
         },
         {
-          "name": "pressure_20_1.vtr",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/pressure_20/pressure_20_1.vtr",
+          "file_name": "pressure_20_1.vtr",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/pressure_20/pressure_20_1.vtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -4210,8 +4210,8 @@
           }
         },
         {
-          "name": "pressure_20_0.vtr",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/pressure_20/pressure_20_0.vtr",
+          "file_name": "pressure_20_0.vtr",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/pressure_20/pressure_20_0.vtr",
           "metadata": {
             "dataset_type": [
               "RectilinearGrid"
@@ -4263,8 +4263,8 @@
           }
         },
         {
-          "name": "StructuredGrid.vts",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/StructuredGrid.vts",
+          "file_name": "StructuredGrid.vts",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/StructuredGrid.vts",
           "metadata": {
             "dataset_type": [
               "StructuredGrid"
@@ -4314,8 +4314,8 @@
           }
         },
         {
-          "name": "001.vtu",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/001.vtu",
+          "file_name": "001.vtu",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/T0000000500/001.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -4362,8 +4362,8 @@
           }
         },
         {
-          "name": "003.vtu",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/003.vtu",
+          "file_name": "003.vtu",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/T0000000500/003.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -4410,8 +4410,8 @@
           }
         },
         {
-          "name": "002.vtu",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/002.vtu",
+          "file_name": "002.vtu",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/T0000000500/002.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -4458,8 +4458,8 @@
           }
         },
         {
-          "name": "000.vtu",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/T0000000500/000.vtu",
+          "file_name": "000.vtu",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/T0000000500/000.vtu",
           "metadata": {
             "dataset_type": [
               "UnstructuredGrid"
@@ -4508,11 +4508,11 @@
       ]
     },
     {
-      "name": "yaml files",
+      "file_group_name": "yaml files",
       "files": [
         {
-          "name": "codemeta.yaml",
-          "path": "/home/sarbani/darus_data_harvester/example/harvester_related/example_input_minimal/codemeta.yaml",
+          "file_name": "codemeta.yaml",
+          "path": "/home/sarbani/Harvester-Curator/example/harvester_related/example_input_minimal/codemeta.yaml",
           "metadata": {
             "name": "MyAwesomeProject",
             "version": "1.0.0",
