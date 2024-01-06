@@ -1,0 +1,154 @@
+{
+  "lib_name": "pyDaRUS",
+  "metadatablocks": {
+    "citation": {
+      "author": [
+        {
+          "name": "Sarbani Roy",
+          "affiliation": "University of Stuttgart"
+        },
+        {
+          "name": "FangFang Wang",
+          "affiliation": "University of Stuttgart"
+        }
+      ],
+      "title": "Demo of Harvester-Curator",
+      "software": [
+        {
+          "version": "^2.26.0"
+        },
+        {
+          "version": "^1.22.0"
+        }
+      ],
+      "contact": [
+        {
+          "email": "jane.smith@example.com"
+        },
+        {
+          "email": "fangfang.wang@simtech.uni-stuttgart.de"
+        }
+      ],
+      "keyword": [
+        {
+          "term": "Harvester"
+        },
+        {
+          "term": "Curator"
+        },
+        {
+          "term": "Demonstration"
+        },
+        {
+          "term": "code"
+        },
+        {
+          "term": "metadata"
+        },
+        {
+          "term": "example"
+        }
+      ],
+      "storage": [
+        {
+          "size": "72"
+        },
+        {
+          "size": "16"
+        },
+        {
+          "size": "48"
+        }
+      ],
+      "description": [
+        {
+          "text": "A fantastic project showcasing CodeMeta."
+        }
+      ],
+      "contributor": [
+        {
+          "name": "Jane Smith"
+        }
+      ]
+    },
+    "privacy": {
+      "personal_data": "no"
+    },
+    "engMeta": {
+      "spatial_resolution": [
+        {
+          "number_of_cells": 802
+        },
+        {
+          "number_of_cells": 4800
+        },
+        {
+          "number_of_cells": 8000
+        },
+        {
+          "number_of_cells": 6
+        },
+        {
+          "number_of_cells": 4000
+        },
+        {
+          "number_of_cells": 4000
+        },
+        {
+          "number_of_cells": 15
+        },
+        {
+          "number_of_cells": 6
+        },
+        {
+          "number_of_cells": 120
+        },
+        {
+          "number_of_cells": 150
+        }
+      ],
+      "flows": [
+        {
+          "shape": 18
+        },
+        {
+          "shape": 4
+        },
+        {
+          "shape": 16
+        },
+        {
+          "shape": 1
+        },
+        {
+          "shape": 16
+        },
+        {
+          "shape": 1
+        },
+        {
+          "shape": 16
+        },
+        {
+          "shape": 3
+        }
+      ]
+    },
+    "process": {
+      "software": [
+        {
+          "license": "Unlicense"
+        },
+        {
+          "license": "MIT"
+        },
+        {
+          "license": "MIT"
+        }
+      ]
+    },
+    "codeMeta": {
+      "null": "JavaScript"
+    }
+  }
+}
