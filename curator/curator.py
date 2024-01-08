@@ -13,10 +13,6 @@ def get_json_from_api(api_url):
         if response.status_code == 200:
             # Parse the JSON content
             json_data = response.json()
-            # metadata = "md.json"
-            
-            # with open(metadata, 'w') as json_file:
-            #     json.dump(json_data, json_file, indent=2)
             return json_data
         else:
             # Print an error message if the request was not successful
@@ -256,12 +252,6 @@ def attribute_name_by_type_name(cls, type_name):
 
 def process_metadata(parent, type_name_value, value, schema_data, index_to_update, schema_name):
 
-    # # get the pydarus-compatible class name from type_name
-    # pydarus_parent_name = attribute_name_by_type_name(schema_name, parent)
-    # print(f'pyDaRUS Parent: {pydarus_parent_name}')
-    # pydarus_type_name = attribute_name_by_type_name(schema_name, type_name_value)
-    # print(f'pyDaRUS type name: {pydarus_type_name}')
-
     # get the pydarus-compatible class name from type_name
     parent = attribute_name_by_type_name(schema_name, parent)
     type_name_value = attribute_name_by_type_name(schema_name, type_name_value)
@@ -276,7 +266,6 @@ def process_metadata(parent, type_name_value, value, schema_data, index_to_updat
             if index_to_update is not None:
                 # If an index is specified, add the key-value pair to the specified index within the list
                 existing_values = schema_data.get(parent, [])
-                #(existing_values)
                 if index_to_update < len(existing_values):
                     existing_values[index_to_update].update({type_name_value: value})
                 else:
@@ -287,7 +276,6 @@ def process_metadata(parent, type_name_value, value, schema_data, index_to_updat
                 # If no index is specified, append a new dictionary to the list for each item
                 list_of_dicts = [{type_name_value: item} for item in value]
                 existing_values = schema_data.get(parent, [])
-                #print(existing_values)
                 existing_values.extend(list_of_dicts)
                 schema_data[parent] = existing_values
 
@@ -295,13 +283,11 @@ def process_metadata(parent, type_name_value, value, schema_data, index_to_updat
             if index_to_update is not None:
                 # If an index is specified, add the key-value pair to the specified dictionary
                 existing_values = schema_data.get(parent, [])
-                print(existing_values)
                 existing_values[index_to_update] = value
                 schema_data[parent] = existing_values
             else:
                 # If no index is specified, append the dictionary directly to the list
                 existing_values = schema_data.get(parent, [])
-                #print(existing_values)
                 existing_values.append(value)
                 schema_data[parent] = existing_values
 
@@ -309,7 +295,6 @@ def process_metadata(parent, type_name_value, value, schema_data, index_to_updat
             if index_to_update is not None:
                 # If an index is specified, update the existing dictionary with the single value
                 existing_values = schema_data.get(parent, [])
-                #print(existing_values)
                 if index_to_update < len(existing_values):
                     existing_values[index_to_update].update({type_name_value: value})
                 else:
@@ -362,9 +347,6 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
         value = md_entry['value']
         path = md_entry['path']
 
-        print(f'Attri: {attri}')
-        print(f'Value: {value}')
-
         # Making attris in lower alphanumeric values
         cleaned_attri = clean_string(attri)
 
@@ -375,21 +357,16 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
         # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata 
         num_matches, matches = get_matching_md_fields(cleaned_attri, schema_fields)
-        
-        print(matches)
 
         com_attri = None
         parent = None
         # num_matches > 0 certifies that there is a corresponding metadata field in the metadata schema
         if num_matches > 0:
-            #print(f'No of matching Metadata fields for {attri}: {num_matches}')
             # Access all matches
             for match in matches:
-                #print(match)
                 class_name = match['class_name']
                 # title = match['title']
                 schema_parent = match['parent']
-                # print(f'Schema Parent:{schema_parent}')
                 if schema_parent is not None:
                     if num_matches == 1:
                         com_attri = class_name
@@ -408,7 +385,6 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
                                 parent = schema_parent 
                             else:
                                 sim_rat = cal_simi_rat(cleaned_schema_parent, cleaned_har_md_parent)
-                                #print(f'Similarity of {schema_parent} and {har_md_parent} is {sim_rat}')
                                 if sim_rat > sim_rat_max:
                                     sim_rat_max = sim_rat
                                     if sim_rat_max > 0.85:
@@ -426,30 +402,23 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
                                 parent = schema_parent 
                             else:
                                 sim_rat = cal_simi_rat(cleaned_schema_parent, cleaned_attri)
-                                #print(f'Similarity of {schema_parent} and {har_md_parent} is {sim_rat}')
                                 if sim_rat > sim_rat_max:
                                     sim_rat_max = sim_rat
                                     if sim_rat_max > 0.85:
                                         com_attri = class_name
                                         #com_attri = title
                                         parent = schema_parent 
-                    #print(f'Parent: {parent}')  
                 else:  
                     # data would be added against class_name/title
                     com_attri = class_name
                     #com_attri = title        
    
-            print(f'Parent: {parent}')
-            
             # get the index
             index_to_update = None
             if path is not None and len(path) >= 2:
                 if isinstance(path[-2], int):
                     index_to_update = path[-2]
-            # print(index_to_update)
             
-            print(f'Compatible Attribute: {com_attri}')
-
             # Capitalize the first letter of schema_name
             if schema_name and not schema_name[0].isupper():
                 schema_name = schema_name[0].capitalize() + schema_name[1:]
@@ -462,9 +431,6 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
         else:
             # No match indicating no corresponding entry in md_com.json
             unmatched_entries.append(md_entry)
-        print('\n')
-    
-    #print(schema_data)
 
     # Write the updated JSON data back to the file
     with open(com_metadata_file, 'w') as json_file:
@@ -483,13 +449,6 @@ if __name__ == "__main__":
     # arg_parser.add_argument("-i", "--interactive", action="store_true", help="Enable interactive mode.")
 
     args = arg_parser.parse_args()
-
-    # # Specify the path to JSON file with harvested metadata
-    # har_json_file = "harvester_output.json"
-
-    # # Read the JSON file and load its content into a dictionary
-    # with open(har_json_file, "r") as file:
-    #     har_json_data = json.load(file)
 
     # File to write compatible metadata
     com_metadata_file = os.path.join(os.path.dirname(args.har_json_file), "curator_output", "md_com.json")
@@ -527,16 +486,6 @@ if __name__ == "__main__":
         mapping_data = json.load(mapping_file)
 
     updated_har_md_dict = process_metadata_mapping(har_md_dict, mapping_data)
-    
-    # # File to write compatible metadata
-    # com_metadata_file = os.path.join(os.path.dirname(har_json_file), "curator_output", "md_com.json")
-
-    # initial_data = {"lib_name": "pyDaRUS"}
-    # with open(com_metadata_file, 'w') as json_file:
-    #     json.dump(initial_data, json_file, indent=2)
-
-    # with open(com_metadata_file) as json_file:
-    #     com_metadata = json.load(json_file)
 
     try:
         # If --darus is specified without an argument, use the default_darus_file
@@ -559,8 +508,6 @@ if __name__ == "__main__":
                 # Search, create, and update corresponding metadata (passing the interactive argument)
                 unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name)
                 updated_har_md_dict = unmatched_har_metadata
-                # for md_entry in updated_har_md_dict:
-                #     print(md_entry)
             else:
                 print("Error: Each block should contain a metadata schema 'name' and its 'api_endpoint'.")
     except Exception as e:
@@ -575,3 +522,7 @@ if __name__ == "__main__":
 
     # Check if we recovered the dataset
     print(dataset.yaml())
+
+    # Upload the dataset
+    # p_id = dataset.upload (dataverse_name="roy_dataverse")
+    # dataset.update(contact_name="Sarbani Roy", contact_email="sarbani.roy@simtech.uni-stuttgart.de")

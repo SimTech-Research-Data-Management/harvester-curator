@@ -4,15 +4,21 @@
     "citation": {
       "author": [
         {
-          "name": "Sarbani Roy",
+          "name": "Michael D. Carleton",
           "affiliation": "University of Stuttgart"
         },
         {
-          "name": "FangFang Wang",
+          "name": "Alfred L. Gardner",
           "affiliation": "University of Stuttgart"
+        },
+        {
+          "name": "Igor Ya. Pavlinov"
+        },
+        {
+          "name": "Guy G. Musser"
         }
       ],
-      "title": "Demo of Harvester-Curator",
+      "title": "The valid generic name for red-backed voles (Muroidea: Cricetidae: Arvicolinae): restatement of the case for Myodes Pallas, 1811",
       "software": [
         {
           "version": "^2.26.0"
