@@ -9,6 +9,7 @@ from pyvista import examples
 from typing import Union
 import h5py
 import yaml
+import json
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
@@ -216,7 +217,7 @@ class Parser():
         This function parses an yaml file to extract metadata
 
         Args:
-            hdf5_file (str): An input yaml file
+            yaml_file (str): An input yaml file
           
         Returns:
             meta_dict (dict): A dictionary that contains extracted metadata        
@@ -299,4 +300,23 @@ class Parser():
         except subprocess.CalledProcessError as e:
             print(f"Error: {e}")
         
+        return meta_dict
+
+    def parse_json(self, json_file: str) -> dict:
+        """
+        This function parses an yaml file to extract metadata
+
+        Args:
+            json_file (str): An input yaml file
+          
+        Returns:
+            meta_dict (dict): A dictionary that contains extracted metadata        
+        """      
+        with open(json_file, 'r') as json_file:
+            try:
+                meta_dict = json.load(json_file)
+            except json.JSONDecodeError as e:
+                print(f"Error decoding JSON: {e}")
+                return {}
+
         return meta_dict
