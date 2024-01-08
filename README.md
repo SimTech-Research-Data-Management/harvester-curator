@@ -1,4 +1,4 @@
-# darus_data_harvester examples:
+# How to use Harvester-Curator:
 
 This project has two phases: harvesting and curating.
 
