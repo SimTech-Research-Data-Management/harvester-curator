@@ -18,6 +18,14 @@
           "name": "Guy G. Musser"
         }
       ],
+      "contact": [
+        {
+          "email": "jane.smith@example.com"
+        },
+        {
+          "email": "fangfang.wang@simtech.uni-stuttgart.de"
+        }
+      ],
       "title": "The valid generic name for red-backed voles (Muroidea: Cricetidae: Arvicolinae): restatement of the case for Myodes Pallas, 1811",
       "software": [
         {
@@ -27,24 +35,7 @@
           "version": "^1.22.0"
         }
       ],
-      "contact": [
-        {
-          "email": "jane.smith@example.com"
-        },
-        {
-          "email": "fangfang.wang@simtech.uni-stuttgart.de"
-        }
-      ],
       "keyword": [
-        {
-          "term": "Harvester"
-        },
-        {
-          "term": "Curator"
-        },
-        {
-          "term": "Demonstration"
-        },
         {
           "term": "code"
         },
@@ -83,55 +74,10 @@
     "engMeta": {
       "spatial_resolution": [
         {
-          "number_of_cells": 802
-        },
-        {
-          "number_of_cells": 4800
-        },
-        {
-          "number_of_cells": 8000
-        },
-        {
-          "number_of_cells": 6
-        },
-        {
-          "number_of_cells": 4000
-        },
-        {
-          "number_of_cells": 4000
-        },
-        {
-          "number_of_cells": 15
-        },
-        {
-          "number_of_cells": 6
-        },
-        {
-          "number_of_cells": 120
-        },
-        {
           "number_of_cells": 150
         }
       ],
       "flows": [
-        {
-          "shape": 18
-        },
-        {
-          "shape": 4
-        },
-        {
-          "shape": 16
-        },
-        {
-          "shape": 1
-        },
-        {
-          "shape": 16
-        },
-        {
-          "shape": 1
-        },
         {
           "shape": 16
         },
@@ -143,18 +89,18 @@
     "process": {
       "software": [
         {
-          "license": "Unlicense"
-        },
-        {
-          "license": "MIT"
-        },
-        {
           "license": "MIT"
         }
       ]
     },
     "codeMeta": {
-      "null": "JavaScript"
+      "code_repository": [
+        "https://github.com/example/my-awesome-project"
+      ],
+      "programming_language": [
+        "Python",
+        "JavaScript"
+      ]
     }
   }
 }
