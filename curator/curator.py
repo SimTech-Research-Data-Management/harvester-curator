@@ -93,20 +93,6 @@ def find_parent_name(current_data, target_child):
                 if result:
                     return result
                 
-#If we want to put title in com_md.json
-# def find_parent_name(current_data, target_child):
-#         for key, value in current_data.items():
-#             if isinstance(value, dict):
-#                 if 'childFields' in value and target_child in value['childFields']:
-#                     return value.get('title')
-#                 elif 'items' in value and target_child in value['items']:
-#                     return value.get('title')
-
-#                 result = find_parent_name(value, target_child)
-#                 if result:
-#                     return result
-
-
 def get_matching_md_fields(test_criteria, fields):
     matches = []
     num_matches = 0
@@ -124,22 +110,15 @@ def get_matching_md_fields(test_criteria, fields):
         # Check if the provided test_criteria matches the current entry
         if test_criteria in current_test_criteria:           
             parent_name = find_parent_name(fields, class_name)
+            allow_multiple = class_info.get('multiple')
             if parent_name is None and 'childFields' in class_info:
                 first_child_field = next(iter(class_info.get('childFields', {})), None)
                 parent_name = class_name
                 class_name = first_child_field
                 
-                # parent_name = title
-                # # Access the 'childFields' key
-                # child_fields = class_info.get('childFields', {})
-                # # Get the first child field and its title
-                # first_child_field = next(iter(child_fields.values()), None)
-                # title_of_first_child = first_child_field.get('title')
-                # title = title_of_first_child
             matches.append({
                 'class_name': class_name,
-                # 'title' : title,
-                # 'class_info': class_info,
+                'allow_multiple': allow_multiple,
                 'parent': parent_name,
             })
         else:            
@@ -150,28 +129,16 @@ def get_matching_md_fields(test_criteria, fields):
                     sim_rat_max = sim_rat
                     if sim_rat_max > 0.85:    
                         parent_name = find_parent_name(fields, class_name)
+                        allow_multiple = class_info.get('multiple')
                         if parent_name is None and 'childFields' in class_info:
                             first_child_field = next(iter(class_info.get('childFields', {})), None)
                             parent_name = class_name
                             class_name = first_child_field                            
                         matches.append({
                             'class_name': class_name,
-                            # 'class_info': class_info,
+                            'allow_multiple': allow_multiple,
                             'parent': parent_name,
                         })
-                        #     parent_name = title
-                        #     # Access the 'childFields' key
-                        #     child_fields = class_info.get('childFields', {})
-                        #     # Get the first child field and its title
-                        #     first_child_field = next(iter(child_fields.values()), None)
-                        #     title_of_first_child = first_child_field.get('title')
-                        #     title = title_of_first_child
-                        # matches.append({
-                        #     'class_name': class_name,
-                        #     'title' : title,
-                        #     # 'class_info': class_info,
-                        #     'parent': parent_name,
-                        # })
 
     # Include the number of matches in the result
     num_matches = len(matches)
@@ -250,11 +217,15 @@ def attribute_name_by_type_name(cls, type_name):
             if res is not None:
                 return res
 
-def process_metadata(parent, type_name_value, value, schema_data, index_to_update, schema_name):
+def process_metadata(parent, type_name_value, value, schema_data, index_to_update, schema_name, allow_multiple):
 
+    # Adjust the type_name_value for CodeMeta
+    if schema_name == "CodeMeta":
+        type_name_value = schema_name[0].lower() + schema_name[1:] + type_name_value[0].capitalize() + type_name_value[1:]
+    
     # get the pydarus-compatible class name from type_name
     parent = attribute_name_by_type_name(schema_name, parent)
-    type_name_value = attribute_name_by_type_name(schema_name, type_name_value)
+    type_name_value = attribute_name_by_type_name(schema_name, type_name_value)    
 
     if parent is not None:
         # Create the key in schema_data if it doesn't exist
@@ -305,18 +276,24 @@ def process_metadata(parent, type_name_value, value, schema_data, index_to_updat
                 # If no index is specified, append the single value directly to the list
                 schema_data[parent].append({type_name_value: value})
     else:
+        schema_data.setdefault(type_name_value, [])
+
         if index_to_update is not None:
-            if isinstance(value, list) or isinstance(value, dict):
-                for val in value:
-                    # Add the key-value pair to the specified dictionary at the given index
-                    schema_data[type_name_value][index_to_update] = val
+            if allow_multiple == True:
+                existing_values = schema_data[type_name_value]
+
+                # Extend the list with None if needed
+                while len(existing_values) <= index_to_update:
+                    existing_values.append(None)
+                    existing_values[index_to_update] = value
+
+                schema_data[type_name_value] = existing_values
             else:
                 # Add the key-value pair to the specified dictionary at the given index
                 schema_data[type_name_value][index_to_update] = value
         else:
-            if isinstance(value, list) or isinstance(value, dict):
-                for val in value:
-                    schema_data[type_name_value] = val
+            if allow_multiple == True:
+                schema_data[type_name_value].append(value)
             else:
                 schema_data[type_name_value] = value
 
@@ -365,6 +342,7 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
             # Access all matches
             for match in matches:
                 class_name = match['class_name']
+                allow_multiple = match['allow_multiple']
                 # title = match['title']
                 schema_parent = match['parent']
                 if schema_parent is not None:
@@ -414,24 +392,30 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
                     #com_attri = title        
    
             # get the index
+            # print(f'PATH: {path}')
             index_to_update = None
             if path is not None and len(path) >= 2:
                 if isinstance(path[-2], int):
                     index_to_update = path[-2]
+                elif isinstance(path[-1], int):
+                        index_to_update = path[-1]
+
+            # print(f'Index: {index_to_update}')
             
             # Capitalize the first letter of schema_name
             if schema_name and not schema_name[0].isupper():
                 schema_name = schema_name[0].capitalize() + schema_name[1:]
 
+            # print(parent, com_attri, value, schema_data, index_to_update, schema_name)
 
             # Write compatible metadata in the json dictionary
             if com_attri is not None:
-                process_metadata(parent, com_attri, value, schema_data, index_to_update, schema_name)
+                process_metadata(parent, com_attri, value, schema_data, index_to_update, schema_name, allow_multiple)
         
         else:
             # No match indicating no corresponding entry in md_com.json
             unmatched_entries.append(md_entry)
-
+        #print('\n')
     # Write the updated JSON data back to the file
     with open(com_metadata_file, 'w') as json_file:
         json.dump(com_metadata, json_file, indent=2)            
@@ -451,7 +435,7 @@ if __name__ == "__main__":
     args = arg_parser.parse_args()
 
     # File to write compatible metadata
-    com_metadata_file = os.path.join(os.path.dirname(args.har_json_file), "curator_output", "md_com.json")
+    com_metadata_file = os.path.join(os.path.dirname(args.har_json_file), "md_com.json")
 
     # Create 'md_com.json' with initial data if it doesn't exist
     if os.path.exists(com_metadata_file):
@@ -469,16 +453,16 @@ if __name__ == "__main__":
     with open(args.har_json_file) as file:
         har_json_data = json.load(file)
 
-    # # Extract metadata for each file
-    # har_data = {}
-    # for group in har_json_data["groups"]:
-    #     for file in group["files"]:
-    #         metadata = file.get("metadata")
-    #         if metadata:
-    #             har_data.update(metadata)
+    # Extract metadata for each file
+    har_data = {}
+    for group in har_json_data["groups"]:
+        for file in group["files"]:
+            metadata = file.get("metadata")
+            if metadata:
+                har_data.update(metadata)
 
     # Collect all attributes, values, paths from harvested metadata
-    har_md_dict = extract_attri_value_path(har_json_data)
+    har_md_dict = extract_attri_value_path(har_data)
 
     # Read, load and apply the mapping file
     mapping_file = "mapping.json"
