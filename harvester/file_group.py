@@ -1,8 +1,9 @@
-from sdRDM import DataModel, Field
+from pydantic import BaseModel, Field
 from typing import List, Dict, Optional
 
 
-class File(DataModel):
+
+class File(BaseModel):
     file_name: str = Field(
         ...,
         description="Name of a file"
@@ -17,9 +18,9 @@ class File(DataModel):
         ...,
         description="Metadata of the file"
     )
+    
 
-
-class FileGroup(DataModel):
+class FileGroup(BaseModel):
     file_group_name: str = Field(
         ...,
         description="Name of the file group based on file type"
@@ -31,7 +32,7 @@ class FileGroup(DataModel):
     )
 
 
-class SuperGroup(DataModel):
+class SuperGroup(BaseModel):
     supergroup_name: str = Field(
         ...,
         description="Group of all file groups"

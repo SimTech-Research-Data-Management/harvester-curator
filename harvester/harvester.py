@@ -4,10 +4,28 @@ from crawler import crawler
 from parser import Parser
 from file_group import File, FileGroup, SuperGroup
 import argparse
+import json
 import warnings
+import numpy as np
+import datetime
+
 
 # Filter out UserWarnings
 warnings.filterwarnings("ignore", category=UserWarning)
+
+class JsonSerialize(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        if isinstance(obj, np.dtype):
+            return obj.descr
+        if isinstance(obj, (datetime.datetime, datetime.date)):
+            return obj.isoformat()
+        return json.JSONEncoder.default(self, obj)
 
 
 def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
@@ -103,7 +121,7 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
         if verbose:
             print(f"\n\n***Please note that currently there are no parsers to parse {', '.join(unparsed_file_types[:-1])} and {unparsed_file_types[-1]} files found under the given path.\n")
             print(f"List of unparsed files: {unparsed_files}\n\n")
-      
+
     return all_file_groups
 
 if __name__ == "__main__":
@@ -130,14 +148,11 @@ if __name__ == "__main__":
     output_file_path = os.path.join(parent_directory, 'harvester_output.json')
 
     # Export output from metadata harvester into a JSON file
+    output_metadata = json.dumps(all_file_groups.dict(), indent=2, allow_nan=True, cls=JsonSerialize)
     with open(output_file_path, "w") as f:
-        f.write(all_file_groups.json())
-
+        f.write(output_metadata)
+     
     # Print the path to the output file
     print(f"Output is written to: {output_file_path}")
 
-
-    #print(all_file_groups.yaml())
-    #print(f"--- Tree visulization of metadata harvested---\n")
-    #all_file_groups.visualize_tree()
-    #print("\n")
+   
