@@ -1,5 +1,3 @@
-from lxml import etree
-from sdRDM import DataModel
 import os
 import subprocess
 import crawler
@@ -10,6 +8,7 @@ from typing import Union
 import h5py
 import yaml
 import json
+import numpy
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
@@ -30,8 +29,6 @@ class Parser():
         Returns:
             dict_ (dict): A dictionary with appended value
         """
-
-
         if value_:
             if key_ in dict_:
                 dict_[key_].append(value_)
@@ -70,15 +67,17 @@ class Parser():
 
             # Extract numpy attributes from dataset
             dataset_numpy_attributes = []
-            dataset_numpy_attributes.append({"type_of_data": obj.dtype})
+            dataset_type_string = str(type(obj.dtype)).split('.')[-1].replace("'>", "")
+            dataset_type = "".join([dataset_type_string[-5:], "(", dataset_type_string[0:-5], ")"]).lower()
+            dataset_numpy_attributes.append({"dataset_type": dataset_type})         
             dataset_numpy_attributes.append({"shape": obj.shape})
             dataset_numpy_attributes.append({"size": obj.size})
             dataset_numpy_attributes.append({"ndim": obj.ndim})   
             dataset_numpy_attributes.append({"nbytes": obj.nbytes})     
             dataset_numpy_attributes.append({"maxshape": obj.maxshape})  
-            dataset_numpy_attributes.append({"maxshape": obj.maxshape})    
+               
             if dataset_numpy_attributes:
-                dataset_all_metadata.append({"dataset_numpy_attributes": dataset_numpy_attributes})
+                dataset_all_metadata.append({"dataset_numpy_attributes": dataset_numpy_attributes})             
                 
             dataset_name = os.path.basename(item_name)
             current_group_name = os.path.dirname(item_name)
@@ -107,6 +106,7 @@ class Parser():
         with h5py.File(hdf5_file, "r") as f: 
             f.visititems(self.extract_hdf5_metadata)
         meta_dict = self.item_list
+
         return meta_dict
       
     def parse_vtk(self, vtk_file:str) -> dict:
@@ -188,7 +188,7 @@ class Parser():
                 dimensions = output.dimensions
                 spacing = output.spacing
                 self.append_value(meta_dict, "dimensions", list(dimensions))
-                self.append_value(meta_dict, "spacing", list(spacing))  
+                self.append_value(meta_dict, "spacing", list(spacing)) 
                 
             elif dataset_type == "PolyData":           
                  number_of_lines = output.n_lines
@@ -207,9 +207,9 @@ class Parser():
         mesh_center = output.center
         
         self.append_value(meta_dict, "mesh_bounds", list(mesh_bounds))
-        self.append_value(meta_dict, "mesh_center", list(mesh_center))    
+        self.append_value(meta_dict, "mesh_center", list(mesh_center))   
 
-        
+
         return meta_dict
 
     def parse_yaml(self, yaml_file: str) -> dict:
