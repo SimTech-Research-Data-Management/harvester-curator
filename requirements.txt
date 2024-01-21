@@ -1,0 +1,9 @@
+pydarus
+bibtex2cff
+cffconvert
+pydantic
+PyYAML 
+h5py 
+pyvista
+vtk
+python-magic

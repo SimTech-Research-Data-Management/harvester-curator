@@ -425,7 +425,8 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 if __name__ == "__main__":  
    
     # default_darus_metadata_endpoint
-    darus_metadata_endpoint = "./api_end_points/darus_md_schema_api_endpoints.json"
+    current_directory = os.path.abspath(os.path.dirname(__file__))
+    darus_metadata_endpoint = os.path.join(current_directory, "api_end_points", "darus_md_schema_api_endpoints.json")
 
     arg_parser = argparse.ArgumentParser(description="Generate compatible metadata.")
     arg_parser.add_argument("--darus", dest="api_endpoints_file_path", default=darus_metadata_endpoint, nargs='?', const=darus_metadata_endpoint, help="API endpoint for metadata.")
@@ -465,7 +466,7 @@ if __name__ == "__main__":
     har_md_dict = extract_attri_value_path(har_data)
 
     # Read, load and apply the mapping file
-    mapping_file = "mapping.json"
+    mapping_file = os.path.join(current_directory, "mapping.json")
     with open(mapping_file, "r") as mapping_file:
         mapping_data = json.load(mapping_file)
 
