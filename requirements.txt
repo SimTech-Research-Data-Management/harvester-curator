@@ -1,4 +1,4 @@
-pydarus
+pyDaRUS
 bibtex2cff
 cffconvert
 pydantic
