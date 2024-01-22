@@ -1,9 +1,9 @@
-pyDaRUS
-bibtex2cff
-cffconvert
-pydantic
-PyYAML 
-h5py 
-pyvista
-vtk
-python-magic
+pyDaRUS == 1.0.5
+bibtex2cff == 0.2.1
+cffconvert == 2.0.0
+pydantic >= 1.10.0, < 2.0.0
+PyYAML == 6.0.1 
+h5py == 3.10.0 
+pyvista == 0.43.2
+vtk == 9.3.0
+python-magic == 0.4.27
