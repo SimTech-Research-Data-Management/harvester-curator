@@ -154,7 +154,7 @@ def write_codemeta(codemeta_install, codemeta_requirements, path):
         if codemeta_requirements:
             codemeta_data['software_requirements'].extend(codemeta_requirements)
     
-    print(codemeta_data)
+    # print(codemeta_data)
 
     # Write the data to codemeta.json at the first level of the specified path
     codemeta_path = os.path.join(path, 'codemeta.json')
