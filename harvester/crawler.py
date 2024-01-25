@@ -1,5 +1,8 @@
 import os
 import magic
+import argparse
+from generate_codemeta import codemeta_from_install, codemeta_from_requirements, write_codemeta
+
 
 def crawler(path: str) -> dict:
     """
@@ -15,6 +18,28 @@ def crawler(path: str) -> dict:
     # Create a dictionary to hold the file extensions and their corresponding file names
     file_dict = {}
   
+    # Get the list of files in the first level of the directory
+    files_in_first_level = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+
+    # Check if any file in the first level contains "codemeta" in its name
+    codemeta_files = [f for f in files_in_first_level if "codemeta" in f.lower()]
+
+    codemeta_install = []
+    codemeta_requirements = []
+
+    if not codemeta_files:
+    
+        # Check if install.py is in the first level
+        install_py_path = os.path.join(path, "install.py")
+        if os.path.isfile(install_py_path):
+            codemeta_install = codemeta_from_install(install_py_path)
+
+        requirements_path = os.path.join(path, "requirements.txt")
+        if os.path.isfile(requirements_path):
+            codemeta_requirements = codemeta_from_requirements(requirements_path)
+
+        write_codemeta(codemeta_install, codemeta_requirements, path)
+    
     # Create a `magic.Magic` instance
     file_magic = magic.Magic(mime=True)
 
@@ -40,6 +65,7 @@ def crawler(path: str) -> dict:
                     file_dict[file_type].append(file_path)
                 else:
                     file_dict[file_type] = [file_path]
+
             else:
                 print(f"Not a file path: {file_path}")
                 
@@ -67,10 +93,14 @@ def get_file_type(file_path):
 
 
 if __name__ == '__main__':
-    print("----- A simple example of using crawler in a given directory ---- \n")
-    
-    # Define the target path that contains files
-    target_path = os.path.join(os.path.dirname(os.getcwd()), "example")
-    
-    file_dict = crawler(target_path)
-    print(f"All files found by crawler in the directory: \n {file_dict}")
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Find files in a directory and its subdirectories.")
+    parser.add_argument('--path', type=str, help='Target path to search for files.')
+    args = parser.parse_args()
+
+    if args.path:
+        target_path = args.path
+        file_dict = crawler(target_path)
+        print(f"All files found by crawler in the directory: \n {file_dict}")
+    else:
+        print("Please provide a valid --path argument.")

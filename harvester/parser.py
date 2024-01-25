@@ -266,6 +266,8 @@ class Parser():
         Returns:
             meta_dict (dict): A dictionary that contains extracted metadata        
         """      
+        meta_dict = {} 
+        
         # Convert bibtex of CFF file
         command = ["bibtex2cff", f"{bib_file}", "-o", f"{os.getcwd()}/bib2CITATION.cff"]
 
