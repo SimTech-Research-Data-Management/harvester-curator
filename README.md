@@ -38,7 +38,7 @@ python3 curator/curator.py --darus --path /path/to/harvested_output.json
 The curated metadata has been output to the [md_com.json](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/example/md_com.json) file within the example folder.
 
 ##### 5. Upload curated metadata to DaRUS or other Dataverse Installations by following the provided codes below.
-##### **Important:** Prior to uploading to DaRUS or other Dataverse installations, please ensure the necessary environment variables are set up. Refer to the example below for guidance.
+**Important:** Prior to uploading to DaRUS or other Dataverse installations, please ensure the necessary environment variables are set up. Refer to the example below for guidance.
 <pre>
 export DATAVERSE_API_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX >> ~/.bashrc
 export DATAVERSE_URL=https://demodarus.izus.uni-stuttgart.de >> ~/.bashrc
