@@ -445,7 +445,7 @@ if __name__ == "__main__":
         for file in group["files"]:
             filename = file["file_name"].lower()
             if "codemeta" in filename:
-                target_schema_names = ["codeMeta", "citation"]
+                target_schema_names = ["codeMeta20", "citation"]
             metadata = file.get("metadata")
             if metadata:
                 # If --darus is specified without an argument, use the default_darus_file
@@ -462,7 +462,8 @@ if __name__ == "__main__":
                     for target_schema_name in target_schema_names:                    
                         for block in api_blocks:
                             api_url = block.get("api_endpoint")
-                            schema_name = block.get("title")
+                            schema_name = block.get("name")
+                            print(schema_name)
 
                             if schema_name == target_schema_name:                                
                                 try:
@@ -486,7 +487,7 @@ if __name__ == "__main__":
                 else:
                     for block in api_blocks:
                         api_url = block.get("api_endpoint")
-                        schema_name = block.get("title")
+                        schema_name = block.get("name")
 
                         try:
                             metadata_schema = get_json_from_api(api_url)
