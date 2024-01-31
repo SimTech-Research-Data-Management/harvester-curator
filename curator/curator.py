@@ -4,7 +4,9 @@ import json
 import difflib
 import requests
 import argparse
-from pyDaRUS import Dataset, Citation, Privacy, EngMeta, Process, CodeMeta
+from easyDataverse import Dataverse
+import argparse
+
 
 def get_json_from_api(api_url):
     try:
@@ -21,14 +23,16 @@ def get_json_from_api(api_url):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
-    
+
+
 def cal_simi_rat(string1, string2):
     sequence_matcher = difflib.SequenceMatcher(None, string1, string2)
-    # Note: Perform continuous checking on second string. 
-    # Ex: "diet" and "tide" matches "de" but for "tide" and "diet" onlt "t" 
+    # Note: Perform continuous checking on second string.
+    # Ex: "diet" and "tide" matches "de" but for "tide" and "diet" onlt "t"
     # as "t" is at the end of "diet", so no continuous match except "t" itself.
     similarity_ratio = sequence_matcher.ratio()
     return similarity_ratio
+
 
 def find_key_recursive(data, target_key):
     if target_key in data:
@@ -39,6 +43,7 @@ def find_key_recursive(data, target_key):
             if result:
                 return result
     return None
+
 
 def extract_attri_value_path(data):
     result = []
@@ -59,14 +64,17 @@ def extract_attri_value_path(data):
                 current_path.pop()
         else:
             if current_key is not None:
-                result.append({
-                    'attribute': current_key,
-                    'value': item,
-                    'path': current_path.copy()
-                })
+                result.append(
+                    {
+                        "attribute": current_key,
+                        "value": item,
+                        "path": current_path.copy(),
+                    }
+                )
 
     recursive_extract(data)
     return result
+
 
 def clean_string(input_string):
     # Check if the input is a string
@@ -74,32 +82,34 @@ def clean_string(input_string):
         # Convert the string to lowercase
         cleaned_string = input_string.lower()
         # Remove special characters and spaces
-        cleaned_string = re.sub(r'[^a-zA-Z0-9]', '', cleaned_string)
+        cleaned_string = re.sub(r"[^a-zA-Z0-9]", "", cleaned_string)
         return cleaned_string
     else:
         # Handle the case where input_string is not a string (e.g., it's an int)
         return str(input_string)
 
+
 # If we want to put class_name in com_md.json
 def find_parent_name(current_data, target_child):
-        for key, value in current_data.items():
-            if isinstance(value, dict):
-                if 'childFields' in value and target_child in value['childFields']:
-                    return key
-                elif 'items' in value and target_child in value['items']:
-                    return key
+    for key, value in current_data.items():
+        if isinstance(value, dict):
+            if "childFields" in value and target_child in value["childFields"]:
+                return key
+            elif "items" in value and target_child in value["items"]:
+                return key
 
-                result = find_parent_name(value, target_child)
-                if result:
-                    return result
-                
+            result = find_parent_name(value, target_child)
+            if result:
+                return result
+
+
 def get_matching_md_fields(test_criteria, fields):
     matches = []
     num_matches = 0
 
     for class_name, class_info in fields.items():
         cleaned_class_name = clean_string(class_name)
-        title = class_info.get('title')
+        title = class_info.get("title")
         cleaned_title = clean_string(title)
 
         if cleaned_class_name == cleaned_title:
@@ -108,41 +118,48 @@ def get_matching_md_fields(test_criteria, fields):
             current_test_criteria = [cleaned_class_name, cleaned_title]
 
         # Check if the provided test_criteria matches the current entry
-        if test_criteria in current_test_criteria:           
+        if test_criteria in current_test_criteria:
             parent_name = find_parent_name(fields, class_name)
-            allow_multiple = class_info.get('multiple')
-            if parent_name is None and 'childFields' in class_info:
-                first_child_field = next(iter(class_info.get('childFields', {})), None)
+            allow_multiple = class_info.get("multiple")
+            if parent_name is None and "childFields" in class_info:
+                first_child_field = next(iter(class_info.get("childFields", {})), None)
                 parent_name = class_name
                 class_name = first_child_field
-                
-            matches.append({
-                'class_name': class_name,
-                'allow_multiple': allow_multiple,
-                'parent': parent_name,
-            })
-        else:            
+
+            matches.append(
+                {
+                    "class_name": class_name,
+                    "allow_multiple": allow_multiple,
+                    "parent": parent_name,
+                }
+            )
+        else:
             sim_rat_max = 0
             for current_criteria in current_test_criteria:
                 sim_rat = cal_simi_rat(test_criteria, current_criteria)
                 if sim_rat > sim_rat_max:
                     sim_rat_max = sim_rat
-                    if sim_rat_max > 0.85:    
+                    if sim_rat_max > 0.85:
                         parent_name = find_parent_name(fields, class_name)
-                        allow_multiple = class_info.get('multiple')
-                        if parent_name is None and 'childFields' in class_info:
-                            first_child_field = next(iter(class_info.get('childFields', {})), None)
+                        allow_multiple = class_info.get("multiple")
+                        if parent_name is None and "childFields" in class_info:
+                            first_child_field = next(
+                                iter(class_info.get("childFields", {})), None
+                            )
                             parent_name = class_name
-                            class_name = first_child_field                            
-                        matches.append({
-                            'class_name': class_name,
-                            'allow_multiple': allow_multiple,
-                            'parent': parent_name,
-                        })
+                            class_name = first_child_field
+                        matches.append(
+                            {
+                                "class_name": class_name,
+                                "allow_multiple": allow_multiple,
+                                "parent": parent_name,
+                            }
+                        )
 
     # Include the number of matches in the result
     num_matches = len(matches)
     return num_matches, matches if matches else None
+
 
 def process_metadata_mapping(har_md_dict, mapping_data):
     image_index = None
@@ -151,9 +168,9 @@ def process_metadata_mapping(har_md_dict, mapping_data):
     keys_to_delete = []
 
     for i, md_entry in enumerate(har_md_dict):
-        attri = md_entry['attribute']
-        value = md_entry['value']
-        path = md_entry['path']
+        attri = md_entry["attribute"]
+        value = md_entry["value"]
+        path = md_entry["path"]
 
         cleaned_attri = clean_string(attri)
 
@@ -174,9 +191,9 @@ def process_metadata_mapping(har_md_dict, mapping_data):
 
                         if preimage_index == num_preimages - 1:
                             mapped_entry = {
-                                'attribute': attri,
-                                'value': value,
-                                'path': path
+                                "attribute": attri,
+                                "value": value,
+                                "path": path,
                             }
                             har_md_dict[i] = mapped_entry
 
@@ -188,44 +205,54 @@ def process_metadata_mapping(har_md_dict, mapping_data):
     # i is introduced to manage the proper order of deletion
     i = 0
     for key in keys_to_delete:
-        del har_md_dict[key-i]
+        del har_md_dict[key - i]
         i = i + 1
 
     return har_md_dict
 
 
 def attribute_name_by_type_name(cls, type_name):
-    
     if isinstance(cls, str):
         # If cls is a string, assume it's the name of the Pydantic model class
         cls = globals().get(cls, None)
         assert cls is not None, f"Class with name {cls} not found in globals"
 
-    assert hasattr(cls, "__fields__"), (
-        f"Object {type(cls)} is not compliant"
-    )
-    
+    assert hasattr(cls, "__fields__"), f"Object {type(cls)} is not compliant"
+
     for attr in cls.__fields__.values():
         extra_infos = attr.field_info.extra
-        
+
         if type_name == extra_infos["typeName"]:
             return attr.name
-        
+
         if hasattr(attr.type_, "__fields__"):
             res = attribute_name_by_type_name(attr.type_, type_name)
-            
+
             if res is not None:
                 return res
 
-def process_metadata(parent, type_name_value, value, schema_data, index_to_update, schema_name, allow_multiple):
 
+def process_metadata(
+    parent,
+    type_name_value,
+    value,
+    schema_data,
+    index_to_update,
+    schema_name,
+    allow_multiple,
+):
     # Adjust the type_name_value for CodeMeta
     if schema_name == "CodeMeta":
-        type_name_value = schema_name[0].lower() + schema_name[1:] + type_name_value[0].capitalize() + type_name_value[1:]
-    
+        type_name_value = (
+            schema_name[0].lower()
+            + schema_name[1:]
+            + type_name_value[0].capitalize()
+            + type_name_value[1:]
+        )
+
     # get the pydarus-compatible class name from type_name
     parent = attribute_name_by_type_name(schema_name, parent)
-    type_name_value = attribute_name_by_type_name(schema_name, type_name_value)    
+    type_name_value = attribute_name_by_type_name(schema_name, type_name_value)
 
     if parent is not None:
         # Create the key in schema_data if it doesn't exist
@@ -297,32 +324,34 @@ def process_metadata(parent, type_name_value, value, schema_data, index_to_updat
             else:
                 schema_data[type_name_value] = value
 
-def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name):
 
+def get_compatible_metadatablocks(
+    updated_har_md_dict, com_metadata_file, com_metadata, schema_name
+):
     # Check if 'metadatablocks' class is present in harvested metadata file
-    if 'metadatablocks' not in com_metadata:
-        com_metadata['metadatablocks'] = {}
+    if "metadatablocks" not in com_metadata:
+        com_metadata["metadatablocks"] = {}
 
-    metadatablocks_data = com_metadata['metadatablocks']
-    
+    metadatablocks_data = com_metadata["metadatablocks"]
+
     # Check if 'schema_name' is present under 'metadatablocks'
     if schema_name not in metadatablocks_data:
         # Create 'schema_name' as a subclass
         metadatablocks_data[schema_name] = {}
-    
+
     schema_data = metadatablocks_data[schema_name]
 
     # Generate all fields from metadata schema
-    schema_fields = find_key_recursive(metadata_schema, 'fields')
+    schema_fields = find_key_recursive(metadata_schema, "fields")
 
     # Create a list to store metadata entries with no corresponding entry in md_com.json
     unmatched_entries = []
 
     # processing each attribute in harvested matadata
     for md_entry in updated_har_md_dict:
-        attri = md_entry['attribute']
-        value = md_entry['value']
-        path = md_entry['path']
+        attri = md_entry["attribute"]
+        value = md_entry["value"]
+        path = md_entry["path"]
 
         # Making attris in lower alphanumeric values
         cleaned_attri = clean_string(attri)
@@ -332,7 +361,7 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
         if path is not None and len(path) >= 3:
             har_md_parent = path[-3]
 
-        # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata 
+        # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata
         num_matches, matches = get_matching_md_fields(cleaned_attri, schema_fields)
 
         com_attri = None
@@ -341,16 +370,16 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
         if num_matches > 0:
             # Access all matches
             for match in matches:
-                class_name = match['class_name']
-                allow_multiple = match['allow_multiple']
+                class_name = match["class_name"]
+                allow_multiple = match["allow_multiple"]
                 # title = match['title']
-                schema_parent = match['parent']
+                schema_parent = match["parent"]
                 if schema_parent is not None:
                     if num_matches == 1:
                         com_attri = class_name
-                        #com_attri = title
+                        # com_attri = title
                         parent = schema_parent
-                    if (num_matches > 1):
+                    if num_matches > 1:
                         if har_md_parent is not None:
                             sim_rat_max = 0
 
@@ -359,38 +388,42 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
                             if cleaned_har_md_parent == cleaned_schema_parent:
                                 com_attri = class_name
-                                #com_attri = title
-                                parent = schema_parent 
+                                # com_attri = title
+                                parent = schema_parent
                             else:
-                                sim_rat = cal_simi_rat(cleaned_schema_parent, cleaned_har_md_parent)
+                                sim_rat = cal_simi_rat(
+                                    cleaned_schema_parent, cleaned_har_md_parent
+                                )
                                 if sim_rat > sim_rat_max:
                                     sim_rat_max = sim_rat
                                     if sim_rat_max > 0.85:
                                         com_attri = class_name
-                                        #com_attri = title
-                                        parent =schema_parent
-                        # There is no use-cases so far. May be it is required to change according to 
+                                        # com_attri = title
+                                        parent = schema_parent
+                        # There is no use-cases so far. May be it is required to change according to
                         else:
                             sim_rat_max = 0
 
                             cleaned_schema_parent = clean_string(schema_parent)
                             if cleaned_attri == cleaned_schema_parent:
                                 com_attri = class_name
-                                #com_attri = title
-                                parent = schema_parent 
+                                # com_attri = title
+                                parent = schema_parent
                             else:
-                                sim_rat = cal_simi_rat(cleaned_schema_parent, cleaned_attri)
+                                sim_rat = cal_simi_rat(
+                                    cleaned_schema_parent, cleaned_attri
+                                )
                                 if sim_rat > sim_rat_max:
                                     sim_rat_max = sim_rat
                                     if sim_rat_max > 0.85:
                                         com_attri = class_name
-                                        #com_attri = title
-                                        parent = schema_parent 
-                else:  
+                                        # com_attri = title
+                                        parent = schema_parent
+                else:
                     # data would be added against class_name/title
                     com_attri = class_name
-                    #com_attri = title        
-   
+                    # com_attri = title
+
             # get the index
             # print(f'PATH: {path}')
             index_to_update = None
@@ -398,10 +431,10 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
                 if isinstance(path[-2], int):
                     index_to_update = path[-2]
                 elif isinstance(path[-1], int):
-                        index_to_update = path[-1]
+                    index_to_update = path[-1]
 
             # print(f'Index: {index_to_update}')
-            
+
             # Capitalize the first letter of schema_name
             if schema_name and not schema_name[0].isupper():
                 schema_name = schema_name[0].capitalize() + schema_name[1:]
@@ -410,27 +443,49 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
             # Write compatible metadata in the json dictionary
             if com_attri is not None:
-                process_metadata(parent, com_attri, value, schema_data, index_to_update, schema_name, allow_multiple)
-        
+                process_metadata(
+                    parent,
+                    com_attri,
+                    value,
+                    schema_data,
+                    index_to_update,
+                    schema_name,
+                    allow_multiple,
+                )
+
         else:
             # No match indicating no corresponding entry in md_com.json
             unmatched_entries.append(md_entry)
-        #print('\n')
+        # print('\n')
     # Write the updated JSON data back to the file
-    with open(com_metadata_file, 'w') as json_file:
-        json.dump(com_metadata, json_file, indent=2)            
+    with open(com_metadata_file, "w") as json_file:
+        json.dump(com_metadata, json_file, indent=2)
 
     return unmatched_entries
 
-if __name__ == "__main__":  
-   
+
+if __name__ == "__main__":
     # default_darus_metadata_endpoint
     current_directory = os.path.abspath(os.path.dirname(__file__))
-    darus_metadata_endpoint = os.path.join(current_directory, "api_end_points", "darus_md_schema_api_endpoints.json")
+    darus_metadata_endpoint = os.path.join(
+        current_directory, "api_end_points", "darus_md_schema_api_endpoints.json"
+    )
 
     arg_parser = argparse.ArgumentParser(description="Generate compatible metadata.")
-    arg_parser.add_argument("--darus", dest="api_endpoints_file_path", default=darus_metadata_endpoint, nargs='?', const=darus_metadata_endpoint, help="API endpoint for metadata.")
-    arg_parser.add_argument("--path", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
+    arg_parser.add_argument(
+        "--darus",
+        dest="api_endpoints_file_path",
+        default=darus_metadata_endpoint,
+        nargs="?",
+        const=darus_metadata_endpoint,
+        help="API endpoint for metadata.",
+    )
+    arg_parser.add_argument(
+        "--path",
+        dest="har_json_file",
+        required=True,
+        help="Path to the harvested JSON file.",
+    )
     # arg_parser.add_argument("-i", "--interactive", action="store_true", help="Enable interactive mode.")
 
     args = arg_parser.parse_args()
@@ -440,11 +495,11 @@ if __name__ == "__main__":
 
     # Create 'md_com.json' with initial data if it doesn't exist
     if os.path.exists(com_metadata_file):
-        with open(com_metadata_file, 'w') as file:
+        with open(com_metadata_file, "w") as file:
             pass
 
     initial_data = {"lib_name": "pyDaRUS"}
-    with open(com_metadata_file, 'w') as json_file:
+    with open(com_metadata_file, "w") as json_file:
         json.dump(initial_data, json_file, indent=2)
 
     with open(com_metadata_file) as json_file:
@@ -491,19 +546,42 @@ if __name__ == "__main__":
                 metadata_schema = get_json_from_api(api_url)
                 print(f"Processing {schema_name} metadata...\n")
                 # Search, create, and update corresponding metadata (passing the interactive argument)
-                unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name)
+                unmatched_har_metadata = get_compatible_metadatablocks(
+                    updated_har_md_dict, com_metadata_file, com_metadata, schema_name
+                )
                 updated_har_md_dict = unmatched_har_metadata
             else:
-                print("Error: Each block should contain a metadata schema 'name' and its 'api_endpoint'.")
+                print(
+                    "Error: Each block should contain a metadata schema 'name' and its 'api_endpoint'."
+                )
     except Exception as e:
         print(f"An error occurred while processing API endpoints: {e}")
 
+if __name__ == "__main__":
+    DATAVERSE_URL = "https://darus.uni-stuttgart.de"
+
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument(
+        "--api-token",
+        required=False,
+        help="API token for authentication",
+    )
+
+    args = arg_parser.parse_args()
+
+    API_TOKEN = args.api_token
+
     # A dataset will be created from the harvested information
     # Initialize dataset
-    dataset = Dataset()
+    dataverse = Dataverse(
+        server_url=DATAVERSE_URL,
+        api_token=API_TOKEN,
+    )
+
+    dataset = dataverse.create_dataset()
 
     # Create a new dataset to which we want to load everything. Here we are using the "from_json" method to initialize the complete dataset
-    dataset = Dataset.from_json(com_metadata_file)
+    dataset = dataset.from_json(com_metadata_file)
 
     # Check if we recovered the dataset
     print(dataset.yaml())
