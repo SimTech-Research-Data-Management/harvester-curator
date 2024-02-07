@@ -8,6 +8,7 @@ from typing import Union
 import h5py
 import yaml
 import json
+import re
 import numpy
 
 class Parser():
@@ -71,7 +72,7 @@ class Parser():
             dataset_type = "".join([dataset_type_string[-5:], "(", dataset_type_string[0:-5], ")"]).lower()
             dataset_numpy_attributes.append({"dataset_type": dataset_type})         
             dataset_numpy_attributes.append({"shape": obj.shape})
-            dataset_numpy_attributes.append({"size": obj.size})
+            dataset_numpy_attributes.append({"size": str(obj.size)})
             dataset_numpy_attributes.append({"ndim": obj.ndim})   
             dataset_numpy_attributes.append({"nbytes": obj.nbytes})     
             dataset_numpy_attributes.append({"maxshape": obj.maxshape})  
@@ -255,7 +256,7 @@ class Parser():
             return
         
         return meta_dict
-
+    
     def parse_bib(self, bib_file: str) -> dict:
         """
         This function parses a BibTex file to extract metadata
@@ -266,41 +267,94 @@ class Parser():
         Returns:
             meta_dict (dict): A dictionary that contains extracted metadata        
         """      
-        # Convert bibtex of CFF file
-        command = ["bibtex2cff", f"{bib_file}", "-o", f"{os.getcwd()}/bib2CITATION.cff"]
+        meta_dict = {} 
+        with open(bib_file, 'r') as file:
 
-        try:
-            # Execute the command
-            subprocess.run(command, check=True)
-            cff_file_path = os.path.join(os.getcwd(), 'bib2CITATION.cff')
+            try:
+                bibtex_str = file.read()
+                current_entry = {}
 
-            # Load CFF content
-            with open(cff_file_path, 'r') as cff_file:
-                cff_content = cff_file.read()
+                lines = bibtex_str.split('\n')
 
-            # Modify CFF content (to solve bib2cff bug)
-            cff_data = yaml.safe_load(cff_content)
-            if 'author' in cff_data and isinstance(cff_data['author'], list):
-                # Assuming there's only one author in the list, you might need to adjust this if there are multiple authors
-                first_author = cff_data['author'][0]
-                cff_data['authors'] = [{'given-names': first_author.get('given-name', ''),
-                                        'family-names': first_author.get('family-name', '')}]
-                del cff_data['author']
+                for line in lines:
+                    line = line.strip()
 
-            # Dump modified YAML content back to CFF file
-            with open(cff_file_path, 'w') as modified_cff_file:
-                modified_cff_file.write(yaml.dump(cff_data, default_flow_style=False))
+                    if not line:
+                        continue
 
-            # Extract metadata from converted CFF
-            meta_dict = self.parse_cff(cff_file_path)
+                    if line.startswith('@'):
+                        if current_entry:
+                            current_entry = {}
 
-            # Delete the temporary CFF file
-            os.remove(cff_file_path)
+                        entry_match = re.match(r'@(\w+){(.*),', line)
+                        if entry_match:
+                            entry_type, key = entry_match.groups()
+                            #current_entry['type'] = entry_type.lower()
+                            #current_entry['key'] = key
+                    else:
+                        value_match = re.match(r'\s*([^=]*)\s*=\s*{(.*)},?', line)
+                        if value_match:
+                            key, value = value_match.groups()
+                            current_entry[key.strip()] = value.strip()
 
-        except subprocess.CalledProcessError as e:
-            print(f"Error: {e}")
-        
+                if current_entry:
+                    #entries.append(current_entry)
+                    for key, value in current_entry.items():
+                        meta_dict = self.append_value(meta_dict, key, value)
+  
+            except subprocess.CalledProcessError as e:
+                print(f"Error: {e}")
+                return
+
         return meta_dict
+
+    # def parse_bib(self, bib_file: str) -> dict:
+    #     """
+    #     This function parses a BibTex file to extract metadata
+
+    #     Args:
+    #         bib_file (str): An input BibTex file
+          
+    #     Returns:
+    #         meta_dict (dict): A dictionary that contains extracted metadata        
+    #     """      
+    #     meta_dict = {} 
+        
+    #     # Convert bibtex of CFF file
+    #     command = ["bibtex2cff", f"{bib_file}", "-o", f"{os.getcwd()}/bib2CITATION.cff"]
+
+    #     try:
+    #         # Execute the command
+    #         subprocess.run(command, check=True)
+    #         cff_file_path = os.path.join(os.getcwd(), 'bib2CITATION.cff')
+
+    #         # Load CFF content
+    #         with open(cff_file_path, 'r') as cff_file:
+    #             cff_content = cff_file.read()
+
+    #         # Modify CFF content (to solve bib2cff bug)
+    #         cff_data = yaml.safe_load(cff_content)
+    #         if 'author' in cff_data and isinstance(cff_data['author'], list):
+    #             # Assuming there's only one author in the list, you might need to adjust this if there are multiple authors
+    #             first_author = cff_data['author'][0]
+    #             cff_data['authors'] = [{'given-names': first_author.get('given-name', ''),
+    #                                     'family-names': first_author.get('family-name', '')}]
+    #             del cff_data['author']
+
+    #         # Dump modified YAML content back to CFF file
+    #         with open(cff_file_path, 'w') as modified_cff_file:
+    #             modified_cff_file.write(yaml.dump(cff_data, default_flow_style=False))
+
+    #         # Extract metadata from converted CFF
+    #         meta_dict = self.parse_cff(cff_file_path)
+
+    #         # Delete the temporary CFF file
+    #         os.remove(cff_file_path)
+
+    #     except subprocess.CalledProcessError as e:
+    #         print(f"Error: {e}")
+        
+    #     return meta_dict
 
     def parse_json(self, json_file: str) -> dict:
         """
