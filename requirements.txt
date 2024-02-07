@@ -1,4 +1,3 @@
-bibtex2cff == 0.2.1
 cffconvert == 2.0.0
 pydantic >= 1.10.0, < 2.0.0
 PyYAML == 6.0.1 
