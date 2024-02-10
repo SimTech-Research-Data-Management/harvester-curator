@@ -192,6 +192,7 @@ def metadata_mapping(har_md_dict, schema_name,  mapping_data):
                                 image_index = path_index
                                 image_value = value
                                 del_index = i
+    print(f'Before Mapping: {har_md_dict}')
 
     # Delete the entries outside the loop
     # i is introduced to manage the proper order of deletion
@@ -199,6 +200,9 @@ def metadata_mapping(har_md_dict, schema_name,  mapping_data):
     for key in keys_to_delete:
         del har_md_dict[key-i]
         i = i + 1
+
+    print("\n")
+    print(f'After Mapping: {har_md_dict}')
 
     return har_md_dict
 
@@ -313,6 +317,7 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
         # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata 
         num_matches, matches = get_matching_md_fields(cleaned_attri, schema_fields)
+        print(matches)
 
         com_attri = None
         parent = None
@@ -466,7 +471,7 @@ if __name__ == "__main__":
                     for target_schema_name in target_schema_names:                    
                         for block in api_blocks:
                             api_url = block.get("api_endpoint")
-                            schema_name = block.get("name")
+                            schema_name = block.get("title")
 
                             if schema_name == target_schema_name:                                
                                 try:
@@ -487,7 +492,7 @@ if __name__ == "__main__":
                 else:
                     for block in api_blocks:
                         api_url = block.get("api_endpoint")
-                        schema_name = block.get("name")
+                        schema_name = block.get("title")
 
                         try:
                             metadata_schema = get_json_from_api(api_url)

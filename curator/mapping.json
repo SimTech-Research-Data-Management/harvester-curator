@@ -4,7 +4,7 @@
       "name": ["given-names", "family-names"]
     }
   },
-  "codeMeta":{
+  "codeMeta20":{
     "software_requirements":{
       "softwareRequirements": ["name","version"]
     }
