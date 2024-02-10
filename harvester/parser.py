@@ -284,13 +284,20 @@ class Parser():
 
                     if line.startswith('@'):
                         if current_entry:
+                            # Convert the author string to a list of dictionaries
+                            if 'author' in current_entry:
+                                authors = current_entry['author'].split(' and ')
+                                current_entry['author'] = [{'name': author.strip()} for author in authors]
+
+                            # Add the current entry to meta_dict
+                            for key, value in current_entry.items():
+                                meta_dict.setdefault(key, value)
+                                
                             current_entry = {}
 
                         entry_match = re.match(r'@(\w+){(.*),', line)
                         if entry_match:
                             entry_type, key = entry_match.groups()
-                            #current_entry['type'] = entry_type.lower()
-                            #current_entry['key'] = key
                     else:
                         value_match = re.match(r'\s*([^=]*)\s*=\s*{(.*)},?', line)
                         if value_match:
@@ -298,16 +305,70 @@ class Parser():
                             current_entry[key.strip()] = value.strip()
 
                 if current_entry:
-                    #entries.append(current_entry)
+                    # Convert the author string to a list of dictionaries
+                    if 'author' in current_entry:
+                        authors = current_entry['author'].split(' and ')
+                        current_entry['author'] = [{'name': author.strip()} for author in authors]
+
+                    # Add the current entry to meta_dict
                     for key, value in current_entry.items():
-                        meta_dict = self.append_value(meta_dict, key, value)
-  
+                        meta_dict.setdefault(key, value)
+                        
             except subprocess.CalledProcessError as e:
                 print(f"Error: {e}")
                 return
+            
+            print(meta_dict)
 
         return meta_dict
 
+    # def parse_bib(self, bib_file: str) -> dict:
+    #     """
+    #     This function parses a BibTex file to extract metadata
+
+    #     Args:
+    #         bib_file (str): An input BibTex file
+          
+    #     Returns:
+    #         meta_dict (dict): A dictionary that contains extracted metadata        
+    #     """      
+    #     meta_dict = {} 
+        
+    #     # Convert bibtex of CFF file
+    #     command = ["bibtex2cff", f"{bib_file}", "-o", f"{os.getcwd()}/bib2CITATION.cff"]
+
+    #     try:
+    #         # Execute the command
+    #         subprocess.run(command, check=True)
+    #         cff_file_path = os.path.join(os.getcwd(), 'bib2CITATION.cff')
+
+    #         # Load CFF content
+    #         with open(cff_file_path, 'r') as cff_file:
+    #             cff_content = cff_file.read()
+
+    #         # Modify CFF content (to solve bib2cff bug)
+    #         cff_data = yaml.safe_load(cff_content)
+    #         if 'author' in cff_data and isinstance(cff_data['author'], list):
+    #             # Assuming there's only one author in the list, you might need to adjust this if there are multiple authors
+    #             first_author = cff_data['author'][0]
+    #             cff_data['authors'] = [{'given-names': first_author.get('given-name', ''),
+    #                                     'family-names': first_author.get('family-name', '')}]
+    #             del cff_data['author']
+
+    #         # Dump modified YAML content back to CFF file
+    #         with open(cff_file_path, 'w') as modified_cff_file:
+    #             modified_cff_file.write(yaml.dump(cff_data, default_flow_style=False))
+
+    #         # Extract metadata from converted CFF
+    #         meta_dict = self.parse_cff(cff_file_path)
+
+    #         # Delete the temporary CFF file
+    #         os.remove(cff_file_path)
+
+    #     except subprocess.CalledProcessError as e:
+    #         print(f"Error: {e}")
+        
+    #     return meta_dict
 
     def parse_json(self, json_file: str) -> dict:
         """
