@@ -1,27 +1,22 @@
 [
     {
         "name": "citation",
-        "title": "citation",
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/citation"
     },
     {
         "name": "privacy",
-        "title": "privacy",
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/privacy"
     },
     {
         "name": "engMeta",
-        "title": "engMeta",
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/EngMeta"
     },
     {
         "name":"process",
-        "title": "process",
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/process"
     },
     {
         "name":"codeMeta20",
-        "title": "codeMeta",
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/codeMeta20"
     }
 ]

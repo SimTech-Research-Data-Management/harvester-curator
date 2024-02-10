@@ -192,7 +192,7 @@ def metadata_mapping(har_md_dict, schema_name,  mapping_data):
                                 image_index = path_index
                                 image_value = value
                                 del_index = i
-
+    
     # Delete the entries outside the loop
     # i is introduced to manage the proper order of deletion
     i = 0
@@ -313,7 +313,7 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
         # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata 
         num_matches, matches = get_matching_md_fields(cleaned_attri, schema_fields)
-
+        
         com_attri = None
         parent = None
         # num_matches > 0 certifies that there is a corresponding metadata field in the metadata schema
