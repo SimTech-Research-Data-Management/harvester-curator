@@ -21,7 +21,7 @@
     },
     {
         "name":"codeMeta20",
-        "title": "codeMeta",
+        "title": "codeMeta20",
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/codeMeta20"
     }
 ]
