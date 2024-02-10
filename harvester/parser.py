@@ -322,54 +322,6 @@ class Parser():
 
         return meta_dict
 
-    # def parse_bib(self, bib_file: str) -> dict:
-    #     """
-    #     This function parses a BibTex file to extract metadata
-
-    #     Args:
-    #         bib_file (str): An input BibTex file
-          
-    #     Returns:
-    #         meta_dict (dict): A dictionary that contains extracted metadata        
-    #     """      
-    #     meta_dict = {} 
-        
-    #     # Convert bibtex of CFF file
-    #     command = ["bibtex2cff", f"{bib_file}", "-o", f"{os.getcwd()}/bib2CITATION.cff"]
-
-    #     try:
-    #         # Execute the command
-    #         subprocess.run(command, check=True)
-    #         cff_file_path = os.path.join(os.getcwd(), 'bib2CITATION.cff')
-
-    #         # Load CFF content
-    #         with open(cff_file_path, 'r') as cff_file:
-    #             cff_content = cff_file.read()
-
-    #         # Modify CFF content (to solve bib2cff bug)
-    #         cff_data = yaml.safe_load(cff_content)
-    #         if 'author' in cff_data and isinstance(cff_data['author'], list):
-    #             # Assuming there's only one author in the list, you might need to adjust this if there are multiple authors
-    #             first_author = cff_data['author'][0]
-    #             cff_data['authors'] = [{'given-names': first_author.get('given-name', ''),
-    #                                     'family-names': first_author.get('family-name', '')}]
-    #             del cff_data['author']
-
-    #         # Dump modified YAML content back to CFF file
-    #         with open(cff_file_path, 'w') as modified_cff_file:
-    #             modified_cff_file.write(yaml.dump(cff_data, default_flow_style=False))
-
-    #         # Extract metadata from converted CFF
-    #         meta_dict = self.parse_cff(cff_file_path)
-
-    #         # Delete the temporary CFF file
-    #         os.remove(cff_file_path)
-
-    #     except subprocess.CalledProcessError as e:
-    #         print(f"Error: {e}")
-        
-    #     return meta_dict
-
     def parse_json(self, json_file: str) -> dict:
         """
         This function parses an yaml file to extract metadata
