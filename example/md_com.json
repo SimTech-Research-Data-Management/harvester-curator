@@ -1,0 +1,316 @@
+{
+  "metadatablocks": {
+    "citation": {
+      "title": "Data-Driven Scale Bridging Parametrizations with Metrics: Dispersive Transport",
+      "author": [
+        {
+          "authorName": "Edward Coltman"
+        },
+        {
+          "authorName": "Martin Schneider"
+        },
+        {
+          "authorName": "Rainer Helmig"
+        }
+      ],
+      "software": [
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "master"
+        },
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "master"
+        },
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "1.3.0"
+        },
+        {
+          "softwareVersion": "1.11.1"
+        },
+        {
+          "softwareVersion": "2.3.1"
+        },
+        {
+          "softwareVersion": "21.3.0"
+        },
+        {
+          "softwareVersion": "21.2.0"
+        },
+        {
+          "softwareVersion": "1.0.9"
+        },
+        {
+          "softwareVersion": "1.18.1"
+        },
+        {
+          "softwareVersion": "2023.01.10"
+        },
+        {
+          "softwareVersion": "2.0.4"
+        },
+        {
+          "softwareVersion": "3.23.3"
+        },
+        {
+          "softwareVersion": "0.1.3"
+        },
+        {
+          "softwareVersion": "2.6.0"
+        },
+        {
+          "softwareVersion": "2.0.2"
+        },
+        {
+          "softwareVersion": "0.7.0"
+        },
+        {
+          "softwareVersion": "1.0.27"
+        },
+        {
+          "softwareVersion": "0.4.0"
+        },
+        {
+          "softwareVersion": "3.4.2"
+        },
+        {
+          "softwareVersion": "2022.7.0"
+        },
+        {
+          "softwareVersion": "20200713"
+        },
+        {
+          "softwareVersion": "0.11"
+        },
+        {
+          "softwareVersion": "3.6.0"
+        },
+        {
+          "softwareVersion": "2.15.0"
+        },
+        {
+          "softwareVersion": "0.4.6"
+        },
+        {
+          "softwareVersion": "0.2.0"
+        },
+        {
+          "softwareVersion": "1.14.1"
+        },
+        {
+          "softwareVersion": "0.10.1"
+        },
+        {
+          "softwareVersion": "4.11.3"
+        },
+        {
+          "softwareVersion": "2023.0.0"
+        },
+        {
+          "softwareVersion": "0.2.0"
+        },
+        {
+          "softwareVersion": "1.6.0"
+        },
+        {
+          "softwareVersion": "2.38"
+        },
+        {
+          "softwareVersion": "11.2.0"
+        },
+        {
+          "softwareVersion": "11.2.0"
+        },
+        {
+          "softwareVersion": "11.2.0"
+        },
+        {
+          "softwareVersion": "1.2.4"
+        },
+        {
+          "softwareVersion": "1.9.4"
+        },
+        {
+          "softwareVersion": "3.7.0"
+        },
+        {
+          "softwareVersion": "0.1.6"
+        },
+        {
+          "softwareVersion": "2.4.0"
+        },
+        {
+          "softwareVersion": "1.0.3"
+        },
+        {
+          "softwareVersion": "0.3.0"
+        },
+        {
+          "softwareVersion": "1.5.6"
+        },
+        {
+          "softwareVersion": "1.10.2"
+        },
+        {
+          "softwareVersion": "0.2.2"
+        },
+        {
+          "softwareVersion": "1.23.5"
+        },
+        {
+          "softwareVersion": "3.0.0"
+        },
+        {
+          "softwareVersion": "3.3.0"
+        },
+        {
+          "softwareVersion": "0.0.0"
+        },
+        {
+          "softwareVersion": "3.0.36"
+        },
+        {
+          "softwareVersion": "0.12.3"
+        },
+        {
+          "softwareVersion": "0.2.8"
+        },
+        {
+          "softwareVersion": "2.3.0"
+        },
+        {
+          "softwareVersion": "0.4.0"
+        },
+        {
+          "softwareVersion": "5.15.2"
+        },
+        {
+          "softwareVersion": "12.11.0"
+        },
+        {
+          "softwareVersion": "5.15.2"
+        },
+        {
+          "softwareVersion": "2.8.2"
+        },
+        {
+          "softwareVersion": "2.16.2"
+        },
+        {
+          "softwareVersion": "2.9"
+        },
+        {
+          "softwareVersion": "1.2.1"
+        },
+        {
+          "softwareVersion": "1.0.0"
+        },
+        {
+          "softwareVersion": "1.7.1"
+        },
+        {
+          "softwareVersion": "5.0.2"
+        },
+        {
+          "softwareVersion": "0.6.1"
+        },
+        {
+          "softwareVersion": "3.4.5"
+        },
+        {
+          "softwareVersion": "5.15.2"
+        },
+        {
+          "softwareVersion": "5.15.9"
+        },
+        {
+          "softwareVersion": "1.5.1"
+        },
+        {
+          "softwareVersion": "1.3.1"
+        },
+        {
+          "softwareVersion": "2022.8.15"
+        },
+        {
+          "softwareVersion": "0.19.3"
+        },
+        {
+          "softwareVersion": "1.2.1"
+        },
+        {
+          "softwareVersion": "2023.0.2"
+        },
+        {
+          "softwareVersion": "1.0.2"
+        },
+        {
+          "softwareVersion": "1.0.2"
+        },
+        {
+          "softwareVersion": "2.0.0"
+        },
+        {
+          "softwareVersion": "1.0.1"
+        },
+        {
+          "softwareVersion": "1.0.3"
+        },
+        {
+          "softwareVersion": "1.1.5"
+        },
+        {
+          "softwareVersion": "2.4.1"
+        },
+        {
+          "softwareVersion": "0.6.1"
+        },
+        {
+          "softwareVersion": "1.8.1"
+        },
+        {
+          "softwareVersion": "2.11.0"
+        },
+        {
+          "softwareVersion": "0.29.0"
+        },
+        {
+          "softwareVersion": "1.3"
+        },
+        {
+          "softwareVersion": "0.1.1"
+        },
+        {
+          "softwareVersion": "4.4.0"
+        },
+        {
+          "softwareVersion": "0.58.0"
+        }
+      ]
+    },
+    "codeMeta20": {
+      "codeRepository": [
+        "https://git.iws.uni-stuttgart.de/dumux-pub/coltman2022a.git"
+      ]
+    }
+  }
+}

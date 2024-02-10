@@ -14,22 +14,26 @@
       "files": [
         {
           "file_name": "ned.bib",
-          "path": "/Users/sarbani/Simtech_works/use-case/ned.bib",
+          "path": "/Users/sarbani/Simtech_works/Harvester-Curator/example/use-case/ned.bib",
           "metadata": {
-            "authors": [
+            "title": "Data-Driven Scale Bridging Parametrizations with Metrics: Dispersive Transport",
+            "author": [
               {
-                "family-names": "Coltman",
-                "given-names": "Edward"
+                "name": "Edward Coltman"
+              },
+              {
+                "name": "Martin Schneider"
+              },
+              {
+                "name": "Rainer Helmig"
               }
             ],
-            "cff-version": "1.2.0",
-            "date-released": "2024-01-26",
+            "month": "November",
+            "year": "2023",
             "doi": "10.48550/arXiv.2311.13975",
-            "license": "Unlicense",
-            "message": "If you use this software, please cite it as below.",
-            "title": "Data-Driven Scale Bridging Parametrizations with Metrics: Dispersive Transport",
-            "url": "https://arxiv.org/abs/2311.13975",
-            "version": "0.0.1"
+            "publisher": "arXiv",
+            "primaryClass": "math.NA",
+            "url": "https://arxiv.org/abs/2311.13975"
           }
         }
       ]
@@ -39,7 +43,7 @@
       "files": [
         {
           "file_name": "codemeta.json",
-          "path": "/Users/sarbani/Simtech_works/use-case/codemeta.json",
+          "path": "/Users/sarbani/Simtech_works/Harvester-Curator/example/use-case/codemeta.json",
           "metadata": {
             "name": "Dumux_coltman2022a",
             "code_repository": "https://git.iws.uni-stuttgart.de/dumux-pub/coltman2022a.git",
@@ -441,24 +445,6 @@
               {
                 "name": "websocket-client",
                 "version": "0.58.0"
-              }
-            ],
-            "programmingLanguage": [
-              {
-                "name": "C++",
-                "version": 64.65
-              },
-              {
-                "name": "Python",
-                "version": 33.78
-              },
-              {
-                "name": "CMake",
-                "version": 1.25
-              },
-              {
-                "name": "Shell",
-                "version": 0.32
               }
             ]
           }
