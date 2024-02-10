@@ -144,7 +144,7 @@ def get_matching_md_fields(test_criteria, fields):
     num_matches = len(matches)
     return num_matches, matches if matches else None
 
-def process_metadata_mapping(har_md_dict, schema_name,  mapping_data):
+def metadata_mapping(har_md_dict, schema_name,  mapping_data):
     image_index = None
     path_index = None
     image_value = ""
@@ -192,6 +192,7 @@ def process_metadata_mapping(har_md_dict, schema_name,  mapping_data):
                                 image_index = path_index
                                 image_value = value
                                 del_index = i
+    print(f'Before Mapping: {har_md_dict}')
 
     # Delete the entries outside the loop
     # i is introduced to manage the proper order of deletion
@@ -199,6 +200,9 @@ def process_metadata_mapping(har_md_dict, schema_name,  mapping_data):
     for key in keys_to_delete:
         del har_md_dict[key-i]
         i = i + 1
+
+    print("\n")
+    print(f'After Mapping: {har_md_dict}')
 
     return har_md_dict
 
@@ -313,6 +317,7 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
         # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata 
         num_matches, matches = get_matching_md_fields(cleaned_attri, schema_fields)
+        print(matches)
 
         com_attri = None
         parent = None
@@ -445,9 +450,13 @@ if __name__ == "__main__":
         for file in group["files"]:
             filename = file["file_name"].lower()
             if "codemeta" in filename:
-                target_schema_names = ["codeMeta20", "citation"]
+                target_schema_names = ["codeMeta", "citation"]
             metadata = file.get("metadata")
             if metadata:
+
+                # Collect all attributes, values, paths from harvested metadata
+                har_md_dict = extract_attri_value_path(metadata)
+
                 # If --darus is specified without an argument, use the default_darus_file
                 if args.api_endpoints_file_path is None:
                     args.api_endpoints_file_path = darus_metadata_endpoint
@@ -462,53 +471,44 @@ if __name__ == "__main__":
                     for target_schema_name in target_schema_names:                    
                         for block in api_blocks:
                             api_url = block.get("api_endpoint")
-                            schema_name = block.get("name")
-                            print(schema_name)
+                            schema_name = block.get("title")
 
                             if schema_name == target_schema_name:                                
                                 try:
                                     metadata_schema = get_json_from_api(api_url)
                                     print(f"Processing {schema_name} metadata for {filename}...\n")
 
-                                    # Collect all attributes, values, paths from harvested metadata
-                                    har_md_dict = extract_attri_value_path(metadata)
-
+                                    
                                     # Apply the mapping
-                                    updated_har_md_dict = process_metadata_mapping(har_md_dict, schema_name, mapping_data)  
-                                    #print(updated_har_md_dict)
-
+                                    updated_har_md_dict = metadata_mapping(har_md_dict, schema_name, mapping_data)  
+                                    
                                     # Search, create, and update corresponding metadata (passing the interactive argument)
                                     unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name)
-                                    updated_har_md_dict = unmatched_har_metadata
-
+                                    har_md_dict = unmatched_har_metadata
+                                    
                                 except Exception as e:
                                     print(f"An error occurred while processing API endpoints: {e}")
                                     traceback.print_exc()
                 else:
                     for block in api_blocks:
                         api_url = block.get("api_endpoint")
-                        schema_name = block.get("name")
+                        schema_name = block.get("title")
 
                         try:
                             metadata_schema = get_json_from_api(api_url)
                             print(f"Processing {schema_name} metadata for {filename}...\n")
 
-                            # Collect all attributes, values, paths from harvested metadata
-                            har_md_dict = extract_attri_value_path(metadata)
-
                             # Apply the mapping
-                            updated_har_md_dict = process_metadata_mapping(har_md_dict, schema_name, mapping_data)  
-                            #print(updated_har_md_dict)
-
+                            updated_har_md_dict = metadata_mapping(har_md_dict, schema_name, mapping_data)  
+                            
                             # Search, create, and update corresponding metadata (passing the interactive argument)
                             unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name)
-                            updated_har_md_dict = unmatched_har_metadata
+                            har_md_dict = unmatched_har_metadata
 
                         except Exception as e:
                             print(f"An error occurred while processing API endpoints: {e}")
                             traceback.print_exc()
             
-
     # Convert com_metadata dictionary to YAML format
     yaml_data = yaml.dump(com_metadata)
 
