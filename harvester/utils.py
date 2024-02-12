@@ -166,13 +166,13 @@ def extract_info(data: Union[Dict[str, Any], Any], keys: list) -> list:
     recursive_extract(data)
     return info
 
-def format_author(author: Dict[str, Any], author_role: str) -> Dict[str, Any]:
+def format_author(author: Dict[str, Any], author_role: Union["author", "contributor", "maintainer", "copyrightHolder"]) -> Dict[str, Any]:
     """
     This function formats author information based on author_role (from codemeta file)
     
     Args:
-        author (Dict[str, Any]): a dictionary that contains author info such as name, email, id, etc
-        author_role (str): can be author, contributor, maintainer, copyrightHolder
+        author (Dict[str, Any]): A dictionary that contains author info such as name, email, id, etc
+        author_role (str): Role can be one among author, contributor, maintainer, and copyrightHolder
 
     Returns:
         author_info (Dict[str, Any]): formatted author information
@@ -198,13 +198,13 @@ def format_author(author: Dict[str, Any], author_role: str) -> Dict[str, Any]:
 
     return author_info
 
-def process_authors(authors: Union[Dict[str, Any], List[Dict[str, Any]]], author_role: str = "author") -> List[Dict[str, Any]]:
+def process_authors(authors: Union[Dict[str, Any], List[Dict[str, Any]]], author_role: Union["author", "contributor", "maintainer", "copyrightHolder"]) -> List[Dict[str, Any]]:
     """
     This function formats a list of dictionaries or a single dictionary that contains author(s) information based on author_role (from codemeta file)
 
     Args:
-        authors (Union[Dict[str, Any], List[Dict[str, Any]]]): a list of dictionaries or a signle dictionary that contains author(s) information such as name, email, id, etc
-        author_role (str): can be author, contributor, maintainer, copyrightHolder
+        authors (Union[Dict[str, Any], List[Dict[str, Any]]]): A list of dictionaries or a signle dictionary that contains author(s) information such as name, email, id, etc
+        author_role (str): Role can be one among author, contributor, maintainer, and copyrightHolder. 
 
     Returns:
         author_list (List[Dict[str, Any]]): 
@@ -219,17 +219,16 @@ def process_authors(authors: Union[Dict[str, Any], List[Dict[str, Any]]], author
     return author_list
 
 
-def format_software_info(software_requirement_suggestion: Dict[str, Any], indicator: str) -> Dict[str, Any]:
+def format_software_info(software_requirement_suggestion: Dict[str, Any], indicator: Union["Requirements", "Suggestions"]) -> Dict[str, Any]:
     """
     This function formats software requirement information (from codemeta file)
     
     Args:
-        software_requirement_suggestion (Dict[str, Any]): a dictionary that contains software requirement or suggestion info such as name, version, info url, etc
-       
+        software_requirement_suggestion (Dict[str, Any]): A dictionary that contains software requirement or suggestion info such as name, version, info url, etc
+        indicator: This indicates the types of software info and the value is limited to be either Requirements or Suggestions. 
 
     Returns:
-        software_
-        info (Dict[str, Any]): formatted software info
+        software_info (Dict[str, Any]): formatted software info
     """
     
     name = extract_info(software_requirement_suggestion, ["Name", "name"])
