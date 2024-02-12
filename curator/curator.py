@@ -93,9 +93,9 @@ def find_parent_name(current_data, target_child):
                 if result:
                     return result
                 
-def get_matching_md_fields(test_criteria, fields):
+
+def find_matches(test_criteria, fields):
     matches = []
-    num_matches = 0
 
     for class_name, class_info in fields.items():
         cleaned_class_name = clean_string(class_name)
@@ -107,8 +107,64 @@ def get_matching_md_fields(test_criteria, fields):
         else:
             current_test_criteria = [cleaned_class_name, cleaned_title]
 
-        # Check if the provided test_criteria matches the current entry
-        if test_criteria in current_test_criteria:           
+        if 'childFields' in class_info:
+            child_fields = class_info['childFields']
+            for child_field_class_name, child_field_class_info in child_fields.items():
+                cleaned_child_class_name = clean_string(child_field_class_name)
+                cleaned_child_title = clean_string(child_field_class_info.get('title', ''))                
+
+                if cleaned_child_class_name == cleaned_child_title:
+                    current_child_test_criteria = [cleaned_child_class_name]
+                else:
+                    current_child_test_criteria = [cleaned_child_class_name, cleaned_child_title]
+
+                # Check if the provided test_criteria matches the current entry
+                if test_criteria in current_child_test_criteria: 
+                    parent_name = class_name
+                    allow_multiple = child_field_class_info.get('multiple')
+                        
+                    matches.append({
+                        'class_name': child_field_class_name,
+                        'allow_multiple': allow_multiple,
+                        'parent': parent_name,
+                    })                        
+                # Check if the provided test_criteria matches the main class_name 
+                elif test_criteria in current_test_criteria:        
+                    parent_name = find_parent_name(fields, class_name)
+                    allow_multiple = class_info.get('multiple')
+                    if parent_name is None and 'childFields' in class_info:
+                        first_child_field = next(iter(class_info.get('childFields', {})), None)
+                        parent_name = class_name
+                        class_name = first_child_field
+                        
+                    matches.append({
+                        'class_name': class_name,
+                        'allow_multiple': allow_multiple,
+                        'parent': parent_name,
+                    })
+                # May be not required
+                # else:            
+                #     sim_rat_max = 0
+                #     for current_criteria in current_test_criteria:
+                #         sim_rat = cal_simi_rat(test_criteria, current_criteria)
+                #         if sim_rat > sim_rat_max:
+                #             sim_rat_max = sim_rat
+                #             if sim_rat_max > 0.85:    
+                #                 parent_name = find_parent_name(fields, class_name)
+                #                 allow_multiple = class_info.get('multiple')
+                #                 if parent_name is None and 'childFields' in class_info:
+                #                     first_child_field = next(iter(class_info.get('childFields', {})), None)
+                #                     parent_name = class_name
+                #                     class_name = first_child_field                            
+                #                 matches.append({
+                #                     'class_name': class_name,
+                #                     'allow_multiple': allow_multiple,
+                #                     'parent': parent_name,
+                #                 })
+            #print(f'sim_rat_max: {sim_rat_max}')
+
+        
+        elif test_criteria in current_test_criteria:            
             parent_name = find_parent_name(fields, class_name)
             allow_multiple = class_info.get('multiple')
             if parent_name is None and 'childFields' in class_info:
@@ -121,28 +177,94 @@ def get_matching_md_fields(test_criteria, fields):
                 'allow_multiple': allow_multiple,
                 'parent': parent_name,
             })
-        else:            
-            sim_rat_max = 0
-            for current_criteria in current_test_criteria:
-                sim_rat = cal_simi_rat(test_criteria, current_criteria)
-                if sim_rat > sim_rat_max:
-                    sim_rat_max = sim_rat
-                    if sim_rat_max > 0.85:    
-                        parent_name = find_parent_name(fields, class_name)
-                        allow_multiple = class_info.get('multiple')
-                        if parent_name is None and 'childFields' in class_info:
-                            first_child_field = next(iter(class_info.get('childFields', {})), None)
-                            parent_name = class_name
-                            class_name = first_child_field                            
-                        matches.append({
-                            'class_name': class_name,
-                            'allow_multiple': allow_multiple,
-                            'parent': parent_name,
-                        })
+        # May be not required
+        # else:            
+        #     sim_rat_max = 0
+        #     for current_criteria in current_test_criteria:
+        #         sim_rat = cal_simi_rat(test_criteria, current_criteria)
+        #         if sim_rat > sim_rat_max:
+        #             sim_rat_max = sim_rat
+        #             if sim_rat_max > 0.85:    
+        #                 parent_name = find_parent_name(fields, class_name)
+        #                 allow_multiple = class_info.get('multiple')
+        #                 if parent_name is None and 'childFields' in class_info:
+        #                     first_child_field = next(iter(class_info.get('childFields', {})), None)
+        #                     parent_name = class_name
+        #                     class_name = first_child_field                            
+        #                 matches.append({
+        #                     'class_name': class_name,
+        #                     'allow_multiple': allow_multiple,
+        #                     'parent': parent_name,
+        #                 })
+    return matches
+
+def get_matching_md_fields(cleaned_attri, cleaned_attri_and_parent, fields):
+    num_matches = 0
+    matches = []
+
+    # First, try to find matches using test_criteria
+    matches.extend(find_matches(cleaned_attri, fields))
+
+    # If no matches were found using test_criteria, try using cleaned_attri_and_parent
+    if not matches and cleaned_attri_and_parent is not None:
+        matches.extend(find_matches(cleaned_attri_and_parent, fields))
 
     # Include the number of matches in the result
     num_matches = len(matches)
     return num_matches, matches if matches else None
+
+                
+# def get_matching_md_fields(test_criteria, cleaned_attri_and_parent, fields):
+#     matches = []
+#     num_matches = 0
+#     #cleaned_attri,
+#     
+#     for class_name, class_info in fields.items():
+#         cleaned_class_name = clean_string(class_name)
+#         title = class_info.get('title')
+#         cleaned_title = clean_string(title)
+
+#         if cleaned_class_name == cleaned_title:
+#             current_test_criteria = [cleaned_class_name]
+#         else:
+#             current_test_criteria = [cleaned_class_name, cleaned_title]
+
+#         # Check if the provided test_criteria matches the current entry
+#         if test_criteria in current_test_criteria:           
+#             parent_name = find_parent_name(fields, class_name)
+#             allow_multiple = class_info.get('multiple')
+#             if parent_name is None and 'childFields' in class_info:
+#                 first_child_field = next(iter(class_info.get('childFields', {})), None)
+#                 parent_name = class_name
+#                 class_name = first_child_field
+                
+#             matches.append({
+#                 'class_name': class_name,
+#                 'allow_multiple': allow_multiple,
+#                 'parent': parent_name,
+#             })
+#         else:            
+#             sim_rat_max = 0
+#             for current_criteria in current_test_criteria:
+#                 sim_rat = cal_simi_rat(test_criteria, current_criteria)
+#                 if sim_rat > sim_rat_max:
+#                     sim_rat_max = sim_rat
+#                     if sim_rat_max > 0.85:    
+#                         parent_name = find_parent_name(fields, class_name)
+#                         allow_multiple = class_info.get('multiple')
+#                         if parent_name is None and 'childFields' in class_info:
+#                             first_child_field = next(iter(class_info.get('childFields', {})), None)
+#                             parent_name = class_name
+#                             class_name = first_child_field                            
+#                         matches.append({
+#                             'class_name': class_name,
+#                             'allow_multiple': allow_multiple,
+#                             'parent': parent_name,
+#                         })
+
+#     # Include the number of matches in the result
+#     num_matches = len(matches)
+#     return num_matches, matches if matches else None
 
 def metadata_mapping(har_md_dict, schema_name,  mapping_data):
     image_index = None
@@ -311,8 +433,15 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
         if path is not None and len(path) >= 3:
             har_md_parent = path[-3]
 
+        # Attri and parent
+        if har_md_parent is not None:
+            attri_and_parent = '_'.join([har_md_parent, attri])
+            cleaned_attri_and_parent = clean_string(attri_and_parent)
+        else:
+            cleaned_attri_and_parent = None
+
         # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata 
-        num_matches, matches = get_matching_md_fields(cleaned_attri, schema_fields)
+        num_matches, matches = get_matching_md_fields(cleaned_attri, cleaned_attri_and_parent, schema_fields)
         
         com_attri = None
         parent = None
@@ -509,3 +638,6 @@ if __name__ == "__main__":
 
     # Print the YAML-formatted data
     print(f'Compatible Metadata:\n{yaml_data}')
+
+    # Print the path to the output file
+    print(f"Compatible metadata is written to: {os.path.abspath(com_metadata_file)}")
