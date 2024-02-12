@@ -8,11 +8,10 @@ import yaml
 import json
 import re
 import numpy
-import unicodedata
-from itertools import chain
 from pyvista import examples
 from typing import Union, Any, Dict
 from utils import validate_json, get_json_from_url, validate_jsonld, remove_keys_with_prefix, format_author, process_authors, format_software_info
+
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
 
