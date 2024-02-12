@@ -1,8 +1,8 @@
 cffconvert == 2.0.0
-pydantic >= 1.10.0, < 2.0.0
-PyYAML == 6.0.1 
-h5py == 3.10.0 
-pyvista == 0.43.2
+pydantic == 2.6.1
+PyYAML == 6.0.1
+h5py == 3.10.0
+pyvista == 0.43.3
 vtk == 9.3.0
 python-magic == 0.4.27
 git+https://github.com/gdcc/easyDataverse.git@flexible-connect
