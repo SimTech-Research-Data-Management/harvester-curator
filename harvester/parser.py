@@ -3,13 +3,14 @@ import subprocess
 import crawler
 import vtk
 import pyvista as pv
-from pyvista import examples
-from typing import Union
 import h5py
 import yaml
 import json
 import re
 import numpy
+from pyvista import examples
+from typing import Union, Any, Dict
+from utils import validate_json, get_json_from_url, validate_jsonld, remove_keys_with_prefix, format_author, process_authors, format_software_info
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
@@ -251,10 +252,26 @@ class Parser():
             if 'type' in meta_dict:
                 meta_dict['type_of_work'] = meta_dict['type']
                 del meta_dict['type']
+
+            for author in meta_dict['authors']:
+                if 'orcid' in author:
+                    author['authorIdentifierScheme'] = 'ORCID'
+
+                    # get orcid_id from url and put it in meta_dict['authorIdentifier']
+                    orcid_link = author['orcid']
+                    if re.match(r'\d{4}-\d{4}-\d{4}-\d{3}[0-9X]', orcid_link):
+                        author['authorIdentifier'] = orcid_link
+                    else:
+                        pattern = r'(?<=orcid.org/)\d{4}-\d{4}-\d{4}-\d{3}[0-9X]'
+                        matches = re.findall(pattern, orcid_link)
+                        if matches:
+                            author['authorIdentifier'] = matches[0]
+                    del author['orcid']
+                        
         except subprocess.CalledProcessError as e:
             print(f"Error: {e}")
             return
-        
+        print(meta_dict)
         return meta_dict
     
     def parse_bib(self, bib_file: str) -> dict:
@@ -318,25 +335,73 @@ class Parser():
                 print(f"Error: {e}")
                 return
             
-            print(meta_dict)
+            # print(meta_dict)
 
         return meta_dict
 
     def parse_json(self, json_file: str) -> dict:
         """
-        This function parses an yaml file to extract metadata
+        This function parses a JSON file to extract metadata
 
         Args:
-            json_file (str): An input yaml file
+            json_file (str): Path to the input JSON file
           
         Returns:
             meta_dict (dict): A dictionary that contains extracted metadata        
-        """      
-        with open(json_file, 'r') as json_file:
-            try:
-                meta_dict = json.load(json_file)
-            except json.JSONDecodeError as e:
-                print(f"Error decoding JSON: {e}")
-                return {}
+        """ 
+        valid_json_result = validate_json(json_file)
+        if valid_json_result:
+            filename = os.path.basename(json_file).lower()
+            # Check if the JSON file is a codemeta file
+            if "codemeta" in filename and "codemeta.jsonld" not in filename:
+                codemeta_context_url = "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld"
+                codemeta_context = get_json_from_url(codemeta_context_url)
+                if codemeta_context:
+                    valid_jsonld_result = validate_jsonld(valid_json_result, codemeta_context)
+                    if valid_jsonld_result:
+                        filtered_codemeta_data = remove_keys_with_prefix(valid_json_result, "@", ["@id"])
+                        # print(f"filtered_codemeta_data: {filtered_codemeta_data}")
 
+                        author_keys_to_process = ["author", "contributor", "maintainer", "copyrightHolder"]
+                        for key in author_keys_to_process:
+                            value = filtered_codemeta_data.get(key, {})
+                            if value: 
+                                filtered_codemeta_data[key] = process_authors(value, key)
+
+                        software_requirement_suggestions_indicators = ["Requirements", "Suggestions"]
+                        for indicator in  software_requirement_suggestions_indicators: 
+                            software_keys = ["software" + indicator, "software-" + indicator.lower(), "software_" + indicator.lower()]
+                            software_infos = [filtered_codemeta_data.get(key, {}) for key in software_keys]
+                            software_infos = list(filter(None, software_infos))
+
+                            if software_infos:
+                                software_infos = software_infos[0]
+                                software_info_list = []
+                                if isinstance(software_infos, dict):
+                                    software_infos = software_infos.items()
+                                for software_info in software_infos:    
+                                    if isinstance(software_info, tuple):
+                                        software_info = {software_info[0]:software_info[1]}
+                                        print(f"software info: {software_info}")
+                                    software_info_list.append(format_software_info(software_info, indicator))
+
+                                software_info_list = list(filter(None, software_info_list))
+                                filtered_codemeta_data["".join(["software", indicator, "Item"])] = software_info_list
+                                for key in software_keys: 
+                                    filtered_codemeta_data.pop(key, None)
+
+                        meta_dict = filtered_codemeta_data
+                    else:
+                        print(f"Faild to validate {json_file} against JSONLD schema {codemeta_context_url}")
+                        meta_dict = {}
+
+                else:
+                    print(f"Failed to fetch codemeta context from URL {codemeta_context_url}")
+                    meta_dict = {}
+            else:
+                meta_dict = valid_json_result
+        else:
+            print("Failed to validate JSON file: {json_file}")  
+            meta_dict = {}
+      
         return meta_dict
