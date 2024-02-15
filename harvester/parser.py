@@ -382,14 +382,26 @@ class Parser():
                                 for software_info in software_infos:    
                                     if isinstance(software_info, tuple):
                                         software_info = {software_info[0]:software_info[1]}
-                                        print(f"software info: {software_info}")
                                     software_info_list.append(format_software_info(software_info, indicator))
 
                                 software_info_list = list(filter(None, software_info_list))
                                 filtered_codemeta_data["".join(["software", indicator, "Item"])] = software_info_list
                                 for key in software_keys: 
                                     filtered_codemeta_data.pop(key, None)
+                        
+                        # Check if development status is repo status url and then format it into valid input if ncessary
+                        repostatus_url_pattern = re.compile(r'^https?://www\.repostatus\.org/#.+')
+                        
+                        DEVELPMENT_STATUS_INPUT = ["Concept", "WIP", "Active", "Inactive", "Unsupported", "Moved", "Suspended", "Abandoned"]
 
+                        development_status = filtered_codemeta_data.get("developmentStatus")
+
+                        if development_status and repostatus_url_pattern.match(development_status):
+                            filtered_codemeta_data["developmentStatus"]= development_status.split("#")[-1].capitalize()
+                    
+                        if filtered_codemeta_data.get("developmentStatus") not in DEVELPMENT_STATUS_INPUT:
+                            filtered_codemeta_data.pop("developmentStatus", None)
+                        
                         meta_dict = filtered_codemeta_data
                     else:
                         print(f"Faild to validate {json_file} against JSONLD schema {codemeta_context_url}")
