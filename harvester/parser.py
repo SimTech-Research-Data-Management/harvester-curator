@@ -271,7 +271,6 @@ class Parser():
         except subprocess.CalledProcessError as e:
             print(f"Error: {e}")
             return
-        print(meta_dict)
         return meta_dict
     
     def parse_bib(self, bib_file: str) -> dict:
@@ -338,7 +337,8 @@ class Parser():
             # print(meta_dict)
 
         return meta_dict
-
+    
+    
     def parse_json(self, json_file: str) -> dict:
         """
         This function parses a JSON file to extract metadata
@@ -411,7 +411,36 @@ class Parser():
                     print(f"Failed to fetch codemeta context from URL {codemeta_context_url}")
                     meta_dict = {}
             else:
-                meta_dict = valid_json_result
+                # only for 'ml-use-case'
+                min_max_values = {} 
+                for dataset, dataset_value in valid_json_result.items():
+                    for variable, value in dataset_value.items():
+                        if not isinstance(value, str) and variable.lower() != 'number':                            
+                            if not isinstance(value, list):
+                                min_val, max_val = min_max_values.get(variable, (float('inf'), float('-inf')))
+                                min_val = min(min_val, value)
+                                max_val = max(max_val, value)
+                                min_max_values[variable] = (min_val, max_val)
+                            elif isinstance(value, list) and len(value) == 2 and not any(isinstance(item, list) for item in value):
+                                for i, val in enumerate(value, start=1):        
+                                    variable_name = f"{variable}_{'x' if i == 1 else 'y'}"
+                                    min_val, max_val = min_max_values.get(variable_name, (float('inf'), float('-inf')))
+                                    min_val = min(min_val, val)
+                                    max_val = max(max_val, val)
+                                    min_max_values[variable_name] = (min_val, max_val)    
+                if min_max_values:
+                    meta_dict = {"engMetaMeasuredVar": []}
+
+                    for variable, (min_val, max_val) in min_max_values.items():
+                        meta_dict["engMetaMeasuredVar"].append({
+                            "engMetaMeasuredVarName": variable,
+                            "engMetaMeasuredVarValueFrom": min_val,
+                            "engMetaMeasuredVarValueTo": max_val
+                        })
+
+                else:
+                    meta_dict = valid_json_result
+
         else:
             print("Failed to validate JSON file: {json_file}")  
             meta_dict = {}
