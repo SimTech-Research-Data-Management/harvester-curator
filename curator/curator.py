@@ -563,18 +563,19 @@ if __name__ == "__main__":
     with open(mapping_file, "r") as mapping_file:
         mapping_data = json.load(mapping_file)
 
-    # Some initialization
-    target_schema_names = []
-
-    
     # Extract metadata for each file
     for group in har_json_data["groups"]:
-        if group["file_group_name"] == "bib files":
-            target_schema_names = ["citation"]
+        file_group_name = group["file_group_name"]
         for file in group["files"]:
-            filename = file["file_name"].lower()
-            if "codemeta" in filename:
-                target_schema_names = ["codeMeta20", "citation"]
+            file_names = [file["file_name"].lower()]
+            for file_name in file_names:
+                if file_group_name in ["bib files", "cff files"]:    
+                    target_schema_names = ["citation"]
+                elif "codemeta" in file_name:
+                    target_schema_names = ["codeMeta20", "citation"]
+                else:
+                    target_schema_names = []
+            
             metadata = file.get("metadata")
             if metadata:
 
@@ -591,7 +592,7 @@ if __name__ == "__main__":
                 if not isinstance(api_blocks, list):
                     print("Error: JSON file should contain a list of API blocks.")
 
-                if target_schema_names is not None:
+                if target_schema_names:
                     for target_schema_name in target_schema_names:                    
                         for block in api_blocks:
                             api_url = block.get("api_endpoint")
@@ -600,7 +601,7 @@ if __name__ == "__main__":
                             if schema_name == target_schema_name:                                
                                 try:
                                     metadata_schema = get_json_from_api(api_url)
-                                    print(f"Processing {schema_name} metadata for {filename}...\n")
+                                    print(f"Processing {schema_name} metadata for {file_name}...\n")
 
                                     
                                     # Apply the mapping
@@ -617,10 +618,9 @@ if __name__ == "__main__":
                     for block in api_blocks:
                         api_url = block.get("api_endpoint")
                         schema_name = block.get("name")
-
                         try:
                             metadata_schema = get_json_from_api(api_url)
-                            print(f"Processing {schema_name} metadata for {filename}...\n")
+                            print(f"Processing {schema_name} metadata for {file_name}...\n")
 
                             # Apply the mapping
                             updated_har_md_dict = metadata_mapping(har_md_dict, schema_name, mapping_data)  
@@ -632,7 +632,7 @@ if __name__ == "__main__":
                         except Exception as e:
                             print(f"An error occurred while processing API endpoints: {e}")
                             traceback.print_exc()
-            
+        
     # Convert com_metadata dictionary to YAML format
     yaml_data = yaml.dump(com_metadata)
 
