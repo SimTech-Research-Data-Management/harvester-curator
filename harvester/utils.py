@@ -107,37 +107,6 @@ def remove_keys_with_prefix(data: Union[Dict[str, Any], list], prefix: str, excl
     else:
         return data
 
-# def extract_info(data: Union[Dict[str, Any], Any], keys: list) -> list:
-#     """
-#     This function recursively extracts information from nested dictionaries based on given keys
-
-#     Args:
-#         data (Union[Dict[str, Any], Any]): The data to extract information from.
-#         keys (list): The keys to search for in the data.
-
-#     Returns:
-#         list: A list of extracted information.
-#     """
-#     if isinstance(data, dict):
-#         info = []
-#         for key, value in data.items():
-#             if key in keys:
-#                 if isinstance(value, list):
-#                     info.extend(value)
-#                 else:
-#                     info.append(value)
-#             else:
-#                 info.extend(extract_info(value, keys))
-#         return info
-#     elif isinstance(data, list):
-#         info = []
-#         for item in data:
-#             info.extend(extract_info(data[item], keys))
-#         return info
-#     else:
-#         return []
-
-
 def extract_info(data: Union[Dict[str, Any], Any], keys: list) -> list:
     """
     This function recursively extracts information from nested dictionaries.
@@ -190,7 +159,7 @@ def format_author(author: Dict[str, Any], author_role: Union["author", "contribu
     if id_:
         # check if id is ORCID iD URL
         id = " ".join(filter(None, id_)).strip()
-        orcid_url_pattern = r'^https?://(www\.)?orcid\.org/(\d{4}.){3}\d{3}(\d|X)$'
+        orcid_url_pattern = r'^https?://(www\.)?orcid\.org/(\d{4}-){3}\d{3}(\d|X)$'
         if re.match(orcid_url_pattern, id):
             id_number = id.split("/")[-1]
             author_info[author_role+"IdentifierScheme"] = "ORCID"
@@ -245,4 +214,6 @@ def format_software_info(software_requirement_suggestion: Dict[str, Any], indica
          software_info["".join(["software", indicator, "Url"])]= " ".join(filter(None, info_urls)).strip()
   
     return software_info
+
+
 

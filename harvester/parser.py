@@ -10,7 +10,7 @@ import re
 import numpy
 from pyvista import examples
 from typing import Union, Any, Dict
-from utils import validate_json, get_json_from_url, validate_jsonld, remove_keys_with_prefix, format_author, process_authors, format_software_info
+from utils import validate_json, get_json_from_url, validate_jsonld, remove_keys_with_prefix, format_author, process_authors, format_software_info, calculate_min_max_values
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
@@ -271,7 +271,6 @@ class Parser():
         except subprocess.CalledProcessError as e:
             print(f"Error: {e}")
             return
-        print(meta_dict)
         return meta_dict
     
     def parse_bib(self, bib_file: str) -> dict:
@@ -338,7 +337,8 @@ class Parser():
             # print(meta_dict)
 
         return meta_dict
-
+    
+    
     def parse_json(self, json_file: str) -> dict:
         """
         This function parses a JSON file to extract metadata
@@ -382,14 +382,26 @@ class Parser():
                                 for software_info in software_infos:    
                                     if isinstance(software_info, tuple):
                                         software_info = {software_info[0]:software_info[1]}
-                                        print(f"software info: {software_info}")
                                     software_info_list.append(format_software_info(software_info, indicator))
 
                                 software_info_list = list(filter(None, software_info_list))
                                 filtered_codemeta_data["".join(["software", indicator, "Item"])] = software_info_list
                                 for key in software_keys: 
                                     filtered_codemeta_data.pop(key, None)
+                        
+                        # Check if development status is repo status url and then format it into valid input if ncessary
+                        repostatus_url_pattern = re.compile(r'^https?://www\.repostatus\.org/#.+')
+                        
+                        DEVELPMENT_STATUS_INPUT = ["Concept", "WIP", "Active", "Inactive", "Unsupported", "Moved", "Suspended", "Abandoned"]
 
+                        development_status = filtered_codemeta_data.get("developmentStatus")
+
+                        if development_status and repostatus_url_pattern.match(development_status):
+                            filtered_codemeta_data["developmentStatus"]= development_status.split("#")[-1].capitalize()
+                    
+                        if filtered_codemeta_data.get("developmentStatus") not in DEVELPMENT_STATUS_INPUT:
+                            filtered_codemeta_data.pop("developmentStatus", None)
+                        
                         meta_dict = filtered_codemeta_data
                     else:
                         print(f"Faild to validate {json_file} against JSONLD schema {codemeta_context_url}")
@@ -399,7 +411,51 @@ class Parser():
                     print(f"Failed to fetch codemeta context from URL {codemeta_context_url}")
                     meta_dict = {}
             else:
-                meta_dict = valid_json_result
+                # only for 'ml-use-case'
+                min_max_values = {} 
+                min_val = float('inf')  # Set to positive infinity initially
+                max_val = float('-inf')  # Set to negative infinity initially
+                for dataset, dataset_value in valid_json_result.items():
+                    for variable, value in dataset_value.items():
+                        if not isinstance(value, str) and variable.lower() != 'number':                            
+                            if not isinstance(value, list):
+                                min_val, max_val = min_max_values.get(variable, (float('inf'), float('-inf')))
+
+                                # Update min and max values
+                                min_val = min(min_val, value)
+                                max_val = max(max_val, value)
+
+                                # Store min and max values in the dictionary
+                                min_max_values[variable] = (min_val, max_val)
+
+                            elif isinstance(value, list) and len(value) == 2 and not any(isinstance(item, list) for item in value):
+                                for i, val in enumerate(value, start=1):        
+                                    variable_name = f"{variable}_{'x' if i == 1 else 'y'}"
+                                    print(variable_name, val)
+
+                                    min_val, max_val = min_max_values.get(variable_name, (float('inf'), float('-inf')))
+
+                                    # Update min and max values
+                                    min_val = min(min_val, val)
+                                    max_val = max(max_val, val)
+
+                                    # Store min and max values in the dictionary
+                                    min_max_values[variable_name] = (min_val, max_val)
+    
+                if min_max_values:
+                    meta_dict = {"engMetaMeasuredVar": []}
+
+                    for variable, (min_val, max_val) in min_max_values.items():
+                        meta_dict["engMetaMeasuredVar"].append({
+                            "engMetaMeasuredVarName": variable,
+                            "engMetaMeasuredVarValueFrom": min_val,
+                            "engMetaMeasuredVarValueTo": max_val
+                        })
+
+                    print(meta_dict)
+                else:
+                    meta_dict = valid_json_result
+
         else:
             print("Failed to validate JSON file: {json_file}")  
             meta_dict = {}
