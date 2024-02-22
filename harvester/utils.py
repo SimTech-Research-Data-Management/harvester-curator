@@ -1,4 +1,3 @@
-import os
 import requests
 import json
 import re
@@ -14,7 +13,7 @@ def validate_json(json_file: str) -> Union[Dict[str, Any], bool]:
 
         Returns:
             Union[Dict[str, Any], bool]: If the JSON file is valid, returns the parsed JSON data;
-                If the JSON file is invalid or encounters any error during validation, returns Faslse
+                If the JSON file is invalid or encounters any error during validation, returns False.
         """
         try:
             with open(json_file, 'r') as f:
@@ -24,13 +23,13 @@ def validate_json(json_file: str) -> Union[Dict[str, Any], bool]:
             print("Invalid JSON format:", e)
             return False
         except FileNotFoundError:
-            print("File not found.")
+            print(f"The file {json_file} was not found.")
             return False
         except PermissionError:
-            print("Permission denied to access the file.")
+            print(f"Permission denied to access the file {json_file}.")
             return False
         except IOError as e:
-            print("I/O error occurred:", e)
+            print(f"I/O error occurred: {e}")
             return False
 
 def get_json_from_url(url: str) -> Optional[Union[Dict[str, Any], bool]]:

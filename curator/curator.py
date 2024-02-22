@@ -1,11 +1,26 @@
 import re
-import os
 import json
 import difflib
 import requests
 import argparse
 import yaml
 import traceback
+from pathlib import Path
+
+def load_json_file(filepath):
+    try:
+        with open(filepath, "r") as f:
+            data = json.load(f)
+            if data is None or (isinstance(data, (list, dict)) and len(data) == 0):
+                raise ValueError(f"Data in {filepath} is None or empty.")
+            return data
+    except FileNotFoundError:
+        print(f"The file {filepath} was not found.")
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from {filepath}")
+    except Exception as e:
+        print(f"An error occured: {e}")
+    return None
 
 def get_json_from_api(api_url):
     try:
@@ -398,7 +413,7 @@ def process_metadata(parent, type_name_value, value, schema_data, index_to_updat
                 schema_data[type_name_value] = value
 
 
-def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name):
+def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name, metadata_schema):
 
     # Check if 'metadatablocks' class is present in harvested metadata file
     if 'metadatablocks' not in com_metadata:
@@ -525,43 +540,41 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
     return unmatched_entries
 
-if __name__ == "__main__":  
-   
-    # default_darus_metadata_endpoint
-    current_directory = os.path.abspath(os.path.dirname(__file__))
-    darus_metadata_endpoint = os.path.join(current_directory, "api_end_points", "darus_md_schema_api_endpoints.json")
 
-    arg_parser = argparse.ArgumentParser(description="Generate compatible metadata.")
-    arg_parser.add_argument("--darus", dest="api_endpoints_file_path", default=darus_metadata_endpoint, nargs='?', const=darus_metadata_endpoint, help="API endpoint for metadata.")
-    arg_parser.add_argument("--path", dest="har_json_file", required=True, help="Path to the harvested JSON file.")
-    # arg_parser.add_argument("-i", "--interactive", action="store_true", help="Enable interactive mode.")
+def curator(harvester_output_filepath: str, 
+            output_filepath: str, 
+            api_endpoints_filepath: str
+     ) -> None:
 
-    args = arg_parser.parse_args()    
+    """
+    This function compares the harvested metadata with schema-defined metadata from API endpoints, 
+    translating and incorporating elements to fill schema fields for API metadata blocks.
 
-    # File to write compatible metadata
-    com_metadata_file = os.path.join(os.path.dirname(args.har_json_file), "md_com.json")
-    
-    # Check if 'md_com.json' exists
-    if os.path.exists(com_metadata_file) and os.path.getsize(com_metadata_file) > 0:
-        
-        initial_data = {}
-        with open(com_metadata_file, 'w') as json_file:
-            json.dump(initial_data, json_file, indent=2)
 
-        with open(com_metadata_file) as json_file:
-            com_metadata = json.load(json_file)
-    else:
-        # Initialize com_metadata with an empty dictionary
-        com_metadata = {}
+    Args:
+        harvester_output_filepath: Path to the JSON file with harvested metadata.
+        output_filename: Name of the JSON file to save curated metadata.
+        api_endpoints_filepath: Path of the JSON file with schema API endpoints for metadata blocks
+
+    """
+  
+     # Create the output directory if it does not exists
+    output_dir_path = Path(output_filepath).parent
+    try:
+         output_dir_path.mkdir(exist_ok=True)
+    except OSError as e:
+        print(f"Output directory {output_directory} cannot be created. Error: {e}")
+            
+    # Initialize a dict to store curated metadata
+    com_metadata = {}
 
     # Load the harvested JSON file
-    with open(args.har_json_file) as file:
-        har_json_data = json.load(file)
-
+    har_json_data = load_json_file(harvester_output_filepath)
+    
     # Read and load the mapping file
-    mapping_file = os.path.join(current_directory, "mapping.json")
-    with open(mapping_file, "r") as mapping_file:
-        mapping_data = json.load(mapping_file)
+    mapping_filename = "mapping.json"
+    mapping_filepath = Path(__file__).parent / mapping_filename
+    mapping_data = load_json_file(mapping_filepath)
 
     # Extract metadata for each file
     for group in har_json_data["groups"]:
@@ -582,13 +595,8 @@ if __name__ == "__main__":
                 # Collect all attributes, values, paths from harvested metadata
                 har_md_dict = extract_attri_value_path(metadata)
 
-                # If --darus is specified without an argument, use the default_darus_file
-                if args.api_endpoints_file_path is None:
-                    args.api_endpoints_file_path = darus_metadata_endpoint
-
-                with open(args.api_endpoints_file_path) as json_file:
-                    api_blocks = json.load(json_file)
-
+                api_blocks = load_json_file(api_endpoints_filepath)
+               
                 if not isinstance(api_blocks, list):
                     print("Error: JSON file should contain a list of API blocks.")
 
@@ -608,7 +616,7 @@ if __name__ == "__main__":
                                     updated_har_md_dict = metadata_mapping(har_md_dict, schema_name, mapping_data)  
                                     
                                     # Search, create, and update corresponding metadata (passing the interactive argument)
-                                    unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name)
+                                    unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, output_filepath, com_metadata, schema_name, metadata_schema)
                                     har_md_dict = unmatched_har_metadata
                                     
                                 except Exception as e:
@@ -626,7 +634,7 @@ if __name__ == "__main__":
                             updated_har_md_dict = metadata_mapping(har_md_dict, schema_name, mapping_data)  
                             
                             # Search, create, and update corresponding metadata (passing the interactive argument)
-                            unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_metadata, schema_name)
+                            unmatched_har_metadata = get_compatible_metadatablocks(updated_har_md_dict, output_filepath, com_metadata, schema_name, metadata_schema)
                             har_md_dict = unmatched_har_metadata
 
                         except Exception as e:
@@ -639,5 +647,16 @@ if __name__ == "__main__":
     # Print the YAML-formatted data
     print(f'Compatible Metadata:\n{yaml_data}')
 
-    # Print the path to the output file
-    print(f"Compatible metadata is written to: {os.path.abspath(com_metadata_file)}")
+  
+    # # Write curated metadata to the specified output file
+    # try:
+    #     with open(output_file_path, "w") as f:
+    #         json.dump(metadata_dict, f, indent=2, allow_nan=True, cls=JsonSerialize)
+    #         print(f"\nCurated metadata successfully saved to {output_file_path}\n")
+    # except IOError as error:
+    #     raise IOError(f"Failed to write to {output_file_path}")
+    
+
+# if __name__ == "__main__":  
+   
+#     curator()

@@ -1,13 +1,14 @@
 import os
-from typing import Optional, Type
-from crawler import crawler
-from parser import Parser
-from file_group import File, FileGroup, SuperGroup
 import argparse
 import json
 import warnings
 import numpy as np
 import datetime
+from typing import Type
+from .crawler import crawler
+from .parser import Parser
+from .file_group import File, FileGroup, SuperGroup
+from pathlib import Path
 
 
 # Filter out UserWarnings
@@ -28,31 +29,31 @@ class JsonSerialize(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
-def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
+def harvest_metadata(dir_path: str, verbose: bool = False) -> Type[SuperGroup]:
     """
-    This function harvests metadata from files under a given path by using parsers that parse files with different filetypes
+    This function harvests metadata from files located under a specified base directory. 
+    It utilizes parsers tailored to different filetypes to extreact metadata. 
 
 
     Args:
-        path: Base directory for metadata harvesting
-        verbose: A boolean indicating if messages should be generated regarding unparsed file(s) and filetype(s) in the given path
+        dir_path: The base directory path from which metadata is harvested.
+        verbose: An optional boolean flag. If set to True, the function will provide messages about any unparsed
+                 files and file types encountered. 
 
 
     Returns:
-        all_file_groups: An instance of SuperGroup that contains all groups of files parsed for metadata and harvested metadata
+        all_file_groups: An instance of SuperGroup that contains all groups of files parsed for metadata and harvested metadata. 
     """
     if verbose:
-        print(f"Start havesting metadata from files under the given path {args.path} ...\n")
+        print(f"\nStart havesting metadata from files under the given base directory {dir_path} ...\n")
   
     # Find all files under the given path
-    file_dict = crawler(path)
+    file_dict = crawler(dir_path)
     # Create an instance of Parser class
     parser = Parser()
 
-
     # Create a dictionary to hold the filetypes that has no corresponding parsers
     unparsed_file_type_dict = {}
-
 
     # Create an instance of SuperGroup class to hold all parsed files grouped based on file_types.
     all_file_groups = SuperGroup(supergroup_name="all parsed file groups", file_group_names={}, groups=[])
@@ -119,40 +120,86 @@ def harvester(path: str, verbose: Optional[bool] = False) -> Type[SuperGroup]:
         unparsed_file_types = list(unparsed_file_type_dict.keys())
         unparsed_files = [file for sublist in unparsed_file_type_dict.values() for file in sublist]
         if verbose:
-            print(f"\n\n***Please note that currently there are no parsers to parse {', '.join(unparsed_file_types[:-1])} and {unparsed_file_types[-1]} files found under the given path.\n")
-            print(f"List of unparsed files: {unparsed_files}\n\n")
+            print(f"***Please note that currently there are no parsers to parse {', '.join(unparsed_file_types[:-1])} and {unparsed_file_types[-1]} files found under the given path.\n")
+            print(f"List of unparsed files: {unparsed_files}\n")
 
     return all_file_groups
 
-if __name__ == "__main__":
+def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> None:
+    """
+    This function harvests metadata from files within a specified directory and save the harvested metadata to a JSON file.
 
-    arg_parser = argparse.ArgumentParser(description="Harvest metadata from files under a given path.")
-    arg_parser.add_argument("--path", dest= "path", required=True, help="Base directory for metadata harvesting")
-    arg_parser.add_argument("-v", "--verbose", action="store_true", help="Generate messages regarding unparsed file(s) and filetype(s)")
 
-    args = arg_parser.parse_args()
+    Args:
+        dir_path: The base directory from which metadata is harvested.
+        output_filename: Name of the JSON file to save harvested metadata.
+        verbose: An boolean flag. If set to True, the function will provide messages about any unparsed
+                 files and file types encountered. 
+
+    """
+
+    # Check if dir_path exists and is accessible
+    dir_path_obj = Path(dir_path)
+    if not dir_path_obj.exists() or not dir_path_obj.is_dir():
+        raise FileNotFoundError(f"The directory {dir_path} does not exist or is not accessible.")
+
+    # Validate output_filename format
+    if not output_filepath.endswith(".json"):
+        raise ValueError("The output filename must end with '.json'.")
+
+
+    # Harvest metadata from the given base directory
+    try: 
+        harvested_metadata = harvest_metadata(dir_path, verbose)
+        metadata_dict = harvested_metadata.dict()
+    except Exception as e:
+        raise RuntimeError(f"Error during metadata harvesting: {e}")
+
+    # Create the output directory if it does not exists
+    output_dir_path = Path(output_filepath).parent
+    try:
+         output_dir_path.mkdir(exist_ok=True)
+    except OSError as e:
+        print(f"Output directory {output_directory} cannot be created. Error: {e}")
+            
+    # Write harvested metadata to the specified output file
+    try:
+        with open(output_filepath, "w") as f:
+            json.dump(metadata_dict, f, indent=2, allow_nan=True, cls=JsonSerialize)
+            print(f"Harvested metadata successfully saved to {output_filepath}\n")
+    except IOError as error:
+        raise IOError(f"Failed to write to {output_filepath}")
+
+
+# if __name__ == "__main__":
+
+#     # arg_parser = argparse.ArgumentParser(description="Harvest metadata from files under a given path.")
+#     # arg_parser.add_argument("--path", dest= "path", required=True, help="Base directory for metadata harvesting")
+#     # arg_parser.add_argument("-v", "--verbose", action="store_true", help="Generate messages regarding unparsed file(s) and filetype(s)")
+
+#     # args = arg_parser.parse_args()
   
-    #print(f"----- Harvesting metadata from files under the given path {args.path} -----\n")
+#     # #print(f"----- Harvesting metadata from files under the given path {args.path} -----\n")
   
-    all_file_groups = harvester(args.path, args.verbose)
+#     # all_file_groups = harvester(args.path, args.verbose)
   
-    # print("---*** Metadata Harvester Output ***---\n")
-    # Determine the parent directory of the given path
-    parent_directory = os.path.abspath(os.path.join(args.path, os.pardir))
+#     # # print("---*** Metadata Harvester Output ***---\n")
+#     # # Determine the parent directory of the given path
+#     # parent_directory = os.path.abspath(os.path.join(args.path, os.pardir))
 
-    # # Create the 'harvester_output' directory if it doesn't exist
-    # output_directory = os.path.join(parent_directory, 'harvester_output')
-    # os.makedirs(output_directory, exist_ok=True)
+#     # # # Create the 'harvester_output' directory if it doesn't exist
+#     # # output_directory = os.path.join(parent_directory, 'harvester_output')
+#     # # os.makedirs(output_directory, exist_ok=True)
 
-    # Construct the path for the output file in the 'output' directory
-    output_file_path = os.path.join(parent_directory, 'harvester_output.json')
+#     # # Construct the path for the output file in the 'output' directory
+#     # output_file_path = os.path.join(parent_directory, 'harvester_output.json')
 
-    # Export output from metadata harvester into a JSON file
-    output_metadata = json.dumps(all_file_groups.dict(), indent=2, allow_nan=True, cls=JsonSerialize)
-    with open(output_file_path, "w") as f:
-        f.write(output_metadata)
+#     # # Export output from metadata harvester into a JSON file
+#     # output_metadata = json.dumps(all_file_groups.dict(), indent=2, allow_nan=True, cls=JsonSerialize)
+#     # with open(output_file_path, "w") as f:
+#     #     f.write(output_metadata)
      
-    # Print the path to the output file
-    print(f"Output is written to: {output_file_path}")
-
-   
+#     # # Print the path to the output file
+#     # print(f"Output is written to: {output_file_path}")
+#     dir_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "example", "use-case")
+#     harvester(dir_path)
