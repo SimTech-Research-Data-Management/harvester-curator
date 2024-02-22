@@ -8,14 +8,14 @@
     "license": "MIT",
     "contributors": [
       {
-        "name": "Sarbani Roy",
-        "affiliation": "University of Stuttgart",
-        "email": "sarbani.roy@simtech.uni-stuttgart.de"
+        "name": "Joe Doe1",
+        "affiliation": "University of Example",
+        "email": "jd1@example.com"
       },
       {
-        "name": "FangFang Wang",
-        "affiliation": "University of Stuttgart",
-        "email": "fangfang.wang@simtech.uni-stuttgart.de"
+        "name": "Joe Doe2",
+        "affiliation": "University of Example",
+        "email": "jd2@example.com"
       }
     ],
     "dateCreated": "2023-04-21",
