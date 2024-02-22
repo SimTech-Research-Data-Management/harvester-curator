@@ -66,11 +66,11 @@ def get_file_type(file_path):
         return file_type
 
 
-if __name__ == '__main__':
-    print("----- A simple example of using crawler in a given directory ---- \n")
+# if __name__ == '__main__':
+#     print("----- A simple example of using crawler in a given directory ---- \n")
     
-    # Define the target path that contains files
-    target_path = os.path.join(os.path.dirname(os.getcwd()), "example")
+#     # Define the target path that contains files
+#     target_path = os.path.join(os.path.dirname(os.getcwd()), "example")
     
-    file_dict = crawler(target_path)
-    print(f"All files found by crawler in the directory: \n {file_dict}")
+#     file_dict = crawler(target_path)
+#     print(f"All files found by crawler in the directory: \n {file_dict}")

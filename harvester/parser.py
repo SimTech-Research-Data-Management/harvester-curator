@@ -1,6 +1,5 @@
 import os
 import subprocess
-import crawler
 import vtk
 import pyvista as pv
 import h5py
@@ -10,7 +9,9 @@ import re
 import numpy
 from pyvista import examples
 from typing import Union, Any, Dict
-from utils import validate_json, get_json_from_url, validate_jsonld, remove_keys_with_prefix, format_author, process_authors, format_software_info
+from .crawler import get_file_type
+from .utils import validate_json, get_json_from_url, validate_jsonld, remove_keys_with_prefix, format_author, process_authors, format_software_info
+
 
 class Parser():
     """This class contains different parsers to parse files with various extensions.""" 
@@ -126,7 +127,7 @@ class Parser():
         meta_dict = {}
 
         # Get file type of the input vtk file
-        file_type = crawler.get_file_type(vtk_file)
+        file_type = get_file_type(vtk_file)
 
         # Use Pyvista to read vtk file and get meta properties of vtk mesh     
         if file_type in ("pgm", "ppm"):
