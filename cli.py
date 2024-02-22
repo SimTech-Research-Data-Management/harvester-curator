@@ -24,8 +24,8 @@ default_api_endpoints_path = base_dir / "curator" / "api_end_points" / api_endpo
 
 # API input for uploading dataset 
 default_server_url = "https://darus.uni-stuttgart.de/"
-default_api_token = "7dd4c9ed-4854-4409-aa75-d435cf05ebc9"
-default_dataverse_id = "playground"
+default_api_token = ""
+default_dataverse_id = ""
 
 
 @app.command()
