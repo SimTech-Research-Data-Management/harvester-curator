@@ -22,21 +22,25 @@ default_harvester_output_path = base_dir / default_output_dir_name / harvester_o
 default_curator_output_path = base_dir / default_output_dir_name / curator_output_filename
 default_api_endpoints_path = base_dir / "curator" / "api_end_points" / api_endpoints_filename
 
-# API input for uploading dataset 
-default_server_url = "https://darus.uni-stuttgart.de/"
-default_api_token = ""
-default_dataverse_id = ""
-
 
 @app.command()
 def harvest(
-    dir_path: Annotated[str, typer.Argument(
+    dir_path: Annotated[str, typer.Option(
+        ...,
+        "--dir_path",
+        "-d",
         help="Path of the base directory from which metadata is harvested"
     )] = str(default_harvester_dir),
-    output_filepath: Annotated[str, typer.Argument(
+    output_filepath: Annotated[str, typer.Option(
+        ...,
+        "--output_filepath",
+        "-o",
         help="Path to the JSON file to save harvested metadata"
     )] = str(default_harvester_output_path),
-    verbose: Annotated[bool, typer.Argument(
+    verbose: Annotated[bool, typer.Option(
+        ...,
+        "--verbose",
+        "-v",
         help="An boolean flag. If set to True, the function will provide messages about"
              "any unparsed files and file types encountered"
     )] = True
@@ -56,13 +60,22 @@ def harvest(
 
 @app.command()
 def curate(
-    harvested_metadata_filepath: Annotated[str, typer.Argument(
+    harvested_metadata_filepath: Annotated[str, typer.Option(
+        ...,
+        "--harvested_metadata_filepath",
+        "-h",
         help="Path to the JSON file with harvested metadata"
     )] = str(default_harvester_output_path),
-    output_filepath: Annotated[str, typer.Argument(
+    output_filepath: Annotated[str, typer.Option(
+        ...,
+        "--output_filepath",
+        "-o",
         help="Path to the JSON file to save curated metadata"
     )] = str(default_curator_output_path),
-    api_endpoints_filepath: Annotated[str, typer.Argument(
+    api_endpoints_filepath: Annotated[str, typer.Option(
+        ...,
+        "--api_endpoints_filepath",
+        "-a",
         help="Path of the JSON file with schema API endpoints for metadata blocks"
     )] = str(default_api_endpoints_path)
 ):
@@ -89,18 +102,30 @@ def curate(
 
 @app.command()
 def upload(
-    curated_metadata_filepath: Annotated[str, typer.Argument(
-        help="Path to the JSON file that contains curated metadata "
-    )] = str(default_curator_output_path),
-    server_url: Annotated[str, typer.Argument(
+    server_url: Annotated[str, typer.Option(
+        ...,
+        "--server_url",
+        "-s",
         help="Server address"
-    )] = default_server_url,
-    api_token: Annotated[str, typer.Argument(
+    )],
+    api_token: Annotated[str, typer.Option(
+        ...,
+        "--api_token",
+        "-a",
         help="API token for accessing Dataverse API"
-    )] = default_api_token,
-    dataverse_id: Annotated[str, typer.Argument(
+    )],
+    dataverse_id: Annotated[str, typer.Option(
+        ...,
+        "--dataverse_id",
+        "-d",
         help="Alias of the host Dataverse for the dataset to be uploaded"
-    )] = default_dataverse_id,
+    )],
+    curated_metadata_filepath: Annotated[str, typer.Option(
+        ...,
+        "--curated_metadata_filepath",
+        "-c",
+        help="Path to the JSON file that contains curated metadata "
+    )] = str(default_curator_output_path),    
 ):
     """
     Uploads a dataset with curated metadata to a given Dataverse installation 
