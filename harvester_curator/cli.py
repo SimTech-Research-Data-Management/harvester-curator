@@ -1,12 +1,11 @@
-import os
 import typer
 
 from typing_extensions import Annotated
 from pathlib import Path
 
-from harvester.harvester import harvester
-from curator.curator import curator
-from curator.dataset_upload import dataset_upload
+from harvester_curator.harvester.harvester import harvester
+from harvester_curator.curator.curator import curator
+from harvester_curator.curator.dataset_upload import dataset_upload
 
 app = typer.Typer()
 
