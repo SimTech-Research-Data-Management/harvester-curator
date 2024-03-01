@@ -5,19 +5,23 @@ setup(
     version="0.0.1",
     author="Sarbani Roy, Fangfang Wang",
     author_email="sarbani.roy@simtech.uni-stuttgart.de, fangfang.wang@simtech.uni-stuttgart.de",
-    packages=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"":"src"},
     entry_points={
         'console_scripts': [
-            'harvester_curator = harvester_curator.cli:main'
+            'harvester_curator = harvester_curator.cli:main',
+            "harvest=harvester_curator.cli:harvest",
+            "curate=harvester_curator.cli:curate",
+            "upload=harvester_curator.cli:upload"
         ]},
     install_requires=[
-        "cffconvert == 2.0.0",
-        "pydantic",
-        "PyYAML == 6.0.1",
-        "h5py == 3.10.0",
-        "pyvista == 0.43.3",
-        "vtk == 9.3.0",
-        "python-magic == 0.4.27",
+        "cffconvert >= 2.0.0",
+        "pydantic >= 2.6.1",
+        "PyYAML >= 6.0.1",
+        "h5py >= 3.10.0",
+        "pyvista >= 0.43.3",
+        "vtk >= 9.3.0",
+        "python-magic >= 0.4.27",
         "easyDataverse @ git+https://github.com/gdcc/easyDataverse.git@flexible-connect"
     ]
 )       

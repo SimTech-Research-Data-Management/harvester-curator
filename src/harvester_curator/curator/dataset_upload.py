@@ -32,7 +32,7 @@ def check_values_exist(data: dict, keys: list) -> tuple:
     missing_keys = [key for key in keys if not check_nested_keys(data, key.split("/"))]            
     return (not missing_keys, missing_keys)
 
-def dataset_upload(curated_metadata_filepath: str, server_url: str, api_token: str, dataverse_id: str) -> None:
+def dataset_upload(server_url: str, api_token: str, dataverse_id: str, curated_metadata_filepath: str) -> None:
     """
     This function uploads a dataset with curated metadata to a given Dataverse installation 
 

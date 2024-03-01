@@ -646,6 +646,7 @@ def curator(harvester_output_filepath: str,
 
     # Print the YAML-formatted data
     print(f'Compatible Metadata:\n{yaml_data}')
+    print(f"\n\nCurated metadata successfully saved to {output_filepath}\n")
 
   
     # # Write curated metadata to the specified output file

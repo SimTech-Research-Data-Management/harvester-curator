@@ -74,7 +74,7 @@ def validate_jsonld(json_data: Dict[str, Any], jsonld_schema: Dict[str, Any]) ->
         validate(instance=json_data, schema=jsonld_schema)
         return True
     except json.JSONDecodeError as e:
-        print("Invalid JSON format:", e)
+        print(f"Invalid JSON format: {e}")
         return False
     except KeyError as e:
         print(f"Key error: {e}")

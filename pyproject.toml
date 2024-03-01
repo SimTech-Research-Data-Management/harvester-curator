@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "harvester-curator"
+version = "0.0.1"
+description = "A package for harvesting, curating and uploading metadata."
+authors = [
+    "Sarbani Roy <sarbani.roy@simtech.uni-stuttgart.de>",
+    "Fangfang Wang <fangfang.wang@simtech.uni-stuttgart.de>"
+]
+readme = "README.md"
+
+
+[tool.poetry.scripts]
+harvester-curator = "harvester_curator.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+cffconvert = "^2.0.0"
+pydantic = "^2.6.1"
+PyYAML = "^6.0.1"
+h5py = "^3.10.0"
+pyvista = "^0.43.3"
+vtk = "^9.3.0"
+python-magic = "^0.4.27"
+easyDataverse = { git = "https://github.com/gdcc/easyDataverse.git", branch = "flexible-connect" }
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

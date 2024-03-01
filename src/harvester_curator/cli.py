@@ -124,7 +124,7 @@ def upload(
         "--curated_metadata_filepath",
         "-c",
         help="Path to the JSON file that contains curated metadata "
-    )] = str(default_curator_output_path),    
+    )] = str(default_curator_output_path)
 ):
     """
     Uploads a dataset with curated metadata to a given Dataverse installation 
@@ -137,10 +137,10 @@ def upload(
 
     """
     
-    dataset_upload(curated_metadata_filepath=curated_metadata_filepath, 
-                   server_url=server_url, 
+    dataset_upload(server_url=server_url, 
                    api_token=api_token,
-                   dataverse_id=dataverse_id)
+                   dataverse_id=dataverse_id,
+                   curated_metadata_filepath=curated_metadata_filepath)
  
 
 def main():
