@@ -10,16 +10,19 @@ from harvester_curator.curator.dataset_upload import dataset_upload
 app = typer.Typer()
 
 
-harvester_output_filename = "harvester_output.json"
-curator_output_filename = "curator_output.json"
+harvester_output_filename = "harvested_output.json"
+curator_output_filename = "curated_output.json"
 api_endpoints_filename = "darus_md_schema_api_endpoints.json"
 
 base_dir = Path(__file__).parent
 default_harvester_dir = base_dir / "example" / "use-case"
-default_output_dir_name = "output"
-default_harvester_output_path = base_dir / default_output_dir_name / harvester_output_filename
-default_curator_output_path = base_dir / default_output_dir_name / curator_output_filename
 default_api_endpoints_path = base_dir / "curator" / "api_end_points" / api_endpoints_filename
+
+project_root = Path(__file__).resolve().parents[2]
+default_output_dir_name = "output"
+default_harvester_output_path = project_root / default_output_dir_name / harvester_output_filename
+default_curator_output_path = project_root / default_output_dir_name / curator_output_filename
+
 
 
 @app.command()

@@ -1,63 +1,101 @@
-# Harvester-Curator
-Harvester-Curator is a tool meticulously designed to streamline metadata collection and provisioning processes in research data management. Its primary goal is to automate the extraction of metadata from original repositories or directories containing code and data, seamlessly mapping and incorporating the collected metadata into destination research data repository hubs, with a specific focus on Dataverse installations.
+# harvester-curator
+`harvester-curator` is a tool meticulously designed to streamline metadata collection and provisioning processes in research data management. Its primary goal is to automate the extraction of metadata from original repositories or directories containing code and data, seamlessly mapping and incorporating the collected metadata into destination research data repository hubs, with a specific focus on Dataverse installations.
 
-The tool operates through two phases. In the initial 'harvester' phase, Harvester-Curator traverses files within user-owned repositories or directories, dynamically selecting parsers to extract metadata from various file formats, before consolidating the collected metadata into a coherent JSON format. Transitioning seamlessly into the second phase, Harvester-Curator assumes the role of a curator. It compares the harvested metadata with the metadata fields defined in the schema of the destination repository, such as DaRUS, and translates and incorporates the elements and values of the harvested metadata into the corresponding ones in the destination repository.
+The tool operates through two phases. In the initial 'harvest' phase, `harvester-curator` traverses files within user-owned repositories or directories, dynamically selecting parsers to extract metadata from various file formats, before consolidating the collected metadata into a coherent JSON format. Transitioning seamlessly into the second phase, `harvester-curator` assumes the role of a curator. It compares the harvested metadata with the metadata fields defined in the schema of the destination repository, such as DaRUS, and translates and incorporates the elements and values of the harvested metadata into the corresponding ones in the destination repository. It also enables the upload of curated metadata to the destination repository. 
 
-In essence, Harvester-Curator is a tool that combines file crawling and crosswalking capabilities to automate the often intricate and time-consuming process of metadata collection and repository population. Its design is rooted in enhancing efficiency and accuracy in research data management within Dataverse installations, providing researchers with a simple solution to expedite workflows and ensure the FAIRness of research data.
+In essence, `harvester-curator` is a tool that combines file crawling and crosswalking capabilities to automate the often intricate and time-consuming process of metadata collection and repository population. Its design is rooted in enhancing efficiency and accuracy in research data management within Dataverse installations, providing researchers with a simple solution to expedite workflows and ensure the FAIRness of research data.
 
-### How to Install and Run Harvester-Curator:
-##### 1. Git clone repo:
-<pre>
+## Project Structure
+The `harvester-curator` project is organized as follows:
+
+* `src/harvester_curator/`: The main app package directory containing all the source code.
+* `tests/`: Contains all tests for the `harvester-curator` application.
+* `output/`: Default directory where harvested and curated metadata files are stored if no specific path is provided.
+
+
+## How to Install harvester-curator:
+`harvester-curator` can be seamlessly installed using one of two methods: either through the Poetry package manager, which offers advanced dependency management and automatic creation of virtual environment, or by leveraging the traditional "setup.py" script, which follows the conventional Python distribution approach. 
+### Installing Using Poetry
+Install "harvester-curator" via Poetry:
+#### 1. Install Poetry: 
+Install Poetry with the following command:
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+#### 2. Clone the Repository:
+```bash
 git clone https://github.com/SimTech-Research-Data-Management/Harvester-Curator.git
-</pre>
+```
+#### 3. Change directory to be Harvester-Curator and pull the branch package
+```bash
+cd Harvester-Curator
+git checkout package
+git pull origin package
+```
+#### 4. Install Dependencies and harvester-curator:
+```bash
+poetry install
+```
+This method creates a virtual environment and installs all necessary dependencies along with "harvester-curator".
 
-##### 2. Change directory to be Harvester-Curator and pull the branch feature/example
-<pre>
-cd Harvester_Curator
-git checkout feature/example
-git pull origin feature/example
-</pre>
+### Installing Using setup.py
+For those who prefer or require a traditional installation method using "setup.py":
+#### 1. Clone the Repository:
+```bash
+git clone https://github.com/SimTech-Research-Data-Management/Harvester-Curator.git
+```
+#### 2. Change directory to be Harvester-Curator and pull the branch package
+```bash
+cd Harvester-Curator
+git checkout package
+git pull origin package
+```
+#### 3. Install harvester-curator:
+```bash
+python -m pip install .
+```
+## Usage 
+The `harvester-curator` app is designed to facilitate the efficient collection, curation and uploading of metadata. Follow these instructions to utilize the app and its available subcommands effectively.
 
-##### 3. Install dependencies from [requirements.txt](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/requirements.txt) using python 3.11 or python 3.12
-<pre>
-python3 -m pip install -r requirements.txt
-</pre> 
+### General Help
+For an overview of all commands and their options:
+```bash
+harvester-curator --help
+```
+### Harvesting Metadata
+To collect metadata from files in a specified directory:
+```bash
+harvester-curator harvest --dir_path "/path/to/directory" --output_filepath "/path/to/harvested_output.json"
+```
+Or, using short options:
+```bash
+harvester-curator harvest -d "/path/to/directory" -o "/path/to/harvested_output.json"
+```
+Important Note: Without `--dir_path`, the default is the `example` folder within the `harvester_curator` package. Without `--output_filepath`, harvested metadata is saved to `output/harvested_output.json` by default.
 
-##### 4. Run [harvester.py](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/harvester/harvester.py) for metadata harvesting and [curator.py](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/curator/curator.py) for metadata curating:
+### Curating Metadata
+To process and align harvested curation with specified schema metadata blocks:
+```bash
+harvester-curator curate  --harvested_metadata_filepath "/path/to/harvested_output.json" --output_filepath "/path/to/curated_output.json" --api_endpoints_filepath "/path/to/schema_api_endpoints.json"
+```
+Or, using short options:
+```bash
+harvester-curator curate  -h "/path/to/harvested_output.json" -o "/path/to/curated_output.json" -a "/path/to/schema_api_endpoints.json"
+```
+Important Note: Default file paths are used if options are not specified:
+* `--harvested_metadata_filepath` defaults to `output/harvested_output.json`.
+* `--output_filepath` defaults to `output/curated_output.json`.
+* `--api_endpoints_filepath` defaults to `curator/api_end_points/darus_md_schema_api_endpoints.json`.
 
-The harvester can take the path of user's directory as an input and outputs harvested metadata in a JSON file. An example folder can be found [here](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/example/example_input_minimal). The meatadata from the user's directory can be harvested by executing
-<pre>
-python3 harvester/harvester.py --path /path/to/your/folder -v
-</pre>
-The harvested metadata has been output to the [harvester_output.json](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/example/harvester_output.json) file within the example folder. One may follow the path shown at the end of the terminal output.
-
-[curator.py](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/curator/curator.py) is able to compare and match the harvested metadata, stored in the json file [harvester_output.json](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/example/harvester_output.json), with the metadata schema from DaRUS or other Dataverse Installations. The matched metadata is then transformed into a format compatible with the corresponding metadata fields in DaRUS or other Dataverse installations, ensuring it can be used to populate the metadata fields.
-<pre>
-python3 curator/curator.py --darus --path /path/to/harvested_output.json
-</pre>
-The curated metadata has been output to the [md_com.json](https://github.com/SimTech-Research-Data-Management/Harvester-Curator/blob/feature/example/example/md_com.json) file within the example folder.
-
-##### 5. Upload curated metadata to DaRUS or other Dataverse Installations by following the provided codes below.
-**Important:** Prior to uploading to DaRUS or other Dataverse installations, please ensure the necessary environment variables are set up. Refer to the example below for guidance.
-</pre>
-##### 5.1. Initialize a Dataset object
-<pre>
-from easyDataverse import Dataverse
-
-darus = Dataverse(
-    "https://darus.uni-stuttgart.de",
-    api_token="your_api_token",
-)
-dataset = darus.create_dataset()
-</pre>
-##### 5.2. Load the dataset with curated metadata
-<pre>
-dataset = Dataset.from_json(/path/to/md_com.json)
-</pre>
-##### 5.3. Upload the dataset
-<pre>
-dataset.upload(dataverse_name="my_dataverse")
-dataset.update(contact_name="Jane Doe", contact_email="jane.doe@example.com")
-</pre>
+### Uploading Metadata
+To upload curated metadata to a Dataverse repository as dataset metadata:
+```bash
+harvester-curator upload  --server_url "https://xxx.xxx.xxx" --api_token "abc0_def123_gkg456__hijk789" --dataverse_id "mydataverse_alias" --curated_metadata_filepath "/path/to/curated_output.json"
+```
+Or, using short options:
+```bash
+harvester-curator upload  -s "https://xxx.xxx.xxx" -a "abc0_def123_gkg456__hijk789" -d "mydataverse_alias" -c "/path/to/curated_output.json"
+```
+Important Note: The default for `--curated_metadata_filepath` is `output/curated_output.json`.
 
 **Detailed documentation** https://docs.google.com/document/d/1-nOwCnVz_3FDLZ1XSMEO-h1dI1eTbXqqxKMkziwOfLM/edit
