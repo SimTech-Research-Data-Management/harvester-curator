@@ -20,7 +20,7 @@ def validate_json(json_file: str) -> Union[Dict[str, Any], bool]:
                 json_data = json.load(f)
             return json_data
         except json.JSONDecodeError as e:
-            print("Invalid JSON format:", e)
+            print(f"Invalid JSON format: {e}.")
             return False
         except FileNotFoundError:
             print(f"The file {json_file} was not found.")
@@ -29,7 +29,7 @@ def validate_json(json_file: str) -> Union[Dict[str, Any], bool]:
             print(f"Permission denied to access the file {json_file}.")
             return False
         except IOError as e:
-            print(f"I/O error occurred: {e}")
+            print(f"I/O error occurred: {e}.")
             return False
 
 def get_json_from_url(url: str) -> Optional[Union[Dict[str, Any], bool]]:
@@ -48,13 +48,13 @@ def get_json_from_url(url: str) -> Optional[Union[Dict[str, Any], bool]]:
         json_data = request_response.json()
         return json_data
     except requests.exceptions.HTTPError as http_err: 
-        raise ValueError(f"HTTP Error for URL '{url}': {http_err.args[0]}") 
+        raise ValueError(f"HTTP Error for URL '{url}': {http_err.args[0]}.") 
     except requests.exceptions.ReadTimeout as timeout_err:
-        raise TimeoutError("Timeout Error for URL '{url}'") 
+        raise TimeoutError(f"Timeout Error for URL '{url}'.") 
     except requests.exceptions.ConnectionError as con_err: 
-        raise ConnectionError("Connection Error for URL '{url}'") 
+        raise ConnectionError(f"Connection Error for URL '{url}'.") 
     except requests.exceptions.RequestException as exe_rr: 
-        raise RuntimeError(f"Request Exception for URL '{url}': {exe_rr}")
+        raise RuntimeError(f"Request Exception for URL '{url}': {exe_rr}.")
     return False
 
 def validate_jsonld(json_data: Dict[str, Any], jsonld_schema: Dict[str, Any]) -> bool:
@@ -74,13 +74,13 @@ def validate_jsonld(json_data: Dict[str, Any], jsonld_schema: Dict[str, Any]) ->
         validate(instance=json_data, schema=jsonld_schema)
         return True
     except json.JSONDecodeError as e:
-        print(f"Invalid JSON format: {e}")
+        print(f"Invalid JSON format: {e}.")
         return False
     except KeyError as e:
-        print(f"Key error: {e}")
+        print(f"Key error: {e}.")
         return False
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An error occurred: {e}.")
         return False
     
 def remove_keys_with_prefix(data: Union[Dict[str, Any], list], prefix: str, exclude_key: List[str]) -> Union[Dict[str, Any], list, Any]:

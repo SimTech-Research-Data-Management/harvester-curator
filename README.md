@@ -17,10 +17,14 @@ The `harvester-curator` project is organized as follows:
 `harvester-curator` can be seamlessly installed using one of two methods: either through the Poetry package manager, which offers advanced dependency management and automatic creation of virtual environment, or by leveraging the traditional "setup.py" script, which follows the conventional Python distribution approach. 
 ### Installing Using Poetry
 Install "harvester-curator" via Poetry:
-#### 1. Install Poetry: 
+#### 1. Install and Configure Poetry: 
 Install Poetry with the following command:
 ```bash
 curl -sSL https://install.python-poetry.org | python3 -
+```
+Configure Poetry to create virtual environment in the project folder
+```bash
+poetry config virtualenvs.in-project true 
 ```
 #### 2. Clone the Repository:
 ```bash
@@ -32,9 +36,14 @@ cd Harvester-Curator
 git checkout package
 git pull origin package
 ```
-#### 4. Install Dependencies and harvester-curator:
+#### 4. Install harvester-curator dependencies and activate virtual environment:
+Install harvester-curator dependencies
 ```bash
-poetry install
+poetry install --no-ansi
+```
+Activate virtual environment
+```bash
+poetry shell
 ```
 This method creates a virtual environment and installs all necessary dependencies along with "harvester-curator".
 
@@ -97,5 +106,18 @@ Or, using short options:
 harvester-curator upload  -s "https://xxx.xxx.xxx" -a "abc0_def123_gkg456__hijk789" -d "mydataverse_alias" -c "/path/to/curated_output.json"
 ```
 Important Note: The default for `--curated_metadata_filepath` is `output/curated_output.json`.
+
+## Install and Usage Example Using Google Colab:
+Get started with `harvester-curator` by trying out our interactive notebooks in Google Colab. These examples will guide you through installing 
+and using `harvester-curator` using two different methods: Poetry and setup.py. 
+
+Golab Notebooks:
+* Install and Usage Example Using Poetry: 
+This notebook walks you through the process of installing `harvester-curator` using Poetry. Key topics include upgrading Python version, setting up a new Poetry environment, installing dependencies and basic usage of `harvester-curator`.
+    [Open in Colab](https://colab.research.google.com/drive/1HU4McyrCOOdg-KXtW4SVLnqjoyOl1-JV?usp=sharing)
+
+* Install and Usage Example Using setup.py:
+For those who prefer the traditional appraoch, this notebook details the steps to install `harvester-curator` using `setup.py`. It also covers upgrading Python version, installing dependenciesm and outlines basic usage of `harvester-curator`. 
+    [Open in Colab](https://colab.research.google.com/drive/1P5niQyW9HC0ji-GgLLE3zaLBdxhTS7yy?usp=sharing)
 
 **Detailed documentation** https://docs.google.com/document/d/1-nOwCnVz_3FDLZ1XSMEO-h1dI1eTbXqqxKMkziwOfLM/edit
