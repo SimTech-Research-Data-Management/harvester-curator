@@ -80,7 +80,7 @@ Or, using short options:
 ```bash
 harvester-curator harvest -d "/path/to/directory" -o "/path/to/harvested_output.json"
 ```
-Important Note: Without `--dir_path`, the default is the `example` folder within the `harvester_curator` package. Without `--output_filepath`, harvested metadata is saved to `output/harvested_output.json` by default.
+**Important Note**: Without `--dir_path`, the default is the `example` folder within the `harvester_curator` package. Without `--output_filepath`, harvested metadata is saved to `output/harvested_output.json` by default.
 
 ### Curating Metadata
 To process and align harvested curation with specified schema metadata blocks:
@@ -91,7 +91,7 @@ Or, using short options:
 ```bash
 harvester-curator curate  -h "/path/to/harvested_output.json" -o "/path/to/curated_output.json" -a "/path/to/schema_api_endpoints.json"
 ```
-Important Note: Default file paths are used if options are not specified:
+**Important Note**: Default file paths are used if options are not specified:
 * `--harvested_metadata_filepath` defaults to `output/harvested_output.json`.
 * `--output_filepath` defaults to `output/curated_output.json`.
 * `--api_endpoints_filepath` defaults to `curator/api_end_points/darus_md_schema_api_endpoints.json`.
@@ -105,7 +105,7 @@ Or, using short options:
 ```bash
 harvester-curator upload  -s "https://xxx.xxx.xxx" -a "abc0_def123_gkg456__hijk789" -d "mydataverse_alias" -c "/path/to/curated_output.json"
 ```
-Important Note: The default for `--curated_metadata_filepath` is `output/curated_output.json`.
+**Important Note**: The default for `--curated_metadata_filepath` is `output/curated_output.json`.
 
 ## Install and Usage Example Using Google Colab:
 Get started with `harvester-curator` by trying out our interactive notebooks in Google Colab. These examples will guide you through installing 
@@ -113,11 +113,11 @@ and using `harvester-curator` using two different methods: Poetry and setup.py.
 
 Golab Notebooks:
 * Install and Usage Example Using Poetry: 
-This notebook walks you through the process of installing `harvester-curator` using Poetry. Key topics include upgrading Python version, setting up a new Poetry environment, installing dependencies and basic usage of `harvester-curator`.
+This notebook walks you through the process of installing `harvester-curator` using Poetry. Key topics include upgrading Python version, setting up a new Poetry environment, installing dependencies and basic usage of `harvester-curator`.  
     [Open in Colab](https://colab.research.google.com/drive/1HU4McyrCOOdg-KXtW4SVLnqjoyOl1-JV?usp=sharing)
 
 * Install and Usage Example Using setup.py:
-For those who prefer the traditional appraoch, this notebook details the steps to install `harvester-curator` using `setup.py`. It also covers upgrading Python version, installing dependenciesm and outlines basic usage of `harvester-curator`. 
+For those who prefer the traditional appraoch, this notebook details the steps to install `harvester-curator` using `setup.py`. It also covers upgrading Python version, installing dependenciesm and outlines basic usage of `harvester-curator`.  
     [Open in Colab](https://colab.research.google.com/drive/1P5niQyW9HC0ji-GgLLE3zaLBdxhTS7yy?usp=sharing)
 
 **Detailed documentation** https://docs.google.com/document/d/1-nOwCnVz_3FDLZ1XSMEO-h1dI1eTbXqqxKMkziwOfLM/edit
