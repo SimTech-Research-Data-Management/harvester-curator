@@ -30,11 +30,9 @@ poetry config virtualenvs.in-project true
 ```bash
 git clone https://github.com/SimTech-Research-Data-Management/Harvester-Curator.git
 ```
-#### 3. Change directory to be Harvester-Curator and pull the branch package
+#### 3. Change directory to be Harvester-Curator
 ```bash
 cd Harvester-Curator
-git checkout package
-git pull origin package
 ```
 #### 4. Install harvester-curator dependencies and activate virtual environment:
 Install harvester-curator dependencies
@@ -53,11 +51,9 @@ For those who prefer or require a traditional installation method using "setup.p
 ```bash
 git clone https://github.com/SimTech-Research-Data-Management/Harvester-Curator.git
 ```
-#### 2. Change directory to be Harvester-Curator and pull the branch package
+#### 2. Change directory to be Harvester-Curator
 ```bash
 cd Harvester-Curator
-git checkout package
-git pull origin package
 ```
 #### 3. Install harvester-curator:
 ```bash
