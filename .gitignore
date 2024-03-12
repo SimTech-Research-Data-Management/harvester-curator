@@ -1,3 +1,11 @@
+#Reference: https://github.com/SimTech-Research-Data-Management/Harvester-Curator
+# Ignore files and directories for Harvester-Curator
+pyproject.toml
+/src/harvester_curator/example/use-case/Dispersion_complex.json
+/src/harvester_curator/example/use-case/alphas_complex.json
+
+
+
 #Reference: https://github.com/github/gitignore/blob/main/Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
