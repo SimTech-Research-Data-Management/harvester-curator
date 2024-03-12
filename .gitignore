@@ -1,8 +1,7 @@
 #Reference: https://github.com/SimTech-Research-Data-Management/Harvester-Curator
 # Ignore files and directories for Harvester-Curator
 pyproject.toml
-/src/harvester_curator/example/use-case/Dispersion_complex.json
-/src/harvester_curator/example/use-case/alphas_complex.json
+/src/harvester_curator/example/
 
 
 
