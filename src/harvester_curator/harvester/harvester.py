@@ -158,7 +158,6 @@ def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> Non
     # Create the output directory if it does not exists
     output_dir_path = Path(output_filepath).parent
     output_dir_name = output_dir_path.name
-    print(f'Output Dir Name: {output_dir_name}')
     try:
          output_dir_path.mkdir(parents=True, exist_ok=True)
     except OSError as e:

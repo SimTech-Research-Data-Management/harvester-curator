@@ -214,3 +214,49 @@ def format_software_info(software_requirement_suggestion: Dict[str, Any], indica
   
     return software_info
 
+def verify_simulation_data(valid_json_result, filename):
+    """
+    Function to verify if the JSON data contains simulation data.
+
+    Args:
+    - valid_json_result: The JSON data to be verified.
+
+    Returns:
+    - True if the JSON file contains simulation data, False otherwise.
+    """
+    try:
+        # Recursive function to traverse the JSON data
+        def extract_no_of_numerical_values(data):
+            count = 0
+            numeric_value_count = 0
+
+            def recursive_extract(item, current_key=None):
+                nonlocal count, numeric_value_count
+
+                if isinstance(item, dict):
+                    for key, value in item.items():
+                        recursive_extract(value, key)
+                elif isinstance(item, list):
+                    for inner_item in item:
+                        recursive_extract(inner_item, current_key)
+                else:
+                    if current_key is not None and count < 5:
+                        count += 1
+                        if isinstance(item, (int, float)):
+                            numeric_value_count += 1
+
+            recursive_extract(data)
+            return numeric_value_count
+
+        # Counter for numerical values encountered
+        numerical_values_count = extract_no_of_numerical_values(valid_json_result)
+
+        # Verify if at least two numerical values are encountered
+        if numerical_values_count >= 3:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return False
+
