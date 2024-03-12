@@ -6,7 +6,7 @@ import numpy as np
 import datetime
 from typing import Type
 from .crawler import crawler
-from .parser import Parser
+from harvester_curator.harvester.parser.parser import Parser
 from .file_group import File, FileGroup, SuperGroup
 from pathlib import Path
 
