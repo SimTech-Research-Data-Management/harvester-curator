@@ -2,6 +2,7 @@
 # Ignore files and directories for Harvester-Curator
 pyproject.toml
 /src/harvester_curator/example/
+.DS_Store
 
 
 
