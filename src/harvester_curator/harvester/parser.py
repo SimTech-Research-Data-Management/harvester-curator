@@ -355,8 +355,6 @@ class Parser():
             try:    
                 valid_json_result = validate_json(json_file)
                 if valid_json_result:
-                    print(f'{filename} verified simulation data: {verify_simulation_data(valid_json_result, filename)}')
-                
                     # Check if the JSON file is a codemeta file
                     if "codemeta" in filename and "codemeta.jsonld" not in filename:
                         codemeta_context_url = "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld"
