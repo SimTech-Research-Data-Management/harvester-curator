@@ -4,10 +4,7 @@ import vtk
 import pyvista as pv
 import h5py
 import yaml
-import json
 import re
-import numpy
-from pyvista import examples
 from typing import Union, Any, Dict
 from .crawler import get_file_type
 from .utils import validate_json, get_json_from_url, validate_jsonld, remove_keys_with_prefix, format_author, process_authors, format_software_info
