@@ -1,6 +1,6 @@
 # Harvester-Curator
 
-`Harvester-Curator` is a Python-based automation tool designed to streamline the collection and provision of metadata in research data management. It automates the extraction of metadata from source repositories or directories, then seamlessly maps and integrates the collected metadata into designated research data repositories, with a particular emphasis on Dataverse installations.
+`Harvester-Curator`, a Python-based tool, automates metadata collection by extracting it from user-specified data or software directories and prepares to metadata-enriched datasets in designated data repositories.
 
 ## Project Structure
 The `harvester-curator` project is organized as follows:
