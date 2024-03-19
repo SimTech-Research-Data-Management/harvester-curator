@@ -3,7 +3,7 @@
 `Harvester-Curator` is a Python-based automation tool designed to streamline the collection and provision of metadata in research data management. It automates the extraction of metadata from source repositories or directories, then seamlessly maps and integrates the collected metadata into designated research data repositories, with a particular emphasis on Dataverse installations.
 
 ## Project Structure
-The `Harvester-Curator` project is organized as follows:
+The `harvester-curator` project is organized as follows:
 
 * `src/harvester_curator/`: The main app package directory containing all the source code.
 * `tests/`: Contains all tests for the `harvester-curator` application.
@@ -25,11 +25,11 @@ poetry config virtualenvs.in-project true
 ```
 #### 2. Clone the Repository:
 ```bash
-git clone https://github.com/SimTech-Research-Data-Management/Harvester-Curator.git
+git clone https://github.com/SimTech-Research-Data-Management/harvester-curator.git
 ```
-#### 3. Change directory to be Harvester-Curator
+#### 3. Change directory to be harvester-curator
 ```bash
-cd Harvester-Curator
+cd harvester-curator
 ```
 #### 4. Install harvester-curator dependencies and activate virtual environment:
 Install harvester-curator dependencies
@@ -46,11 +46,11 @@ This method creates a virtual environment and installs all necessary dependencie
 For those who prefer or require a traditional installation method using "setup.py":
 #### 1. Clone the Repository:
 ```bash
-git clone https://github.com/SimTech-Research-Data-Management/Harvester-Curator.git
+git clone https://github.com/SimTech-Research-Data-Management/harvester-curator.git
 ```
-#### 2. Change directory to be Harvester-Curator
+#### 2. Change directory to be harvester-curator
 ```bash
-cd Harvester-Curator
+cd harvester-curator
 ```
 #### 3. Install harvester-curator:
 ```bash
