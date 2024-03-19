@@ -1,0 +1,404 @@
+{
+  "name": "Dumux_coltman2022a",
+  "code_repository": "https://git.iws.uni-stuttgart.de/dumux-pub/coltman2022a.git",
+  "version": "main",
+  "software_requirements": [
+    {
+      "name": "dune-localfunctions",
+      "version": "2.9",
+      "info_url": "https://gitlab.dune-project.org/core/dune-localfunctions.git"
+    },
+    {
+      "name": "dune-alugrid",
+      "version": "2.9",
+      "info_url": "https://gitlab.dune-project.org/extensions/dune-alugrid.git"
+    },
+    {
+      "name": "dune-subgrid",
+      "version": "master",
+      "info_url": "https://gitlab.dune-project.org/extensions/dune-subgrid.git"
+    },
+    {
+      "name": "dune-spgrid",
+      "version": "2.9",
+      "info_url": "https://gitlab.dune-project.org/extensions/dune-spgrid.git"
+    },
+    {
+      "name": "dune-istl",
+      "version": "2.9",
+      "info_url": "https://gitlab.dune-project.org/core/dune-istl.git"
+    },
+    {
+      "name": "dune-geometry",
+      "version": "2.9",
+      "info_url": "https://gitlab.dune-project.org/core/dune-geometry.git"
+    },
+    {
+      "name": "dumux",
+      "version": "master",
+      "info_url": "https://git.iws.uni-stuttgart.de/dumux-repositories/dumux.git"
+    },
+    {
+      "name": "dune-grid",
+      "version": "2.9",
+      "info_url": "https://gitlab.dune-project.org/core/dune-grid.git"
+    },
+    {
+      "name": "dune-common",
+      "version": "2.9",
+      "info_url": "https://gitlab.dune-project.org/core/dune-common.git"
+    },
+    {
+      "name": "absl-py",
+      "version": "1.3.0"
+    },
+    {
+      "name": "anaconda-client",
+      "version": "1.11.1"
+    },
+    {
+      "name": "anaconda-navigator",
+      "version": "2.3.1"
+    },
+    {
+      "name": "argon2-cffi",
+      "version": "21.3.0"
+    },
+    {
+      "name": "argon2-cffi-bindings",
+      "version": "21.2.0"
+    },
+    {
+      "name": "brotli-bin",
+      "version": "1.0.9"
+    },
+    {
+      "name": "c-ares",
+      "version": "1.18.1"
+    },
+    {
+      "name": "ca-certificates",
+      "version": "2023.01.10"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "2.0.4"
+    },
+    {
+      "name": "conda-build",
+      "version": "3.23.3"
+    },
+    {
+      "name": "conda-content-trust",
+      "version": "0.1.3"
+    },
+    {
+      "name": "conda-env",
+      "version": "2.6.0"
+    },
+    {
+      "name": "conda-package-handling",
+      "version": "2.0.2"
+    },
+    {
+      "name": "conda-package-streaming",
+      "version": "0.7.0"
+    },
+    {
+      "name": "conda-repo-cli",
+      "version": "1.0.27"
+    },
+    {
+      "name": "conda-token",
+      "version": "0.4.0"
+    },
+    {
+      "name": "conda-verify",
+      "version": "3.4.2"
+    },
+    {
+      "name": "dask-core",
+      "version": "2022.7.0"
+    },
+    {
+      "name": "diff-match-patch",
+      "version": "20200713"
+    },
+    {
+      "name": "docstring-to-markdown",
+      "version": "0.11"
+    },
+    {
+      "name": "flit-core",
+      "version": "3.6.0"
+    },
+    {
+      "name": "google-auth",
+      "version": "2.15.0"
+    },
+    {
+      "name": "google-auth-oauthlib",
+      "version": "0.4.6"
+    },
+    {
+      "name": "google-pasta",
+      "version": "0.2.0"
+    },
+    {
+      "name": "gst-plugins-base",
+      "version": "1.14.1"
+    },
+    {
+      "name": "imbalanced-learn",
+      "version": "0.10.1"
+    },
+    {
+      "name": "importlib-metadata",
+      "version": "4.11.3"
+    },
+    {
+      "name": "intel-openmp",
+      "version": "2023.0.0"
+    },
+    {
+      "name": "jinja2-time",
+      "version": "0.2.0"
+    },
+    {
+      "name": "lazy-object-proxy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "ld_impl_linux-64",
+      "version": "2.38"
+    },
+    {
+      "name": "libgcc-ng",
+      "version": "11.2.0"
+    },
+    {
+      "name": "libgfortran-ng",
+      "version": "11.2.0"
+    },
+    {
+      "name": "libstdcxx-ng",
+      "version": "11.2.0"
+    },
+    {
+      "name": "libwebp-base",
+      "version": "1.2.4"
+    },
+    {
+      "name": "lz4-c",
+      "version": "1.9.4"
+    },
+    {
+      "name": "matplotlib-base",
+      "version": "3.7.0"
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.1.6"
+    },
+    {
+      "name": "mkl-service",
+      "version": "2.4.0"
+    },
+    {
+      "name": "msgpack-python",
+      "version": "1.0.3"
+    },
+    {
+      "name": "navigator-updater",
+      "version": "0.3.0"
+    },
+    {
+      "name": "nest-asyncio",
+      "version": "1.5.6"
+    },
+    {
+      "name": "ninja-base",
+      "version": "1.10.2"
+    },
+    {
+      "name": "notebook-shim",
+      "version": "0.2.2"
+    },
+    {
+      "name": "numpy-base",
+      "version": "1.23.5"
+    },
+    {
+      "name": "numpy-stl",
+      "version": "3.0.0"
+    },
+    {
+      "name": "opt-einsum",
+      "version": "3.3.0"
+    },
+    {
+      "name": "perlin-numpy",
+      "version": "0.0.0"
+    },
+    {
+      "name": "prompt-toolkit",
+      "version": "3.0.36"
+    },
+    {
+      "name": "py-lief",
+      "version": "0.12.3"
+    },
+    {
+      "name": "pyasn1-modules",
+      "version": "0.2.8"
+    },
+    {
+      "name": "pylint-venv",
+      "version": "2.3.0"
+    },
+    {
+      "name": "pyls-spyder",
+      "version": "0.4.0"
+    },
+    {
+      "name": "pyqt5-qt5",
+      "version": "5.15.2"
+    },
+    {
+      "name": "pyqt5-sip",
+      "version": "12.11.0"
+    },
+    {
+      "name": "pyqtwebengine-qt5",
+      "version": "5.15.2"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.8.2"
+    },
+    {
+      "name": "python-fastjsonschema",
+      "version": "2.16.2"
+    },
+    {
+      "name": "python-libarchive-c",
+      "version": "2.9"
+    },
+    {
+      "name": "python-lsp-black",
+      "version": "1.2.1"
+    },
+    {
+      "name": "python-lsp-jsonrpc",
+      "version": "1.0.0"
+    },
+    {
+      "name": "python-lsp-server",
+      "version": "1.7.1"
+    },
+    {
+      "name": "python-slugify",
+      "version": "5.0.2"
+    },
+    {
+      "name": "python-snappy",
+      "version": "0.6.1"
+    },
+    {
+      "name": "python-utils",
+      "version": "3.4.5"
+    },
+    {
+      "name": "qt-main",
+      "version": "5.15.2"
+    },
+    {
+      "name": "qt-webengine",
+      "version": "5.15.9"
+    },
+    {
+      "name": "requests-file",
+      "version": "1.5.1"
+    },
+    {
+      "name": "requests-oauthlib",
+      "version": "1.3.1"
+    },
+    {
+      "name": "scikit-fmm",
+      "version": "2022.8.15"
+    },
+    {
+      "name": "scikit-image",
+      "version": "0.19.3"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.2.1"
+    },
+    {
+      "name": "scikit-learn-intelex",
+      "version": "2023.0.2"
+    },
+    {
+      "name": "sphinxcontrib-applehelp",
+      "version": "1.0.2"
+    },
+    {
+      "name": "sphinxcontrib-devhelp",
+      "version": "1.0.2"
+    },
+    {
+      "name": "sphinxcontrib-htmlhelp",
+      "version": "2.0.0"
+    },
+    {
+      "name": "sphinxcontrib-jsmath",
+      "version": "1.0.1"
+    },
+    {
+      "name": "sphinxcontrib-qthelp",
+      "version": "1.0.3"
+    },
+    {
+      "name": "sphinxcontrib-serializinghtml",
+      "version": "1.1.5"
+    },
+    {
+      "name": "spyder-kernels",
+      "version": "2.4.1"
+    },
+    {
+      "name": "tensorboard-data-server",
+      "version": "0.6.1"
+    },
+    {
+      "name": "tensorboard-plugin-wit",
+      "version": "1.8.1"
+    },
+    {
+      "name": "tensorflow-estimator",
+      "version": "2.11.0"
+    },
+    {
+      "name": "tensorflow-io-gcs-filesystem",
+      "version": "0.29.0"
+    },
+    {
+      "name": "text-unidecode",
+      "version": "1.3"
+    },
+    {
+      "name": "three-merge",
+      "version": "0.1.1"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.4.0"
+    },
+    {
+      "name": "websocket-client",
+      "version": "0.58.0"
+    }
+  ]
+}
