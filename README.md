@@ -11,7 +11,7 @@
 
 <!--![Harvester-Curator Workflow Overview](images/workflow.png)-->
 <p align="left">
-<img src="images/workflow.png" width="600" height="450">
+<img src="images/workflow.png" width="700" height="300">
 </p>
 
 `Harvester-Curator` optimizes metadata collection and integration in two main phases:
@@ -21,11 +21,11 @@
 **Harvester Phase**: Automates the extraction of metadata from user-specified directories.
 <!--![Harvester](images/harvester.png)-->
 
-<img src="images/harvester.png" width="600" height="80" alt="harvester">
+<img src="images/harvester.png" width="400" height="50" alt="harvester">
 
 **Curator Phase**: Seamlessly maps and integrates extracted metadata into the target repository.
 <!--![Curator](images/curator.png)-->
-<img src="images/curator.png" width="600" height="80" alt="curator">
+<img src="images/curator.png" width="400" height="50" alt="curator">
 
 </div>
 
@@ -51,7 +51,7 @@ We currently support a variety of parsers, including VTK, HDF5, CFF, BibTeX, YAM
 In the subsequent `Curator` phase, `Harvester-Curator` aligns the harvested metadata with the metadata schemas of the target repository, such as DaRUS. It matches the harvested metadata attributes with those defined in the metadata schemas and integrates the values into the appropriate locations. Additionally, it supports direct upload of curated metadata to the destination repository. 
 
 <!--![Curator Algorithm](images/curator_algorithm.png)-->
-<img src="images/curator_algorithm.png" width="600" height="200" alt="curator_algorithm">
+<img src="images/curator_algorithm.png" width="800" height="400" alt="curator_algorithm">
 
 The `Curator` algorithm employs mappings to reconcile discrepancies between the naming conventions of harvested metadata and the metadata schemas of the target repository. Given that harvested metadata typically features a flat structure -- where attributes, values, and paths are at the same level, unlike the hierarchical organization common in repository schemas—-the algorithm adapts harvested metadata to ensure compatibility:
 
