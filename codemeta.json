@@ -1,0 +1,53 @@
+{
+    "name": "harvester-curator",
+    "version": "0.0.1",
+    "description": "Harvester-Curator is a tool, designed to elevate metadata provision in data repositories. In the first phase, Harvester-Curator acts as a scanner, navigating through user code and/or data repositories to identify suitable parsers for different file types. It collects metadata from each of the files by applying corresponding parsers and then compiles this information into a structured JSON file, providing researchers with a seamless and automated solution for metadata collection. Moving to the second phase, Harvester-Curator transforms into a curator, leveraging the harvested metadata to populate metadata fields in a target repository. By automating this process, it not only relieves researchers of the manual burden but also ensures the accuracy and comprehensiveness of the metadata.Beyond its role in streamlining the intricate task of metadata collection, this tool contributes to the broader objective of elevating data accessibility and interoperability within repositories.",
+    "keywords": ["Automation", "Metadata", "Harvester", "Curator"],
+    "license": "MIT",
+    "contributors": [
+      {
+        "name": "Sarbani Roy",
+        "affiliation": "University of Stuttgart",
+        "email": "sarbani.roy@simtech.uni-stuttgart.de"
+      },
+      {
+        "name": "FangFang Wang",
+        "affiliation": "University of Stuttgart",
+        "email": "fangfang.wang@simtech.uni-stuttgart.de"
+      }
+    ],
+    "dateCreated": "2023-04-21",
+    "codeRepository": "https://github.com/SimTech-Research-Data-Management/harvester-curator",
+    "programmingLanguage": ["Python"],
+    "dependencies": [
+      {
+        "name": "cffconvert",
+        "version": "2.0.0" 
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.1"
+      },
+      {
+        "name": "h5py",
+        "version": "3.10.0"
+      },
+      {
+        "name": "pyvista",
+        "version": "0.43.3"
+      },
+      {
+        "name": "vtk",
+        "version": "9.3.0"
+      },
+      {
+        "name": "python-magic",
+        "version": "0.4.27"
+      },
+      {
+        "name": "easyDataversec",
+        "version": "0.4.0"
+      }
+    ]
+  }
+  
