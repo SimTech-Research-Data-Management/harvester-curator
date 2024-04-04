@@ -1,0 +1,102 @@
+# The workflow action will only be triggered by tag pushes to "master" or "main" branch.
+# References: https://stackoverflow.com/a/72959712 
+#             https://stackoverflow.com/a/77727776
+#             https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
+
+name: Build and publish Python 🐍 distribution 📦 to TestPyPI 
+
+on:
+  push:
+    tags:
+      - "v*.*.*" 
+
+jobs:
+  get-current-branch:
+    name: Get current branch
+    runs-on: ubuntu-latest
+    outputs:
+      branch: ${{ steps.get_branch.outputs.branch }}
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4  
+        with:
+          fetch-depth: 0
+
+      - name: Get branch
+        id: get_branch
+        # 1. Get the list of branches ref where this tag exists
+        # 2. Remove 'origin/' from that result
+        # 3. Put that string in output
+        run: |
+          raw=$(git branch -r --contains ${{ github.ref }})
+          branches="$(echo "${raw//origin\//}" | tr -d '[:space:]')"
+          echo "branch=$branches" >> $GITHUB_OUTPUT
+          echo "Branches where this tag exists : $branches."
+
+
+  check-branch-condition:
+    name: Check branch condition
+    runs-on: ubuntu-latest
+    # Wait for get_branch step to finish
+    needs: get-current-branch
+    outputs:
+      conditionMet: ${{ steps.check_branch.outputs.conditionMet }}
+    steps:
+    # Check if the current tag is present on branch 'main' or 'master'
+      - name: Check branch
+        id: check_branch
+        run: |
+          conditionMet=false
+          if [ "${{ needs.get-current-branch.outputs.branch }}" == "main" ] || [ "${{ needs.get-current-branch.outputs.branch }}" == "master" ]; then
+            conditionMet=true
+          fi
+          echo "conditionMet=$conditionMet" >> $GITHUB_OUTPUT
+      - name: Echo conditionMet
+        run: echo "conditionMet = ${{ steps.check_branch.outputs.conditionMet }}"
+
+
+  Build:
+    name: Build distribution 📦
+    runs-on: ubuntu-latest
+    # Wait for check_branch step to finish
+    needs: check-branch-condition
+    if: ${{ needs.check-branch-condition.outputs.conditionMet == 'true' }}
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python3 -m pip install -U pip wheel build 
+      - name: Build a binary wheel and a source tarball
+        run: python3 -m build
+      - name: Store the distribution packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/ 
+
+  publish-to-testpypi:
+    name: Publish Python 🐍 distribution 📦 to TestPyPI
+    needs:
+      - build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/harvester-curator
+
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish distributions 📦 to TestPyPI
+        uses: pypa/gh-action-pypi-publish@v1.8.14
+        with:
+          user: __token__
+          password: ${{ secrets.TEST_PYPI_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
