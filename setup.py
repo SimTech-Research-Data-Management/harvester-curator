@@ -22,6 +22,6 @@ setup(
         "pyvista >= 0.43.3",
         "vtk >= 9.3.0",
         "python-magic >= 0.4.27",
-        "easyDataverse @ git+https://github.com/gdcc/easyDataverse.git@flexible-connect"
+        "easyDataverse >= 0.4.0"
     ]
 )       
