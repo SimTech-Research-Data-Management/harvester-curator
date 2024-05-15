@@ -5,4 +5,4 @@ h5py == 3.10.0
 pyvista == 0.43.3
 vtk == 9.3.0
 python-magic == 0.4.27
-git+https://github.com/gdcc/easyDataverse.git@flexible-connect
+easyDataverse == 0.4.0
