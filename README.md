@@ -11,7 +11,7 @@ In essence, `harvester-curator` synergizes file crawling and crosswalking capabi
 
 ## Tool Workflow 
 
-`harvester-curator` simplifies metadata collection and integration into research data repositories through two primary phases: the `Harvester` phase, focusing on the automated extraction of metadata, and the `Curator` phase, dedicated to mapping and adapting this metadata for smooth integration into datasets within a target repository.
+`harvester-curator` simplifies metadata collection and integration into research data repositories through two primary phases: the `Harvester` phase, focusing on the automated extraction of metadata, and the `Curator` phase, dedicated to mapping and adapting this metadata for integrating into datasets within a target repository.
 <!--![harvester-curator Workflow Overview](images/workflow.png)-->
 <p align="left">
 <img src="images/workflow.png" width="700" height="300">
