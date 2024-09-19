@@ -112,38 +112,15 @@ jobs:
           path: dist/ 
 
 
-  publish-to-testpypi:
-    name: Publish Python 🐍 distribution 📦 to TestPyPI
-    needs:
-      - build
-    runs-on: ubuntu-latest
-
-    environment:
-      name: testpypi
-      url: https://test.pypi.org/p/harvester-curator
-
-    steps:
-      - name: Download all the dists
-        uses: actions/download-artifact@v4
-        with:
-          name: python-package-distributions
-          path: dist/
-      - name: Publish distributions 📦 to TestPyPI
-        uses: pypa/gh-action-pypi-publish@v1.8.14
-        with:
-          user: __token__
-          password: ${{ secrets.TEST_PYPI_TOKEN }}
-          repository-url: https://test.pypi.org/legacy/
-
-  
-  # publish-to-pypi:
-  #   name: Publish Python 🐍 distributions 📦 to PyPI
+  # publish-to-testpypi:
+  #   name: Publish Python 🐍 distribution 📦 to TestPyPI
   #   needs:
   #     - build
   #   runs-on: ubuntu-latest
+
   #   environment:
-  #     name: pypi
-  #     url: https://pypi.org/p/harvester-curator
+  #     name: testpypi
+  #     url: https://test.pypi.org/p/harvester-curator
 
   #   steps:
   #     - name: Download all the dists
@@ -151,9 +128,32 @@ jobs:
   #       with:
   #         name: python-package-distributions
   #         path: dist/
-  #     - name: Publish distributions 📦 to PyPI
+  #     - name: Publish distributions 📦 to TestPyPI
   #       uses: pypa/gh-action-pypi-publish@v1.8.14
   #       with:
   #         user: __token__
-  #         password: ${{ secrets.PYPI_TOKEN }}
-  #         repository-url: https://upload.pypi.org/legacy/
+  #         password: ${{ secrets.TEST_PYPI_TOKEN }}
+  #         repository-url: https://test.pypi.org/legacy/
+
+  
+  publish-to-pypi:
+    name: Publish Python 🐍 distributions 📦 to PyPI
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/harvester-curator
+
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish distributions 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.8.14
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
+          repository-url: https://upload.pypi.org/legacy/
