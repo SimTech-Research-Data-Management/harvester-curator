@@ -94,7 +94,7 @@ For more detailed instructions on installing pip, please visit the official [pip
 ### 1. Install harvester-curator:
 To install `harvester-curator` from `PyPI`, simply run:
 ```bash
-pip install harvester-curator
+python3 -m pip install harvester-curator
 ```
 This will automatically download and install harvester-curator and its dependencies. 
 ### 2. Verify Installation:
