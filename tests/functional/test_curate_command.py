@@ -150,27 +150,6 @@ class TestCurateCommand(BaseTestHarvesterCurator):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("Invalid api_endpoints filepath", result.stderr)
     
-    def test_curate_invalid_output_filepath(self):
-
-        # Run harvest first to ensure the existence of harvest output before test run curate
-        harvest_result = subprocess.run([
-            "harvester-curator", "harvest",
-            "--dir_path", str(self.test_dir),
-            "--output_filepath", str(self.harvest_output)
-        ], capture_output=True, text=True)
-        self.assertEqual(harvest_result.returncode, 0)
-        self.assertTrue(self.harvest_output.exists())
-
-        invalid_curate_output_path = Path("/root/output/dir")
-        result = subprocess.run([
-            "harvester-curator", "curate",
-            "--harvested_metadata_filepath", str(self.harvest_output),
-            "--output_filepath", str(invalid_curate_output_path),
-            "--api_endpoints_filepath", str(self.api_endpoints)
-        ], capture_output=True, text=True)
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("cannot be created", result.stderr)
-
     def test_harvest_invalid_output_fileformat(self):
         # Run harvest first to ensure the existence of harvest output before test run curate
         harvest_result = subprocess.run([

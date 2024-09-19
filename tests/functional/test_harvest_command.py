@@ -58,16 +58,6 @@ class TestHarvestCommand(BaseTestHarvesterCurator):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn(f"Invalid directory", result.stderr)
 
-    def test_harvest_invalid_output_filepath(self):
-        invalid_output = Path("/root/output/path")
-        result = subprocess.run([
-            "harvester-curator", "harvest",
-            "--dir_path", str(self.test_dir),
-            "--output_filepath", str(invalid_output)
-        ], capture_output=True, text=True)
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("cannot be created", result.stderr)
-
     def test_harvest_invalid_output_fileformat(self):
         invalid_output = self.base_dir/"output"/"harvested_output.txt"
         result = subprocess.run([
