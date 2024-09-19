@@ -70,6 +70,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      
+      # Check that the correct Python version is being used
+      - name: Check Python version
+        run: python --version
 
       # Install Poetry and dependencies
       - name: Install Poetry and dependencies
