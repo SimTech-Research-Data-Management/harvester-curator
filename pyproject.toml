@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "harvester-curator"
-version = "0.0.1"
+version = "0.0.2"
 description = "A package for harvesting, curating and uploading metadata."
 authors = [
     "Sarbani Roy <sarbani.roy@simtech.uni-stuttgart.de>",
