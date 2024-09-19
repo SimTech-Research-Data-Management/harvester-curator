@@ -1,4 +1,5 @@
 import re
+import os
 import json
 import difflib
 import requests
@@ -552,20 +553,41 @@ def curator(harvester_output_filepath: str,
 
 
     Args:
-        harvester_output_filepath: Path to the JSON file with harvested metadata.
-        output_filename: Name of the JSON file to save curated metadata.
+        harvester_output_filepath: Path of the JSON file with harvested metadata.
+        output_filepath: Path of the JSON file to save curated metadata.
         api_endpoints_filepath: Path of the JSON file with schema API endpoints for metadata blocks
 
     """
+
+    harvester_output_filepath_obj = Path(harvester_output_filepath)
+    if not harvester_output_filepath_obj.exists() or harvester_output_filepath_obj.suffix != ".json":
+        raise FileNotFoundError(f"Invalid harvester output filepath: '{harvester_output_filepath}' does not exist or is not a .json file.")
+    
+    api_endpoints_path = Path(api_endpoints_filepath)
+    if not api_endpoints_path.exists() or api_endpoints_path.suffix != ".json":
+        raise FileNotFoundError(f"Invalid api_endpoints filepath: '{api_endpoints_filepath}' does not exist or is not a .json file.")
   
      # Create the output directory if it does not exists
-    output_dir_path = Path(output_filepath).parent
-    output_dir_name = output_dir_path.name
-    try:
-         output_dir_path.mkdir(parents=True, exist_ok=True)
-    except OSError as e:
-        print(f"Output directory {output_dir_name} cannot be created. Error: {e}")
-            
+    output_filepath_obj = Path(output_filepath)
+    output_dir_path = output_filepath_obj.parent
+  
+    if not output_dir_path.exists():
+        try:
+            output_dir_path.mkdir(parents=True, exist_ok=True)
+        except OSError as e:
+            raise OSError(f"Output directory '{output_dir_path}' cannot be created. Error: {e}")
+
+     # Check if the parent directory of the output file is a directory
+    if not output_dir_path.is_dir():
+        raise FileNotFoundError(f"Invalid output directory: The output directory '{output_dir_path}' is not a directory.")
+
+    # Check if the parent directory of the output file is writable
+    if not os.access(output_dir_path, os.W_OK):
+        raise PermissionError(f"Invalid output directory: The output directory '{output_dir_path}' is not writable.")
+    # Check if output_filepath has a .json extension
+    if output_filepath_obj.suffix != ".json":
+        raise ValueError("Invalid output filepath: The output filename must end with '.json'.")
+          
     # Initialize a dict to store curated metadata
     com_metadata = {}
 

@@ -13,7 +13,7 @@ readme = "README.md"
 harvester-curator = "harvester_curator.cli:main"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.10, <3.13"
 cffconvert = "^2.0.0"
 pydantic = "^2.6.1"
 PyYAML = "^6.0.1"
@@ -23,6 +23,10 @@ vtk = "^9.3.0"
 python-magic = "^0.4.27"
 easyDataverse = "^0.4.0"
 
+[tool.poetry.dev-dependencies]
+pytest = "^8.2.2"
+tox = "^3.24.0"
+tox-poetry-installer = "^0.10.3"
 
 [build-system]
 requires = ["poetry-core"]

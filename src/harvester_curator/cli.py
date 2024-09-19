@@ -37,7 +37,7 @@ def harvest(
         ...,
         "--output_filepath",
         "-o",
-        help="Path to the JSON file to save harvested metadata"
+        help="Path of the JSON file to save harvested metadata"
     )] = str(default_harvester_output_path),
     verbose: Annotated[bool, typer.Option(
         ...,
@@ -52,7 +52,7 @@ def harvest(
 
     Args:
         dir_path (str): Path of the base directory from which metadata is harvested.
-        output_filepath (str): Path to the JSON file to save harvested metadata.
+        output_filepath (str): Path of the JSON file to save harvested metadata.
         verbose (bool): An boolean flag. If set to True, the function will provide messages about any unparsed
                     files and file types encountered. 
     """
@@ -66,13 +66,13 @@ def curate(
         ...,
         "--harvested_metadata_filepath",
         "-h",
-        help="Path to the JSON file with harvested metadata"
+        help="Path of the JSON file with harvested metadata"
     )] = str(default_harvester_output_path),
     output_filepath: Annotated[str, typer.Option(
         ...,
         "--output_filepath",
         "-o",
-        help="Path to the JSON file to save curated metadata"
+        help="Path of the JSON file to save curated metadata"
     )] = str(default_curator_output_path),
     api_endpoints_filepath: Annotated[str, typer.Option(
         ...,
@@ -83,8 +83,7 @@ def curate(
 ):
     """
     Compares harvested metadata against defined schemas from API endpoints, extracts matching metadata fields
-    and their values, and transforms these fields to ensure their incoporability into the metadata blocks 
-    defined by the schemas.
+    and their values, and transforms these fields to ensure their incoporability into the metadata blocks defined by the schemas.
     
     The function aligns the extracted metadata from various sources with the expected structure and data types 
     defined by the API schemas. This alignment facilitates accurate and efficient integration of metadata 
@@ -92,7 +91,7 @@ def curate(
 
     Args:
         harvested_metadata_filepath (str): The base directory from which metadata is harvested.
-        output_filepath (str): Path to the JSON file to save curated metadata.
+        output_filepath (str): Path of the JSON file to save curated metadata.
         api_endpoints_filepath (str): Path of the JSON file with schema API endpoints for metadata blocks
     """
 
@@ -126,14 +125,14 @@ def upload(
         ...,
         "--curated_metadata_filepath",
         "-c",
-        help="Path to the JSON file that contains curated metadata "
+        help="Path of the JSON file that contains curated metadata "
     )] = str(default_curator_output_path)
 ):
     """
     Uploads a dataset with curated metadata to a given Dataverse installation 
 
     Args: 
-        curated_metadata_filepath (str): Path to the JSON file that contains curated metadata 
+        curated_metadata_filepath (str): Path of the JSON file that contains curated metadata 
         server_url (str): Server address
         api_token (str): API token for accessing Dataverse API
         dataverse_id (str): Alias of the host Dataverse for the dataset to be uploaded

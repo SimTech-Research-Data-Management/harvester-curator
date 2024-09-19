@@ -132,7 +132,7 @@ def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> Non
 
     Args:
         dir_path: The base directory from which metadata is harvested.
-        output_filename: Name of the JSON file to save harvested metadata.
+        output_filepath: Path of the JSON file to save harvested metadata.
         verbose: An boolean flag. If set to True, the function will provide messages about any unparsed
                  files and file types encountered. 
 
@@ -141,13 +141,28 @@ def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> Non
     # Check if dir_path exists and is accessible
     dir_path_obj = Path(dir_path)
     if not dir_path_obj.exists() or not dir_path_obj.is_dir():
-        raise FileNotFoundError(f"The directory {dir_path} does not exist or is not accessible.")
+        raise FileNotFoundError(f"Invalid directory: The directory {dir_path} does not exist or is not accessible.")
 
-    # Validate output_filename format
-    if not output_filepath.endswith(".json"):
-        raise ValueError("The output filename must end with '.json'.")
+    output_filepath_obj = Path(output_filepath)
+    output_dir = output_filepath_obj.parent
+    # Check if the parent directory of the output file exists
+    if not output_dir.exists():
+        try: 
+            output_dir.mkdir(parents=True, exist_ok=True)
+        except OSError as e:
+            raise OSError(f"Output directory '{output_dir}' cannot be created. Error: {e}")
 
+    # Check if the parent directory of the output file is a directory
+    if not output_dir.is_dir():
+        raise FileNotFoundError(f"Invalid directory: The output directory '{output_dir}' is not a directory.")
 
+    # Check if the parent directory of the output file is writable
+    if not os.access(output_dir, os.W_OK):
+        raise PermissionError(f"Invalid directory: The output directory '{output_dir}' is not writable.")
+    # Check if output_filepath has a .json extension
+    if output_filepath_obj.suffix != ".json":
+        raise ValueError("Invalid output filepath: The output filename must end with '.json'.")
+    
     # Harvest metadata from the given base directory
     try: 
         harvested_metadata = harvest_metadata(dir_path, verbose)

@@ -23,5 +23,12 @@ setup(
         "vtk >= 9.3.0",
         "python-magic >= 0.4.27",
         "easyDataverse >= 0.4.0"
-    ]
+    ],
+    python_requires='>=3.10,<3.13',
+    extras_require={
+        'dev': [
+            "pytest >= 8.2.2",
+            "tox >= 3.24.0"
+        ]
+    }, 
 )       
