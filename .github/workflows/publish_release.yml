@@ -55,11 +55,40 @@ jobs:
         run: echo "conditionMet = ${{ steps.check_branch.outputs.conditionMet }}"
 
 
-  Build:
+  test:
+    name: Test across multiple Python versions 🐍
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.10, 3.11, 3.12]
+    steps:
+      - name: Checkout source 
+        uses: actions/checkout@v4
+
+      # Set up the correct Python version for tox
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Install Poetry and dependencies
+      - name: Install Poetry and dependencies
+        run: |
+          python3 -m pip install poetry
+          poetry install -v
+
+      # Run tests with tox (tox will manage the versions)
+      - name: Run tests using tox
+        run: poetry run tox
+
+
+  build:
     name: Build distribution 📦
     runs-on: ubuntu-latest
-    # Wait for check_branch step to finish
-    needs: check-branch-condition
+    # Wait for both check_branch step and test to finish
+    needs: 
+      - check-branch-condition
+      - test
     if: ${{ needs.check-branch-condition.outputs.conditionMet == 'true' }}
     steps:
       - name: Checkout source
@@ -79,38 +108,15 @@ jobs:
           path: dist/ 
 
 
-  # publish-to-testpypi:
-  #   name: Publish Python 🐍 distribution 📦 to TestPyPI
-  #   needs:
-  #     - build
-  #   runs-on: ubuntu-latest
-
-  #   environment:
-  #     name: testpypi
-  #     url: https://test.pypi.org/p/harvester-curator
-
-  #   steps:
-  #     - name: Download all the dists
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: python-package-distributions
-  #         path: dist/
-  #     - name: Publish distributions 📦 to TestPyPI
-  #       uses: pypa/gh-action-pypi-publish@v1.8.14
-  #       with:
-  #         user: __token__
-  #         password: ${{ secrets.TEST_PYPI_TOKEN }}
-  #         repository-url: https://test.pypi.org/legacy/
-
-  
-  publish-to-pypi:
-    name: Publish Python 🐍 distributions 📦 to PyPI
+  publish-to-testpypi:
+    name: Publish Python 🐍 distribution 📦 to TestPyPI
     needs:
       - build
     runs-on: ubuntu-latest
+
     environment:
-      name: pypi
-      url: https://pypi.org/p/harvester-curator
+      name: testpypi
+      url: https://test.pypi.org/p/harvester-curator
 
     steps:
       - name: Download all the dists
@@ -118,9 +124,32 @@ jobs:
         with:
           name: python-package-distributions
           path: dist/
-      - name: Publish distributions 📦 to PyPI
+      - name: Publish distributions 📦 to TestPyPI
         uses: pypa/gh-action-pypi-publish@v1.8.14
         with:
           user: __token__
-          password: ${{ secrets.PYPI_TOKEN }}
-          repository-url: https://upload.pypi.org/legacy/
+          password: ${{ secrets.TEST_PYPI_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
+
+  
+  # publish-to-pypi:
+  #   name: Publish Python 🐍 distributions 📦 to PyPI
+  #   needs:
+  #     - build
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: pypi
+  #     url: https://pypi.org/p/harvester-curator
+
+  #   steps:
+  #     - name: Download all the dists
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: python-package-distributions
+  #         path: dist/
+  #     - name: Publish distributions 📦 to PyPI
+  #       uses: pypa/gh-action-pypi-publish@v1.8.14
+  #       with:
+  #         user: __token__
+  #         password: ${{ secrets.PYPI_TOKEN }}
+  #         repository-url: https://upload.pypi.org/legacy/
