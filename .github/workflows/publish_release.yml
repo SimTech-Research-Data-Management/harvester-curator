@@ -3,7 +3,7 @@
 #             https://stackoverflow.com/a/77727776
 #             https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
 
-name: Build and publish Python 🐍 distribution 📦 to TestPyPI 
+name: Build and publish Python 🐍 distribution 📦 to TestPyPI or PyPI
 
 on:
   push:
