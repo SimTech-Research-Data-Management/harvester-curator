@@ -8,7 +8,7 @@
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/privacy"
     },
     {
-        "name": "engMeta",
+        "name": "EngMeta",
         "api_endpoint": "https://darus.uni-stuttgart.de/api/metadatablocks/EngMeta"
     },
     {
