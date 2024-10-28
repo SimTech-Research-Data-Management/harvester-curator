@@ -9,6 +9,9 @@ from .crawler import crawler
 from harvester_curator.harvester.parser.parser import Parser
 from .file_group import File, FileGroup, SuperGroup
 from pathlib import Path
+import tempfile
+import subprocess
+from urllib.parse import urlparse
 
 
 # Filter out UserWarnings
@@ -137,11 +140,49 @@ def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> Non
                  files and file types encountered. 
 
     """
-
-    # Check if dir_path exists and is accessible
-    dir_path_obj = Path(dir_path)
-    if not dir_path_obj.exists() or not dir_path_obj.is_dir():
-        raise FileNotFoundError(f"Invalid directory: The directory {dir_path} does not exist or is not accessible.")
+    # Check if dir_path is a URL or local directory
+    # is_url = urlparse(dir_path).scheme in ["http", "https"]
+    # if is_url:
+    #     # Create a temporary directory to clone the repo
+    #     with tempfile.TemporaryDirectory() as tmp_dir:
+    #         # Clone the repo into the temp directory
+    #         print(f"Cloning repository from {dir_path} into temporary directory...")
+    #         try:
+    #             subprocess.run(["git", "clone", dir_path, tmp_dir], check=True)
+    #         except subprocess.CalledProcessError as e:
+    #             raise RuntimeError(f"Failed to clone repository: {e}")
+    #         dir_path_obj = Path(tmp_dir)
+    #         print("Repository cloned successfully.")
+    is_git_ssh = dir_path.startswith("git@") or dir_path.startswith("ssh://")
+    if is_git_ssh:
+        # Create a temporary directory to clone the repo
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            # Clone the repo into the temp directory
+            print(f"Cloning repository from {dir_path} into temporary directory...")
+            try:
+                subprocess.run(["git", "clone", dir_path, tmp_dir], check=True)
+            except subprocess.CalledProcessError as e:
+                raise RuntimeError(f"Failed to clone repository: {e}")
+            
+            # Harvest metadata from the cloned repository inside the temporary directory
+            try:
+                harvested_metadata = harvest_metadata(tmp_dir, verbose)
+                metadata_dict = harvested_metadata.dict()
+            except Exception as e:
+                raise RuntimeError(f"Error during metadata harvesting: {e}")
+    
+    else:
+        # Check if dir_path exists and is accessible
+        dir_path_obj = Path(dir_path)
+        if not dir_path_obj.exists() or not dir_path_obj.is_dir():
+            raise FileNotFoundError(f"Invalid directory: The directory {dir_path} does not exist or is not accessible.")
+        
+        # Harvest metadata from the given base directory
+        try:
+            harvested_metadata = harvest_metadata(dir_path, verbose)
+            metadata_dict = harvested_metadata.dict()
+        except Exception as e:
+            raise RuntimeError(f"Error during metadata harvesting: {e}")
 
     output_filepath_obj = Path(output_filepath)
     output_dir = output_filepath_obj.parent
@@ -162,13 +203,6 @@ def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> Non
     # Check if output_filepath has a .json extension
     if output_filepath_obj.suffix != ".json":
         raise ValueError("Invalid output filepath: The output filename must end with '.json'.")
-    
-    # Harvest metadata from the given base directory
-    try: 
-        harvested_metadata = harvest_metadata(dir_path, verbose)
-        metadata_dict = harvested_metadata.dict()
-    except Exception as e:
-        raise RuntimeError(f"Error during metadata harvesting: {e}")
 
     # Create the output directory if it does not exists
     output_dir_path = Path(output_filepath).parent
