@@ -145,6 +145,11 @@ def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> Non
     is_git_ssh = dir_path.startswith("git@") or dir_path.startswith("ssh://")
 
     if is_url:
+        # Check if it's a GitHub link
+        if "github.com" in dir_path:
+            print("Please use an SSH link for GitHub repositories.")
+            return 
+        
         # Create a temporary directory to clone the repo
         with tempfile.TemporaryDirectory() as tmp_dir:
             # Clone the repo into the temp directory
