@@ -451,7 +451,7 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
 
         # Attri and parent
         if har_md_parent is not None:
-            attri_and_parent = '_'.join([har_md_parent, attri])
+            attri_and_parent = '_'.join([str(har_md_parent), str(attri)])
             cleaned_attri_and_parent = clean_string(attri_and_parent)
         else:
             cleaned_attri_and_parent = None
