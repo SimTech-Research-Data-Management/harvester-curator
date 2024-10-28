@@ -141,20 +141,26 @@ def harvester(dir_path: str, output_filepath: str, verbose: bool = False) -> Non
 
     """
     # Check if dir_path is a URL or local directory
-    # is_url = urlparse(dir_path).scheme in ["http", "https"]
-    # if is_url:
-    #     # Create a temporary directory to clone the repo
-    #     with tempfile.TemporaryDirectory() as tmp_dir:
-    #         # Clone the repo into the temp directory
-    #         print(f"Cloning repository from {dir_path} into temporary directory...")
-    #         try:
-    #             subprocess.run(["git", "clone", dir_path, tmp_dir], check=True)
-    #         except subprocess.CalledProcessError as e:
-    #             raise RuntimeError(f"Failed to clone repository: {e}")
-    #         dir_path_obj = Path(tmp_dir)
-    #         print("Repository cloned successfully.")
+    is_url = urlparse(dir_path).scheme in ["http", "https"]
     is_git_ssh = dir_path.startswith("git@") or dir_path.startswith("ssh://")
-    if is_git_ssh:
+
+    if is_url:
+        # Create a temporary directory to clone the repo
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            # Clone the repo into the temp directory
+            print(f"Cloning repository from {dir_path} into temporary directory...")
+            try:
+                subprocess.run(["git", "clone", dir_path, tmp_dir], check=True)
+            except subprocess.CalledProcessError as e:
+                raise RuntimeError(f"Failed to clone repository: {e}")
+            
+            # Harvest metadata from the cloned repository inside the temporary directory
+            try:
+                harvested_metadata = harvest_metadata(tmp_dir, verbose)
+                metadata_dict = harvested_metadata.dict()
+            except Exception as e:
+                raise RuntimeError(f"Error during metadata harvesting: {e}")
+    elif is_git_ssh:
         # Create a temporary directory to clone the repo
         with tempfile.TemporaryDirectory() as tmp_dir:
             # Clone the repo into the temp directory

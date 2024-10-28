@@ -1,13 +1,17 @@
 {
   "metadatablocks": {
     "citation": {
-      "title": "Data-Driven Scale Bridging Parametrizations with Metrics: Dispersive Transport",
+      "title": "Demo of Harvester-Curator",
       "author": [
         {
-          "authorName": "Edward Coltman"
+          "authorName": "Sarbani Roy",
+          "authorAffiliation": "University of Stuttgart",
+          "authorIdentifierScheme": "ORCID",
+          "authorIdentifier": "0000-0002-5990-0076"
         },
         {
-          "authorName": "Martin Schneider"
+          "authorName": "FangFang Wang",
+          "authorAffiliation": "University of Stuttgart"
         },
         {
           "authorName": "Rainer Helmig"
@@ -15,35 +19,7 @@
       ]
     },
     "privacy": {},
-    "EngMeta": {
-      "engMetaMeasuredVar": [
-        {
-          "engMetaMeasuredVarName": "Porosity",
-          "engMetaMeasuredVarValueFrom": 0.189175,
-          "engMetaMeasuredVarValueTo": 0.871
-        },
-        {
-          "engMetaMeasuredVarName": "Velocity_seepage_x",
-          "engMetaMeasuredVarValueFrom": 6.134329744279293e-08,
-          "engMetaMeasuredVarValueTo": 1.7384933646880346e-05
-        },
-        {
-          "engMetaMeasuredVarName": "Velocity_seepage_y",
-          "engMetaMeasuredVarValueFrom": -2.5157306227566798e-06,
-          "engMetaMeasuredVarValueTo": 2.204116785439925e-06
-        },
-        {
-          "engMetaMeasuredVarName": "AlphaL",
-          "engMetaMeasuredVarValueFrom": 0.18870158392702763,
-          "engMetaMeasuredVarValueTo": 2.5654822463911007
-        },
-        {
-          "engMetaMeasuredVarName": "AlphaT",
-          "engMetaMeasuredVarValueFrom": 0.0,
-          "engMetaMeasuredVarValueTo": 2.0299389951096503
-        }
-      ]
-    },
+    "EngMeta": {},
     "process": {},
     "codeMeta20": {
       "codeRepository": [

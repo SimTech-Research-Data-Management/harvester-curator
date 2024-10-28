@@ -4,6 +4,15 @@
     "bib files": [
       "bib"
     ],
+    "cff files": [
+      "cff"
+    ],
+    "hdf5 files": [
+      "h5"
+    ],
+    "vtk files": [
+      "hdf"
+    ],
     "json files": [
       "json"
     ]
@@ -14,7 +23,7 @@
       "files": [
         {
           "file_name": "ned.bib",
-          "path": "src/harvester_curator/example/use-case/ned.bib",
+          "path": "/var/folders/r0/68g6d7d90szc4_xmcd8bjd3w0000gn/T/tmpf0oyg7f5/ned.bib",
           "metadata": {
             "title": "Data-Driven Scale Bridging Parametrizations with Metrics: Dispersive Transport",
             "author": [
@@ -39,57 +48,273 @@
       ]
     },
     {
+      "file_group_name": "cff files",
+      "files": [
+        {
+          "file_name": "CITATION.cff",
+          "path": "/var/folders/r0/68g6d7d90szc4_xmcd8bjd3w0000gn/T/tmpf0oyg7f5/CITATION.cff",
+          "metadata": {
+            "cff-version": "1.2.0",
+            "title": "Demo of Harvester-Curator",
+            "message": "Demo for SimTech Managemant Team",
+            "authors": [
+              {
+                "given-names": "Sarbani",
+                "family-names": "Roy",
+                "email": "sarbani.roy@simtech.uni-stuttgart.de",
+                "affiliation": "University of Stuttgart",
+                "authorIdentifierScheme": "ORCID",
+                "authorIdentifier": "0000-0002-5990-0076"
+              },
+              {
+                "given-names": "FangFang",
+                "family-names": "Wang",
+                "email": "fangfang.wang@simtech.uni-stuttgart.de",
+                "affiliation": "University of Stuttgart"
+              }
+            ],
+            "identifiers": [
+              {
+                "type": "url",
+                "value": "https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/master",
+                "description": "Master branch"
+              }
+            ],
+            "repository-code": "https://github.com/SimTech-Research-Data-Management/darus_data_harvester",
+            "url": "https://github.com/SimTech-Research-Data-Management/darus_data_harvester/tree/master",
+            "abstract": "Harvester-Curator is a tool designed to elevate metadata provision in data and/or software repositories. In the first phase, it acts as a scanner, navigating through user code and/or data repositories to identify suitable parsers for different file types. It collects metadata from each of the files by applying corresponding parsers and then compiles this information into a structured JSON file, providing researchers with a seamless and automated solution for metadata collection. \n\nMoving to the second phase, Harvester-Curator transforms into a curator, leveraging the harvested metadata to populate metadata fields in a target repository. By automating this process, it not only relieves researchers of the manual burden but also ensures the accuracy and comprehensiveness of the metadata. Beyond its role in streamlining the intricate task of metadata collection, this tool contributes to the broader objective of elevating data accessibility and interoperability within repositories.",
+            "keywords": [
+              "Harvester",
+              "Curator",
+              "Demonstration"
+            ],
+            "license": "MIT",
+            "type_of_work": "software"
+          }
+        }
+      ]
+    },
+    {
+      "file_group_name": "hdf5 files",
+      "files": [
+        {
+          "file_name": "test1.h5",
+          "path": "/var/folders/r0/68g6d7d90szc4_xmcd8bjd3w0000gn/T/tmpf0oyg7f5/test1.h5",
+          "metadata": {
+            "group_name: /Unnamed": [
+              {
+                "dataset_name: Connections": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dataset_type": "nt32](dtype[i)"
+                        },
+                        {
+                          "shape": [
+                            18,
+                            4
+                          ]
+                        },
+                        {
+                          "size": "72"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": 288
+                        },
+                        {
+                          "maxshape": [
+                            18,
+                            4
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: DataOne": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dataset_type": "at64](dtype[flo)"
+                        },
+                        {
+                          "shape": [
+                            16,
+                            1
+                          ]
+                        },
+                        {
+                          "size": "16"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": 128
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: DataTwo": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dataset_type": "at64](dtype[flo)"
+                        },
+                        {
+                          "shape": [
+                            16,
+                            1
+                          ]
+                        },
+                        {
+                          "size": "16"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": 128
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "dataset_name: XYZ": {
+                  "dataset_metadata": [
+                    {
+                      "dataset_numpy_attributes": [
+                        {
+                          "dataset_type": "at32](dtype[flo)"
+                        },
+                        {
+                          "shape": [
+                            16,
+                            3
+                          ]
+                        },
+                        {
+                          "size": "48"
+                        },
+                        {
+                          "ndim": 2
+                        },
+                        {
+                          "nbytes": 192
+                        },
+                        {
+                          "maxshape": [
+                            16,
+                            3
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "file_group_name": "vtk files",
+      "files": [
+        {
+          "file_name": "can-vtu.hdf",
+          "path": "/var/folders/r0/68g6d7d90szc4_xmcd8bjd3w0000gn/T/tmpf0oyg7f5/can-vtu.hdf",
+          "metadata": {
+            "dataset_type": [
+              "UnstructuredGrid"
+            ],
+            "number_of_points": [
+              6724
+            ],
+            "number_of_cells": [
+              4800
+            ],
+            "number_of_arrays": [
+              16
+            ],
+            "array_names": [
+              {
+                "cell_data_array_names": [
+                  "EQPS"
+                ],
+                "point_data_array_names": [
+                  "ACCL",
+                  "DISPL",
+                  "GlobalNodeId",
+                  "PedigreeNodeId",
+                  "VEL"
+                ],
+                "field_data_array_names": [
+                  "ElementBlockIds",
+                  "Info_Records",
+                  "KE",
+                  "NSTEPS",
+                  "QA_Records",
+                  "TMSTEP",
+                  "Title",
+                  "XMOM",
+                  "YMOM",
+                  "ZMOM"
+                ]
+              }
+            ],
+            "mesh_bounds": [
+              [
+                -12.16960620880127,
+                6.002867221832275,
+                -3.600424289703369,
+                5.562201976776123,
+                -18.33547592163086,
+                -13.456451416015625
+              ]
+            ],
+            "mesh_center": [
+              [
+                -3.083369493484497,
+                0.980888843536377,
+                -15.895963668823242
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
       "file_group_name": "json files",
       "files": [
         {
-          "file_name": "Dispersion_complex 09.11.41.json",
-          "path": "src/harvester_curator/example/use-case/Dispersion_complex 09.11.41.json",
-          "metadata": {
-            "engMetaMeasuredVar": [
-              {
-                "engMetaMeasuredVarName": "Porosity",
-                "engMetaMeasuredVarValueFrom": 0.189175,
-                "engMetaMeasuredVarValueTo": 0.871
-              }
-            ]
-          }
-        },
-        {
-          "file_name": "alphas_complex 09.11.44.json",
-          "path": "src/harvester_curator/example/use-case/alphas_complex 09.11.44.json",
-          "metadata": {
-            "engMetaMeasuredVar": [
-              {
-                "engMetaMeasuredVarName": "Porosity",
-                "engMetaMeasuredVarValueFrom": 0.189175,
-                "engMetaMeasuredVarValueTo": 0.871
-              },
-              {
-                "engMetaMeasuredVarName": "Velocity_seepage_x",
-                "engMetaMeasuredVarValueFrom": 6.134329744279293e-08,
-                "engMetaMeasuredVarValueTo": 1.7384933646880346e-05
-              },
-              {
-                "engMetaMeasuredVarName": "Velocity_seepage_y",
-                "engMetaMeasuredVarValueFrom": -2.5157306227566798e-06,
-                "engMetaMeasuredVarValueTo": 2.204116785439925e-06
-              },
-              {
-                "engMetaMeasuredVarName": "AlphaL",
-                "engMetaMeasuredVarValueFrom": 0.18870158392702763,
-                "engMetaMeasuredVarValueTo": 2.5654822463911007
-              },
-              {
-                "engMetaMeasuredVarName": "AlphaT",
-                "engMetaMeasuredVarValueFrom": 0.0,
-                "engMetaMeasuredVarValueTo": 2.0299389951096503
-              }
-            ]
-          }
-        },
-        {
           "file_name": "codemeta.json",
-          "path": "src/harvester_curator/example/use-case/codemeta.json",
+          "path": "/var/folders/r0/68g6d7d90szc4_xmcd8bjd3w0000gn/T/tmpf0oyg7f5/codemeta.json",
           "metadata": {
             "name": "Dumux_coltman2022a",
             "code_repository": "https://git.iws.uni-stuttgart.de/dumux-pub/coltman2022a.git",
@@ -397,371 +622,6 @@
               }
             ]
           }
-        },
-        {
-          "file_name": "curated_output.json",
-          "path": "src/harvester_curator/example/output/curated_output.json",
-          "metadata": {
-            "metadatablocks": {
-              "citation": {
-                "title": "Data-Driven Scale Bridging Parametrizations with Metrics: Dispersive Transport",
-                "author": [
-                  {
-                    "authorName": "Edward Coltman"
-                  },
-                  {
-                    "authorName": "Martin Schneider"
-                  },
-                  {
-                    "authorName": "Rainer Helmig"
-                  }
-                ]
-              },
-              "privacy": {},
-              "engMeta": {
-                "engMetaMeasuredVar": [
-                  {
-                    "engMetaMeasuredVarName": "Porosity",
-                    "engMetaMeasuredVarValueFrom": 0.189175,
-                    "engMetaMeasuredVarValueTo": 0.871
-                  },
-                  {
-                    "engMetaMeasuredVarName": "Velocity_seepage_x",
-                    "engMetaMeasuredVarValueFrom": 6.134329744279293e-08,
-                    "engMetaMeasuredVarValueTo": 1.7384933646880346e-05
-                  },
-                  {
-                    "engMetaMeasuredVarName": "Velocity_seepage_y",
-                    "engMetaMeasuredVarValueFrom": -2.5157306227566798e-06,
-                    "engMetaMeasuredVarValueTo": 2.204116785439925e-06
-                  },
-                  {
-                    "engMetaMeasuredVarName": "AlphaL",
-                    "engMetaMeasuredVarValueFrom": 0.18870158392702763,
-                    "engMetaMeasuredVarValueTo": 2.5654822463911007
-                  },
-                  {
-                    "engMetaMeasuredVarName": "AlphaT",
-                    "engMetaMeasuredVarValueFrom": 0.0,
-                    "engMetaMeasuredVarValueTo": 2.0299389951096503
-                  }
-                ]
-              },
-              "process": {},
-              "codeMeta20": {
-                "codeRepository": [
-                  "https://git.iws.uni-stuttgart.de/dumux-pub/coltman2022a.git"
-                ],
-                "softwareRequirementsItem": [
-                  {
-                    "softwareRequirements": "dune-localfunctions 2.9",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/core/dune-localfunctions.git"
-                  },
-                  {
-                    "softwareRequirements": "dune-alugrid 2.9",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/extensions/dune-alugrid.git"
-                  },
-                  {
-                    "softwareRequirements": "dune-subgrid master",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/extensions/dune-subgrid.git"
-                  },
-                  {
-                    "softwareRequirements": "dune-spgrid 2.9",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/extensions/dune-spgrid.git"
-                  },
-                  {
-                    "softwareRequirements": "dune-istl 2.9",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/core/dune-istl.git"
-                  },
-                  {
-                    "softwareRequirements": "dune-geometry 2.9",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/core/dune-geometry.git"
-                  },
-                  {
-                    "softwareRequirements": "dumux master",
-                    "softwareRequirementsInfoUrl": "https://git.iws.uni-stuttgart.de/dumux-repositories/dumux.git"
-                  },
-                  {
-                    "softwareRequirements": "dune-grid 2.9",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/core/dune-grid.git"
-                  },
-                  {
-                    "softwareRequirements": "dune-common 2.9",
-                    "softwareRequirementsInfoUrl": "https://gitlab.dune-project.org/core/dune-common.git"
-                  },
-                  {
-                    "softwareRequirements": "absl-py 1.3.0"
-                  },
-                  {
-                    "softwareRequirements": "anaconda-client 1.11.1"
-                  },
-                  {
-                    "softwareRequirements": "anaconda-navigator 2.3.1"
-                  },
-                  {
-                    "softwareRequirements": "argon2-cffi 21.3.0"
-                  },
-                  {
-                    "softwareRequirements": "argon2-cffi-bindings 21.2.0"
-                  },
-                  {
-                    "softwareRequirements": "brotli-bin 1.0.9"
-                  },
-                  {
-                    "softwareRequirements": "c-ares 1.18.1"
-                  },
-                  {
-                    "softwareRequirements": "ca-certificates 2023.01.10"
-                  },
-                  {
-                    "softwareRequirements": "charset-normalizer 2.0.4"
-                  },
-                  {
-                    "softwareRequirements": "conda-build 3.23.3"
-                  },
-                  {
-                    "softwareRequirements": "conda-content-trust 0.1.3"
-                  },
-                  {
-                    "softwareRequirements": "conda-env 2.6.0"
-                  },
-                  {
-                    "softwareRequirements": "conda-package-handling 2.0.2"
-                  },
-                  {
-                    "softwareRequirements": "conda-package-streaming 0.7.0"
-                  },
-                  {
-                    "softwareRequirements": "conda-repo-cli 1.0.27"
-                  },
-                  {
-                    "softwareRequirements": "conda-token 0.4.0"
-                  },
-                  {
-                    "softwareRequirements": "conda-verify 3.4.2"
-                  },
-                  {
-                    "softwareRequirements": "dask-core 2022.7.0"
-                  },
-                  {
-                    "softwareRequirements": "diff-match-patch 20200713"
-                  },
-                  {
-                    "softwareRequirements": "docstring-to-markdown 0.11"
-                  },
-                  {
-                    "softwareRequirements": "flit-core 3.6.0"
-                  },
-                  {
-                    "softwareRequirements": "google-auth 2.15.0"
-                  },
-                  {
-                    "softwareRequirements": "google-auth-oauthlib 0.4.6"
-                  },
-                  {
-                    "softwareRequirements": "google-pasta 0.2.0"
-                  },
-                  {
-                    "softwareRequirements": "gst-plugins-base 1.14.1"
-                  },
-                  {
-                    "softwareRequirements": "imbalanced-learn 0.10.1"
-                  },
-                  {
-                    "softwareRequirements": "importlib-metadata 4.11.3"
-                  },
-                  {
-                    "softwareRequirements": "intel-openmp 2023.0.0"
-                  },
-                  {
-                    "softwareRequirements": "jinja2-time 0.2.0"
-                  },
-                  {
-                    "softwareRequirements": "lazy-object-proxy 1.6.0"
-                  },
-                  {
-                    "softwareRequirements": "ld_impl_linux-64 2.38"
-                  },
-                  {
-                    "softwareRequirements": "libgcc-ng 11.2.0"
-                  },
-                  {
-                    "softwareRequirements": "libgfortran-ng 11.2.0"
-                  },
-                  {
-                    "softwareRequirements": "libstdcxx-ng 11.2.0"
-                  },
-                  {
-                    "softwareRequirements": "libwebp-base 1.2.4"
-                  },
-                  {
-                    "softwareRequirements": "lz4-c 1.9.4"
-                  },
-                  {
-                    "softwareRequirements": "matplotlib-base 3.7.0"
-                  },
-                  {
-                    "softwareRequirements": "matplotlib-inline 0.1.6"
-                  },
-                  {
-                    "softwareRequirements": "mkl-service 2.4.0"
-                  },
-                  {
-                    "softwareRequirements": "msgpack-python 1.0.3"
-                  },
-                  {
-                    "softwareRequirements": "navigator-updater 0.3.0"
-                  },
-                  {
-                    "softwareRequirements": "nest-asyncio 1.5.6"
-                  },
-                  {
-                    "softwareRequirements": "ninja-base 1.10.2"
-                  },
-                  {
-                    "softwareRequirements": "notebook-shim 0.2.2"
-                  },
-                  {
-                    "softwareRequirements": "numpy-base 1.23.5"
-                  },
-                  {
-                    "softwareRequirements": "numpy-stl 3.0.0"
-                  },
-                  {
-                    "softwareRequirements": "opt-einsum 3.3.0"
-                  },
-                  {
-                    "softwareRequirements": "perlin-numpy 0.0.0"
-                  },
-                  {
-                    "softwareRequirements": "prompt-toolkit 3.0.36"
-                  },
-                  {
-                    "softwareRequirements": "py-lief 0.12.3"
-                  },
-                  {
-                    "softwareRequirements": "pyasn1-modules 0.2.8"
-                  },
-                  {
-                    "softwareRequirements": "pylint-venv 2.3.0"
-                  },
-                  {
-                    "softwareRequirements": "pyls-spyder 0.4.0"
-                  },
-                  {
-                    "softwareRequirements": "pyqt5-qt5 5.15.2"
-                  },
-                  {
-                    "softwareRequirements": "pyqt5-sip 12.11.0"
-                  },
-                  {
-                    "softwareRequirements": "pyqtwebengine-qt5 5.15.2"
-                  },
-                  {
-                    "softwareRequirements": "python-dateutil 2.8.2"
-                  },
-                  {
-                    "softwareRequirements": "python-fastjsonschema 2.16.2"
-                  },
-                  {
-                    "softwareRequirements": "python-libarchive-c 2.9"
-                  },
-                  {
-                    "softwareRequirements": "python-lsp-black 1.2.1"
-                  },
-                  {
-                    "softwareRequirements": "python-lsp-jsonrpc 1.0.0"
-                  },
-                  {
-                    "softwareRequirements": "python-lsp-server 1.7.1"
-                  },
-                  {
-                    "softwareRequirements": "python-slugify 5.0.2"
-                  },
-                  {
-                    "softwareRequirements": "python-snappy 0.6.1"
-                  },
-                  {
-                    "softwareRequirements": "python-utils 3.4.5"
-                  },
-                  {
-                    "softwareRequirements": "qt-main 5.15.2"
-                  },
-                  {
-                    "softwareRequirements": "qt-webengine 5.15.9"
-                  },
-                  {
-                    "softwareRequirements": "requests-file 1.5.1"
-                  },
-                  {
-                    "softwareRequirements": "requests-oauthlib 1.3.1"
-                  },
-                  {
-                    "softwareRequirements": "scikit-fmm 2022.8.15"
-                  },
-                  {
-                    "softwareRequirements": "scikit-image 0.19.3"
-                  },
-                  {
-                    "softwareRequirements": "scikit-learn 1.2.1"
-                  },
-                  {
-                    "softwareRequirements": "scikit-learn-intelex 2023.0.2"
-                  },
-                  {
-                    "softwareRequirements": "sphinxcontrib-applehelp 1.0.2"
-                  },
-                  {
-                    "softwareRequirements": "sphinxcontrib-devhelp 1.0.2"
-                  },
-                  {
-                    "softwareRequirements": "sphinxcontrib-htmlhelp 2.0.0"
-                  },
-                  {
-                    "softwareRequirements": "sphinxcontrib-jsmath 1.0.1"
-                  },
-                  {
-                    "softwareRequirements": "sphinxcontrib-qthelp 1.0.3"
-                  },
-                  {
-                    "softwareRequirements": "sphinxcontrib-serializinghtml 1.1.5"
-                  },
-                  {
-                    "softwareRequirements": "spyder-kernels 2.4.1"
-                  },
-                  {
-                    "softwareRequirements": "tensorboard-data-server 0.6.1"
-                  },
-                  {
-                    "softwareRequirements": "tensorboard-plugin-wit 1.8.1"
-                  },
-                  {
-                    "softwareRequirements": "tensorflow-estimator 2.11.0"
-                  },
-                  {
-                    "softwareRequirements": "tensorflow-io-gcs-filesystem 0.29.0"
-                  },
-                  {
-                    "softwareRequirements": "text-unidecode 1.3"
-                  },
-                  {
-                    "softwareRequirements": "three-merge 0.1.1"
-                  },
-                  {
-                    "softwareRequirements": "typing-extensions 4.4.0"
-                  },
-                  {
-                    "softwareRequirements": "websocket-client 0.58.0"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        {
-          "file_name": "harvested_output.json",
-          "path": "src/harvester_curator/example/output/harvested_output.json",
-          "metadata": {}
         }
       ]
     }
