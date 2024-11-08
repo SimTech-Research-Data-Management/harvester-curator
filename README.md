@@ -111,7 +111,7 @@ For an overview of all commands and their options:
 harvester-curator --help
 ```
 ### Harvesting Metadata
-To collect metadata from files in a specified directory:
+To collect metadata from files in a specified local directory:
 ```bash
 harvester-curator harvest --dir_path "/path/to/directory" --output_filepath "/path/to/harvested_output.json"
 ```
@@ -119,6 +119,16 @@ Or, using short options:
 ```bash
 harvester-curator harvest -d "/path/to/directory" -o "/path/to/harvested_output.json"
 ```
+
+If the files are located in a GitHub or GitLab repository, one can specify the repository link instead of a local directory path to harvest metadata. For example:
+```bash
+harvester-curator harvest -d  https://gitlab.com/"your repo" --output_filepath "/path/to/harvested_output.json"
+```
+or, ```bash
+harvester-curator harvest -d git@github.com:"your repo".git -o output/harvested_output.json
+```
+For GitHub, it is recommended to use the SSH link when cloning the repository.
+
 **Important Note:** Without `--dir_path`, the default is the `example` folder within the `harvester_curator` package. Without `--output_filepath`, harvested metadata is saved to `output/harvested_output.json` by default.
 
 ### Curating Metadata
