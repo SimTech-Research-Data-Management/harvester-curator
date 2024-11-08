@@ -1,0 +1,66 @@
+[
+    {
+        "name":"geospatial",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/geospatial"
+    },
+    {
+        "name":"socialscience",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/socialscience"
+    },
+    {
+        "name":"socialscience",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/socialscience"
+    },
+    {
+        "name":"biomedical",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/biomedical"
+    },
+    {
+        "name":"journal",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/journal"
+    },
+    {
+        "name":"customMRA",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customMRA"
+    },
+    {
+        "name":"customGSD",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customGSD"
+    },
+    {
+        "name":"customARCS",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customARCS"
+    },
+    {
+        "name":"customPSRI",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customPSRI"
+    },
+    {
+        "name":"customPSI",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customPSI"
+    },
+    {
+        "name":"customCHIA",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customCHIA"
+    },
+    {
+        "name":"customDigaai",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customDigaai"
+    },
+    {
+        "name":"citation",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/citation"
+    },
+    {
+        "name":"customSAEF",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/customSAEF"
+    },
+    {
+        "name":"computationalworkflow",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/computationalworkflow"
+    },
+    {
+        "name":"LocalContextsCVoc",
+        "api_endpoint": "https://demo.dataverse.org/api/metadatablocks/LocalContextsCVoc"
+    }
+]
