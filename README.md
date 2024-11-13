@@ -124,7 +124,8 @@ If the files are located in a GitHub or GitLab repository, one can specify the r
 ```bash
 harvester-curator harvest -d  https://gitlab.com/"your repo" --output_filepath "/path/to/harvested_output.json"
 ```
-or, ```bash
+or, 
+```bash
 harvester-curator harvest -d git@github.com:"your repo".git -o output/harvested_output.json
 ```
 For GitHub, it is recommended to use the SSH link when cloning the repository.
