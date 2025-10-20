@@ -110,9 +110,20 @@ def find_parent_name(current_data, target_child):
                     return result
                 
 
-def find_matches(test_criteria, fields):
-    matches = []
+def find_matches(test_criteria, har_md_parent, fields):
 
+    # Load strict parent match list
+    strict_match_filepath = Path(__file__).parent / "strict_parent_match.json"
+    strict_parent_data = load_json_file(strict_match_filepath)
+    strict_parent_attrs = []
+
+    if strict_parent_data and "strict_attributes" in strict_parent_data:
+        strict_parent_attrs = [clean_string(a) for a in strict_parent_data["strict_attributes"]]
+    else:
+        print(f"Warning: No valid 'strict_attributes' found in {strict_match_filepath}")
+    
+    # Find matches
+    matches = []
     for class_name, class_info in fields.items():
         cleaned_class_name = clean_string(class_name)
         title = class_info.get('title')
@@ -138,6 +149,12 @@ def find_matches(test_criteria, fields):
                 if test_criteria in current_child_test_criteria: 
                     parent_name = class_name
                     allow_multiple = child_field_class_info.get('multiple')
+                    cleaned_parent_name = clean_string(parent_name)
+
+                    # 🔒 Enforce strict parent match rule
+                    if test_criteria in strict_parent_attrs:
+                        if har_md_parent and cleaned_parent_name != clean_string(har_md_parent):
+                            continue  # skip mismatched parent
                         
                     matches.append({
                         'class_name': child_field_class_name,
@@ -152,6 +169,12 @@ def find_matches(test_criteria, fields):
                         first_child_field = next(iter(class_info.get('childFields', {})), None)
                         parent_name = class_name
                         class_name = first_child_field
+                        cleaned_parent_name = clean_string(parent_name)
+
+                        # 🔒 Enforce strict parent match rule
+                        if test_criteria in strict_parent_attrs:
+                            if har_md_parent and cleaned_parent_name != clean_string(har_md_parent):
+                                continue  # skip mismatched parent                        
                         
                     matches.append({
                         'class_name': class_name,
@@ -187,6 +210,12 @@ def find_matches(test_criteria, fields):
                 first_child_field = next(iter(class_info.get('childFields', {})), None)
                 parent_name = class_name
                 class_name = first_child_field
+                cleaned_parent_name = clean_string(parent_name)
+
+                # 🔒 Enforce strict parent match rule
+                if test_criteria in strict_parent_attrs:
+                    if har_md_parent and cleaned_parent_name != clean_string(har_md_parent):
+                        continue  # skip mismatched parent                    
                 
             matches.append({
                 'class_name': class_name,
@@ -214,16 +243,20 @@ def find_matches(test_criteria, fields):
         #                 })
     return matches
 
-def get_matching_md_fields(cleaned_attri, cleaned_attri_and_parent, fields):
+def get_matching_md_fields(cleaned_attri, har_md_parent, fields):
     num_matches = 0
     matches = []
 
     # First, try to find matches using test_criteria
-    matches.extend(find_matches(cleaned_attri, fields))
+    matches.extend(find_matches(cleaned_attri, har_md_parent, fields))
 
     # If no matches were found using test_criteria, try using cleaned_attri_and_parent
-    if not matches and cleaned_attri_and_parent is not None:
-        matches.extend(find_matches(cleaned_attri_and_parent, fields))
+    if not matches:
+        # Attri and parent
+        if har_md_parent is not None:
+            attri_and_parent = '_'.join([str(har_md_parent), str(cleaned_attri)])
+            cleaned_attri_and_parent = clean_string(attri_and_parent)
+            matches.extend(find_matches(cleaned_attri_and_parent, har_md_parent, fields))
 
     # Include the number of matches in the result
     num_matches = len(matches)
@@ -449,15 +482,8 @@ def get_compatible_metadatablocks(updated_har_md_dict, com_metadata_file, com_me
         if path is not None and len(path) >= 3:
             har_md_parent = path[-3]
 
-        # Attri and parent
-        if har_md_parent is not None:
-            attri_and_parent = '_'.join([str(har_md_parent), str(attri)])
-            cleaned_attri_and_parent = clean_string(attri_and_parent)
-        else:
-            cleaned_attri_and_parent = None
-
         # Get the type name from the metadata schema (if there is any match) corresponding to each key in harvested metadata 
-        num_matches, matches = get_matching_md_fields(cleaned_attri, cleaned_attri_and_parent, schema_fields)
+        num_matches, matches = get_matching_md_fields(cleaned_attri, har_md_parent, schema_fields)
         
         com_attri = None
         parent = None
@@ -665,22 +691,8 @@ def curator(harvester_output_filepath: str,
                             traceback.print_exc()
         
     # Convert com_metadata dictionary to YAML format
-    yaml_data = yaml.dump(com_metadata)
+    # yaml_data = yaml.dump(com_metadata)
 
     # Print the YAML-formatted data
-    print(f'Compatible Metadata:\n{yaml_data}')
-    print(f"\n\nCurated metadata successfully saved to {output_filepath}\n")
-
-  
-    # # Write curated metadata to the specified output file
-    # try:
-    #     with open(output_file_path, "w") as f:
-    #         json.dump(metadata_dict, f, indent=2, allow_nan=True, cls=JsonSerialize)
-    #         print(f"\nCurated metadata successfully saved to {output_file_path}\n")
-    # except IOError as error:
-    #     raise IOError(f"Failed to write to {output_file_path}")
-    
-
-# if __name__ == "__main__":  
-   
-#     curator()
+    # print(f'Compatible Metadata:\n{yaml_data}')
+    print(f"Curated metadata successfully saved to {output_filepath}\n")
